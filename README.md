@@ -1,4 +1,5 @@
-Computational methods for single cell RNA and genome assembly resolution using genetic variation
+
+## Computational methods for single cell RNA and genome assembly resolution using genetic variation
 
 New sequencing technologies have driven biological research in the past several decades allowing for highly accurate measurements of genomes and transcriptomes. But much of the complexity of these systems is still out of our reach. Here I use properties of genetic variation in samples to uncover some of these features.
 
