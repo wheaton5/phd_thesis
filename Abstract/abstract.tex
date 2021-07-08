@@ -1,0 +1,27 @@
+% ************************** Thesis Abstract *****************************
+% Use `abstract' as an option in the document class to print only the titlepage and the abstract.
+\begin{abstract}
+\textbf{Clustering single cell RNAseq by genotype using sparse mixture modeling.}
+
+While there are a number of methods for demultiplexing scRNAseq data on sample genotypes, 
+they suffer from several error modes because they do not model the ambient RNA in the system. 
+By not modeling this, the inferred genotypes of clusters are inaccurate and the cell doublet barcodes are dramatically overestimated. 
+We present a method for clustering cells by genotype using a sparse probabilistic mixture model. 
+We then run a co-inference of both the cluster genotypes and the ambient RNA allowing for more accurate genotype 
+calls and the added benefit of being able to subtract off the expected expression of the ambient RNA from the 
+transcription profile to give a more accurate view of the cell states. We have tested our model on real 
+mixtures of human and \textit{Plasmodium falciparum} with improved clustering 
+compared to other methods showing both a performance improvement and applicability to a wide range of species and sample types. \\
+
+
+\noindent
+\textbf{Methods for genome assembly of challenging organisms.}
+
+While the technology improvements and cost reductions of third generation sequencing techniques have revolutionized 
+genome assembly, problems remain especially for certain challenging organisms such as very small organisms and 
+highly heterozygous organisms. We present a collection of methods aimed at addressing these issues and at validating 
+the correctness of those assemblies. We show the first high quality reference genome made from a single mosquito and 
+compare it to the current best reference. And we present several pieces of software and other algorithmic plans 
+to address the lingering problems with assembling these organisms.
+
+\end{abstract}
