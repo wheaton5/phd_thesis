@@ -1,199 +1,21 @@
-# Graphical pangenomics
+Computational methods for single cell RNA and genome assembly resolution using genetic variation
 
-100-150 pages, ~25k words
+New sequencing technologies have driven biological research in the past several decades allowing for highly accurate measurements of genomes and transcriptomes. But much of the complexity of these systems is still out of our reach. Here I use properties of genetic variation in samples to uncover some of these features.
 
-Outline annotated with expected effort and length:
+Single cell RNA-seq (scRNAseq) has revolutionized transcriptomics by enabling researchers to measure the transcriptional landscape at the cellular level instead of an average transcript level across all of the varied cells and cell types in the sample.
+But several factors make the interpretation of these experiments challenging.
+Due to the Poisson loading process of the cells into the nanodroplets, as well as the random sampling of a finite barcode set, some barcodes represent multiple cells. Cells may lyse in solution before the droplet partitioning is done which means that some measured RNA will come from this ambient RNA source and not the cell of interest.
+And finallly, these other technical artifacts  make comparing scRNAseq results across multiple experiments difficult.
+Multiplexing cells from multiple individual into the same experiment can help solve these problems by providing additional comparative information.
+This then introduces a further problem---the need to demultiplex the samples from this mixture.
+I describe a method using Bayesian deconvolution that for exploits the genetic variation between individuals to deconvolve the cells to their individual of origin, detect doublet cell barcodes, and measure the amount of ambient RNA in the system.
 
-------
-
-# introduction
-*0.5p 1.5h*
-
-## review of reference sequence literature
-*0.5p 1h*
-### brief retrospective on DNA sequencing and references
-*2p 3h*
-### the reference bias problem
-*2p 2h*
-### alt-aware references and their limits
-*2p 3h*
-
-## review of uses of graphs in sequence analysis
-*0.5p 0.5h*
-### MSAs
-*1p 1h*
-### assembly graphs
-*3p 3h*
-#### overlap assembly graphs
-#### debruijn graphs (colored in particular)
-### RNA splicing graphs
-*1p 1h*
-### variant representation (VCF encodes a DAG)
-*0.5p 0.5h*
-
-# the variation graph
-*1p 1h*
-## data models
-*0.5p 1h*
-### the graph itself
-*1p 1h*
-### edits to the graph
-*1p 1h*
-### alignments and translations
-*1p 1h*
-### bubbles and variant calls
-*2p 2.5h*
-
-## graph construction
-*0.5p 0.5h*
-### progressively (vg msga)
-*1p 1h*
-### from variants (VCF)
-*1.5p 1h*
-### from gene models (GFF)
-*1p 4h*
-### from MSAs
-*0.5p 0.5h*
-### from overlap graphs (assemblies)
-*2p 1.5h*
-### from pairwise alignments
-*2p 4h*
-### from other sources (e.g.g cactus)
-*0.5p 0.5h*
-
-## index structures
-*0.5p 0.5h*
-### XG index
-*2p 3h*
-### GCSA2 index
-*1p 2h*
-### haplotype indexes
-*1.5p 2h*
-### generic disk backed indexes
-*0.5p 0.5h*
-### coverage index
-*1p 1h*
-
-## local and global alignment
-*0.5p 0.5h*
-### POA and GSSW
-*2p 2h*
-### banded global alignment
-*0.5p 0.5h*
-### MEM finding
-*2p 2h*
-### X-drop DP
-*0.5p 0.5h*
-
-## collinear chaining
-*0.5p 0.5h*
-### distance estimation
-*1p 1h*
-### MEM chaining
-*2.5p 3h*
-### chunked alignment
-*1p 1h*
-
-## finding the alignment
-*0.5p 0.5h*
-### surjection
-*1p 1h*
-### mapping quality
-*2p 2h*
-
-## visualization
-*0.5p 0.5h*
-### hierarchical layout
-*0.5p 0.5h*
-### force directed models
-*1p 1.5h*
-### linear time visualization
-*1p 2h*
-
-## graph mutating algorithms
-*0.5p 0.5h*
-### edit
-*1p 1h*
-### pruning
-*2.5p 3h*
-### sort
-*1p 1h*
-### simplification
-*0.5p 0.5h*
-
-## graphs as basis spaces for sequence data
-*2p 2h*
-### coverage maps
-*1p 1h*
-### variant calling
-*3p 2h*
-### bubble decompositions and likelihood spaces
-*2p 4h*
-### MEM matching to the bidirectional GBWT
-*1p 3h*
-
-# applications
-*0.5p 1h*
-
-## yeast
-*0.5p 0.5h*
-### a SNP-based SGRP2 graph
-*1p 1h*
-### cactus progressive assembly
-*0.5p 0.5h*
-### constructing and comparing variation graphs from whole genome assemblies
-*3p 2.5h*
-
-## human
-*0.5p 0.5h*
-### 1000GP graph construction and indexing
-*1.5p 1h*
-### simulations based on phased HG002
-*2p 2.5h*
-### whole genome variant calling experiments
-*1p 2h*
-### HGSVC from VCF and progressive alignment of human chromosomes
-*2.5p 5h*
-
-## aDNA
-*0.5p 0.5h*
-### simulations with human origins panel
-*1p 2h*
-### using 1000GP graph for samples from Martiniano et al 2016
-*2p 4h*
-### evaluation of a high-coverage Botai sample
-*2p 4h*
-
-## neoclassical bacterial pangenomics
-*0.5p 0.5h*
-### e. coli pangenome from illumina reads
-*2p 4h*
-### evaluating the core and accessory pangenome
-*2p 4h*
-
-## metagenomics
-*0.5p 0.5h*
-### arctic viral metagenome
-*2p 1.5h*
-### human gut microbiome
-*2p 4h*
-
-## RNAseq
-*0.5p 0.5h*
-### yeast
-*1p 2h*
-### nematode
-*2p 5h*
-### human
-*2p 6h*
-
-# discussion and conclusion
-*3p 4h*
-## vg in the context of modern sequence analysis
-*2p 1.5h*
-## limitations of current approaches
-*2p 2h*
-## next steps
-*4p 5h*
-# phd_thesis
-# phd_thesis
+While the technology improvements and cost reductions of third generation long read sequencing techniques have revolutionized genome assembly, problems remain especially for certain challenging organisms such as those that are very small or highly heterozygous.
+When assembling a genome, reads with inexact matches must be determined to have arisen from sequencing errors, paralogous repeat sequences from different regions of the genome, or from the differences between haplotypes.
+Until recently, relatively high DNA input requirements (e.g. 5$\mu$g) have made long read sequencing out of reach for single individuals of small organisms.
+One solution to this is to sequence a mixture of DNA from multiple individuals.
+However, this further exacerbates the problem of heterozygosity in the assembly process as there are then many more than two haplotypes.
+I demonstrate how a new low-input library prep can be used to create a high quality assembly of a single \textit{Anopheles coluzzii} genome and compare it to the current PEST reference genome for the closely related \textit{Anopheles gambiae} species.
+Continuing to address the remaining problems with genome assembly in the modern era, I propose a new approach that uses the heterozygous genetic variation in a diploid sample to improve the assembly of both haplotypes.
+This uses phasing consistency of heterozygous loci as a signal for physical linkage, and can combine information from high quality long reads, linked reads, and Hi-C technologies.
+Based on this approach I describe a suite of methods for phased genome assembly, haplotype phasing of existing assemblies, and phasing aware assembly scaffolding.
