@@ -56,10 +56,19 @@
 
 \usepackage{amsmath,amssymb}
 \usepackage{multirow}
+\usepackage{floatrow}
+\floatsetup[figure]{style=plain,subcapbesideposition=top,capposition=top}
+\floatsetup[table]{style=plain,subcapbesideposition=top,capposition=top}
+\floatplacement{figure}{H}
+\floatplacement{table}{H}
 \DeclareMathOperator*{\argmax}{argmax}
-
-\RequirePackage[labelsep=space,tableposition=top]{caption}
+%\usepackage[labelformat=empty, position=top]{subcaption}
+\usepackage[label font=bf,labelformat=simple]{subfig}
+\usepackage[export]{adjustbox}
+%\RequirePackage[labelsep=space,tableposition=top,figureposition=top]{caption}
+\usepackage{caption}
 \renewcommand{\figurename}{Fig.} %to support older versions of captions.sty
+\usepackage{slashbox}
 
 
 % *************************** Graphics and figures *****************************
@@ -76,7 +85,7 @@
 % uncommenting the following line
 % This is for people stuck with older versions of texlive
 %\usepackage{sty/caption/subcaption}
-\usepackage{subcaption}
+%\usepackage{subcaption}
 
 % ********************************** Tables ************************************
 \usepackage{booktabs} % For professional looking tables

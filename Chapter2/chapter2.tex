@@ -15,90 +15,168 @@
 
 %********************************** %First Section  **************************************
 \section{Background}
-Understanding the link between genotype and phenotype is a key goal of biology. The major efforts toward this can be thought of as 
-top down and bottom up. Much effort has been made on the top down approach of  
-linking genotype to macroscopic complex phenotypic traits such as height and diseases in the form of genome wide association studies (GWAS) \cite{GWAS}. 
-More recently with the advent of RNAseq, we have begun to understand the link between genetic variants and mRNA expression levels via eQTL analysis \cite{eQTL}. 
-
 Cells are a natural discrete building block of biology. And tissues are almost always complex arrangements of multiple different cell types. Bulk RNAseq is a blunt 
 instrument measuring the average RNA content of many cells in a tissue. 
 Advances in methods for the preparation of samples containing minuscule amounts of nucleic acids have made it possible to study the transcriptional state of single cells \cite{first_singlecell}.
 Single cell RNAseq (scRNAseq) is the process of measuring the transcriptional profile of each cell individually usually by physically separating cells and delivering distinct barcode sequences to templates generated from the mRNA of each cell \cite{smartseq2}.
 Further advances in nanodroplet and nanowell technologies have made it possible to apply scRNAseq to thousands of cells simultaneously \cite{dropseq}\cite{10xsinglecell}\cite{seqwell}. 
 
+
+
+
+
 Many samples contain cells of mixed genotypes including those of single celled organisms such as mixed strain malaria infections, 
 the gut microbiome, and environmental samples as well 
-as intrinsically mixed samples such as maternal/fetal, transplant patient, or tumor samples and intentionally multiplexed samples. In order to properly 
+as intrinsically mixed samples such as maternal/fetal, transplant patient, or tumor samples and intentionally multiplexed samples.
+Additionally, mixing cells from multiple individuals into a single experiment has become a popular experimental design because it makes the data more comparable between individuals, reduces costs, and can improve doublet detection. 
+ In order to properly 
 analyze this data we must first identify each cell's genotype of origin. Some tools and methods exist for this purpose \cite{demuxlet} \cite{cellhashing} \cite{scsplit} 
 but each of them contain some downside such as the need for prior knowledge of the genotypes or a sample barcode and all of them 
 contain several error modes arising from the lack of modeling ambient RNA in the system. Ambient RNA in single-cell RNAseq (also known as soup) is a recently described 
 phenomenon in which RNA molecules from cells which have lysed before cell partitioning are included in partitions with cells from which they did not originate \cite{soupx}. 
 In these demultiplexing systems, not modeling the ambient RNA makes many cells appear to be doublets and makes many homozygous variant sites appear to be 
-heterozygous.
+heterozygous. 
 
-\section{Aims}
-The aims of this project are twofold. One is to build a general tool for dealing with mixed or multiplexed scRNAseq data. 
-The other is to apply this tool to mixed strain malaria infections to learn about strain competition and selective sexual behaviour. 
 
-As a general tool for mixed scRNAseq data we wish to be able to determine the genotypes in a sample, assign cells to those genotypes, and identify intergenotypic doublet cell barcodes.
-In order to do this we must first identify a strategy for calling reliable variants in scRNAseq data and assigning allele counts to cell barcodes.
-And finally we must develop a clustering method which is robust to the dramatically sparse datatype as well as the inherent noise sources of ambiant RNA and doublet cell barcodes.
-Once these methods are in place we must characterize their performance on artificially mixed samples as well as actual mixed samples.
-To test the accuracy in true mixed samples we will use current tools which require the genotypes to be known a priori as a benchmark.
-We will do this with malaria samples and human samples created for this project. 
+In this chapter, I present souporcell which is a collection of algorithms to support mixed genotype scRNAseq experiments. 
+We use the genetic variants measured in the RNAseq reads to assign cells to their donor of origin, so first we must describe a strategy for calling reliable variants in scRNAseq data and assigning allele counts to cell barcodes. We then describe the core algorithm of souporcell, that of clustering cells by their genetic variants in the face of the sparse measurements of expressed alleles by each cell. Next we describe the algorithm used for determining which barcodes represent multiple cells instead of a single cell. And finally we describe a statistical model and coinference of the cluster genotypes and amount of ambient RNA there is in the experiment.  
 
-In collaboration with other lab members we also wish to 
-apply this tool to mixtures of malaria both from the lab and the field to study the effect of competition on 
-sexual determination and selective mating. To do this we will compare mixed samples and 
-uniform samples and look for differential expression as well as differential expression among the strains 
-and attempt to identify quantitative trait loci to explain those differences.
+We then compare our method to demuxlet, the gold standard method that requires genotype information a priori, as well as two new tools that, like souporcell, do not require prior genetic information\cite{vireo}\cite{scsplit}. We first characterize performance on a dataset which was mixed in silico and thus we retain full knowledge of the ground truth of which barcodes came from which individual, which barcodes represent cross-genotype doublets, and how much ambient RNA was simulated. We then benchmark souporcell against experimental mixtures of cells of those same individuals to show performance on real mixtures and to show the similarity with the in silico mixture in which ground truth is known. We then test souporcell on more challenging cases including that of highly related individuals by demultiplexing maternal-fetal placental and decidual experiments. We also test on mixtures of the malaria parasite, \textit{Plasmodium falciparum}, which is challenging due to the cells having much lower expression levels than the human cells previously tested.
+\\
+We show that souporcell not only outperforms the competing methods, but also surpasses the previous gold standard, demuxlet, on both cell assignment and doublet accuracy. Furthermore, souporcell explicitly models and estimates the amount of ambient RNA in the experiment, which is a major confounder of scRNAseq analysis with regard to both expression and genotype. Although a tool for ambient RNA quantification exists\cite{soupx}, it requires prior knowledge in the form of one or more well expressed genes known to not be expressed in a particular cell type. Souporcell is freely available under the MIT open source license at https://github.com/wheaton5/souporcell.
+
+
 
 \section{Methods} %Section - 1.1 
 \subsection{Variant calling on scRNAseq data}
-Little work has been done on identifying genetic variants in bulk RNAseq \cite{RNAvariant} let alone scRNAseq \cite{vartrix}. 
-Currently the most popular software for the initial analysis of scRNAseq data going from the reads to the expression matrix is cellranger \cite{10xsinglecell}. 
+In order to use the genetic variants in the scRNAseq reads to assign cells to individuals, we must first call the variants accurately and assign which alleles were expressed by which cells. Little work has been done on identifying genetic variants in bulk RNAseq \cite{RNAvariant} let alone scRNAseq \cite{vartrix}\cite{cellsnp}. 
+Currently the most popular software for the initial analysis of droplet based scRNAseq data going from the reads to the mRNA expression matrix is cellranger \cite{10xsinglecell}. 
 
 
 \subsubsection{Remapping}
-In the cellranger pipeline, the mapping component is done with the STAR aligner \cite{STAR} which, while sufficient for the purpose 
-of counting gene expression, produces artifacts in the alignments that produce many false positive variants. One such source of false positives is the 
+In the cellranger pipeline, the reads are first mapped to a reference genome. RNA mapping and DNA mapping software differ due to the intended downstream use. With DNA mapping, accurate variant calling is one of the primary applications and thus much work has been put into providing accurate mapping quality scores and base level alignments making single nucleotide polymorphisms (SNPs) and short insertions and deletions (indels) easy to call accurately versus the reference genome used \cite{bwa}\cite{minimap2}\cite{bowtie}\cite{freebayes}\cite{gatk}. This mapping and alignment operation are relatively computationally costly if accurate variant calling is not one of the desired downstream uses. RNA mapping applications are usually primarily concerned with just counts of reads per gene and sometimes differential splicing. Thus, the RNA community has developed software some of which are faster but do not provide base level alignments \cite{kallisto}\cite{salmon} and others that allow for gapped alignments caused by the introns being spliced out \cite{bowtie2}\cite{STAR}\cite{hisat}\cite{tophat}. But in optimizing for the downstream applications of transcript counting and differential splicing, genetic variant calling accuracy can suffer. In cellranger, the mapping component is done with the STAR aligner \cite{STAR} which, while sufficient for the purpose 
+of counting gene expression, produces artifacts in the alignments that produce many false positive variants. 
+
+One such source of false positives is the 
 soft clipping penalty which is not a parameter exposed to the user in the STAR software. It is often the case in WGS and even more so in RNAseq that the starts and ends of
-reads can be less reliable than the rest of the read. Because of this, mappers built for variant calling such as BWA \cite{bwa} and minimap2 \cite{minimap2} have 
+reads can be less reliable than the rest of the read. In addition to this, alignments toward the ends of reads can be error prone because an alignment may prefer to take several single base mismatch penalties rather than a single true indel penalty. This tradeoff is more likely to happen towards the end of the read when there are fewer bases remaining to align (see fig \ref{fig:softclipping}b). Because of this, mappers built for variant calling such as BWA \cite{bwa} and minimap2 \cite{minimap2} have 
 a relatively small one-time penalty for soft clipping any number of bases from the end of an alignment \cite{variantartifacts}. The STAR alignment soft clipping penalty is such that, in 
-comparison with other aligners, it can create many false positive variant calls produced entirely by bases at the ends of reads. Another source of 
+comparison with other aligners, it can create many false positive variant calls produced entirely by bases at the ends of reads (see fig \ref{fig:softclipping}b). Another source of 
 small variant errors caused by the STAR alignments is that the default indel penalty relative to the mismatch penalty is much higher than that of 
-variant calling ready aligners. These penalties will, for example, prefer inducing 10 single base mismatches rather than a single 12 base indel. Further, because the 
-sequences are correct, it will make the same error for all of the reads spanning the indel and these bases but not those spanning those bases but not spanning the indel. 
+variant calling ready aligners. These penalties will, for example, prefer inducing 10 single base mismatches rather than a single 12 base indel. Further, it will make the same error for all of the reads spanning the indel and these bases but not those spanning those bases but not spanning the indel causing those mismatches to potentially appear to be heterozygous genetic variants. 
+
+
+\begin{figure}[th!]
+
+
+\begin{centering}
+\caption{Star alignments' indel and soft clipping problems}\label{fig:softclipping}
+
+%\begin{subfigure}{0.75\textwidth}
+\sidesubfloat[]{
+\includegraphics[width=0.75\textwidth, valign=t]{star_indel_issue.png} \label{fig:a}
+}
+%\end{subfigure}
+
+%\begin{subfigure}[t]{0.75\textwidth}
+\sidesubfloat[]{
+\includegraphics[width=0.75\textwidth, valign=t]{softclipping.png} \label{fig:b}
+}
+%\end{subfigure}
+
+\textbf{a)} Star alignments for reads with the same unique molecule identifier (UMI), meaning they originated from the same RNA molecule with slightly different start positions. The ones with an earlier start position correctly identify an indel. The ones that start later prefer several erroneous single base mismatches. Minimap2 finds this indel in all of the shown reads and soft clips some others with even later start positions. \textbf{b)} In the second example, the reads have an adenosine homopolymer and partially match this section of the reference. Minimap2 softclips these reads. 
+\end{centering}
+\end{figure}
+
 This penalty is exposed as a parameter to the user, but with the default parameters (and thus with the output of cellranger) these errors exist. 
 And finally the last source of errors these alignments induce are due to the leniency of spliced alignments which STAR has. With its default parameters including 
 a max intron length of 200kb, STAR will often include erroneous and statistically spurious spliced alignments of reads that otherwise don't align well. This creates alignments 
-which match for some statistically significant portion in one location and then are spliced to other loci often for an 8-12 base segment which should occur by 
-random chance alone. And due to the nature of mapping qualities being to the whole alignment and not each segment of the alignment, these sections are often denoted as 
+which match for some statistically significant portion in one location and then are spliced to other loci often for as low as an eight base segment which should occur by 
+random chance alone. And due to the nature of mapping qualities being assigned to the whole alignment and not each segment of the alignment, these sections are often denoted as 
 having high mapping quality when in fact they should occur by chance. If, however, there is actually an alternative allele in one of these regions to which some reads have 
 spurious matches, those reads, and thus those cells, are said to support the reference allele with high probability. These alignments provide one further technical 
-issue, which is that they dramatically slow down the pileup and fetch commands which are necessary for variant calling. 
+issue, which is that they dramatically slow down the pileup and fetch commands in samtools \cite{samtools} which are necessary for variant calling. 
 
 For these reasons we suggest first remapping with either BWA, minimap2, or hisat2. We have personally found the best results when remapping with minimap2 with a combination 
-of long read splice parameters and short read parameters. Specifically, the parameters for which all analysis is done in this report are the following: 
+of long read splice parameters and short read parameters. Specifically, the parameters for which all analysis is done in this thesis are the following: 
 minimap2 -ax splice -t 8 -G50k -k 21 -w 11 --sr -A2 -B8 -O12,32 -E2,1 -r200 -p.5 -N20 -f1000,5000 -n2 -m20 -s40 -g2000 -2K50m --secondary=no. We then perform 
 deduplication by removing reads with the same unique molecular identifier (UMI) barcode, cell barcode, and have the same start and stop position.
 
-Once we have an alignment file, we must then proceed to variant calling. There are two strategies we can take for calling variants on scRNAseq. We can treat 
-the sample as a population of cells and call variants with a population variant caller \cite{freebayes} \cite{gatk} \cite{samtools}. With this approach we would need 
-to define each cell barcode as its own read group in the input bam and the variant caller would output a population VCF with genotype calls for each cell for each locus.
-Or we can treat the sample as an unknown mixture of individuals, call variants on that unknown mixture, and then for each read (and thus its cell barcode) 
-decide whether it supports the reference allele or alternative 
-allele which can be done with the tool vartrix\cite{vartrix}. Our analysis suggests these two strategies perform very similarly with minimal filtering. And because 
-the latter strategy is much more computationally efficient, all further analysis is done with freebayes with parameters --pooled-continuous -iXu -C 2 -q 20 -n 3 -E 1 -m 30 --min-coverage 6 and vartrix with parameters  --umi --mapq 30 --scoring-method coverage.
+
 \subsubsection{Variant Candidate Calling}
+Once we have an alignment file, we must then proceed to variant calling. We assessed two strategies for calling variants on scRNAseq and assigning alleles to cell barcodes. We first treated 
+the sample as a population of cells and called variants with a population variant caller \cite{freebayes} \cite{gatk} \cite{samtools}. With this approach we assigned each cell barcode to its own read group in the input bam and the variant caller outputed a population VCF with genotype calls for each cell for each locus.
+We also assessed treating the sample as an unknown mixture of haplotypes, called variants on that unknown mixture, and then for each read (and thus its cell barcode) decide whether it supports the reference allele or alternative allele which can be done with the tool vartrix\cite{vartrix} which simply aligns each read to the reference sequence as well as the variant sequence to determine which one is supports more. Our analysis suggests these two strategies perform very similarly. 
 \subsubsection{Cell allele assignment}
+Because 
+the latter strategy is much more computationally efficient, all further analysis is done with freebayes with parameters --pooled-continuous -iXu -C 2 -q 20 -n 3 -E 1 -m 30 --min-coverage 6 and vartrix with parameters  --umi --mapq 30 --scoring-method coverage which will return a sparse matrix market format indicating how many of the reference allele or alternative allele each cell barcode expressed for each variant locus.
+
 \subsubsection{Validation: Genome in a Bottle}
+
+We validated our variant calling accuracy by obtaining from 10x Genomics an scRNAseq dataset run on cells from the Genome in a Bottle (GIAB) consortium individual NA12878 for which there is high quality ground truth variant calls available \cite{giab}. As the scRNAseq data will only cover a subset of genes and also because this dataset was relatively low coverage, I will primarily focus on false positive rate and not sensitivity. Much of this analysis was done by Yichen Wang as part of a rotation project in our lab. Initially we found a false positive rate of 35.6\%, dramatically higher than the 1-2\% you would have with reasonable coverage whole genome DNA sequencing. 
+
+
+
 \subsubsection{Post transcriptional modifications}
 
+We sought to determine the causes of the remaining false positives so identified the false positive SNPs called on the NA12878 scRNAseq data in high confidence regions and found that most (80.8\%) of them are purine-to-purine or pyrimidine-to-pyrimidine transitions when we considered the reference and observations. A-to-G and T-to-C transitions happened in much higher frequency than the remaining, taking up 59.5\% of
+total false positive sites \ref{table:rnaediting}. Calling variants from bulk RNA sequencing data also
+displayed a similar pattern, but using whole exome sequencing data did not, linking the
+excessive purine-to-purine and pyrimidine-to-pyrimidine transition specifically to RNA seq. We hypothesized that this could be due to post transcriptional modification, or RNA editing. The primary RNA editing event is
+deamination of adenosine to inosine on pre-mRNA. Inosine is read as guanosine by
+reverse transcriptase, resulting in a T-to-C event in cDNA, which can explain A-to-G and T-to-C SNPs in variant calling. Visualization in the Integrative Genomics Viewer \cite{IGV} validated the
+existence both reads with the false positive allele and reference allele in SNP loci. Moreover, we observed
+that the reads that had the same UMI contained the same allele, but not the reads that had
+the same cell barcode. This further supported the hypothesis of RNA editing, because what
+happened in reverse transcription would be consistent for PCR duplicates of the cDNA, but
+not necessary for all reads in one cell. To test the hypothesis of RNA editing, we found an RNA editing database (REDIportal\cite{rnaediting}: http://srv00.recas.ba.infn.it/atlas/) and remove the know A-to-I editing sites in our vcf files.
+Filtering out RNA editing sites considerably reduced the amount of false positive variants (from
+2884 to 1937) and kept most true positive variants (from 8093 to 8073), leading to a reduction
+in false positive rate from 35.6\% to 24.0\%. We also discovered that remapping with hisat2
+could further reduce false positive rate and improve sensitivity (9540 true positive loci ,1065
+false positive loci, false positive rate 11.1\%). However, this work was done after the souporcell paper was published, so the results in this thesis are done with the minimap2 alignments as previously stated.
+
+\begin{table}[htb]
+
+\begin{centering}
+\caption{RNA editing as a source of false positive variant calls}\label{table:rnaediting}
+\sidesubfloat[]{
+\begin{tabular}[htb]{|c|c|c|c|c|}\hline
+
+%\backslashbox{ref}{obs}
+&A&T&C&G \\\hline
+
+A & 0 & 54 & 69 & 867 \\\hline
+T & 55 & 0 & 849 & 80 \\\hline
+C & 77 & 289 & 0 & 75 \\\hline
+G & 326 & 68 & 70 & 0 \\\hline
+\end{tabular}\label{fig:a}}
+\hfil
+\sidesubfloat[]{
+\begin{tabular}[htb]{|c|c|c|c|c|}\hline
+
+%\backslashbox{ref}{obs}
+&A&T&C&G \\\hline
+
+A & 0 & 54 & 69 & 395 \\\hline
+T & 55 & 0 & 376 & 80 \\\hline
+C & 77 & 289 & 0 & 75 \\\hline
+G & 326 & 68 & 70 & 0 \\\hline
+\end{tabular}\label{fig:b}}
+\textbf{a)} False positives are primarily purine to purine and pyrimidine to pyrimidine with a notable increase in A->G and T->C caused by the RNA editing adenosine to inosine. The inosine base is then read as a guanine by the reverse transcriptase. \textbf{b)} shows the false positive profile after filtering known RNA editing sites.
+
+\end{centering}
+\end{table}
 
 
 
 \subsection{Sparse mixture model clustering}
+
+
+
+
+
+
 In order to introduce this method, we must first motivate it with a description of the data type and its particular difficulties with respect to clustering by genotypes. Each cell barcode has reads from its transcription profile sampled very sparsely. Firstly, the test data I have is one mixed sample of six strains of \textit{Plasmodium falciparum} (malaria) which is a unicellular haploid parasitic organism and the sample contains cells coming from all cell types found in the life cycle in the human blood stage. And the other data set is three replicates of mixed samples 
 of five human individuals from the human induced pluripotent stem cell project. Some sample statistics for malaria 
 and human single cell data are shown in table \ref{table:scdatatable} and some histograms of some of those metrics are shown in figure \ref{figure:scdatafigure}. We use a filter 
@@ -140,12 +218,16 @@ As you can see, the number of cells expressing any given locus is far fewer than
 \caption{Single cell sparsity}
 \label{figure:scdatafigure}
 \begin{centering}
-\begin{subfigure}[b]{\textwidth}
-\includegraphics[width=\textwidth]{Cells_per_variant.eps}
-\end{subfigure}
-\begin{subfigure}[b]{\textwidth}
-\includegraphics[width=\textwidth]{Variants_per_cell.eps}
-\end{subfigure}
+%\begin{subfigure}[b]{\textwidth}
+\sidesubfloat[]{
+\includegraphics[width=\textwidth]{Cells_per_variant.eps} \label{fig:a}
+}
+%\end{subfigure}
+%\begin{subfigure}[b]{\textwidth}
+\sidesubfloat[]{
+\includegraphics[width=\textwidth]{Variants_per_cell.eps}\label{fig:b}
+}
+%\end{subfigure}
 \end{centering}
 \end{figure}
 

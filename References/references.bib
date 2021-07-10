@@ -34,6 +34,40 @@
   eprint        = "1412.6980"
 }
 
+
+@ARTICLE{vireo,
+  title    = "Vireo: Bayesian demultiplexing of pooled single-cell {RNA-seq}
+              data without genotype reference",
+  author   = "Huang, Yuanhua and McCarthy, Davis J and Stegle, Oliver",
+  abstract = "Multiplexed single-cell RNA-seq analysis of multiple samples
+              using pooling is a promising experimental design, offering
+              increased throughput while allowing to overcome batch variation.
+              To reconstruct the sample identify of each cell, genetic variants
+              that segregate between the samples in the pool have been proposed
+              as natural barcode for cell demultiplexing. Existing
+              demultiplexing strategies rely on availability of complete
+              genotype data from the pooled samples, which limits the
+              applicability of such methods, in particular when genetic
+              variation is not the primary object of study. To address this, we
+              here present Vireo, a computationally efficient Bayesian model to
+              demultiplex single-cell data from pooled experimental designs.
+              Uniquely, our model can be applied in settings when only partial
+              or no genotype information is available. Using pools based on
+              synthetic mixtures and results on real data, we demonstrate the
+              robustness of Vireo and illustrate the utility of multiplexed
+              experimental designs for common expression analyses.",
+  journal  = "Genome Biol.",
+  volume   =  20,
+  number   =  1,
+  pages    = "273",
+  month    =  dec,
+  year     =  2019,
+  keywords = "Genetic variation; Multiplexing; Single-cell RNA-seq; Variational
+              Bayes",
+  language = "en"
+}
+
+
 @misc{10xpatent,
   title={Systems and methods for determining structural variation and phasing using variant call data},
   author={Kyriazopoulou-Panagiotopoulou, Sofia and Marks, Patrick and Schnall-Levin, Michael and Zheng, Xinying and Jarosz, Mirna and Saxonov, Serge and Giorda, Kristina and Mudivarti, Patrice and Ordonez, Heather and Terry, Jessica and others},
@@ -640,6 +674,243 @@
 
 
 
+@ARTICLE{rnaediting,
+  title    = "{REDIportal}: a comprehensive database of {A-to-I} {RNA} editing
+              events in humans",
+  author   = "Picardi, Ernesto and D'Erchia, Anna Maria and Lo Giudice, Claudio
+              and Pesole, Graziano",
+  abstract = "RNA editing by A-to-I deamination is the prominent
+              co-/post-transcriptional modification in humans. It is carried
+              out by ADAR enzymes and contributes to both transcriptomic and
+              proteomic expansion. RNA editing has pivotal cellular effects and
+              its deregulation has been linked to a variety of human disorders
+              including neurological and neurodegenerative diseases and cancer.
+              Despite its biological relevance, many physiological and
+              functional aspects of RNA editing are yet elusive. Here, we
+              present REDIportal, available online at
+              http://srv00.recas.ba.infn.it/atlas/, the largest and
+              comprehensive collection of RNA editing in humans including more
+              than 4.5 millions of A-to-I events detected in 55 body sites from
+              thousands of RNAseq experiments. REDIportal embeds RADAR database
+              and represents the first editing resource designed to answer
+              functional questions, enabling the inspection and browsing of
+              editing levels in a variety of human samples, tissues and body
+              sites. In contrast with previous RNA editing databases,
+              REDIportal comprises its own browser (JBrowse) that allows users
+              to explore A-to-I changes in their genomic context, empathizing
+              repetitive elements in which RNA editing is prominent.",
+  journal  = "Nucleic Acids Res.",
+  volume   =  45,
+  number   = "D1",
+  pages    = "D750--D757",
+  month    =  jan,
+  year     =  2017,
+  language = "en"
+}
+
+
+@MISC{IGV,
+  title   = "Integrative genomics viewer ({IGV)}: Visualizing alignments and
+             variants",
+  author  = "Robinson, Peter and Jtel, Tomasz Zemo",
+  journal = "Computational Exome and Genome Analysis",
+  pages   = "233--245",
+  year    =  2017
+}
+
+
+
+@ARTICLE{cellsnp,
+  title    = "Cellsnp-lite: an efficient tool for genotyping single cells",
+  author   = "Huang, Xianjie and Huang, Yuanhua",
+  abstract = "SUMMARY: Single-cell sequencing is an increasingly used
+              technology and has promising applications in basic research and
+              clinical translations. However, genotyping methods developed for
+              bulk sequencing data have not been well adapted for single-cell
+              data, in terms of both computational parallelization and
+              simplified user interface. Here we introduce a software,
+              cellsnp-lite, implemented in C/C ++ and based on well-supported
+              package htslib, for genotyping in single-cell sequencing data for
+              both droplet and well based platforms. On various experimental
+              data sets, it shows substantial improvement in computational
+              speed and memory efficiency with retaining highly concordant
+              results compared to existing methods. Cellsnp-lite, therefore,
+              lightens the genetic analysis for increasingly large single-cell
+              data. AVAILABILITY: The source code is freely available at
+              https://github.com/single-cell-genetics/cellsnp-lite.
+              SUPPLEMENTARY INFORMATION: Supplementary data are available at
+              Bioinformatics online.",
+  journal  = "Bioinformatics",
+  month    =  may,
+  year     =  2021,
+  language = "en"
+}
+
+
+@ARTICLE{giab,
+  title    = "An open resource for accurately benchmarking small variant and
+              reference calls",
+  author   = "Zook, Justin M and McDaniel, Jennifer and Olson, Nathan D and
+              Wagner, Justin and Parikh, Hemang and Heaton, Haynes and Irvine,
+              Sean A and Trigg, Len and Truty, Rebecca and McLean, Cory Y and
+              De La Vega, Francisco M and Xiao, Chunlin and Sherry, Stephen and
+              Salit, Marc",
+  abstract = "Benchmark small variant calls are required for developing,
+              optimizing and assessing the performance of sequencing and
+              bioinformatics methods. Here, as part of the Genome in a Bottle
+              (GIAB) Consortium, we apply a reproducible, cloud-based pipeline
+              to integrate multiple short- and linked-read sequencing datasets
+              and provide benchmark calls for human genomes. We generate
+              benchmark calls for one previously analyzed GIAB sample, as well
+              as six genomes from the Personal Genome Project. These new
+              genomes have broad, open consent, making this a 'first of its
+              kind' resource that is available to the community for multiple
+              downstream applications. We produce 17\% more benchmark single
+              nucleotide variations, 176\% more indels and 12\% larger
+              benchmark regions than previously published GIAB benchmarks. We
+              demonstrate that this benchmark reliably identifies errors in
+              existing callsets and highlight challenges in interpreting
+              performance metrics when using benchmarks that are not perfect or
+              comprehensive. Finally, we identify strengths and weaknesses of
+              callsets by stratifying performance according to variant type and
+              genome context.",
+  journal  = "Nat. Biotechnol.",
+  volume   =  37,
+  number   =  5,
+  pages    = "561--566",
+  month    =  may,
+  year     =  2019,
+  language = "en"
+}
+
+
+@ARTICLE{salmon,
+  title    = "Salmon provides fast and bias-aware quantification of transcript
+              expression",
+  author   = "Patro, Rob and Duggal, Geet and Love, Michael I and Irizarry,
+              Rafael A and Kingsford, Carl",
+  abstract = "We introduce Salmon, a lightweight method for quantifying
+              transcript abundance from RNA-seq reads. Salmon combines a new
+              dual-phase parallel inference algorithm and feature-rich bias
+              models with an ultra-fast read mapping procedure. It is the first
+              transcriptome-wide quantifier to correct for fragment GC-content
+              bias, which, as we demonstrate here, substantially improves the
+              accuracy of abundance estimates and the sensitivity of subsequent
+              differential expression analysis.",
+  journal  = "Nat. Methods",
+  volume   =  14,
+  number   =  4,
+  pages    = "417--419",
+  month    =  apr,
+  year     =  2017,
+  language = "en"
+}
+
+
+@ARTICLE{kallisto,
+  title    = "Erratum: Near-optimal probabilistic {RNA-seq} quantification",
+  author   = "Bray, Nicolas L and Pimentel, Harold and Melsted, P{\'a}ll and
+              Pachter, Lior",
+  journal  = "Nat. Biotechnol.",
+  volume   =  34,
+  number   =  8,
+  pages    = "888",
+  month    =  aug,
+  year     =  2016,
+  language = "en"
+}
+
+
+
+% The entry below contains non-ASCII chars that could not be converted
+% to a LaTeX equivalent.
+@ARTICLE{hisat,
+  title    = "{HISAT}: a fast spliced aligner with low memory requirements",
+  author   = "Kim, Daehwan and Langmead, Ben and Salzberg, Steven L",
+  abstract = "HISAT (hierarchical indexing for spliced alignment of
+              transcripts) is a highly efficient system for aligning reads from
+              RNA sequencing experiments. HISAT uses an indexing scheme based
+              on the Burrows-Wheeler transform and the Ferragina-Manzini (FM)
+              index, employing two types of indexes for alignment: a
+              whole-genome FM index to anchor each alignment and numerous local
+              FM indexes for very rapid extensions of these alignments. HISAT's
+              hierarchical index for the human genome contains 48,000 local FM
+              indexes, each representing a genomic region of ?64,000 bp. Tests
+              on real and simulated data sets showed that HISAT is the fastest
+              system currently available, with equal or better accuracy than
+              any other method. Despite its large number of indexes, HISAT
+              requires only 4.3 gigabytes of memory. HISAT supports genomes of
+              any size, including those larger than 4 billion bases.",
+  journal  = "Nat. Methods",
+  volume   =  12,
+  number   =  4,
+  pages    = "357--360",
+  month    =  apr,
+  year     =  2015,
+  language = "en"
+}
+
+
+
+@ARTICLE{tophat,
+  title    = "{TopHat}: discovering splice junctions with {RNA-Seq}",
+  author   = "Trapnell, Cole and Pachter, Lior and Salzberg, Steven L",
+  abstract = "MOTIVATION: A new protocol for sequencing the messenger RNA in a
+              cell, known as RNA-Seq, generates millions of short sequence
+              fragments in a single run. These fragments, or 'reads', can be
+              used to measure levels of gene expression and to identify novel
+              splice variants of genes. However, current software for aligning
+              RNA-Seq data to a genome relies on known splice junctions and
+              cannot identify novel ones. TopHat is an efficient read-mapping
+              algorithm designed to align reads from an RNA-Seq experiment to a
+              reference genome without relying on known splice sites. RESULTS:
+              We mapped the RNA-Seq reads from a recent mammalian RNA-Seq
+              experiment and recovered more than 72\% of the splice junctions
+              reported by the annotation-based software from that study, along
+              with nearly 20,000 previously unreported junctions. The TopHat
+              pipeline is much faster than previous systems, mapping nearly 2.2
+              million reads per CPU hour, which is sufficient to process an
+              entire RNA-Seq experiment in less than a day on a standard
+              desktop computer. We describe several challenges unique to ab
+              initio splice site discovery from RNA-Seq reads that will require
+              further algorithm development. AVAILABILITY: TopHat is free,
+              open-source software available from http://tophat.cbcb.umd.edu.
+              SUPPLEMENTARY INFORMATION: Supplementary data are available at
+              Bioinformatics online.",
+  journal  = "Bioinformatics",
+  volume   =  25,
+  number   =  9,
+  pages    = "1105--1111",
+  month    =  may,
+  year     =  2009,
+  language = "en"
+}
+
+
+
+@ARTICLE{bowtie2,
+  title    = "Fast gapped-read alignment with Bowtie 2",
+  author   = "Langmead, Ben and Salzberg, Steven L",
+  abstract = "As the rate of sequencing increases, greater throughput is
+              demanded from read aligners. The full-text minute index is often
+              used to make alignment very fast and memory-efficient, but the
+              approach is ill-suited to finding longer, gapped alignments.
+              Bowtie 2 combines the strengths of the full-text minute index
+              with the flexibility and speed of hardware-accelerated dynamic
+              programming algorithms to achieve a combination of high speed,
+              sensitivity and accuracy.",
+  journal  = "Nat. Methods",
+  volume   =  9,
+  number   =  4,
+  pages    = "357--359",
+  month    =  mar,
+  year     =  2012,
+  language = "en"
+}
+
+
+
+
 % The entry below contains non-ASCII chars that could not be converted
 % to a LaTeX equivalent.
 @ARTICLE{gatk,
@@ -792,6 +1063,23 @@
   journal  = "Bioinformatics",
   month    =  may,
   year     =  2018,
+  language = "en"
+}
+
+
+@ARTICLE{bowtie,
+  title    = "Aligning short sequencing reads with Bowtie",
+  author   = "Langmead, Ben",
+  abstract = "This unit shows how to use the Bowtie package to align short
+              sequencing reads, such as those output by second-generation
+              sequencing instruments. It also includes protocols for building a
+              genome index and calling consensus sequences from Bowtie
+              alignments using SAMtools.",
+  journal  = "Curr. Protoc. Bioinformatics",
+  volume   = "Chapter 11",
+  pages    = "Unit 11.7",
+  month    =  dec,
+  year     =  2010,
   language = "en"
 }
 
