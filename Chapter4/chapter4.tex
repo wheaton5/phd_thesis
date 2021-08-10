@@ -3,7 +3,7 @@
 %*******************************************************************************
 %****************************** Third Chapter **********************************
 %*******************************************************************************
-\chapter{Methods for assembly of challenging organisms}
+\chapter{Haplotype phasing consistency as a signal for physical linkage in scaffolding and assembly}
 
 % **************************** Define Graphics Path **************************
 \ifpdf
@@ -15,15 +15,27 @@
 
 
 \section{Background}
+\par{
 Reference genomes have enabled a range of genomic analysis by providing prior knowledge of the sequence 
 and giving genomic context as well as a common coordinate system by which to compare multiple genomes \cite{1000genomes} \cite{GRCh38}.
-Assembling reference genomes is complicated by repetitive sequences, heterozygosity, and sequencing errors. 
-Historically reference genomes were created by large haploid clone libraries \cite{human} 
-which solve many of the repeat issues as well as the heterozygosity problem, but these methods are too costly to 
-apply to many genomes. More recently the cost reductions of long read technologies \cite{pacbio} \cite{oxford} 
+
+Assembling reference genomes is complicated by repetitive sequences, heterozygosity, and sequencing errors. As discussed in 
+Chapter 3, when an assembly encounters inexact homologous sequences, it must determine which of these cases the sequence differences are due to. 
+If the assembler cannot distinguish between heterozygosity and repeats, and if no reads span the homologous sequence into more unique regions, the contig must end
+to avoid assembly distant regions or sequence from different chromosomes together.
+
+
+Historically reference genomes were created by large haploid bacterial artificial chromosomes (BACs) clone libraries \cite{human}. 
+These methods overcame much of the problem of resolving repeats and heterozygosity because of their length and the fact that they are inherently haploid. But these methods are too costly to 
+apply to many genomes.
+}
+
+
+ More recently the cost reductions of long read technologies \cite{pacbio} \cite{oxford} 
 as well as the emergence of other long range genetic information technologies \cite{10xlinked} \cite{HiC} \cite{bionano} 
 have converged to make high quality, cost effective reference genomes. This has then resparked interest in assembly 
-as well as large reference generation projects such as the Earth BioGenome Project \cite{EBGP} and the Darwin Tree of Life Project.
+as well as large reference generation projects
+such as the Earth BioGenome Project \cite{EBGP} and the Darwin Tree of Life Project.
 For these technologies there are now assembly algorithms that deal with each data type \cite{falcon} \cite{supernova} \cite{bionano_assembly} 
 as well as combinations of multiple technologies \cite{genemyers} \cite{hybrid10x} \cite{aedes}. 
  These methods try to co-assemble both haplotypes arriving at a haploid consensus \cite{watchtower} \cite{canu} 

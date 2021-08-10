@@ -51,7 +51,11 @@ Whether it is possible to decrease the input requirements for nanopore sequencin
 }
 
 \par{
-In this chapter we discuss the process of making the first high quality assembly of a single mosquito and assess its quality and completeness. We first discuss the methods used for high molecular weight (HMW) DNA extraction and resulting length profiles. The extraction was done at the Sanger Institute, but the sequencing was done in California. So a further length profile is included to show the DNA length degradation from transit. We then discuss the new low input library prep and the sequencing used. We outline briefly the curation steps taken which resulted in changes to the assembly before going through each analysis in detail. Assembly quality is then assessed first through comparison of contiguity of the assembly and curated assembly against the current gold standard reference genome (Agam4 PEST). Next completeness and assembly duplication are inspected via comparing to known orthologous gene sets with BUSCO (Benchmarking Universal Single-Copy Orthologs). Finally, we do a series of genome comparisons to the PEST reference. In this, we are able to identify and correct a misassembly and uncover significant remaining duplicated haplotype assembly sequence and its cause. In this analysis, we are also able to find many improvements our assembly makes over the PEST assembly including placing of previously unplaced genes in their chromosomal context. We also dramatically reduce the assembly gaps. We find significant evidence of collapsed complex repeats in PEST that have been accurately expanded in our assembly. And finally, we find an order-and-orientation error in the PEST reference. The genome we use for comparison was built using bacterial artificial chromosomes (BACs) and Sanger sequencing, the same basic technology initially used to create the human reference genome, which is highly accurate but extremely labor intensive and expensive. Our assembly allows for the use of a single individual, is relatively cheap, and is more accurate and complete than the previous gold standard \textit{Anopheles} genome. With some addition data, or by scaffolding against the PEST reference as shown in this chapter, it would also be more contiguous with fewer gaps.
+In this chapter we discuss the process of making the first high quality assembly of a single mosquito and assess its quality and completeness. We first discuss the methods used for high molecular weight (HMW) DNA extraction and resulting length profiles. The extraction was done at the Sanger Institute, but the sequencing was done in California. So a further length profile is included to show the DNA length degradation from transit. We then discuss the new low input library prep and the sequencing used. We outline briefly the curation steps taken which resulted in changes to the assembly before going through each analysis in detail. Assembly quality is then assessed first through comparison of contiguity of the assembly and curated assembly against the current gold standard reference genome (Agam4 PEST). Next completeness and assembly duplication are inspected via comparing to known orthologous gene sets with BUSCO (Benchmarking Universal Single-Copy Orthologs). Finally, we do a series of genome comparisons to the PEST reference. In this, we are able to identify and correct a misassembly and uncover significant remaining duplicated haplotype assembly sequence and its cause. In this analysis, we are also able to find many improvements our assembly makes over the PEST assembly including placing of previously unplaced genes in their chromosomal context. We also dramatically reduce the assembly gaps. We find significant evidence of collapsed complex repeats in PEST that have been accurately expanded in our assembly. We then find an order-and-orientation error in the PEST reference. Finally, we show the contig coverages of the PEST reference aligned to the PacBio assembly and how much of the UNKN contigs are likely haplotigs and visually show the placement of other UNKN sequence.
+}
+
+\par{
+The genome we use for comparison was built using bacterial artificial chromosomes (BACs) and Sanger sequencing, the same basic technology initially used to create the human reference genome, which is highly accurate but extremely labor intensive and expensive. Our assembly allows for the use of a single individual, is relatively cheap, and is more accurate and complete than the previous gold standard \textit{Anopheles} genome. With some addition data, or by scaffolding against the PEST reference as shown in this chapter, it would also be more contiguous with fewer gaps.
 }
 
 \section{DNA Isolation}
@@ -319,8 +323,19 @@ shown for clarity).}
 \end{figure}
 
 \par{
-And finally, we consider large discordant regions in which no assembly contigs align to the PEST reference. In general this is rare in the chromosomal scaffolds. Most of the zero contig-coverage areas of the contig on PEST alignment file are location in which the PEST contains Ns. And the large majority of zero contig coverage areas are in the UNKN scaffold. We explored the largest of the zero contig coverage region in the chromosomal PEST scaffolds (figure \ref{figure:
+And finally, we consider large discordant regions in which no assembly contigs align to the PEST reference. In general this is rare in the chromosomal scaffolds. Most of the zero contig-coverage areas of the contig on PEST alignment file are location in which the PEST contains Ns. And the large majority of zero contig coverage areas are in the UNKN scaffold. We explored the largest of the zero contig coverage region in the chromosomal PEST scaffolds (figure \ref{figure:nocovplot}). We see that this region is flanked by sections of Ns and that very few PacBio subreads map to the non N regions between indicating that this sequence may be low quality, possible derived from contamination, or be a biological difference (large insertion in PEST) between the two species.
 }
+
+\begin{figure}[htbp!]
+
+\caption{No contig coverage region}
+\label{figure:nocovplot}
+\begin{centering}
+\includegraphics[width=1.0\textwidth]{Nocovplot.jpeg}
+\par{ Top: outlines large region with zero coverage in chromosomal scaffold 3R on PEST reference. Middle: Zoom in of alignment plot in that region with Ns track showing regions of Ns flanking this sequence with another section of Ns in the middle. Bottom: shows subread depth when aligned to the PEST reference showing decreased mapping in this region.}
+\end{centering}
+\end{figure}
+
 
 
 \subsection{Expansion of previously collapsed repeat}
@@ -356,11 +371,25 @@ We also identified several potential rearrangements in the 20-22 Mb region of th
 \end{figure}
 
 
-
-\subsection{Placement of previously unplaced genes}\label{section:unkn}
+\subsection{Identification of some UNKN PEST sequence as haplotigs}
 
 \par{
-The PEST annotation also retains a large bin of unplaced contigs (27.3 Mb excluding Ns) designated as the UNKN (unknown) chromosome. Previously, we mapped either assembly contigs onto the PEST reference or subreads against the assembly. Now we do the reverse of the former and map PEST contigs onto the assembly. If an UNKN contig alignment overlaps a chromosomal contig alignment versus the assembly (both with mapping quality (mapq) 60), it is likely to be a haplotig in the UNKN. In total, we find that 7.27 Mb are haplotigs (i.e., also have high quality PEST chromosomal alignments to the same location in the assembly) and another 10.9 Mb are newly placed sequence that do not overlap with PEST chromosomal alignments. The UNKN bin also contains 737 annotated genes. Remarkably, our single-insect assembly now places 667 (>90\%) of these formerly unplaced genes into their appropriate chromosomal contexts (2L:148 genes; 2R:162 genes; 3L: 126 genes; 3R:91 genes; X:140 genes; unplaced:70 genes; detail on placement of specific genes can be found in the supplement of our paper \cite{singlemosquito}), which together with their flanking sequence comprise 8.9 Mb of sequence. Altogether, this means that 32.6\% of the UNKN chromosome is now placed in the genome and 26.6\% is determined to be haplotigs, along with 90\% of the genes that were contained within it. Much of the remaining sequence do not have high mapping quality subreads when aligning subreads to the PEST reference meaning they are either repeats or junk sequence.
+The PEST annotation also retains a large bin of unplaced contigs (27.3 Mb excluding Ns) designated as the UNKN (unknown) chromosome. Previously, we mapped either assembly contigs onto the PEST reference or subreads against the assembly. Now we do the reverse of the former and map PEST contigs onto the assembly. If an UNKN contig alignment overlaps a chromosomal contig alignment versus the assembly (both with mapping quality (mapq) 60), it is likely to be a haplotig in the UNKN (see figure \ref{figure:unknplace}). In total, we find that 7.27 Mb are haplotigs (i.e., also have high quality PEST chromosomal alignments to the same location in the assembly).
+}
+
+\begin{figure}[htbp!]
+
+\caption{UNKN placement and haplotig identification}
+\label{figure:unknplace}
+\begin{centering}
+\includegraphics[width=1.0\textwidth]{Unkn_placement_haplotig.jpeg}
+\par{Contig coverages (ignoring multiple alignments for each chromosomal and UNKN sequence) of PEST aligned to the curated assembly showing placement of previously unplaced sequence (green on contigs that also have red (chromosomal) alignments). We also note the locations where both UNKN and chromosomal sequence align to the same location in the curated assembly which are likely haplotigs in the PEST UNKN scaffold.}
+\end{centering}
+\end{figure}
+
+\subsection{Placement of previously unplaced genes}\label{section:unkn}
+\par{
+In addition to the UNKN haplotig sequences, we found another 10.9 Mb of the alignments are newly placed sequence that do not overlap with PEST chromosomal alignments but are in contigs which have a large amount (>100kb) of chromosomal alignments meaning these contigs are confidently ordered and oriented in their chromosomal contexts. The UNKN bin also contains 737 annotated genes. Remarkably, our single-insect assembly now places 667 (>90\%) of these formerly unplaced genes into their appropriate chromosomal contexts (2L:148 genes; 2R:162 genes; 3L: 126 genes; 3R:91 genes; X:140 genes; unplaced:70 genes; detail on placement of specific genes can be found in the supplement of our paper \cite{singlemosquito}), which together with their flanking sequence comprise 8.9 Mb of sequence. Altogether, this means that 32.6\% of the UNKN chromosome is now placed in the genome and 26.6\% is determined to be haplotigs, along with 90\% of the genes that were contained within it. Much of the remaining sequence do not have high mapping quality subreads when aligning subreads to the PEST reference meaning they are either repeats or junk sequence.
 }
 
 \begin{table}[htbp!]
@@ -385,6 +414,22 @@ The PEST annotation also retains a large bin of unplaced contigs (27.3 Mb exclud
  \hline
 \end{tabular} 
 \end{table}
+
+\subsection{PEST contig coverage on PacBio curated assembly}
+
+\par{
+In addition to looking for the two contig coverage areas and confirming that they primarily come from haplotigs in the UNKN scaffold, we would like to inspect for other abnormalities such as zero contig coverage regions. In figure \ref{figure:reverse_coverage} we see some significant zero coverage regions. However, most of these are intermittently zero and one likely just indicating sequence divergence rather than an incomplete PEST reference. There are a few more solidly zero coverage regions, but they are not dramatically long (<200Kb). Still, we know from the BUSCO \ref{table:busco} analysis that there are fewer complete genes and more fragmented and missing genes in the PEST reference as compared to the PacBio assembly. These regions likely account for some of that difference.
+}
+
+\begin{figure}[htbp!]
+
+\caption{PEST contig coverage when aligned to PacBio curated assembly}
+\label{figure:reverse_coverage}
+\begin{centering}
+\includegraphics[width=1.0\textwidth]{Reverse_contig_coverage.jpeg}
+\par{Contig coverages of PEST aligned to the curated assembly. When comparing to figure \ref{figure:unknplace} we see that most of the two coverage likely come from haplotigs in the UNKN scaffold. But we do see some significant zero coverage areas as well.}
+\end{centering}
+\end{figure}
 
 \section{Discussion}
 
