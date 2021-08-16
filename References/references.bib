@@ -35,6 +35,188 @@
 }
 
 
+@ARTICLE{HIFI,
+  title    = "Accurate circular consensus long-read sequencing improves variant
+              detection and assembly of a human genome",
+  author   = "Wenger, Aaron M and Peluso, Paul and Rowell, William J and Chang,
+              Pi-Chuan and Hall, Richard J and Concepcion, Gregory T and Ebler,
+              Jana and Fungtammasan, Arkarachai and Kolesnikov, Alexey and
+              Olson, Nathan D and T{\"o}pfer, Armin and Alonge, Michael and
+              Mahmoud, Medhat and Qian, Yufeng and Chin, Chen-Shan and
+              Phillippy, Adam M and Schatz, Michael C and Myers, Gene and
+              DePristo, Mark A and Ruan, Jue and Marschall, Tobias and
+              Sedlazeck, Fritz J and Zook, Justin M and Li, Heng and Koren,
+              Sergey and Carroll, Andrew and Rank, David R and Hunkapiller,
+              Michael W",
+  abstract = "The DNA sequencing technologies in use today produce either
+              highly accurate short reads or less-accurate long reads. We
+              report the optimization of circular consensus sequencing (CCS) to
+              improve the accuracy of single-molecule real-time (SMRT)
+              sequencing (PacBio) and generate highly accurate (99.8\%) long
+              high-fidelity (HiFi) reads with an average length of 13.5
+              kilobases (kb). We applied our approach to sequence the
+              well-characterized human HG002/NA24385 genome and obtained
+              precision and recall rates of at least 99.91\% for
+              single-nucleotide variants (SNVs), 95.98\% for insertions and
+              deletions 15 megabases (Mb) and concordance of 99.997\%,
+              substantially outperforming assembly with less-accurate long
+              reads.",
+  journal  = "Nat. Biotechnol.",
+  volume   =  37,
+  number   =  10,
+  pages    = "1155--1162",
+  month    =  oct,
+  year     =  2019,
+  language = "en"
+}
+
+
+@ARTICLE{HICANU,
+  title    = "{HiCanu}: accurate assembly of segmental duplications,
+              satellites, and allelic variants from high-fidelity long reads",
+  author   = "Nurk, Sergey and Walenz, Brian P and Rhie, Arang and Vollger,
+              Mitchell R and Logsdon, Glennis A and Grothe, Robert and Miga,
+              Karen H and Eichler, Evan E and Phillippy, Adam M and Koren,
+              Sergey",
+  abstract = "Complete and accurate genome assemblies form the basis of most
+              downstream genomic analyses and are of critical importance.
+              Recent genome assembly projects have relied on a combination of
+              noisy long-read sequencing and accurate short-read sequencing,
+              with the former offering greater assembly continuity and the
+              latter providing higher consensus accuracy. The recently
+              introduced Pacific Biosciences (PacBio) HiFi sequencing
+              technology bridges this divide by delivering long reads (>10 kbp)
+              with high per-base accuracy (>99.9\%). Here we present HiCanu, a
+              modification of the Canu assembler designed to leverage the full
+              potential of HiFi reads via homopolymer compression,
+              overlap-based error correction, and aggressive false overlap
+              filtering. We benchmark HiCanu with a focus on the recovery of
+              haplotype diversity, major histocompatibility complex (MHC)
+              variants, satellite DNAs, and segmental duplications. For diploid
+              human genomes sequenced to 30$\times$ HiFi coverage, HiCanu
+              achieved superior accuracy and allele recovery compared to the
+              current state of the art. On the effectively haploid CHM13 human
+              cell line, HiCanu achieved an NG50 contig size of 77 Mbp with a
+              per-base consensus accuracy of 99.999\% (QV50), surpassing recent
+              assemblies of high-coverage, ultralong Oxford Nanopore
+              Technologies (ONT) reads in terms of both accuracy and
+              continuity. This HiCanu assembly correctly resolves 337 out of
+              341 validation BACs sampled from known segmental duplications and
+              provides the first preliminary assemblies of nine complete human
+              centromeric regions. Although gaps and errors still remain within
+              the most challenging regions of the genome, these results
+              represent a significant advance toward the complete assembly of
+              human genomes.",
+  journal  = "Genome Res.",
+  volume   =  30,
+  number   =  9,
+  pages    = "1291--1305",
+  month    =  sep,
+  year     =  2020,
+  language = "en"
+}
+
+
+@ARTICLE{haplomerger,
+  title    = "{HaploMerger2}: rebuilding both haploid sub-assemblies from
+              high-heterozygosity diploid genome assembly",
+  author   = "Huang, Shengfeng and Kang, Mingjing and Xu, Anlong",
+  abstract = "Summary: De novo assembly is a difficult issue for heterozygous
+              diploid genomes. The advent of high-throughput short-read and
+              long-read sequencing technologies provides both new challenges
+              and potential solutions to the issue. Here, we present
+              HaploMerger2 (HM2), an automated pipeline for rebuilding both
+              haploid sub-assemblies from the polymorphic diploid genome
+              assembly. It is designed to work on pre-existing diploid
+              assemblies, which are typically created by using de novo
+              assemblers. HM2 can process any diploid assemblies, but it is
+              especially suitable for diploid assemblies with high
+              heterozygosity ($\geq$3\%), which can be difficult for other
+              tools. This pipeline also implements flexible and sensitive
+              assembly error detection, a hierarchical scaffolding procedure
+              and a reliable gap-closing method for haploid sub-assemblies.
+              Using HM2, we demonstrate that two haploid sub-assemblies
+              reconstructed from a real, highly-polymorphic diploid assembly
+              show greatly improved continuity. Availability and
+              Implementation: Source code, executables and the testing dataset
+              are freely available at
+              https://github.com/mapleforest/HaploMerger2/releases/. Contact:
+              hshengf2@mail.sysu.edu.cn. Supplementary information:
+              Supplementary data are available at Bioinformatics online.",
+  journal  = "Bioinformatics",
+  volume   =  33,
+  number   =  16,
+  pages    = "2577--2579",
+  month    =  aug,
+  year     =  2017,
+  language = "en"
+}
+
+
+@ARTICLE{ccs,
+  title    = "A flexible and efficient template format for circular consensus
+              sequencing and {SNP} detection",
+  author   = "Travers, Kevin J and Chin, Chen-Shan and Rank, David R and Eid,
+              John S and Turner, Stephen W",
+  abstract = "A novel template design for single-molecule sequencing is
+              introduced, a structure we refer to as a SMRTbell template. This
+              structure consists of a double-stranded portion, containing the
+              insert of interest, and a single-stranded hairpin loop on either
+              end, which provides a site for primer binding. Structurally, this
+              format resembles a linear double-stranded molecule, and yet it is
+              topologically circular. When placed into a single-molecule
+              sequencing reaction, the SMRTbell template format enables a
+              consensus sequence to be obtained from multiple passes on a
+              single molecule. Furthermore, this consensus sequence is obtained
+              from both the sense and antisense strands of the insert region.
+              In this article, we present a universal method for constructing
+              these templates, as well as an application of their use. We
+              demonstrate the generation of high-quality consensus accuracy
+              from single molecules, as well as the use of SMRTbell templates
+              in the identification of rare sequence variants.",
+  journal  = "Nucleic Acids Res.",
+  volume   =  38,
+  number   =  15,
+  pages    = "e159",
+  month    =  aug,
+  year     =  2010,
+  language = "en"
+}
+
+
+
+@ARTICLE{hifiasm,
+  title    = "Haplotype-resolved de novo assembly using phased assembly graphs
+              with hifiasm",
+  author   = "Cheng, Haoyu and Concepcion, Gregory T and Feng, Xiaowen and
+              Zhang, Haowen and Li, Heng",
+  abstract = "Haplotype-resolved de novo assembly is the ultimate solution to
+              the study of sequence variations in a genome. However, existing
+              algorithms either collapse heterozygous alleles into one
+              consensus copy or fail to cleanly separate the haplotypes to
+              produce high-quality phased assemblies. Here we describe hifiasm,
+              a de novo assembler that takes advantage of long high-fidelity
+              sequence reads to faithfully represent the haplotype information
+              in a phased assembly graph. Unlike other graph-based assemblers
+              that only aim to maintain the contiguity of one haplotype,
+              hifiasm strives to preserve the contiguity of all haplotypes.
+              This feature enables the development of a graph trio binning
+              algorithm that greatly advances over standard trio binning. On
+              three human and five nonhuman datasets, including California
+              redwood with a ~30-Gb hexaploid genome, we show that hifiasm
+              frequently delivers better assemblies than existing tools and
+              consistently outperforms others on haplotype-resolved assembly.",
+  journal  = "Nat. Methods",
+  volume   =  18,
+  number   =  2,
+  pages    = "170--175",
+  month    =  feb,
+  year     =  2021,
+  language = "en"
+}
+
+
+
 @ARTICLE{vireo,
   title    = "Vireo: Bayesian demultiplexing of pooled single-cell {RNA-seq}
               data without genotype reference",
@@ -527,6 +709,240 @@
               transcriptomics",
   language = "en"
 }
+
+
+@ARTICLE{blobtoolkit,
+  title     = "{BlobToolKit--Interactive} quality assessment of genome
+               assemblies",
+  author    = "Challis, Richard and Richards, Edward and Rajan, Jeena and
+               Cochrane, Guy and Blaxter, Mark",
+  journal   = "G3: Genes, Genomes, Genetics",
+  publisher = "Oxford University Press",
+  volume    =  10,
+  number    =  4,
+  pages     = "1361--1374",
+  year      =  2020
+}
+
+
+@ARTICLE{3CHIC,
+  title    = "Capturing chromosome conformation",
+  author   = "Dekker, Job and Rippe, Karsten and Dekker, Martijn and Kleckner,
+              Nancy",
+  abstract = "We describe an approach to detect the frequency of interaction
+              between any two genomic loci. Generation of a matrix of
+              interaction frequencies between sites on the same or different
+              chromosomes reveals their relative spatial disposition and
+              provides information about the physical properties of the
+              chromatin fiber. This methodology can be applied to the spatial
+              organization of entire genomes in organisms from bacteria to
+              human. Using the yeast Saccharomyces cerevisiae, we could confirm
+              known qualitative features of chromosome organization within the
+              nucleus and dynamic changes in that organization during meiosis.
+              We also analyzed yeast chromosome III at the G1 stage of the cell
+              cycle. We found that chromatin is highly flexible throughout.
+              Furthermore, functionally distinct AT- and GC-rich domains were
+              found to exhibit different conformations, and a
+              population-average 3D model of chromosome III could be
+              determined. Chromosome III emerges as a contorted ring.",
+  journal  = "Science",
+  volume   =  295,
+  number   =  5558,
+  pages    = "1306--1311",
+  month    =  feb,
+  year     =  2002,
+  language = "en"
+}
+
+
+% The entry below contains non-ASCII chars that could not be converted
+% to a LaTeX equivalent.
+@ARTICLE{HICphasing,
+  title    = "Whole-genome haplotype reconstruction using proximity-ligation
+              and shotgun sequencing",
+  author   = "Selvaraj, Siddarth and R Dixon, Jesse and Bansal, Vikas and Ren,
+              Bing",
+  abstract = "Rapid advances in high-throughput sequencing facilitate variant
+              discovery and genotyping, but linking variants into a single
+              haplotype remains challenging. Here we demonstrate HaploSeq, an
+              approach for assembling chromosome-scale haplotypes by exploiting
+              the existence of 'chromosome territories'. We use proximity
+              ligation and sequencing to show that alleles on homologous
+              chromosomes occupy distinct territories, and therefore this
+              experimental protocol preferentially recovers physically linked
+              DNA variants on a homolog. Computational analysis of such data
+              sets allows for accurate (?99.5\%) reconstruction of
+              chromosome-spanning haplotypes for ?95\% of alleles in hybrid
+              mouse cells with 30$\times$ sequencing coverage. To resolve
+              haplotypes for a human genome, which has a low density of
+              variants, we coupled HaploSeq with local conditional phasing to
+              obtain haplotypes for ?81\% of alleles with ?98\% accuracy from
+              just 17$\times$ sequencing. Whereas methods based on proximity
+              ligation were originally designed to investigate spatial
+              organization of genomes, our results lend support for their use
+              as a general tool for haplotyping.",
+  journal  = "Nat. Biotechnol.",
+  volume   =  31,
+  number   =  12,
+  pages    = "1111--1118",
+  month    =  dec,
+  year     =  2013,
+  language = "en"
+}
+
+
+@ARTICLE{clrerror,
+  title    = "The origin of the Haitian cholera outbreak strain",
+  author   = "Chin, Chen-Shan and Sorenson, Jon and Harris, Jason B and Robins,
+              William P and Charles, Richelle C and Jean-Charles, Roger R and
+              Bullard, James and Webster, Dale R and Kasarskis, Andrew and
+              Peluso, Paul and Paxinos, Ellen E and Yamaichi, Yoshiharu and
+              Calderwood, Stephen B and Mekalanos, John J and Schadt, Eric E
+              and Waldor, Matthew K",
+  abstract = "BACKGROUND: Although cholera has been present in Latin America
+              since 1991, it had not been epidemic in Haiti for at least 100
+              years. Recently, however, there has been a severe outbreak of
+              cholera in Haiti. METHODS: We used third-generation
+              single-molecule real-time DNA sequencing to determine the genome
+              sequences of 2 clinical Vibrio cholerae isolates from the current
+              outbreak in Haiti, 1 strain that caused cholera in Latin America
+              in 1991, and 2 strains isolated in South Asia in 2002 and 2008.
+              Using primary sequence data, we compared the genomes of these 5
+              strains and a set of previously obtained partial genomic
+              sequences of 23 diverse strains of V. cholerae to assess the
+              likely origin of the cholera outbreak in Haiti. RESULTS: Both
+              single-nucleotide variations and the presence and structure of
+              hypervariable chromosomal elements indicate that there is a close
+              relationship between the Haitian isolates and variant V. cholerae
+              El Tor O1 strains isolated in Bangladesh in 2002 and 2008. In
+              contrast, analysis of genomic variation of the Haitian isolates
+              reveals a more distant relationship with circulating South
+              American isolates. CONCLUSIONS: The Haitian epidemic is probably
+              the result of the introduction, through human activity, of a V.
+              cholerae strain from a distant geographic source. (Funded by the
+              National Institute of Allergy and Infectious Diseases and the
+              Howard Hughes Medical Institute.).",
+  journal  = "N. Engl. J. Med.",
+  volume   =  364,
+  number   =  1,
+  pages    = "33--42",
+  month    =  jan,
+  year     =  2011,
+  language = "en"
+}
+
+
+@ARTICLE{blasr,
+  title    = "Mapping single molecule sequencing reads using basic local
+              alignment with successive refinement ({BLASR)}: application and
+              theory",
+  author   = "Chaisson, Mark J and Tesler, Glenn",
+  abstract = "BACKGROUND: Recent methods have been developed to perform
+              high-throughput sequencing of DNA by Single Molecule Sequencing
+              (SMS). While Next-Generation sequencing methods may produce reads
+              up to several hundred bases long, SMS sequencing produces reads
+              up to tens of kilobases long. Existing alignment methods are
+              either too inefficient for high-throughput datasets, or not
+              sensitive enough to align SMS reads, which have a higher error
+              rate than Next-Generation sequencing. RESULTS: We describe the
+              method BLASR (Basic Local Alignment with Successive Refinement)
+              for mapping Single Molecule Sequencing (SMS) reads that are
+              thousands of bases long, with divergence between the read and
+              genome dominated by insertion and deletion error. The method is
+              benchmarked using both simulated reads and reads from a bacterial
+              sequencing project. We also present a combinatorial model of
+              sequencing error that motivates why our approach is effective.
+              CONCLUSIONS: The results indicate that it is possible to map SMS
+              reads with high accuracy and speed. Furthermore, the inferences
+              made on the mapability of SMS reads using our combinatorial model
+              of sequencing error are in agreement with the mapping accuracy
+              demonstrated on simulated reads.",
+  journal  = "BMC Bioinformatics",
+  volume   =  13,
+  pages    = "238",
+  month    =  sep,
+  year     =  2012,
+  language = "en"
+}
+
+
+@misc{scaff10x,
+  author = {Ning Z HE},
+  title = {Scaff10X v4.2: Pipeline for scaffolding and breaking a genome assembly using
+10x genomics linked-reads},
+  year = {2018},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  howpublished = {\url{https://github.com/wtsi-hpag/Scaff10X}}
+}
+
+@misc{hash10x,
+  author = {Richard Durbin},
+  title = {A toolset for efficient analysis of 10X Genomics linked read data sets.},
+  year = {2018},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  howpublished = {\url{https://github.com/richarddurbin/hash10x}}
+}
+
+
+@MISC{sangercuration,
+  title  = "Significantly improving the quality of genome assemblies through
+            curation",
+  author = "Howe, Kerstin and Chow, William and Collins, Joanna and Pelan,
+            Sarah and Pointon, Damon-Lee and Sims, Ying and Torrance, James and
+            Tracey, Alan and Wood, Jonathan"
+}
+
+
+
+@ARTICLE{HIC,
+  title    = "Comprehensive mapping of long-range interactions reveals folding
+              principles of the human genome",
+  author   = "Lieberman-Aiden, Erez and van Berkum, Nynke L and Williams,
+              Louise and Imakaev, Maxim and Ragoczy, Tobias and Telling, Agnes
+              and Amit, Ido and Lajoie, Bryan R and Sabo, Peter J and
+              Dorschner, Michael O and Sandstrom, Richard and Bernstein,
+              Bradley and Bender, M A and Groudine, Mark and Gnirke, Andreas
+              and Stamatoyannopoulos, John and Mirny, Leonid A and Lander, Eric
+              S and Dekker, Job",
+  abstract = "We describe Hi-C, a method that probes the three-dimensional
+              architecture of whole genomes by coupling proximity-based
+              ligation with massively parallel sequencing. We constructed
+              spatial proximity maps of the human genome with Hi-C at a
+              resolution of 1 megabase. These maps confirm the presence of
+              chromosome territories and the spatial proximity of small,
+              gene-rich chromosomes. We identified an additional level of
+              genome organization that is characterized by the spatial
+              segregation of open and closed chromatin to form two genome-wide
+              compartments. At the megabase scale, the chromatin conformation
+              is consistent with a fractal globule, a knot-free, polymer
+              conformation that enables maximally dense packing while
+              preserving the ability to easily fold and unfold any genomic
+              locus. The fractal globule is distinct from the more commonly
+              used globular equilibrium model. Our results demonstrate the
+              power of Hi-C to map the dynamic conformations of whole genomes.",
+  journal  = "Science",
+  volume   =  326,
+  number   =  5950,
+  pages    = "289--293",
+  month    =  oct,
+  year     =  2009,
+  language = "en"
+}
+
+
+
+@MISC{KAT,
+  title   = "{KAT}: a K-mer analysis toolkit to quality control {NGS} datasets
+             and genome assemblies",
+  author  = "Mapleson, Daniel and Accinelli, Gonzalo Garcia and Kettleborough,
+             George and Wright, Jonathan and Clavijo, Bernardo J",
+  journal = "Bioinformatics",
+  pages   = "btw663",
+  year    =  2016
+}
+
 
 
 @ARTICLE{purge,
@@ -1325,6 +1741,282 @@
   year      =  2017,
   keywords  = "genetics; stem cells, pluripotent; genome; metadata; genetic
                disorder"
+}
+
+
+@MISC{GRAAL,
+  title   = "High-quality genome (re)assembly using chromosomal contact data",
+  author  = "Marie-Nelly, Herv{\'e} and Marbouty, Martial and Cournac, Axel and
+             Flot, Jean-Fran{\c c}ois and Liti, Gianni and Parodi, Dante Poggi
+             and Syan, Sylvie and Guill{\'e}n, Nancy and Margeot, Antoine and
+             Zimmer, Christophe and Koszul, Romain",
+  journal = "Nature Communications",
+  volume  =  5,
+  number  =  1,
+  year    =  2014
+}
+
+
+@ARTICLE{instaGRAAL,
+  title    = "{instaGRAAL}: chromosome-level quality scaffolding of genomes
+              using a proximity ligation-based scaffolder",
+  author   = "Baudry, Lyam and Guiglielmoni, Nad{\`e}ge and Marie-Nelly,
+              Herv{\'e} and Cormier, Alexandre and Marbouty, Martial and Avia,
+              Komlan and Mie, Yann Loe and Godfroy, Olivier and Sterck, Lieven
+              and Cock, J Mark and Zimmer, Christophe and Coelho, Susana M and
+              Koszul, Romain",
+  abstract = "Hi-C exploits contact frequencies between pairs of loci to bridge
+              and order contigs during genome assembly, resulting in
+              chromosome-level assemblies. Because few robust programs are
+              available for this type of data, we developed instaGRAAL, a
+              complete overhaul of the GRAAL program, which has adapted the
+              latter to allow efficient assembly of large genomes. instaGRAAL
+              features a number of improvements over GRAAL, including a modular
+              correction approach that optionally integrates independent data.
+              We validate the program using data for two brown algae, and
+              human, to generate near-complete assemblies with minimal human
+              intervention.",
+  journal  = "Genome Biol.",
+  volume   =  21,
+  number   =  1,
+  pages    = "148",
+  month    =  jun,
+  year     =  2020,
+  keywords = "Desmarestia herbacea; Ectocarpus; GPU; Hi-C scaffolding; Hi-C,
+              genome assembly; MCMC",
+  language = "en"
+}
+
+
+@ARTICLE{opticalmaphuman,
+  title    = "Assembly and diploid architecture of an individual human genome
+              via single-molecule technologies",
+  author   = "Pendleton, Matthew and Sebra, Robert and Pang, Andy Wing Chun and
+              Ummat, Ajay and Franzen, Oscar and Rausch, Tobias and St{\"u}tz,
+              Adrian M and Stedman, William and Anantharaman, Thomas and
+              Hastie, Alex and Dai, Heng and Fritz, Markus Hsi-Yang and Cao,
+              Han and Cohain, Ariella and Deikus, Gintaras and Durrett, Russell
+              E and Blanchard, Scott C and Altman, Roger and Chin, Chen-Shan
+              and Guo, Yan and Paxinos, Ellen E and Korbel, Jan O and Darnell,
+              Robert B and McCombie, W Richard and Kwok, Pui-Yan and Mason,
+              Christopher E and Schadt, Eric E and Bashir, Ali",
+  abstract = "We present the first comprehensive analysis of a diploid human
+              genome that combines single-molecule sequencing with
+              single-molecule genome maps. Our hybrid assembly markedly
+              improves upon the contiguity observed from traditional shotgun
+              sequencing approaches, with scaffold N50 values approaching 30
+              Mb, and we identified complex structural variants (SVs) missed by
+              other high-throughput approaches. Furthermore, by combining
+              Illumina short-read data with long reads, we phased both
+              single-nucleotide variants and SVs, generating haplotypes with
+              over 99\% consistency with previous trio-based studies. Our work
+              shows that it is now possible to integrate single-molecule and
+              high-throughput sequence data to generate de novo assembled
+              genomes that approach reference quality.",
+  journal  = "Nat. Methods",
+  volume   =  12,
+  number   =  8,
+  pages    = "780--786",
+  month    =  aug,
+  year     =  2015,
+  language = "en"
+}
+
+
+@MISC{kmc,
+  title   = "Disk-based k-mer counting on a {PC}",
+  author  = "Deorowicz, Sebastian and Debudaj-Grabysz, Agnieszka and Grabowski,
+             Szymon",
+  journal = "BMC Bioinformatics",
+  volume  =  14,
+  number  =  1,
+  year    =  2013
+}
+
+
+@ARTICLE{kmc3,
+  title    = "{KMC} 3: counting and manipulating k-mer statistics",
+  author   = "Kokot, Marek and Dlugosz, Maciej and Deorowicz, Sebastian",
+  abstract = "Summary: Counting all k -mers in a given dataset is a standard
+              procedure in many bioinformatics applications. We introduce KMC3,
+              a significant improvement of the former KMC2 algorithm together
+              with KMC tools for manipulating k -mer databases. Usefulness of
+              the tools is shown on a few real problems. Availability and
+              implementation: Program is freely available at
+              http://sun.aei.polsl.pl/REFRESH/kmc . Contact:
+              sebastian.deorowicz@polsl.pl. Supplementary information:
+              Supplementary data are available at Bioinformatics online.",
+  journal  = "Bioinformatics",
+  volume   =  33,
+  number   =  17,
+  pages    = "2759--2761",
+  month    =  sep,
+  year     =  2017,
+  language = "en"
+}
+
+
+@ARTICLE{kmc2,
+  title    = "{KMC} 2: fast and resource-frugal k-mer counting",
+  author   = "Deorowicz, Sebastian and Kokot, Marek and Grabowski, Szymon and
+              Debudaj-Grabysz, Agnieszka",
+  abstract = "MOTIVATION: Building the histogram of occurrences of every
+              k-symbol long substring of nucleotide data is a standard step in
+              many bioinformatics applications, known under the name of k-mer
+              counting. Its applications include developing de Bruijn graph
+              genome assemblers, fast multiple sequence alignment and repeat
+              detection. The tremendous amounts of NGS data require fast
+              algorithms for k-mer counting, preferably using moderate amounts
+              of memory. RESULTS: We present a novel method for k-mer counting,
+              on large datasets about twice faster than the strongest
+              competitors (Jellyfish 2, KMC 1), using about 12 GB (or less) of
+              RAM. Our disk-based method bears some resemblance to
+              MSPKmerCounter, yet replacing the original minimizers with
+              signatures (a carefully selected subset of all minimizers) and
+              using (k, x)-mers allows to significantly reduce the I/O and a
+              highly parallel overall architecture allows to achieve
+              unprecedented processing speeds. For example, KMC 2 counts the
+              28-mers of a human reads collection with 44-fold coverage (106 GB
+              of compressed size) in about 20 min, on a 6-core Intel i7 PC with
+              an solid-state disk.",
+  journal  = "Bioinformatics",
+  volume   =  31,
+  number   =  10,
+  pages    = "1569--1576",
+  month    =  may,
+  year     =  2015,
+  language = "en"
+}
+
+
+@ARTICLE{dipasm,
+  title    = "Chromosome-scale, haplotype-resolved assembly of human genomes",
+  author   = "Garg, Shilpa and Fungtammasan, Arkarachai and Carroll, Andrew and
+              Chou, Mike and Schmitt, Anthony and Zhou, Xiang and Mac, Stephen
+              and Peluso, Paul and Hatas, Emily and Ghurye, Jay and Maguire,
+              Jared and Mahmoud, Medhat and Cheng, Haoyu and Heller, David and
+              Zook, Justin M and Moemke, Tobias and Marschall, Tobias and
+              Sedlazeck, Fritz J and Aach, John and Chin, Chen-Shan and Church,
+              George M and Li, Heng",
+  abstract = "Haplotype-resolved or phased genome assembly provides a complete
+              picture of genomes and their complex genetic variations. However,
+              current algorithms for phased assembly either do not generate
+              chromosome-scale phasing or require pedigree information, which
+              limits their application. We present a method named diploid
+              assembly (DipAsm) that uses long, accurate reads and long-range
+              conformation data for single individuals to generate a
+              chromosome-scale phased assembly within 1 day. Applied to four
+              public human genomes, PGP1, HG002, NA12878 and HG00733, DipAsm
+              produced haplotype-resolved assemblies with minimum contig length
+              needed to cover 50\% of the known genome (NG50) up to 25 Mb and
+              phased ~99.5\% of heterozygous sites at 98-99\% accuracy,
+              outperforming other approaches in terms of both contiguity and
+              phasing completeness. We demonstrate the importance of
+              chromosome-scale phased assemblies for the discovery of
+              structural variants (SVs), including thousands of new transposon
+              insertions, and of highly polymorphic and medically important
+              regions such as the human leukocyte antigen (HLA) and killer cell
+              immunoglobulin-like receptor (KIR) regions. DipAsm will
+              facilitate high-quality precision medicine and studies of
+              individual haplotype variation and population diversity.",
+  journal  = "Nat. Biotechnol.",
+  volume   =  39,
+  number   =  3,
+  pages    = "309--312",
+  month    =  mar,
+  year     =  2021,
+  language = "en"
+}
+
+
+@MISC{opticalmaps1,
+  title   = "Ordered restriction maps of Saccharomyces cerevisiae chromosomes
+             constructed by optical mapping",
+  author  = "Schwartz, D and Li, X and Hernandez, L and Ramnarain, S and Huff,
+             E and Wang, Y",
+  journal = "Science",
+  volume  =  262,
+  number  =  5130,
+  pages   = "110--114",
+  year    =  1993
+}
+
+
+
+
+@MISC{hicassembly,
+  title  = "Integrating {Hi-C} links with assembly graphs for chromosome-scale
+            assembly",
+  author = "Ghurye, Jay and Rhie, Arang and Walenz, Brian P and Schmitt,
+            Anthony and Selvaraj, Siddarth and Pop, Mihai and Phillippy, Adam M
+            and Koren, Sergey"
+}
+
+
+@ARTICLE{SALSA,
+  title    = "Scaffolding of long read assemblies using long range contact
+              information",
+  author   = "Ghurye, Jay and Pop, Mihai and Koren, Sergey and Bickhart, Derek
+              and Chin, Chen-Shan",
+  abstract = "BACKGROUND: Long read technologies have revolutionized de novo
+              genome assembly by generating contigs orders of magnitude longer
+              than that of short read assemblies. Although assembly contiguity
+              has increased, it usually does not reconstruct a full chromosome
+              or an arm of the chromosome, resulting in an unfinished
+              chromosome level assembly. To increase the contiguity of the
+              assembly to the chromosome level, different strategies are used
+              which exploit long range contact information between chromosomes
+              in the genome. METHODS: We develop a scalable and computationally
+              efficient scaffolding method that can boost the assembly
+              contiguity to a large extent using genome-wide chromatin
+              interaction data such as Hi-C. RESULTS: we demonstrate an
+              algorithm that uses Hi-C data for longer-range scaffolding of de
+              novo long read genome assemblies. We tested our methods on the
+              human and goat genome assemblies. We compare our scaffolds with
+              the scaffolds generated by LACHESIS based on various metrics.
+              CONCLUSION: Our new algorithm SALSA produces more accurate
+              scaffolds compared to the existing state of the art method
+              LACHESIS.",
+  journal  = "BMC Genomics",
+  volume   =  18,
+  number   =  1,
+  pages    = "527",
+  month    =  jul,
+  year     =  2017,
+  keywords = "Assembly; Hi-C; Long reads; Scaffolding",
+  language = "en"
+}
+
+
+
+@ARTICLE{hicscafffirst,
+  title    = "De novo assembly of the Aedes aegypti genome using {Hi-C} yields
+              chromosome-length scaffolds",
+  author   = "Dudchenko, Olga and Batra, Sanjit S and Omer, Arina D and
+              Nyquist, Sarah K and Hoeger, Marie and Durand, Neva C and Shamim,
+              Muhammad S and Machol, Ido and Lander, Eric S and Aiden, Aviva
+              Presser and Aiden, Erez Lieberman",
+  abstract = "The Zika outbreak, spread by the Aedes aegypti mosquito,
+              highlights the need to create high-quality assemblies of large
+              genomes in a rapid and cost-effective way. Here we combine Hi-C
+              data with existing draft assemblies to generate chromosome-length
+              scaffolds. We validate this method by assembling a human genome,
+              de novo, from short reads alone (67$\times$ coverage). We then
+              combine our method with draft sequences to create genome
+              assemblies of the mosquito disease vectors Aeaegypti and Culex
+              quinquefasciatus, each consisting of three scaffolds
+              corresponding to the three chromosomes in each species. These
+              assemblies indicate that almost all genomic rearrangements among
+              these species occur within, rather than between, chromosome arms.
+              The genome assembly procedure we describe is fast, inexpensive,
+              and accurate, and can be applied to many species.",
+  journal  = "Science",
+  volume   =  356,
+  number   =  6333,
+  pages    = "92--95",
+  month    =  apr,
+  year     =  2017,
+  language = "en"
 }
 
 
@@ -2181,6 +2873,194 @@
   year     =  1998,
   language = "en"
 }
+
+
+% The entry below contains non-ASCII chars that could not be converted
+% to a LaTeX equivalent.
+@ARTICLE{LFR,
+  title     = "Efficient and unique cobarcoding of second-generation sequencing
+               reads from long {DNA} molecules enabling cost-effective and
+               accurate sequencing, haplotyping ?",
+  author    = "Wang, O and Chin, R and Cheng, X and Wu, M K Y and Mao, Q and
+               {others}",
+  abstract  = "Here, we describe single-tube long fragment read (stLFR), a
+               technology that enables sequencing of data from long DNA
+               molecules using economical second-generation sequencing
+               technology. It is based on adding the same barcode sequence to
+               subfragments of the original long DNA molecule (DNA
+               cobarcoding). To achieve this efficiently, stLFR uses the
+               surface of microbeads to create millions of miniaturized
+               barcoding reactions in a single tube. Using a combinatorial
+               process, up to 3.6 billion unique barcode sequences were ?",
+  journal   = "Genome",
+  publisher = "genome.cshlp.org",
+  year      =  2019
+}
+
+
+% The entry below contains non-ASCII chars that could not be converted
+% to a LaTeX equivalent.
+@ARTICLE{beadphasing,
+  title    = "Haplotype phasing of whole human genomes using bead-based barcode
+              partitioning in a single tube",
+  author   = "Zhang, Fan and Christiansen, Lena and Thomas, Jerushah and
+              Pokholok, Dmitry and Jackson, Ros and Morrell, Natalie and Zhao,
+              Yannan and Wiley, Melissa and Welch, Emily and Jaeger, Erich and
+              Granat, Ana and Norberg, Steven J and Halpern, Aaron and C
+              Rogert, Maria and Ronaghi, Mostafa and Shendure, Jay and Gormley,
+              Niall and Gunderson, Kevin L and Steemers, Frank J",
+  abstract = "Haplotype-resolved genome sequencing promises to unlock a wealth
+              of information in population and medical genetics. However, for
+              the vast majority of genomes sequenced to date, haplotypes have
+              not been determined because of cumbersome haplotyping workflows
+              that require fractions of the genome to be sequenced in a large
+              number of compartments. Here we demonstrate barcode partitioning
+              of long DNA molecules in a single compartment using ``on-bead''
+              barcoded tagmentation. The key to the method that we call
+              ``contiguity preserving transposition'' sequencing on beads
+              (CPTv2-seq) is transposon-mediated transfer of homogenous
+              populations of barcodes from beads to individual long DNA
+              molecules that get fragmented at the same time (tagmentation).
+              These are then processed to sequencing libraries wherein all
+              sequencing reads originating from each long DNA molecule share a
+              common barcode. Single-tube, bulk processing of long DNA
+              molecules with ?150,000 different barcoded bead types provides a
+              barcode-linked read structure that reveals long-range molecular
+              contiguity. This technology provides a simple, rapid,
+              plate-scalable and automatable route to accurate,
+              haplotype-resolved sequencing, and phasing of structural variants
+              of the genome.",
+  journal  = "Nat. Biotechnol.",
+  volume   =  35,
+  number   =  9,
+  pages    = "852--857",
+  month    =  sep,
+  year     =  2017,
+  language = "en"
+}
+
+
+@ARTICLE{haplotagging,
+  title    = "Haplotype tagging reveals parallel formation of hybrid races in
+              two butterfly species",
+  author   = "Meier, Joana I and Salazar, Patricio A and Ku{\v c}ka, Marek and
+              Davies, Robert William and Dr{\'e}au, Andreea and Ald{\'a}s,
+              Ismael and Box Power, Olivia and Nadeau, Nicola J and Bridle, Jon
+              R and Rolian, Campbell and Barton, Nicholas H and McMillan, W
+              Owen and Jiggins, Chris D and Chan, Yingguang Frank",
+  abstract = "Genetic variation segregates as linked sets of variants or
+              haplotypes. Haplotypes and linkage are central to genetics and
+              underpin virtually all genetic and selection analysis. Yet,
+              genomic data often omit haplotype information due to constraints
+              in sequencing technologies. Here, we present ``haplotagging,'' a
+              simple, low-cost linked-read sequencing technique that allows
+              sequencing of hundreds of individuals while retaining linkage
+              information. We apply haplotagging to construct megabase-size
+              haplotypes for over 600 individual butterflies (Heliconius erato
+              and H. melpomene), which form overlapping hybrid zones across an
+              elevational gradient in Ecuador. Haplotagging identifies loci
+              controlling distinctive high- and lowland wing color patterns.
+              Divergent haplotypes are found at the same major loci in both
+              species, while chromosome rearrangements show no parallelism.
+              Remarkably, in both species, the geographic clines for the major
+              wing-pattern loci are displaced by 18 km, leading to the rise of
+              a novel hybrid morph in the center of the hybrid zone. We propose
+              that shared warning signaling (M{\"u}llerian mimicry) may couple
+              the cline shifts seen in both species and facilitate the parallel
+              coemergence of a novel hybrid morph in both comimetic species.
+              Our results show the power of efficient haplotyping methods when
+              combined with large-scale sequencing data from natural
+              populations.",
+  journal  = "Proc. Natl. Acad. Sci. U. S. A.",
+  volume   =  118,
+  number   =  25,
+  month    =  jun,
+  year     =  2021,
+  keywords = "butterfly; genomes; haplotypes; hybrid zone; population genetics",
+  language = "en"
+}
+
+
+@ARTICLE{cptseq,
+  title    = "Haplotype-resolved whole-genome sequencing by
+              contiguity-preserving transposition and combinatorial indexing",
+  author   = "Amini, Sasan and Pushkarev, Dmitry and Christiansen, Lena and
+              Kostem, Emrah and Royce, Tom and Turk, Casey and Pignatelli,
+              Natasha and Adey, Andrew and Kitzman, Jacob O and Vijayan,
+              Kandaswamy and Ronaghi, Mostafa and Shendure, Jay and Gunderson,
+              Kevin L and Steemers, Frank J",
+  abstract = "Haplotype-resolved genome sequencing enables the accurate
+              interpretation of medically relevant genetic variation, deep
+              inferences regarding population history and non-invasive
+              prediction of fetal genomes. We describe an approach for
+              genome-wide haplotyping based on contiguity-preserving
+              transposition (CPT-seq) and combinatorial indexing. Tn5
+              transposition is used to modify DNA with adaptor and index
+              sequences while preserving contiguity. After DNA dilution and
+              compartmentalization, the transposase is removed, resolving the
+              DNA into individually indexed libraries. The libraries in each
+              compartment, enriched for neighboring genomic elements, are
+              further indexed via PCR. Combinatorial 96-plex indexing at both
+              the transposition and PCR stage enables the construction of
+              phased synthetic reads from each of the nearly 10,000 'virtual
+              compartments'. We demonstrate the feasibility of this method by
+              assembling >95\% of the heterozygous variants in a human genome
+              into long, accurate haplotype blocks (N50 = 1.4-2.3 Mb). The
+              rapid, scalable and cost-effective workflow could enable
+              haplotype resolution to become routine in human genome
+              sequencing.",
+  journal  = "Nat. Genet.",
+  volume   =  46,
+  number   =  12,
+  pages    = "1343--1349",
+  month    =  dec,
+  year     =  2014,
+  language = "en"
+}
+
+
+% The entry below contains non-ASCII chars that could not be converted
+% to a LaTeX equivalent.
+@ARTICLE{hapcut2,
+  title    = "{HapCUT2}: robust and accurate haplotype assembly for diverse
+              sequencing technologies",
+  author   = "Edge, Peter and Bafna, Vineet and Bansal, Vikas",
+  abstract = "Many tools have been developed for haplotype assembly-the
+              reconstruction of individual haplotypes using reads mapped to a
+              reference genome sequence. Due to increasing interest in
+              obtaining haplotype-resolved human genomes, a range of new
+              sequencing protocols and technologies have been developed to
+              enable the reconstruction of whole-genome haplotypes. However,
+              existing computational methods designed to handle specific
+              technologies do not scale well on data from different protocols.
+              We describe a new algorithm, HapCUT2, that extends our previous
+              method (HapCUT) to handle multiple sequencing technologies. Using
+              simulations and whole-genome sequencing (WGS) data from multiple
+              different data types-dilution pool sequencing, linked-read
+              sequencing, single molecule real-time (SMRT) sequencing, and
+              proximity ligation (Hi-C) sequencing-we show that HapCUT2 rapidly
+              assembles haplotypes with best-in-class accuracy for all data
+              types. In particular, HapCUT2 scales well for high sequencing
+              coverage and rapidly assembled haplotypes for two long-read WGS
+              data sets on which other methods struggled. Further, HapCUT2
+              directly models Hi-C specific error modalities, resulting in
+              significant improvements in error rates compared to HapCUT, the
+              only other method that could assemble haplotypes from Hi-C data.
+              Using HapCUT2, haplotype assembly from a 90$\times$ coverage
+              whole-genome Hi-C data set yielded high-resolution haplotypes
+              (78.6\% of variants phased in a single block) with high pairwise
+              phasing accuracy (?98\% across chromosomes). Our results
+              demonstrate that HapCUT2 is a robust tool for haplotype assembly
+              applicable to data from diverse sequencing technologies.",
+  journal  = "Genome Res.",
+  volume   =  27,
+  number   =  5,
+  pages    = "801--812",
+  month    =  may,
+  year     =  2017,
+  language = "en"
+}
+
 
 % The entry below contains non-ASCII chars that could not be converted
 % to a LaTeX equivalent.

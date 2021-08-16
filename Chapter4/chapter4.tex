@@ -108,7 +108,7 @@ We will use the kmers in the reads to determine if heterozygous paired kmers are
 
 \subsection{Pairwise haplotype phasing consistency}
 \par{
-For each kmer pair, we refer to one as the reference allele and one as the alternate allele arbitrarily without loss of generality. 
+For each kmer pair, we refer to one as the reference allele and one as the alternate allele arbitrarily without loss of generality. We go through the read kmer data and for every pairwise kmer on the molecule, we update counts for their associated heterozygous paired kmers. If the read contains the reference version of paired kmer k1 and reference version of paired kmer k2, the cis1 count gets incremented. We may do this with any of the data types for different purposes, but we do not combine counts across data types as the error modes may be different. For example, the Hi-C data will have some spurious connections across chromosomes due to the 3D conformation of the chromosomes in a particular nucleus. For the linked reads, we may also stipulate that a version of paired kmer k1 and paired kmer k2 be within some distance of each other on the assembly.
 }
 
 
@@ -140,19 +140,184 @@ We denote one of each kmer pair as the reference or alternative arbitrarily. Mol
 }
 \end{figure}
 
+\subsubsection{Phasing consistency and error modes}
+
+\par{
+There are several distinctive signals we can see from pairwise phasing consistency counts and further insight can be gained when looking at those phenotypes across the multiple paired kmers for which a given paired kmer will have data.
+}
+
+\begin{figure}[htbp!]
+\caption{Pairwise phasing consistency counts}\label{figure:consistency2}
+\centering
+\sidesubfloat[]{
+\begin{tikzpicture}[scale=1]
+\def\xoffset{0}
+\def\yoffset{0}
+
+\def\titley{1.2}
+\def\panellength{5}
+\def\titlescale{1}
+ \def\subtitlescale{0.7}
+% \node[scale=\titlescale,align=center] at (0.5*\panellength+\xoffset,\titley+\yoffset){\textbf{a}. Phasing consistent in cis};
+
+ \node[anchor=east] at (0 + \xoffset,2 + \yoffset) {$v1_{alt}$};
+\draw (4 + \xoffset,2 + \yoffset) arc (-50:-130:3.1) node[midway,above, scale=0.85] {$30$};
+\fill (0 + \xoffset ,2 + \yoffset) circle[radius=2pt];
+\node[anchor=west] at (4 + \xoffset,2 + \yoffset) {$v2_{alt}$};
+\fill (4 + \xoffset,2 + \yoffset) circle[radius=2pt];
+\node[anchor=east] at (0 + \xoffset,3.5 + \yoffset) {$v1_{ref}$};
+\fill (0 + \xoffset,3.5 + \yoffset) circle[radius=2pt];
+\draw (4 + \xoffset,3.5 + \yoffset) arc (50:130:3.1) node[midway,below, scale=0.85]{$32$};
+\draw (4 + \xoffset ,3.5 + \yoffset) -- node[below, scale=0.8] {$0$} (2 + \xoffset,2.75 + \yoffset) -- (0+ \xoffset,2 + \yoffset);
+\draw (4 + \xoffset,2 + \yoffset) -- node[below, scale=0.8] {$0$} (2+ \xoffset,2.75 + \yoffset) -- (0+ \xoffset,3.5 + \yoffset);
+\node[anchor=west] at (4+ \xoffset,3.5 + \yoffset) {$v2_{ref}$};
+\fill (4+ \xoffset,3.5 + \yoffset) circle[radius=2pt];
+
+\end{tikzpicture}\label{fig:a}}
+\sidesubfloat[]{
+\begin{tikzpicture}[scale=1]
+\def\xoffset{0}
+\def\yoffset{0}
+
+\def\titley{1.2}
+\def\panellength{5}
+\def\titlescale{1}
+ \def\subtitlescale{0.7}
+% \node[scale=\titlescale,align=center] at (0.5*\panellength+\xoffset,\titley+\yoffset){\textbf{a}. Phasing consistent in cis};
+
+ \node[anchor=east] at (0 + \xoffset,2 + \yoffset) {$v1_{alt}$};
+\draw (4 + \xoffset,2 + \yoffset) arc (-50:-130:3.1) node[midway,above, scale=0.85] {$0$};
+\fill (0 + \xoffset ,2 + \yoffset) circle[radius=2pt];
+\node[anchor=west] at (4 + \xoffset,2 + \yoffset) {$v2_{alt}$};
+\fill (4 + \xoffset,2 + \yoffset) circle[radius=2pt];
+\node[anchor=east] at (0 + \xoffset,3.5 + \yoffset) {$v1_{ref}$};
+\fill (0 + \xoffset,3.5 + \yoffset) circle[radius=2pt];
+\draw (4 + \xoffset,3.5 + \yoffset) arc (50:130:3.1) node[midway,below, scale=0.85]{$0$};
+\draw (4 + \xoffset ,3.5 + \yoffset) -- node[below, scale=0.8] {$34$} (2 + \xoffset,2.75 + \yoffset) -- (0+ \xoffset,2 + \yoffset);
+\draw (4 + \xoffset,2 + \yoffset) -- node[below, scale=0.8] {$29$} (2+ \xoffset,2.75 + \yoffset) -- (0+ \xoffset,3.5 + \yoffset);
+\node[anchor=west] at (4+ \xoffset,3.5 + \yoffset) {$v2_{ref}$};
+\fill (4+ \xoffset,3.5 + \yoffset) circle[radius=2pt];
+
+\end{tikzpicture}\label{fig:b}
+} \\
+
+\sidesubfloat[]{
+\begin{tikzpicture}[scale=1]
+\def\xoffset{0}
+\def\yoffset{0}
+
+\def\titley{1.2}
+\def\panellength{5}
+\def\titlescale{1}
+ \def\subtitlescale{0.7}
+% \node[scale=\titlescale,align=center] at (0.5*\panellength+\xoffset,\titley+\yoffset){\textbf{a}. Phasing consistent in cis};
+
+ \node[anchor=east] at (0 + \xoffset,2 + \yoffset) {$v1_{alt}$};
+\draw (4 + \xoffset,2 + \yoffset) arc (-50:-130:3.1) node[midway,above, scale=0.85] {$33$};
+\fill (0 + \xoffset ,2 + \yoffset) circle[radius=2pt];
+\node[anchor=west] at (4 + \xoffset,2 + \yoffset) {$v2_{alt}$};
+\fill (4 + \xoffset,2 + \yoffset) circle[radius=2pt];
+\node[anchor=east] at (0 + \xoffset,3.5 + \yoffset) {$v1_{ref}$};
+\fill (0 + \xoffset,3.5 + \yoffset) circle[radius=2pt];
+\draw (4 + \xoffset,3.5 + \yoffset) arc (50:130:3.1) node[midway,below, scale=0.85]{$0$};
+\draw (4 + \xoffset ,3.5 + \yoffset) -- node[below, scale=0.8] {$0$} (2 + \xoffset,2.75 + \yoffset) -- (0+ \xoffset,2 + \yoffset);
+\draw (4 + \xoffset,2 + \yoffset) -- node[below, scale=0.8] {$26$} (2+ \xoffset,2.75 + \yoffset) -- (0+ \xoffset,3.5 + \yoffset);
+\node[anchor=west] at (4+ \xoffset,3.5 + \yoffset) {$v2_{ref}$};
+\fill (4+ \xoffset,3.5 + \yoffset) circle[radius=2pt];
+
+\end{tikzpicture}\label{fig:c}}
+\sidesubfloat[]{
+\begin{tikzpicture}[scale=1]
+\def\xoffset{0}
+\def\yoffset{0}
+
+\def\titley{1.2}
+\def\panellength{5}
+\def\titlescale{1}
+ \def\subtitlescale{0.7}
+% \node[scale=\titlescale,align=center] at (0.5*\panellength+\xoffset,\titley+\yoffset){\textbf{a}. Phasing consistent in cis};
+
+ \node[anchor=east] at (0 + \xoffset,2 + \yoffset) {$v1_{alt}$};
+\draw (4 + \xoffset,2 + \yoffset) arc (-50:-130:3.1) node[midway,above, scale=0.85] {$30$};
+\fill (0 + \xoffset ,2 + \yoffset) circle[radius=2pt];
+\node[anchor=west] at (4 + \xoffset,2 + \yoffset) {$v2_{alt}$};
+\fill (4 + \xoffset,2 + \yoffset) circle[radius=2pt];
+\node[anchor=east] at (0 + \xoffset,3.5 + \yoffset) {$v1_{ref}$};
+\fill (0 + \xoffset,3.5 + \yoffset) circle[radius=2pt];
+\draw (4 + \xoffset,3.5 + \yoffset) arc (50:130:3.1) node[midway,below, scale=0.85]{$0$};
+\draw (4 + \xoffset ,3.5 + \yoffset) -- node[below, scale=0.8] {$0$} (2 + \xoffset,2.75 + \yoffset) -- (0+ \xoffset,2 + \yoffset);
+\draw (4 + \xoffset,2 + \yoffset) -- node[below, scale=0.8] {$0$} (2+ \xoffset,2.75 + \yoffset) -- (0+ \xoffset,3.5 + \yoffset);
+\node[anchor=west] at (4+ \xoffset,3.5 + \yoffset) {$v2_{ref}$};
+\fill (4+ \xoffset,3.5 + \yoffset) circle[radius=2pt];
+
+\end{tikzpicture}\label{fig:d}
+}
+
+\par{
+Example of a phasing consistent pair of heterozygous paired kmers \textbf{a)} in cis and \textbf{b)} in trans. \textbf{c)} shows an example of phasing inconsistency because the v2 kmer pair are not a heterozygous kmer pair, but because of paralogous sequence. The reference version of the v2 pair probably exists elsewhere in the genome. If this were due to a tandem repeat, we might expect all four edges to contain counts, perhaps with two edges having fewer counts due to fewer reads reaching into the 2nd repeat. \textbf{d)} shows a somewhat ambiguous case. From this, we do not know if v1 or v2 is heterozygous or not. This could arise from both being homozygous or one of them being heterozygous, but its pair not being the other haplotype.
+}
+\end{figure}
+
+\par{
+Figure \ref{figure:consistency2} show the main phasing consistent and inconsistent phenotypes for pairs of paired kmers. It is uncommon to get very mixed signals especially when working with HIFI data. When working with Hi-C data, pairwise counts are not of much use as it is rare for many Hi-C read pairs to link the same two heterozygous kmer pairs. Due to ambiguous cases that should be expected from data outlined in figure \ref{figure:consistency2}d, it is not always possible to categorize kmer pairs as heterozygous or paralogous from phasing consistency counts with one other kmer pair. We can then look across phasing consistency counts that a single kmer pair has with all of the kmer pairs with which it shares enough counts. In doing so we find some kmer pairs that are phasing consistent with some others and inconsistent with another set due to those other kmer pairs arising from paralogous sequence. And we also find kmer pairs which are inconsistent with all other kmer pairs because they were not truly heterozygous.
+}
+
+
+
 \subsection{Multiple heterozygous site haplotype phasing consistency}
 
+\par{
+When using phasing consistency as a signal for assembly scaffolding, we want to compare all heterozygous kmer pairs in one contig to all heterozygous kmer pairs in another contig. Figure \ref{figure:scaff} outlines what that looks like in the same way the previous phasing consistency diagrams did for pairs of individual kmer pairs. In order to do this, we will need to phase all heterozygous kmer pairs within each contig with respect to each other.
+}
 
+\begin{figure}[htbp!]
 
-\subsection{de novo haplotype phasing}
+\caption{Phasing aware scaffolding}
+\label{figure:scaff}
+\begin{centering}
+\includegraphics[width=\textwidth]{phasescaff.png}
+\par{Using phasing consistency for scaffolding requires all of the heterozygous kmer pairs within a contig to already be phased with respect to one another.}
+\end{centering}
+\end{figure}
+
+\subsection{\textit{de novo} haplotype phasing}
+
+\par{
+We use one or a combination of data types to do \textit{de novo} haplotype phase. The data type that is required is Hi-C, but long reads or linked reads can be used in addition to them. The reason Hi-C data is required is due to the very long range genetic information it gives us. With Hi-C, we are able to phase whole chromosomes instead of potentially having to break our phasing into phase blocks that are smaller than the chromosome. While there are existing phasing algorithms that can take multiple data types including Hi-C\cite{hapcut2}\cite{HICphasing}, we have developed our own phasing algorithm that has several benefits in general and to our specific purposes.
+}
 
 \subsubsection{Sparse \textit{Bernoulli} mixture model clustering}
 
+\par{
+We treat the haplotype phasing problem as a clustering problem. If we can cluster reads according to heterozygous kmer pair alleles they contain, this gives an implicit phasing of each kmer pair. Similar to the clustering algorithm in Chapter 2, we treat the haplotype clusters as vectors of allele fractions. Where in chapter 2 this represented the probability parameter of a \textit{Binomial} because we were dealing with allele count data, here it will represent a \textit{Bernoulli} as we assume that a single read can only have one or the other of two alternate alleles.
+}
 
-\cite{HICphasing} %place this somewhere
+\begin{figure}[htbp!]
 
+\caption{Sparse \textit{Bernoulli} mixture model clustering haplotype phasing}
+\label{figure:scaff}
+\begin{centering}
+\includegraphics[width=\textwidth]{sparsebernoulli.png}
+\par{We treat the phasing problem as a sparse clustering problem in which we cluster reads into haplotypes.}
+\end{centering}
+\end{figure}
 
+Definitions
+\begin{itemize}
+\item $H$: number of haplotypes. Lower case h will be used for indexing and referring to a specific haplotype.
+\item $R$: number of reads. Lower case r will be used for indexing and referring to a specific read. 
+\item $V$: number of kmer pairs. Lower case $v$ will be used to index and refer to a specific locus. We will assume only biallelic variants. $L_c$ will be a list of loci with observed data in cell $c$.
+\item $A$: Alleles. $A_{v,r}$ is a boolean representing whether read $r$ for kmer pair $v$ had the alternative allele or the reference allele.
+\item $\phi_{h,v}$: cluster center value representing allele fractions of haplotype $h$ at locus $v$. We expect this to be near 1.0 or 0.0 because each haplotype can only have one allele or the other, but we allow the value to be continuous to allow for continuous numerical optimization techniques.
+\end{itemize}
 
+\noindent
+\subsubsection{Model}
+
+We use a maximum likelihood strategy by maximizing $\mathcal{L}(data)$ under a given model. 
+\begin{equation}
+\argmax_{\phi} \mathcal{L}(data, \phi)
+\end{equation}
 
 
 \section{Pedigree sample strategies}
