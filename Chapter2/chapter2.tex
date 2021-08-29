@@ -16,12 +16,12 @@
 %********************************** %First Section  **************************************
 \section{Background}
 \par{
-Cells are a natural discrete building block of biology. And tissues are almost always complex arrangements of multiple different cell types. Bulk RNAseq is a blunt 
+Cells are the natural discrete building block of biology. And tissues are almost always complex arrangements of multiple different cell types. Bulk RNAseq is a blunt 
 instrument measuring the average RNA content of many cells in a tissue. 
 Advances in methods for the preparation of samples containing minuscule amounts of nucleic acids have made it possible to study the transcriptional state of single cells \cite{first_singlecell}.
 Single cell RNAseq (scRNAseq) is the process of measuring the transcriptional profile of each cell individually usually by physically separating cells into and delivering distinct barcode sequences to templates generated from the mRNA of each cell \cite{smartseq2}.
-Further advances in nanodroplet and nanowell technologies have made it possible to apply scRNAseq to thousands of cells simultaneously \cite{dropseq}\cite{10xsinglecell}\cite{seqwell} instead of the plate based strategies which usually were applied to hundreds of cells at a time \cite{smartseq2}. 
-}
+Further advances in nanodroplet and nanowell technologies have made it possible to apply scRNAseq to thousands of cells simultaneously \cite{dropseq}\cite{10xsinglecell}\cite{seqwell} instead of the plate based strategies which usually were limited to hundreds of cells at a time \cite{smartseq2}. 
+} \\
 
 
 
@@ -39,7 +39,7 @@ contain several error modes arising from the lack of modeling the ambient RNA in
 phenomenon in which RNA molecules from cells that have lysed before cell partitioning are included in partitions with cells from which they did not originate \cite{soupx}. This adds noise to both the transcriptional profiles of the scRNAseq experiment, but also the genotype analysis and demultiplexing of mixed genotype samples. 
 In these demultiplexing systems, not modeling the ambient RNA makes many cells appear to be doublets and makes many homozygous variant sites appear to be 
 heterozygous. 
-}
+} \\
 
 \par{
 In this chapter, I present souporcell, a tool containing a collection of algorithms to support mixed genotype scRNAseq experiments\cite{souporcell}. 
@@ -63,10 +63,10 @@ ref, reference allele.}
 \end{figure}
 \par{
 We then demonstrate and benchmark souporcell against a dataset which was mixed in silico and thus we retain full knowledge of the ground truth of which barcodes came from which individual, which barcodes represent cross-genotype doublets, and how much ambient RNA was simulated (see figure \ref{figure:synthetic}). To show that this dataset is a realistic example, we then show the same results on an experimental mixture of cells from those same individuals(shown in figure \ref{figure:real}).
-}
+} \\
 \par{
 We compare our method to demuxlet, the previous gold standard method that requires genotype information a priori, as well as two new tools that, like souporcell, do not require prior genetic information\cite{vireo}\cite{scsplit} on the in silico mixture with various aspects of the data (doublet rate, ambient RNA amount, minority cluster size) swept and evaluate clustering, doublet detection, and ambient RNA detection across a wide range of data charactaristics. We sought to test souporcell on more challenging cases and chose that of highly related individuals by demultiplexing maternal-fetal placental and decidual experiments. We also test on mixtures of the malaria parasite, \textit{Plasmodium falciparum}, which is challenging due to the cells having much lower expression levels than the human cells previously tested.
-}
+} \\
 \par{
 We show that souporcell not only outperforms the competing methods, but also surpasses the previous gold standard, demuxlet, on both cell assignment and doublet accuracy. Furthermore, souporcell explicitly models and estimates the amount of ambient RNA in the experiment, which is a major confounder of scRNAseq analysis with regard to both expression and genotype. Although a tool for ambient RNA quantification exists\cite{soupx}, it requires prior knowledge in the form of one or more well expressed genes known to not be expressed in a particular cell type. Souporcell is freely available under the MIT open source license at https://github.com/wheaton5/souporcell.
 }
@@ -74,7 +74,7 @@ We show that souporcell not only outperforms the competing methods, but also sur
 
 \section{Methods} %Section - 1.1 
 \subsection{Variant calling on scRNAseq data}
-In order to use the genetic variants in the scRNAseq reads to assign cells to individuals, we must first call the variants accurately and assign which alleles were expressed by which cells. Little work has been done on identifying genetic variants in bulk RNAseq \cite{RNAvariant} let alone scRNAseq \cite{vartrix}\cite{cellsnp}. 
+In order to use the genetic variants in the scRNAseq reads to assign cells to individuals, we must first call the variants accurately and assign which alleles were expressed by which cells. Little work has been done on identifying genetic variants in bulk RNAseq \cite{RNAvariant}\cite{somaticrna} let alone scRNAseq \cite{vartrix}\cite{cellsnp}. 
 
 
 
@@ -82,7 +82,7 @@ In order to use the genetic variants in the scRNAseq reads to assign cells to in
 \par{
 Currently, the most popular software for the initial analysis of droplet based scRNAseq data to go from the reads to the mRNA expression matrix is cellranger \cite{10xsinglecell}. In the cellranger pipeline, the reads are first mapped to a reference genome. RNA mapping and DNA mapping software differ due to the intended downstream uses. With DNA mapping, accurate variant calling is one of the primary applications and thus much work has been put into providing accurate mapping quality scores and base level alignments making single nucleotide polymorphisms (SNPs) and short insertions and deletions (indels) easy to call accurately versus the reference genome used \cite{bwa}\cite{minimap2}\cite{bowtie}\cite{freebayes}\cite{gatk}. The mapping and alignment operations are relatively computationally costly if accurate variant calling is not one of the desired downstream uses. RNA mapping applications are usually primarily concerned with just counts of reads per gene and sometimes differential RNA splicing. Thus, the RNA community has developed software some of which are faster but do not provide base level alignments \cite{kallisto}\cite{salmon} and others that allow for gapped alignments caused by the introns being spliced out \cite{bowtie2}\cite{STAR}\cite{hisat}\cite{tophat}. But in optimizing for the downstream applications of transcript counting and differential splicing, genetic variant calling accuracy can suffer. In cellranger, the mapping component is done with the STAR aligner \cite{STAR} which, while sufficient for the purpose 
 of counting gene expression, produces artifacts in the alignments that produce many false positive variants. 
-}
+} \\
 \par{
 One such source of false positives is the 
 soft clipping penalty which is not a parameter exposed to the user in the STAR software. It is often the case in WGS and even more so in RNAseq that the starts and ends of
@@ -124,7 +124,7 @@ random chance alone. Due to the nature of mapping qualities being assigned to th
 having a high mapping quality when in fact the matches should occur by chance. If there is actually an alternative allele in one of these regions to which some reads have 
 spurious matches, those reads, and thus those cells, appear to support the reference allele. These alignments provide one further technical 
 issue, which is that they dramatically slow down the pileup and fetch commands in samtools \cite{samtools} which are necessary for variant calling. 
-}
+} \\
 \par{
 For these reasons we first remap the data with either BWA, minimap2, or hisat2. We have found good results when remapping with minimap2 with a combination 
 of long read splice parameters and short read parameters. Specifically, the parameters for which all analysis is done in this thesis are the following: 
@@ -473,7 +473,9 @@ Once again we solve this with a maximum likelihood approach.
 \argmax_{\rho} p(data, \phi)
 \end{equation}
 
+\par{
 Here, the proportion of ambient RNA in the system, $\rho$, is the only free parameter and we solve for it using maximum likelihood. The model treats each locus in each cluster as coming from one of three genotypes for diploid (0/0, 0/1, 1/1, here denoted by g = 0, 1, or 2) and two genotypes from haploid (0, 1). We treat each cluster as independent and each locus as independent, before marginalizing across the possible genotypes. The model also considers the possibility of the variant being a false positive. In this case, the variant will not segregate into distinct allele frequencies between different clusters and it will most likely not attain a value close to the standard allele frequencies expected from the diploid or haploid genotypes. Thus, we model the allele counts in each cluster as having come from a mixture of ambient RNA (an average allele fraction in the experiment) and from the cells in that cluster. The observed allele fractions are assumed to have been drawn from a binomial distribution with a probability that was skewed away from $p = g/P$ by the level of ambient RNA $\rho$. Thus, the probability of the binomial from which the allele counts are drawn for true positive variants is the following.
+}
 
 
 
@@ -486,33 +488,15 @@ p_{fp} = \frac{A_{l,0}}{A_{l,0} + A_{l,1}}
 \end{equation}
 
 Thus, the full model is
-\begin{equation}
+%\begin{equation}
 %\begin{multline}
-\begin{split}
-p(data | \rho)  &= \prod_{l \in L} \bigg[p(true) \prod_{k \in K} \sum^P_{g=0} \frac{1}{P}  {A_{l,c,0} + A_{l,c,1}  \choose A_{l,c,1}} p_{tp}^{A_{k,l,0}} (1-p_{tp})^A_{k,l,1}  \\ &+ (1-p(true)) \prod_{k \in K} {A_{l,c,0} + A_{l,c,1}  \choose A_{l,c,1}} p_{fp}^{A_{k,l,0}} (1-p_{fp})^A_{k,l,1} \bigg]
+%\begin{split}
+%p(data | \rho)  &= \prod_{l \in L} \bigg[p(true) \prod_{k \in K} \sum^P_{g=0} \frac{1}{P}  {A_{l,c,0} + A_{l,c,1}  \choose A_{l,c,1}} p_{tp}^{A_{k,l,0}} (1-p_{tp})^A_{k,l,1}  \\ &+ (1-p(true)) \prod_{k \in K} {A_{l,c,0} + A_{l,c,1}  \choose A_{l,c,1}} p_{fp}^{A_{k,l,0}} (1-p_{fp})^A_{k,l,1} \bigg]
 %\end{multline}
-\end{split}
-\end{equation}
+%\end{split}
+%\end{equation}
 
 
-
-And the model treats each locus in each cluster as coming from one of three genotypes for diploid (0/0, 0/1, 1/1, here denoted by g=0,1, or 2) and two genotypes from haploid (0, 1). We 
-treat each cluster as independent and each locus as independent. Then we marginalize across the possible genotypes.  
-And so we model the allele counts in this cluster as having come from 
-a mixture of ambient RNA and from this cells in this cluster. And then we model the observed allele fractions as being drawn from a binomial distribution 
-with a probability which was skewed away from $p=\frac{g}{P}$ by the level of ambient RNA. And we believe that the ambient RNA is drawn from 
-an average of all of the reads in the experiment. As such, the expected allele fraction coming from the soup is $\frac{A_{l,0}}{A_{l,0} + A_{l,1}}$. 
-Thus, the probability of the binomial of the mixture of cell data is the following.
-\begin{equation}
-p_{tp} = (1-\rho)\frac{g}{P} + \rho \frac{A_{l,0}}{A_{l,0}+A_{l,1}}
-\end{equation}
-\begin{equation}
-p_{fp} = \frac{A_{l,0}}{A_{l,0}+A_{l,1}}
-\end{equation}
-
-
-
-Now we use that binomial probability in the full likelihood.
 \begin{equation}
 \begin{split}
 p(data | \rho) = \prod_{l \in L} \bigg[ & p(true) \prod_{k \in K} \sum_{g = 0}^P \frac{1}{P} \binom{A_{k,l,0} + A_{k,l,1}}{A_{k,l,0}} p_{tp}^{A_{k,l,0}} (1-p_{tp})^{A_{k,l,1}} \\
@@ -622,11 +606,13 @@ identified the non-overlapping clusters in Sample C which correspond to A and B.
 
 \subsubsection{Validation and comparison to other methods}
 
+\par{
 We compared souporcell to vireo and scSplit, two other tools that do not require prior genetic information. First, we ran variant calling and cell allele counting as recommended for each tool. Using souporcell, we clustered cells by their genotypes, and evaluated the correct number of clusters through an elbow plot comparing the total log probability versus a varying number of clusters (\ref{figure:synthetic}b). The clustering output can be viewed as a matrix with cells as rows and clusters as columns with the values being the log likelihood of that cell versus the corresponding cluster. To visualize the five clusters identified by genotype we carried out a Principal Component Analysis (PCA) of the normalized log likelihood matrix, which reveals a clear separation of the clusters, with interspersed doublets (\ref{figure:synthetic}c and d).  For these data souporcell assigned 6612/6622 singletons and 415/451 doublets correctly; four singletons were falsely labeled as a doublet, 35 doublets were misidentified as singletons, and one doublet and four singletons were unassigned. We carried out the same analysis for the three replicates of the  experiment mixtures and show results for one (\ref{figure:real}). The expression PCA (Fig. 2e) and normalized cell-cluster loss PCA (\ref{figure:real}c,d) of the experimental mixture were similar to the synthetic mixture indicating that the synthetic mixtures were an accurate approximation of real mixtures. To compare doublet detection between methods, we calculated a receiver-operator characteristic (ROC) curve of the doublet calls (\ref{figure:compare}i) on a synthetic mixture with 6\% doublets and 10\% ambient RNA that showed the area under the curve values of 0.98 and 0.91 for souporcell and vireo, respectively. We also show point estimates for the doublet threshold chosen. Demuxlet's posterior doublet probability output did not have enough significant digits and is 1.0 until it starts varying with 27\% false positives. The default doublet probability threshold for demuxlet gives nearly 40\% false positive doublets.
+} \\
 
 \par{
 Each of the five human iPSC lines has existing WGS data generated as part of the HipSci Project\cite{hipsci2}. Therefore, for the experimentally mixed replicates, we compared each tool's clustering to sample assignments obtained from demuxlet using genotypes available from the WGS. Demuxlet significantly overestimates doublets versus expectations based on the number of cells loaded\cite{10xsinglecell} especially as ambient RNA increases (\ref{figure:compare}b). Because we could not trust the doublet calls of demuxlet, we allowed scSplit, vireo, and souporcell to exclude their called doublets and then compared the remaining cells to demuxlet's best single genotype assignment. The Adjusted Rand Index (ARI) of the remaining cell assignments versus demuxlet were 1.0 (fully concordant) for souporcell and vireo across the three replicates and an average of 0.97 for scSplit.
-}
+} \\
 
 \par{
 To evaluate the robustness of each tool across a range of parameters, we created synthetic mixtures of the five individual human iPSC scRNAseq experiments to test both the sensitivity to the ambient RNA level (\ref{figure:compare}b,c) and the ability to accurately assign cells to a cluster if it is much smaller than other clusters (\ref{figure:compare}d). For the ambient RNA experiment, we synthetically combined 20\% of the cells from each of the five individual samples and simulated 6\% intergenotypic doublets and a range of ambient RNA from 2.5\%-50\% representing realistic ranges previously reported\cite{soupx}. We found that souporcell and vireo retain high accuracy with souporcell being more robust at accurately calling doublets in high ambient RNA cases (\ref{figure:compare}c). The ARI of scSplit and demuxlet suffered due to poor doublet detection. With these data we also show that souporcell is able to accurately estimate the amount of ambient RNA in the experiment (\ref{figure:compare}c). To test robustness to sample skew, e.g., one donor's cells are underrepresented, we created a set of synthetic mixtures with 1,000 cells from each of four individual samples and 25-800 cells for the minority cluster including 8\% ambient RNA and 6\% doublets (\ref{figure:compare}d). We found that all tools performed well down to the minority cell cluster comprising only 1.2\% (50 cells) of total cells (Fig. 2m), but only souporcell and vireo were able to correctly identify all minority sample singletons as their own cluster down to 0.6\% of all cells. Again, demuxlet's poor ARI was due primarily to extremely high levels of false positive doublets (\ref{figure:compare}a).
@@ -684,7 +670,7 @@ Next, we considered more challenging scenarios involving multiple cell types, wi
 
 \par{
 We also tested souporcell on a non-human sample, the single-celled malaria parasite \textit{Plasmodium falciparum}, for which single cell approaches are now used to explore natural infections\cite{MCA}. Malaria infections often contain parasites from multiple different genetic backgrounds, and it is not possible to separate the strains prior to sequencing. These samples differ from human samples in a variety of ways; they are haploid when infecting humans, the genome is $>80$\% A/T, and the transcriptome is only $\sim12$ megabases (genome is $\sim23$ Mb). We generated three datasets containing six genetically distinct strains of \textit{P. falciparum} (methods) sampling 1893-2608 cells with median UMIs of ~1000. Analysis of the expression profile of one of these (see Fig. S3 for the others) reveals that the genotypes are distributed across the \textit{Plasmodium} intra-erythrocytic cycle (\ref{figure:malaria}a) while being well separated in normalized loss cluster space (\ref{figure:malaria}b,c). The ARI for each method on the three \textit{Plasmodium} data sets show superior performance for souporcell across the board, with scSplit suffering on all datasets and vireo performing poorly on one, which had an ARI versus demuxlet of 0.24. This sample was more difficult due to sample skew caused by a clonal expansion of one of the six strains.
-}
+} \\
 
 \par{
 We did three \textit{Plasmodium falciparum} mixture experiments. In the one shown above, the cells were mixed and immediately prepared for single cell sequencing. In the second one, the cells were mixed and then fixed in methanol before being prepared for scRNAseq. In the third mixture, cells were mixed and then grown in culture for seven days prior to single cell sequencing. Because the initial mixture was not very equal, the majority strain out grew the other strains dramatically. This caused the number of cells from some of the other strains to contain very few cells and be more difficult to cluster. Figure \ref{figure:malaria_replicates} shows the results of the 2nd and 3rd mixtures. The Plasmodium 3 sample which was cultured for seven days prior to being sequenced did not cluster into six clusters well. The elbow plot seemed to support a K of 3 more than the true number of strains mixed. This shows some of the limitations of souporcell and clustering in general with highly skewed number of cells per sample.
@@ -732,7 +718,7 @@ the CB3 cluster. We show later that this is likely because the CB8 sample is con
 (non CB3) donor. \ref{figure:21donor} shows the UMAP projection of the normalized cluster log likelihood
 matrix. It is clear that souporcell is able to handle at least 21 distinct donors and accurately assign cluster
 identities to the majority of cells. 
-}
+} \\
 
 \par{
 Because this error type accounted for >95\% of singleton errors, we suspected this may be due to
@@ -759,7 +745,9 @@ the arrow. We show later that this is likely due to contamination.}
 
 \subsubsection{Contamination revealed}
 
+\par{
 To further test whether the CB8+CB3 ``misassignment" was an error or true signal, we created a synthetic mixture of all cells from both the CB8 sample and the CB3 sample. We ran souporcell with a range of k from 1 to 5 and plotted the elbow curve \ref{figure:contamination}a and the PCA of the cell cluster likelihoods for the clearly optimal number of clusters which was three. This PCA has good separation and gives good evidence that the CB8 sample was contaminated with cells from another donor which were most likely more closely related to the CB3 sample than the CB8 sample. We followed up with the creators of the census of immune cells data resource and they said that they were already aware of a contamination in the CB8 sample. This corroborated discover was not picked up by the vireo team which used the same data with which they reported high concordance. This shows further the power of souporcell for detection of unexpected events such as sample contamination.
+}
 
 \begin{figure}[htbp!]
 \caption{Contamination revealed}
@@ -800,7 +788,9 @@ average cell per cluster of 40. The cluster with the fewest cells in the 40 aver
 
 
 \section{Discussion}
+\par{
 Here we have presented souporcell, a method for clustering scRNAseq cells by genotype using sparse mixture model clustering with explicit ambient RNA modeling. Our benchmarks show that souporcell can outperform all other currently available methods, including those that require genotypes a priori. Using more realistic and challenging test cases than previous studies, we show that souporcell is robust across a large range of parameters, and more so than any other currently available method. Moreover, souporcell is highly accurate for challenging datasets involving closely related maternal/fetal samples, and varying mixtures of Plasmodium falciparum strains. Limitations of souporcell include low signal to noise due to decreased UMI per cell and high numbers of donors causing increased local maxima. Due to the advantages that mixtures give to scRNAseq experiments in ameliorating batch effects, improving doublet detection, and allowing for ambient RNA estimation, souporcell enables donor multiplexing designs to be used more easily than was previously possible, including in situations when no WGS or genotyping data are available. In addition to reducing cost and allowing for more complex and robust experimental designs, souporcell also enables valuable genotype information to be extracted and ambient RNA estimation at no additional cost.
+}
 
 %********************************** % Third Section  *************************************
 
