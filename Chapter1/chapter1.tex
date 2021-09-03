@@ -150,9 +150,11 @@ Before counting UMIs, cellranger attempts to do barcode correction on the cell b
 PCR duplicates are then removed using the cell barcode, UMI, and gene. If any reads have the same three, all are discarded except one. The remaining reads will be counted to create the cell barcode by gene count matrix. Note that not each cell barcode contains a cell. Due to ambient RNA in solution from cells lysed before reverse emulsion partitioning, droplets without a patent cell will have some reads. We next need to determine which cell barcodes have cells and which do not.
 }
 
+
+
 \subsubsection{Cell-barcode detection}
 \par{
-Initially, cell containing GEMs were called using the second derivative of the log-log UMI counts by barcodes plot (see figure \ref{figure:knee}). More recently, a method using the RNA content of the confidently empty droplets called EmptyDrops\cite{emptydrops} was developed to compare that RNA content (which is generally an average of the RNA content of all cells assuming each cell type lyses with equal probability) with the RNA content of the cells to determine an appropriate cutoff where the difference from the average decreases rapidly. This algorithm has now been implemented in cellranger. The raw cell barcode by genes UMI counts matrix is then filtered to retain only cell containing cell barcodes.
+Initially, cell containing GEMs were called using the second derivative of the log-log UMI counts by barcodes plot (see figure \ref{figure:knee}). More recently, a method using the RNA content of the confidently empty droplets called EmptyDrops\cite{emptydrops} was developed to compare that RNA content (which is generally an average of the RNA content of all cells assuming each cell type lyses with equal probability) with the RNA content of the cells to determine an appropriate cutoff where the difference from the average decreases rapidly. This particularly helps in situations where the cell population contains some cells with a large amount of transcription and another cell type with many fewer transcripts. Both of these cell types will likely still have a very different transcriptional profile than the empty droplets. This algorithm has now been implemented in cellranger. The raw cell barcode by genes UMI counts matrix is then filtered to retain only cell containing cell barcodes.
 }
 \begin{figure}[htbp!]
 \caption{Cell barcode detection knee plot old vs new algorithm}
@@ -163,32 +165,55 @@ Initially, cell containing GEMs were called using the second derivative of the l
 \sidesubfloat[]{
 \includegraphics[width=0.45\textwidth]{knee2.png}
 }
-\par{Log-log barcode by UMI count knee plots showing which barcodes were determined to contain cells under the \textbf{a)} old method using 2nd derivative and the \textbf{b)} new emptydrop method (credit: 10x genomics website).}
+\par{Log-log barcode by UMI count knee plots showing which barcodes were determined to contain cells under the \textbf{a)} old method using 2nd derivative and the \textbf{b)} new EmptyDrops method (credit: 10x genomics website).}
 \end{centering}
 \end{figure}
+
+\subsubsection{Quality control}
+
+\par{
+Many of the following steps are done in software packages downstream from cellranger which aim to implement many types of analyses for scRNAseq data. The most popular of these software packages is seurat\cite{seurat1}\cite{seurat2} and while alternatives such as Monocle\cite{monocle}, a comparison is out of the scope of this thesis.
+} \\
+
+\par{ In the process of cell dissociation, liquid handling, and partitioning, some cells may be damaged. For this reason, many researchers use different criteria to remove these poor quality cells. Some also use different criteria for different cell types and so a less stringent global filter may be applied prior to cell type detection and further filtering. These criteria include number of genes per cell, \% mapped reads, \% reads that map to spike in controls, \% mitochondrial reads, and \% of reads that are PCR duplicates. While these are reasonable markers for dead or dying cells\cite{osorio}\cite{ilicic}, it is my personal opinion that this type of quality control should be limited and standardized as much as possible to prevent unintentional bias in the results affecting how these thresholds are chosen. 
+}
+
+\subsubsection{Normalization}
+
+\par{
+As previously discussed, individual cells have extremely small amounts of mRNA and require methods to amplify this material in order to be made into a cDNA library and sequenced. These methods, along with the innate difficulties of measuring such a small amount of starting material inevitably result in some technical artifacts. Genes that are expressed to a lesser degree than other genes may show zero counts or lower than true counts in the experiment for several reasons\cite{technoise}. Capture rate of mRNA in the reverse transcription step will never have complete yield and may vary from cell to cell and gene to gene. Additionally, genes that are expressed might be made into cDNA and amplified, but not sampled in the sequencing step as transcripts that begin with a higher copy number get amplified more in the exponential PCR step. Differences in cell size, and thus mRNA content, may result in sampling of genes in one cell type not sampled in other cell types even if both express them. To address this, many normalization methods have been developed\cite{normalize1}\cite{normalize2} to address these problems. Spike in controls can be used to improve this normalization\cite{marioni1} but takes up valuable sequencing. Another solution is imputation\cite{imputesc}, but this can introduce unwanted false positives\cite{fpimpute}. In the comparison papers, differential expression has been shown to be the downstream application most sensitive to these methods\cite{normalsc}, with scran\cite{scran} performing the best of those tested.
+}
 
 \subsubsection{Visualization}
 
 \par{
-First, a principle component analysis (PCA) of the filtered cell by genes counts is done to find the most meaningful features and reduce the dimensionality from cells x genes to cells by $M$ where $M$ is a user settable value\cite{pcaimpl}. For most experiments, the complexity of the transcriptional profile cannot be easily gleaned by looking at the first two-three principle components visually, so the next step is to use non-linear dimensionality reduction techniques to bring the data into a visually informative two or three dimensional space. 
+In order to visualize this high dimensional data, we must project it into two or three dimensions in a way that preserves the biologically interesting structure at multiple scales. First, a principle component analysis (PCA) of the filtered cell by genes counts is done to find the most meaningful features and reduce the dimensionality from cells x genes to cells by $M$ where $M$ is a user settable value\cite{pcaimpl}. For most experiments, the complexity of the transcriptional profile cannot be easily gleaned by looking at the first two-three principle components visually, so the next step is to use non-linear dimensionality reduction techniques to bring the data into a visually informative two or three dimensional space. The two most popular methods for this are the t-Stochastic Neighbor embedding (t-SNE)\cite{tsne1}\cite{tsne2}\cite{hinton} and the Uniform Manifold Approximation and Projection (UMAP)\cite{umap1}. Both of these methods aim to preserve pairwise distances in the final projections, but are parametric and non-deterministic (without a fixed psuedorandom number generator seed). There is an inherent trade-off between how well distances should be preserved at different scales which the parameters can help guide. However, due to the randomness and parametric nature of these algorithms, it can lead some researchers to use them to bias the results toward the expected outcome of their hypothesis. Nonetheless, these are powerful techniques to understand high dimensional data such as single cell RNAseq. Recently, UMAP has grown in popularity over t-SNE because it has been shown to better preserve pairwise distance due to the improved initialization strategy employed in the primary implementation and is more computationally efficient than t-SNE\cite{umap2}\cite{umap3}. These projections are often fed into downstream analysis such as clustering and lineage reconstruction. It is not clear that clustering in this space is better than clustering on the raw data, PCA, random projection\cite{randomproject}, or other dimensionality reduction space, but they are likely to look more visually correct in the UMAP or t-SNE space when both the clustering and visualization is in the same projection. An analysis of this observation is out of the scope of this thesis.
 }
+
+
 \subsubsection{Cell type clustering and annotation}
-\subsubsection{Doublet detection}
-\subsubsection{Ambient RNA detection}
+
+\par{
+It is useful to group similar cells together for the purposes of cell type annotation and cell state detection. Because individual cells may not have enough UMIs sequenced, these analyses may not be possible on an individual cell basis whereas grouping similar cells together will pool enough data to conclusively do so. Clustering is typically done on the dimensionality reduced data (either PCA or UMAP/t-SNE) and many methods have been used including K-means, hierarchical clustering, graph based methods and meta-heuristics have been applied including consensus clustering, cluster trees among others\cite{scclustreview}\cite{subpop}\cite{sc3}\cite{clustree}. These methods are reviewed in \cite{scclustreview} and otherwise a comparison of these methods is out of the scope of this thesis.
+} \\
+
+\par{
+Once cells have been clustered into similar groups, we can try to understand what each of these groups of cells represent. Marker genes have been studied for many decades to identify and differentiate different cell types. One can visually display the expression values of these marker genes versus the cell clusters to find the cell types of interest. Increasingly more popular are automatic methods which use annotated cell atlases to match cell types. These include scMatch\cite{scMatch}, cellHarmony\cite{cellHarmony}, Garnet\cite{Garnet}, scPred\cite{scPred} with some using prior knowledge of marker genes and some not. A comparison of these methods found that they work fairly similarly with scPred performing the best overall. Interestingly, they find that prior knowledge of marker genes does not improve performance. Other methods allow you to project cells from one dataset onto another\cite{scmap}. For systems which have robust prior annotated datasets, these are powerful and accurate tools for automatic annotation.
+}
+
+
+
 \subsection{Downstream analysis}
-\subsubsection{Trajectories}
-\subsubsection{Pseudotime}
-\subsubsection{RNA velocity}
-\subsubsection{Differential Isoforms}
-\subsubsection{Genetic Variation}
+\par{
+Many further analyses on single cell experiments are possible and a comprehensive review of these is out of the scope of this thesis. Pseudotime analysis can order cells along some cell state change such as differentiation or cell cycle\cite{pseudotime}\cite{scHOT}. Gene regulatory networks may be inferred using the correlation of genes indicating they may be under similar regulatory control\cite{scenic}. Somatic mutations in the mitochondrial genes can be used to discover cell lineages\cite{lineage}. And many more analyses are possible especially if the experimental design is non-standard such as multi-Omic single cell sequencing or CRSPR-Cas9 screening\cite{perturb} etcetera is added to the mix.
+}
 
+\subsection{scRNAseq error modes}
 
-
-
-\subsection{Batch effects}
-\subsection{Ambient RNA}
-
-\subsection{Mixtures}
+\subsubsection{Batch effects}
+\subsubsection{Doublets}
+\subsubsection{Ambient RNA}
+\subsubsection{Mixtures}
 
 
 \section{Assembly}

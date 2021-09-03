@@ -477,6 +477,63 @@
   howpublished = {\url{https://github.com/thegenemyers/FASTK}},
 }
 
+
+@ARTICLE{hamming,
+  title    = "Error detecting and error correcting codes",
+  author   = "Hamming, R W",
+  abstract = "The author was led to the study given in this paper from a
+              consideration of large scale computing machines in which a large
+              number of operations must be performed without a single error in
+              the end result. This problem of ``doing things right'' on a large
+              scale is not essentially new; in a telephone central office, for
+              example, a very large number of operations are performed while
+              the errors leading to wrong numbers are kept well under control,
+              though they have not been completely eliminated. This has been
+              achieved, in part, through the use of self-checking circuits. The
+              occasional failure that escapes routine checking is still
+              detected by the customer and will, if it persists, result in
+              customer complaint, while if it is transient it will produce only
+              occasional wrong numbers. At the same time the rest of the
+              central office functions satisfactorily. In a digital computer,
+              on the other hand, a single failure usually means the complete
+              failure, in the sense that if it is detected no more computing
+              can be done until the failure is located and corrected, while if
+              it escapes detection then it invalidates all subsequent
+              operations of the machine. Put in other words, in a telephone
+              central office there are a number of parallel paths which are
+              more or less independent of each other; in a digital machine
+              there is usually a single long path which passes through the same
+              piece of equipment many, many times before the answer is
+              obtained.",
+  journal  = "The Bell System Technical Journal",
+  volume   =  29,
+  number   =  2,
+  pages    = "147--160",
+  month    =  apr,
+  year     =  1950
+}
+
+ @misc{barcodecorection, url={https://kb.10xgenomics.com/hc/en-us/articles/115003822406-How-does-Cell-Ranger-correct-barcode-sequencing-errors-}, journal={How does Cell Ranger correct barcode sequencing errors?}, publisher={10x Genomics}, author={Marks, Patrick}} 
+
+
+@misc{cellranger,
+  author = {Paul Ryvkin, Patrick Marks et al.},
+  title = {Cell Ranger},
+  year = {2016},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  howpublished = {\url{https://github.com/10XGenomics/cellranger}},
+}
+
+@misc{dropseqsoft,
+  author = {Jim Nemesh and Alec Wysoker},
+  title = {Drop-seq},
+  year = {2015},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  howpublished = {\url{https://github.com/broadinstitute/Drop-seq}},
+}
+
 @misc{distinguishing_kmers,
   author = {Haynes Heaton},
   title = {Distinguishing Kmers},
@@ -1383,6 +1440,986 @@
 }
 
 
+@MISC{pcaimpl,
+  title   = "Augmented Implicitly Restarted Lanczos Bidiagonalization Methods",
+  author  = "Baglama, James and Reichel, Lothar",
+  journal = "SIAM Journal on Scientific Computing",
+  volume  =  27,
+  number  =  1,
+  pages   = "19--42",
+  year    =  2005
+}
+
+
+@MISC{tsne1,
+  title        = "Visualizing Data using {t-SNE}",
+  author       = "van der Maaten, Laurens",
+  year         =  2008,
+  howpublished = "\url{https://www.jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf?fbclid=IwA}",
+  note         = "Accessed: 2021-8-30"
+}
+
+@article{tsne2,
+  author  = {Laurens van der Maaten and Geoffrey Hinton},
+  title   = {Visualizing Data using t-SNE},
+  journal = {Journal of Machine Learning Research},
+  year    = {2008},
+  volume  = {9},
+  number  = {86},
+  pages   = {2579-2605},
+  url     = {http://jmlr.org/papers/v9/vandermaaten08a.html}
+}
+
+@misc{umap,
+      title={UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction},
+      author={Leland McInnes and John Healy and James Melville},
+      year={2020},
+      eprint={1802.03426},
+      archivePrefix={arXiv},
+      primaryClass={stat.ML}
+}
+
+
+@INPROCEEDINGS{hinton,
+  title       = "Stochastic neighbor embedding",
+  booktitle   = "{NIPS}",
+  author      = "Hinton, Geoffrey and Roweis, Sam T",
+  volume      =  15,
+  pages       = "833--840",
+  institution = "Citeseer",
+  year        =  2002
+}
+
+
+@ARTICLE{umap2,
+  title    = "Dimensionality reduction for visualizing single-cell data using
+              {UMAP}",
+  author   = "Becht, Etienne and McInnes, Leland and Healy, John and Dutertre,
+              Charles-Antoine and Kwok, Immanuel W H and Ng, Lai Guan and
+              Ginhoux, Florent and Newell, Evan W",
+  abstract = "Advances in single-cell technologies have enabled high-resolution
+              dissection of tissue composition. Several tools for
+              dimensionality reduction are available to analyze the large
+              number of parameters generated in single-cell studies. Recently,
+              a nonlinear dimensionality-reduction technique, uniform manifold
+              approximation and projection (UMAP), was developed for the
+              analysis of any type of high-dimensional data. Here we apply it
+              to biological data, using three well-characterized mass cytometry
+              and single-cell RNA sequencing datasets. Comparing the
+              performance of UMAP with five other tools, we find that UMAP
+              provides the fastest run times, highest reproducibility and the
+              most meaningful organization of cell clusters. The work
+              highlights the use of UMAP for improved visualization and
+              interpretation of single-cell data.",
+  journal  = "Nat. Biotechnol.",
+  month    =  dec,
+  year     =  2018,
+  language = "en"
+}
+
+
+@ARTICLE{randomproject,
+  title   = "Extensions of Lipschitz mappings into a Hilbert space 26",
+  author  = "Johnson, William B and Lindenstrauss, Joram",
+  journal = "Contemp. Math.",
+  volume  =  26,
+  year    =  1984
+}
+
+
+@ARTICLE{osorio,
+  title    = "Systematic determination of the mitochondrial proportion in human
+              and mice tissues for single-cell {RNA-sequencing} data quality
+              control",
+  author   = "Osorio, Daniel and Cai, James J",
+  abstract = "MOTIVATION: Quality control (QC) is a critical step in
+              single-cell RNA-seq (scRNA-seq) data analysis. Low-quality cells
+              are removed from the analysis during the QC process to avoid
+              misinterpretation of the data. An important QC metric is the
+              mitochondrial proportion (mtDNA\%), which is used as a threshold
+              to filter out low-quality cells. Early publications in the field
+              established a threshold of 5\% and since then, it has been used
+              as a default in several software packages for scRNA-seq data
+              analysis, and adopted as a standard in many scRNA-seq studies.
+              However, the validity of using a uniform threshold across
+              different species, single-cell technologies, tissues and cell
+              types has not been adequately assessed. RESULTS: We
+              systematically analyzed 5 530 106 cells reported in 1349
+              annotated datasets available in the PanglaoDB database and found
+              that the average mtDNA\% in scRNA-seq data across human tissues
+              is significantly higher than in mouse tissues. This difference is
+              not confounded by the platform used to generate the data. Based
+              on this finding, we propose new reference values of the mtDNA\%
+              for 121 tissues of mouse and 44 tissues of humans. In general,
+              for mouse tissues, the 5\% threshold performs well to distinguish
+              between healthy and low-quality cells. However, for human
+              tissues, the 5\% threshold should be reconsidered as it fails to
+              accurately discriminate between healthy and low-quality cells in
+              29.5\% (13 of 44) tissues analyzed. We conclude that omitting the
+              mtDNA\% QC filter or adopting a suboptimal mtDNA\% threshold may
+              lead to erroneous biological interpretations of scRNA-seq data.
+              AVAILABILITYAND IMPLEMENTATION: The code used to download
+              datasets, perform the analyzes and produce the figures is
+              available at https://github.com/dosorio/mtProportion.
+              SUPPLEMENTARY INFORMATION: Supplementary data are available at
+              Bioinformatics online.",
+  journal  = "Bioinformatics",
+  volume   =  37,
+  number   =  7,
+  pages    = "963--967",
+  month    =  may,
+  year     =  2021,
+  language = "en"
+}
+
+
+@article{normalize1,
+  title={A systematic evaluation of single cell RNA-seq analysis pipelines},
+  author={Vieth, Beate and Parekh, Swati and Ziegenhain, Christoph and Enard, Wolfgang and Hellmann, Ines},
+  journal={Nature communications},
+  volume={10},
+  number={1},
+  pages={1--11},
+  year={2019},
+  publisher={Nature Publishing Group}
+}
+
+
+@ARTICLE{normalize2,
+  title    = "Normalization Methods on {Single-Cell} {RNA-seq} Data: An
+              Empirical Survey",
+  author   = "Lytal, Nicholas and Ran, Di and An, Lingling",
+  abstract = "Data normalization is vital to single-cell sequencing, addressing
+              limitations presented by low input material and various forms of
+              bias or noise present in the sequencing process. Several such
+              normalization methods exist, some of which rely on spike-in
+              genes, molecules added in known quantities to serve as a basis
+              for a normalization model. Depending on available information and
+              the type of data, some methods may express certain advantages
+              over others. We compare the effectiveness of seven available
+              normalization methods designed specifically for single-cell
+              sequencing using two real data sets containing spike-in genes and
+              one simulation study. Additionally, we test those methods not
+              dependent on spike-in genes using a real data set with three
+              distinct cell-cycle states and a real data set under the 10X
+              Genomics GemCode platform with multiple cell types represented.
+              We demonstrate the differences in effectiveness for the featured
+              methods using visualization and classification assessment and
+              conclude which methods are preferable for normalizing a certain
+              type of data for further downstream analysis, such as
+              classification or differential analysis. The comparison in
+              computational time for all methods is addressed as well.",
+  journal  = "Front. Genet.",
+  volume   =  11,
+  pages    = "41",
+  month    =  feb,
+  year     =  2020,
+  keywords = "RNA-seq; comparison; normalization; single-cell; spike-in RNA",
+  language = "en"
+}
+
+
+@ARTICLE{seurat1,
+  title    = "Spatial reconstruction of single-cell gene expression data",
+  author   = "Satija, Rahul and Farrell, Jeffrey A and Gennert, David and
+              Schier, Alexander F and Regev, Aviv",
+  abstract = "Spatial localization is a key determinant of cellular fate and
+              behavior, but methods for spatially resolved, transcriptome-wide
+              gene expression profiling across complex tissues are lacking. RNA
+              staining methods assay only a small number of transcripts,
+              whereas single-cell RNA-seq, which measures global gene
+              expression, separates cells from their native spatial context.
+              Here we present Seurat, a computational strategy to infer
+              cellular localization by integrating single-cell RNA-seq data
+              with in situ RNA patterns. We applied Seurat to spatially map 851
+              single cells from dissociated zebrafish (Danio rerio) embryos and
+              generated a transcriptome-wide map of spatial patterning. We
+              confirmed Seurat's accuracy using several experimental
+              approaches, then used the strategy to identify a set of
+              archetypal expression patterns and spatial markers. Seurat
+              correctly localizes rare subpopulations, accurately mapping both
+              spatially restricted and scattered groups. Seurat will be
+              applicable to mapping cellular localization within complex
+              patterned tissues in diverse systems.",
+  journal  = "Nat. Biotechnol.",
+  volume   =  33,
+  number   =  5,
+  pages    = "495--502",
+  month    =  may,
+  year     =  2015,
+  language = "en"
+}
+
+
+@ARTICLE{normalsc,
+  title    = "Normalization Methods on {Single-Cell} {RNA-seq} Data: An
+              Empirical Survey",
+  author   = "Lytal, Nicholas and Ran, Di and An, Lingling",
+  abstract = "Data normalization is vital to single-cell sequencing, addressing
+              limitations presented by low input material and various forms of
+              bias or noise present in the sequencing process. Several such
+              normalization methods exist, some of which rely on spike-in
+              genes, molecules added in known quantities to serve as a basis
+              for a normalization model. Depending on available information and
+              the type of data, some methods may express certain advantages
+              over others. We compare the effectiveness of seven available
+              normalization methods designed specifically for single-cell
+              sequencing using two real data sets containing spike-in genes and
+              one simulation study. Additionally, we test those methods not
+              dependent on spike-in genes using a real data set with three
+              distinct cell-cycle states and a real data set under the 10X
+              Genomics GemCode platform with multiple cell types represented.
+              We demonstrate the differences in effectiveness for the featured
+              methods using visualization and classification assessment and
+              conclude which methods are preferable for normalizing a certain
+              type of data for further downstream analysis, such as
+              classification or differential analysis. The comparison in
+              computational time for all methods is addressed as well.",
+  journal  = "Front. Genet.",
+  volume   =  11,
+  pages    = "41",
+  month    =  feb,
+  year     =  2020,
+  keywords = "RNA-seq; comparison; normalization; single-cell; spike-in RNA",
+  language = "en"
+}
+
+
+@ARTICLE{scran,
+  title    = "Pooling across cells to normalize single-cell {RNA} sequencing
+              data with many zero counts",
+  author   = "Lun, Aaron T L and Bach, Karsten and Marioni, John C",
+  abstract = "Normalization of single-cell RNA sequencing data is necessary to
+              eliminate cell-specific biases prior to downstream analyses.
+              However, this is not straightforward for noisy single-cell data
+              where many counts are zero. We present a novel approach where
+              expression values are summed across pools of cells, and the
+              summed values are used for normalization. Pool-based size factors
+              are then deconvolved to yield cell-based factors. Our
+              deconvolution approach outperforms existing methods for accurate
+              normalization of cell-specific biases in simulated data. Similar
+              behavior is observed in real data, where deconvolution improves
+              the relevance of results of downstream analyses.",
+  journal  = "Genome Biol.",
+  volume   =  17,
+  pages    = "75",
+  month    =  apr,
+  year     =  2016,
+  keywords = "Differential expression; Normalization; Single-cell RNA-seq",
+  language = "en"
+}
+
+
+@ARTICLE{scMatch,
+  title    = "scMatch: a single-cell gene expression profile annotation tool
+              using reference datasets",
+  author   = "Hou, Rui and Denisenko, Elena and Forrest, Alistair R R",
+  abstract = "MOTIVATION: Single-cell RNA sequencing (scRNA-seq) measures gene
+              expression at the resolution of individual cells. Massively
+              multiplexed single-cell profiling has enabled large-scale
+              transcriptional analyses of thousands of cells in complex
+              tissues. In most cases, the true identity of individual cells is
+              unknown and needs to be inferred from the transcriptomic data.
+              Existing methods typically cluster (group) cells based on
+              similarities of their gene expression profiles and assign the
+              same identity to all cells within each cluster using the averaged
+              expression levels. However, scRNA-seq experiments typically
+              produce low-coverage sequencing data for each cell, which hinders
+              the clustering process. RESULTS: We introduce scMatch, which
+              directly annotates single cells by identifying their closest
+              match in large reference datasets. We used this strategy to
+              annotate various single-cell datasets and evaluated the impacts
+              of sequencing depth, similarity metric and reference datasets. We
+              found that scMatch can rapidly and robustly annotate single cells
+              with comparable accuracy to another recent cell annotation tool
+              (SingleR), but that it is quicker and can handle larger reference
+              datasets. We demonstrate how scMatch can handle large customized
+              reference gene expression profiles that combine data from
+              multiple sources, thus empowering researchers to identify cell
+              populations in any complex tissue with the desired precision.
+              AVAILABILITY AND IMPLEMENTATION: scMatch (Python code) and the
+              FANTOM5 reference dataset are freely available to the research
+              community here https://github.com/forrest-lab/scMatch.
+              SUPPLEMENTARY INFORMATION: Supplementary data are available at
+              Bioinformatics online.",
+  journal  = "Bioinformatics",
+  volume   =  35,
+  number   =  22,
+  pages    = "4688--4695",
+  month    =  nov,
+  year     =  2019,
+  language = "en"
+}
+
+
+@ARTICLE{cellHarmony,
+  title    = "cellHarmony: cell-level matching and holistic comparison of
+              single-cell transcriptomes",
+  author   = "DePasquale, Erica A K and Schnell, Daniel and Dexheimer, Phillip
+              and Ferchen, Kyle and Hay, Stuart and Chetal, Kashish and
+              Valiente-Aland{\'\i}, {\'I}{\~n}igo and Blaxall, Burns C and
+              Grimes, H Leighton and Salomonis, Nathan",
+  abstract = "To understand the molecular pathogenesis of human disease,
+              precision analyses to define alterations within and between
+              disease-associated cell populations are desperately needed.
+              Single-cell genomics represents an ideal platform to enable the
+              identification and comparison of normal and diseased
+              transcriptional cell populations. We created cellHarmony, an
+              integrated solution for the unsupervised analysis,
+              classification, and comparison of cell types from diverse
+              single-cell RNA-Seq datasets. cellHarmony efficiently and
+              accurately matches single-cell transcriptomes using a
+              community-clustering and alignment strategy to compute
+              differences in cell-type specific gene expression over
+              potentially dozens of cell populations. Such transcriptional
+              differences are used to automatically identify distinct and
+              shared gene programs among cell-types and identify impacted
+              pathways and transcriptional regulatory networks to understand
+              the impact of perturbations at a systems level. cellHarmony is
+              implemented as a python package and as an integrated workflow
+              within the software AltAnalyze. We demonstrate that cellHarmony
+              has improved or equivalent performance to alternative label
+              projection methods, is able to identify the likely cellular
+              origins of malignant states, stratify patients into clinical
+              disease subtypes from identified gene programs, resolve discrete
+              disease networks impacting specific cell-types, and illuminate
+              therapeutic mechanisms. Thus, this approach holds tremendous
+              promise in revealing the molecular and cellular origins of
+              complex disease.",
+  journal  = "Nucleic Acids Res.",
+  volume   =  47,
+  number   =  21,
+  pages    = "e138",
+  month    =  dec,
+  year     =  2019,
+  language = "en"
+}
+
+
+@ARTICLE{Garnet,
+  title    = "Supervised classification enables rapid annotation of cell
+              atlases",
+  author   = "Pliner, Hannah A and Shendure, Jay and Trapnell, Cole",
+  abstract = "Single-cell molecular profiling technologies are gaining rapid
+              traction, but the manual process by which resulting cell types
+              are typically annotated is labor intensive and rate-limiting. We
+              describe Garnett, a tool for rapidly annotating cell types in
+              single-cell transcriptional profiling and single-cell chromatin
+              accessibility datasets, based on an interpretable, hierarchical
+              markup language of cell type-specific genes. Garnett successfully
+              classifies cell types in tissue and whole organism datasets, as
+              well as across species.",
+  journal  = "Nat. Methods",
+  volume   =  16,
+  number   =  10,
+  pages    = "983--986",
+  month    =  oct,
+  year     =  2019,
+  language = "en"
+}
+
+
+@ARTICLE{scPred,
+  title    = "scPred: accurate supervised method for cell-type classification
+              from single-cell {RNA-seq} data",
+  author   = "Alquicira-Hernandez, Jose and Sathe, Anuja and Ji, Hanlee P and
+              Nguyen, Quan and Powell, Joseph E",
+  abstract = "Single-cell RNA sequencing has enabled the characterization of
+              highly specific cell types in many tissues, as well as both
+              primary and stem cell-derived cell lines. An important facet of
+              these studies is the ability to identify the transcriptional
+              signatures that define a cell type or state. In theory, this
+              information can be used to classify an individual cell based on
+              its transcriptional profile. Here, we present scPred, a new
+              generalizable method that is able to provide highly accurate
+              classification of single cells, using a combination of unbiased
+              feature selection from a reduced-dimension space, and
+              machine-learning probability-based prediction method. We apply
+              scPred to scRNA-seq data from pancreatic tissue, mononuclear
+              cells, colorectal tumor biopsies, and circulating dendritic cells
+              and show that scPred is able to classify individual cells with
+              high accuracy. The generalized method is available at
+              https://github.com/powellgenomicslab/scPred/.",
+  journal  = "Genome Biol.",
+  volume   =  20,
+  number   =  1,
+  pages    = "264",
+  month    =  dec,
+  year     =  2019,
+  language = "en"
+}
+
+
+@ARTICLE{pseudotime,
+  title    = "A comparison of single-cell trajectory inference methods",
+  author   = "Saelens, Wouter and Cannoodt, Robrecht and Todorov, Helena and
+              Saeys, Yvan",
+  abstract = "Trajectory inference approaches analyze genome-wide omics data
+              from thousands of single cells and computationally infer the
+              order of these cells along developmental trajectories. Although
+              more than 70 trajectory inference tools have already been
+              developed, it is challenging to compare their performance because
+              the input they require and output models they produce vary
+              substantially. Here, we benchmark 45 of these methods on 110 real
+              and 229 synthetic datasets for cellular ordering, topology,
+              scalability and usability. Our results highlight the
+              complementarity of existing tools, and that the choice of method
+              should depend mostly on the dataset dimensions and trajectory
+              topology. Based on these results, we develop a set of guidelines
+              to help users select the best method for their dataset. Our
+              freely available data and evaluation pipeline (
+              https://benchmark.dynverse.org ) will aid in the development of
+              improved tools designed to analyze increasingly large and complex
+              single-cell datasets.",
+  journal  = "Nat. Biotechnol.",
+  volume   =  37,
+  number   =  5,
+  pages    = "547--554",
+  month    =  may,
+  year     =  2019,
+  language = "en"
+}
+
+
+@ARTICLE{scenic,
+  title    = "{SCENIC}: single-cell regulatory network inference and clustering",
+  author   = "Aibar, Sara and Gonz{\'a}lez-Blas, Carmen Bravo and Moerman,
+              Thomas and Huynh-Thu, V{\^a}n Anh and Imrichova, Hana and
+              Hulselmans, Gert and Rambow, Florian and Marine, Jean-Christophe
+              and Geurts, Pierre and Aerts, Jan and van den Oord, Joost and
+              Atak, Zeynep Kalender and Wouters, Jasper and Aerts, Stein",
+  abstract = "We present SCENIC, a computational method for simultaneous gene
+              regulatory network reconstruction and cell-state identification
+              from single-cell RNA-seq data (http://scenic.aertslab.org). On a
+              compendium of single-cell data from tumors and brain, we
+              demonstrate that cis-regulatory analysis can be exploited to
+              guide the identification of transcription factors and cell
+              states. SCENIC provides critical biological insights into the
+              mechanisms driving cellular heterogeneity.",
+  journal  = "Nat. Methods",
+  volume   =  14,
+  number   =  11,
+  pages    = "1083--1086",
+  month    =  nov,
+  year     =  2017,
+  language = "en"
+}
+
+
+@ARTICLE{lineage,
+  title    = "Cell lineage inference from {SNP} and {scRNA-Seq} data",
+  author   = "Ding, Jun and Lin, Chieh and Bar-Joseph, Ziv",
+  abstract = "Several recent studies focus on the inference of developmental
+              and response trajectories from single cell RNA-Seq (scRNA-Seq)
+              data. A number of computational methods, often referred to as
+              pseudo-time ordering, have been developed for this task.
+              Recently, CRISPR has also been used to reconstruct lineage trees
+              by inserting random mutations. However, both approaches suffer
+              from drawbacks that limit their use. Here, we develop a method to
+              detect significant, cell type specific, sequence mutations from
+              scRNA-Seq data. We show that only a few mutations are enough for
+              reconstructing good branching models. Integrating these mutations
+              with expression data further improves the accuracy of the
+              reconstructed models. As we show, the majority of mutations we
+              identify are likely RNA editing events indicating that such
+              information can be used to distinguish cell types.",
+  journal  = "Nucleic Acids Res.",
+  volume   =  47,
+  number   =  10,
+  pages    = "e56",
+  month    =  jun,
+  year     =  2019,
+  language = "en"
+}
+
+
+@ARTICLE{technoise,
+  title    = "Accounting for technical noise in single-cell {RNA-seq}
+              experiments",
+  author   = "Brennecke, Philip and Anders, Simon and Kim, Jong Kyoung and
+              Ko{\l}odziejczyk, Aleksandra A and Zhang, Xiuwei and Proserpio,
+              Valentina and Baying, Bianka and Benes, Vladimir and Teichmann,
+              Sarah A and Marioni, John C and Heisler, Marcus G",
+  abstract = "Single-cell RNA-seq can yield valuable insights about the
+              variability within a population of seemingly homogeneous cells.
+              We developed a quantitative statistical method to distinguish
+              true biological variability from the high levels of technical
+              noise in single-cell experiments. Our approach quantifies the
+              statistical significance of observed cell-to-cell variability in
+              expression strength on a gene-by-gene basis. We validate our
+              approach using two independent data sets from Arabidopsis
+              thaliana and Mus musculus.",
+  journal  = "Nat. Methods",
+  volume   =  10,
+  number   =  11,
+  pages    = "1093--1095",
+  month    =  nov,
+  year     =  2013,
+  language = "en"
+}
+
+
+@ARTICLE{subpop,
+  title    = "Computational analysis of cell-to-cell heterogeneity in
+              single-cell {RNA-sequencing} data reveals hidden subpopulations
+              of cells",
+  author   = "Buettner, Florian and Natarajan, Kedar N and Casale, F Paolo and
+              Proserpio, Valentina and Scialdone, Antonio and Theis, Fabian J
+              and Teichmann, Sarah A and Marioni, John C and Stegle, Oliver",
+  abstract = "Recent technical developments have enabled the transcriptomes of
+              hundreds of cells to be assayed in an unbiased manner, opening up
+              the possibility that new subpopulations of cells can be found.
+              However, the effects of potential confounding factors, such as
+              the cell cycle, on the heterogeneity of gene expression and
+              therefore on the ability to robustly identify subpopulations
+              remain unclear. We present and validate a computational approach
+              that uses latent variable models to account for such hidden
+              factors. We show that our single-cell latent variable model
+              (scLVM) allows the identification of otherwise undetectable
+              subpopulations of cells that correspond to different stages
+              during the differentiation of naive T cells into T helper 2
+              cells. Our approach can be used not only to identify cellular
+              subpopulations but also to tease apart different sources of gene
+              expression heterogeneity in single-cell transcriptomes.",
+  journal  = "Nat. Biotechnol.",
+  volume   =  33,
+  number   =  2,
+  pages    = "155--160",
+  month    =  feb,
+  year     =  2015,
+  language = "en"
+}
+
+
+@ARTICLE{perturb,
+  title    = "{Perturb-Seq}: Dissecting Molecular Circuits with Scalable
+              {Single-Cell} {RNA} Profiling of Pooled Genetic Screens",
+  author   = "Dixit, Atray and Parnas, Oren and Li, Biyu and Chen, Jenny and
+              Fulco, Charles P and Jerby-Arnon, Livnat and Marjanovic, Nemanja
+              D and Dionne, Danielle and Burks, Tyler and Raychowdhury, Raktima
+              and Adamson, Britt and Norman, Thomas M and Lander, Eric S and
+              Weissman, Jonathan S and Friedman, Nir and Regev, Aviv",
+  abstract = "Genetic screens help infer gene function in mammalian cells, but
+              it has remained difficult to assay complex phenotypes-such as
+              transcriptional profiles-at scale. Here, we develop Perturb-seq,
+              combining single-cell RNA sequencing (RNA-seq) and clustered
+              regularly interspaced short palindromic repeats (CRISPR)-based
+              perturbations to perform many such assays in a pool. We
+              demonstrate Perturb-seq by analyzing 200,000 cells in immune
+              cells and cell lines, focusing on transcription factors
+              regulating the response of dendritic cells to lipopolysaccharide
+              (LPS). Perturb-seq accurately identifies individual gene targets,
+              gene signatures, and cell states affected by individual
+              perturbations and their genetic interactions. We posit new
+              functions for regulators of differentiation, the anti-viral
+              response, and mitochondrial function during immune activation. By
+              decomposing many high content measurements into the effects of
+              perturbations, their interactions, and diverse cell metadata,
+              Perturb-seq dramatically increases the scope of pooled genomic
+              assays.",
+  journal  = "Cell",
+  volume   =  167,
+  number   =  7,
+  pages    = "1853--1866.e17",
+  month    =  dec,
+  year     =  2016,
+  keywords = "CRISPR; epistasis; genetic interactions; pooled screen;
+              single-cell RNA-seq",
+  language = "en"
+}
+
+
+
+
+@ARTICLE{scHOT,
+  title    = "Investigating higher-order interactions in single-cell data with
+              {scHOT}",
+  author   = "Ghazanfar, Shila and Lin, Yingxin and Su, Xianbin and Lin, David
+              Ming and Patrick, Ellis and Han, Ze-Guang and Marioni, John C and
+              Yang, Jean Yee Hwa",
+  abstract = "Single-cell genomics has transformed our ability to examine cell
+              fate choice. Examining cells along a computationally ordered
+              'pseudotime' offers the potential to unpick subtle changes in
+              variability and covariation among key genes. We describe an
+              approach, scHOT-single-cell higher-order testing-which provides a
+              flexible and statistically robust framework for identifying
+              changes in higher-order interactions among genes. scHOT can be
+              applied for cells along a continuous trajectory or across space
+              and accommodates various higher-order measurements including
+              variability or correlation. We demonstrate the use of scHOT by
+              studying coordinated changes in higher-order interactions during
+              embryonic development of the mouse liver. Additionally, scHOT
+              identifies subtle changes in gene-gene correlations across space
+              using spatially resolved transcriptomics data from the mouse
+              olfactory bulb. scHOT meaningfully adds to first-order
+              differential expression testing and provides a framework for
+              interrogating higher-order interactions using single-cell data.",
+  journal  = "Nat. Methods",
+  volume   =  17,
+  number   =  8,
+  pages    = "799--806",
+  month    =  aug,
+  year     =  2020,
+  language = "en"
+}
+
+
+@ARTICLE{comparesc,
+  title    = "A comparison of automatic cell identification methods for
+              single-cell {RNA} sequencing data",
+  author   = "Abdelaal, Tamim and Michielsen, Lieke and Cats, Davy and
+              Hoogduin, Dylan and Mei, Hailiang and Reinders, Marcel J T and
+              Mahfouz, Ahmed",
+  abstract = "BACKGROUND: Single-cell transcriptomics is rapidly advancing our
+              understanding of the cellular composition of complex tissues and
+              organisms. A major limitation in most analysis pipelines is the
+              reliance on manual annotations to determine cell identities,
+              which are time-consuming and irreproducible. The exponential
+              growth in the number of cells and samples has prompted the
+              adaptation and development of supervised classification methods
+              for automatic cell identification. RESULTS: Here, we benchmarked
+              22 classification methods that automatically assign cell
+              identities including single-cell-specific and general-purpose
+              classifiers. The performance of the methods is evaluated using 27
+              publicly available single-cell RNA sequencing datasets of
+              different sizes, technologies, species, and levels of complexity.
+              We use 2 experimental setups to evaluate the performance of each
+              method for within dataset predictions (intra-dataset) and across
+              datasets (inter-dataset) based on accuracy, percentage of
+              unclassified cells, and computation time. We further evaluate the
+              methods' sensitivity to the input features, number of cells per
+              population, and their performance across different annotation
+              levels and datasets. We find that most classifiers perform well
+              on a variety of datasets with decreased accuracy for complex
+              datasets with overlapping classes or deep annotations. The
+              general-purpose support vector machine classifier has overall the
+              best performance across the different experiments. CONCLUSIONS:
+              We present a comprehensive evaluation of automatic cell
+              identification methods for single-cell RNA sequencing data. All
+              the code used for the evaluation is available on GitHub (
+              https://github.com/tabdelaal/scRNAseq\_Benchmark ). Additionally,
+              we provide a Snakemake workflow to facilitate the benchmarking
+              and to support the extension of new methods and new datasets.",
+  journal  = "Genome Biol.",
+  volume   =  20,
+  number   =  1,
+  pages    = "194",
+  month    =  sep,
+  year     =  2019,
+  keywords = "Benchmark; Cell identity; Classification; scRNA-seq",
+  language = "en"
+}
+
+
+
+@ARTICLE{scmap,
+  title    = "scmap: projection of single-cell {RNA-seq} data across data sets",
+  author   = "Kiselev, Vladimir Yu and Yiu, Andrew and Hemberg, Martin",
+  abstract = "Single-cell RNA-seq (scRNA-seq) allows researchers to define cell
+              types on the basis of unsupervised clustering of the
+              transcriptome. However, differences in experimental methods and
+              computational analyses make it challenging to compare data across
+              experiments. Here we present scmap
+              (http://bioconductor.org/packages/scmap; web version at
+              http://www.sanger.ac.uk/science/tools/scmap), a method for
+              projecting cells from an scRNA-seq data set onto cell types or
+              individual cells from other experiments.",
+  journal  = "Nat. Methods",
+  volume   =  15,
+  number   =  5,
+  pages    = "359--362",
+  month    =  may,
+  year     =  2018,
+  language = "en"
+}
+
+
+
+@ARTICLE{fpimpute,
+  title    = "False signals induced by single-cell imputation",
+  author   = "Andrews, Tallulah S and Hemberg, Martin",
+  abstract = "Background: Single-cell RNA-seq is a powerful tool for measuring
+              gene expression at the resolution of individual cells. A
+              challenge in the analysis of this data is the large amount of
+              zero values, representing either missing data or no expression.
+              Several imputation approaches have been proposed to address this
+              issue, but they generally rely on structure inherent to the
+              dataset under consideration they may not provide any additional
+              information, hence, are limited by the information contained
+              therein and the validity of their assumptions. Methods: We
+              evaluated the risk of generating false positive or irreproducible
+              differential expression when imputing data with six different
+              methods. We applied each method to a variety of simulated
+              datasets as well as to permuted real single-cell RNA-seq datasets
+              and consider the number of false positive gene-gene correlations
+              and differentially expressed genes. Using matched 10X and
+              Smart-seq2 data we examined whether cell-type specific markers
+              were reproducible across datasets derived from the same tissue
+              before and after imputation. Results: The extent of
+              false-positives introduced by imputation varied considerably by
+              method. Data smoothing based methods, MAGIC, knn-smooth and dca,
+              generated many false-positives in both real and simulated data.
+              Model-based imputation methods typically generated fewer
+              false-positives but this varied greatly depending on the
+              diversity of cell-types in the sample. All imputation methods
+              decreased the reproducibility of cell-type specific markers,
+              although this could be mitigated by selecting markers with large
+              effect size and significance. Conclusions: Imputation of
+              single-cell RNA-seq data introduces circularity that can generate
+              false-positive results. Thus, statistical tests applied to
+              imputed data should be treated with care. Additional filtering by
+              effect size can reduce but not fully eliminate these effects. Of
+              the methods we considered, SAVER was the least likely to generate
+              false or irreproducible results, thus should be favoured over
+              alternatives if imputation is necessary.",
+  journal  = "F1000Res.",
+  volume   =  7,
+  pages    = "1740",
+  month    =  nov,
+  year     =  2018,
+  keywords = "Gene expression; Imputation; RNA-seq; Reproducibility; Type 1
+              errors; single-cell",
+  language = "en"
+}
+
+
+
+@ARTICLE{imputesc,
+  title    = "A systematic evaluation of single-cell {RNA-sequencing}
+              imputation methods",
+  author   = "Hou, Wenpin and Ji, Zhicheng and Ji, Hongkai and Hicks, Stephanie
+              C",
+  abstract = "BACKGROUND: The rapid development of single-cell RNA-sequencing
+              (scRNA-seq) technologies has led to the emergence of many methods
+              for removing systematic technical noises, including imputation
+              methods, which aim to address the increased sparsity observed in
+              single-cell data. Although many imputation methods have been
+              developed, there is no consensus on how methods compare to each
+              other. RESULTS: Here, we perform a systematic evaluation of 18
+              scRNA-seq imputation methods to assess their accuracy and
+              usability. We benchmark these methods in terms of the similarity
+              between imputed cell profiles and bulk samples and whether these
+              methods recover relevant biological signals or introduce spurious
+              noise in downstream differential expression, unsupervised
+              clustering, and pseudotemporal trajectory analyses, as well as
+              their computational run time, memory usage, and scalability.
+              Methods are evaluated using data from both cell lines and tissues
+              and from both plate- and droplet-based single-cell platforms.
+              CONCLUSIONS: We found that the majority of scRNA-seq imputation
+              methods outperformed no imputation in recovering gene expression
+              observed in bulk RNA-seq. However, the majority of the methods
+              did not improve performance in downstream analyses compared to no
+              imputation, in particular for clustering and trajectory analysis,
+              and thus should be used with caution. In addition, we found
+              substantial variability in the performance of the methods within
+              each evaluation aspect. Overall, MAGIC, kNN-smoothing, and SAVER
+              were found to outperform the other methods most consistently.",
+  journal  = "Genome Biol.",
+  volume   =  21,
+  number   =  1,
+  pages    = "218",
+  month    =  aug,
+  year     =  2020,
+  keywords = "Benchmark; Gene expression; Imputation; Single-cell
+              RNA-sequencing",
+  language = "en"
+}
+
+
+@ARTICLE{marioni1,
+  title    = "{BASiCS}: Bayesian Analysis of {Single-Cell} Sequencing Data",
+  author   = "Vallejos, Catalina A and Marioni, John C and Richardson, Sylvia",
+  abstract = "Single-cell mRNA sequencing can uncover novel cell-to-cell
+              heterogeneity in gene expression levels in seemingly homogeneous
+              populations of cells. However, these experiments are prone to
+              high levels of unexplained technical noise, creating new
+              challenges for identifying genes that show genuine heterogeneous
+              expression within the population of cells under study. BASiCS
+              (Bayesian Analysis of Single-Cell Sequencing data) is an
+              integrated Bayesian hierarchical model where: (i) cell-specific
+              normalisation constants are estimated as part of the model
+              parameters, (ii) technical variability is quantified based on
+              spike-in genes that are artificially introduced to each analysed
+              cell's lysate and (iii) the total variability of the expression
+              counts is decomposed into technical and biological components.
+              BASiCS also provides an intuitive detection criterion for highly
+              (or lowly) variable genes within the population of cells under
+              study. This is formalised by means of tail posterior
+              probabilities associated to high (or low) biological cell-to-cell
+              variance contributions, quantities that can be easily interpreted
+              by users. We demonstrate our method using gene expression
+              measurements from mouse Embryonic Stem Cells. Cross-validation
+              and meaningful enrichment of gene ontology categories within
+              genes classified as highly (or lowly) variable supports the
+              efficacy of our approach.",
+  journal  = "PLoS Comput. Biol.",
+  volume   =  11,
+  number   =  6,
+  pages    = "e1004333",
+  month    =  jun,
+  year     =  2015,
+  language = "en"
+}
+
+
+@ARTICLE{seurat2,
+  title    = "Integrated analysis of multimodal single-cell data",
+  author   = "Hao, Yuhan and Hao, Stephanie and Andersen-Nissen, Erica and
+              Mauck, 3rd, William M and Zheng, Shiwei and Butler, Andrew and
+              Lee, Maddie J and Wilk, Aaron J and Darby, Charlotte and Zager,
+              Michael and Hoffman, Paul and Stoeckius, Marlon and Papalexi,
+              Efthymia and Mimitou, Eleni P and Jain, Jaison and Srivastava,
+              Avi and Stuart, Tim and Fleming, Lamar M and Yeung, Bertrand and
+              Rogers, Angela J and McElrath, Juliana M and Blish, Catherine A
+              and Gottardo, Raphael and Smibert, Peter and Satija, Rahul",
+  abstract = "The simultaneous measurement of multiple modalities represents an
+              exciting frontier for single-cell genomics and necessitates
+              computational methods that can define cellular states based on
+              multimodal data. Here, we introduce ``weighted-nearest neighbor''
+              analysis, an unsupervised framework to learn the relative utility
+              of each data type in each cell, enabling an integrative analysis
+              of multiple modalities. We apply our procedure to a CITE-seq
+              dataset of 211,000 human peripheral blood mononuclear cells
+              (PBMCs) with panels extending to 228 antibodies to construct a
+              multimodal reference atlas of the circulating immune system.
+              Multimodal analysis substantially improves our ability to resolve
+              cell states, allowing us to identify and validate previously
+              unreported lymphoid subpopulations. Moreover, we demonstrate how
+              to leverage this reference to rapidly map new datasets and to
+              interpret immune responses to vaccination and coronavirus disease
+              2019 (COVID-19). Our approach represents a broadly applicable
+              strategy to analyze single-cell multimodal datasets and to look
+              beyond the transcriptome toward a unified and multimodal
+              definition of cellular identity.",
+  journal  = "Cell",
+  volume   =  184,
+  number   =  13,
+  pages    = "3573--3587.e29",
+  month    =  jun,
+  year     =  2021,
+  keywords = "CITE-seq; COVID-19; T cell; immune system; multimodal analysis;
+              reference mapping; single cell genomics",
+  language = "en"
+}
+
+
+@ARTICLE{monocle,
+  title    = "Single-cell {mRNA} quantification and differential analysis with
+              Census",
+  author   = "Qiu, Xiaojie and Hill, Andrew and Packer, Jonathan and Lin, Dejun
+              and Ma, Yi-An and Trapnell, Cole",
+  abstract = "Single-cell gene expression studies promise to reveal rare cell
+              types and cryptic states, but the high variability of single-cell
+              RNA-seq measurements frustrates efforts to assay transcriptional
+              differences between cells. We introduce the Census algorithm to
+              convert relative RNA-seq expression levels into relative
+              transcript counts without the need for experimental spike-in
+              controls. Analyzing changes in relative transcript counts led to
+              dramatic improvements in accuracy compared to normalized read
+              counts and enabled new statistical tests for identifying
+              developmentally regulated genes. Census counts can be analyzed
+              with widely used regression techniques to reveal changes in
+              cell-fate-dependent gene expression, splicing patterns and
+              allelic imbalances. We reanalyzed single-cell data from several
+              developmental and disease studies, and demonstrate that Census
+              enabled robust analysis at multiple layers of gene regulation.
+              Census is freely available through our updated single-cell
+              analysis toolkit, Monocle 2.",
+  journal  = "Nat. Methods",
+  volume   =  14,
+  number   =  3,
+  pages    = "309--315",
+  month    =  mar,
+  year     =  2017,
+  language = "en"
+}
+
+
+
+@ARTICLE{ilicic,
+  title    = "Classification of low quality cells from single-cell {RNA-seq}
+              data",
+  author   = "Ilicic, Tomislav and Kim, Jong Kyoung and Kolodziejczyk,
+              Aleksandra A and Bagger, Frederik Otzen and McCarthy, Davis James
+              and Marioni, John C and Teichmann, Sarah A",
+  abstract = "Single-cell RNA sequencing (scRNA-seq) has broad applications
+              across biomedical research. One of the key challenges is to
+              ensure that only single, live cells are included in downstream
+              analysis, as the inclusion of compromised cells inevitably
+              affects data interpretation. Here, we present a generic approach
+              for processing scRNA-seq data and detecting low quality cells,
+              using a curated set of over 20 biological and technical features.
+              Our approach improves classification accuracy by over 30 \%
+              compared to traditional methods when tested on over 5,000 cells,
+              including CD4+ T cells, bone marrow dendritic cells, and mouse
+              embryonic stem cells.",
+  journal  = "Genome Biol.",
+  volume   =  17,
+  pages    = "29",
+  month    =  feb,
+  year     =  2016,
+  language = "en"
+}
+
+
+
+@ARTICLE{scclustreview,
+  title    = "Identifying cell populations with {scRNASeq}",
+  author   = "Andrews, Tallulah S and Hemberg, Martin",
+  abstract = "Single-cell RNASeq (scRNASeq) has emerged as a powerful method
+              for quantifying the transcriptome of individual cells. However,
+              the data from scRNASeq experiments is often both noisy and high
+              dimensional, making the computational analysis non-trivial. Here
+              we provide an overview of different experimental protocols and
+              the most popular methods for facilitating the computational
+              analysis. We focus on approaches for identifying biologically
+              important genes, projecting data into lower dimensions and
+              clustering data into putative cell-populations. Finally we
+              discuss approaches to validation and biological interpretation of
+              the identified cell-types or cell-states.",
+  journal  = "Mol. Aspects Med.",
+  volume   =  59,
+  pages    = "114--122",
+  month    =  feb,
+  year     =  2018,
+  language = "en"
+}
+
+
+
+@Article{clustree,
+     author = {Luke Zappia and Alicia Oshlack},
+     title = {Clustering trees: a visualization for evaluating clusterings at
+              multiple resolutions},
+     journal = {GigaScience},
+     volume = {7},
+     number = {7},
+     month = {jul},
+     year = {2018},
+     url = {http://dx.doi.org/10.1093/gigascience/giy083},
+     doi = {10.1093/gigascience/giy083},
+   }
+
+
+@MISC{umap3,
+  title  = "{UMAP} does not preserve global structure any better than {t-SNE}
+            when using the same initialization",
+  author = "Kobak, Dmitry and Linderman, George C"
+}
+
+
+
+@MISC{umap1,
+  title   = "{UMAP}: Uniform Manifold Approximation and Projection",
+  author  = "McInnes, Leland and Healy, John and Saul, Nathaniel and
+             Gro{\ss}berger, Lukas",
+  journal = "Journal of Open Source Software",
+  volume  =  3,
+  number  =  29,
+  pages   = "861",
+  year    =  2018
+}
+
 
 % The entry below contains non-ASCII chars that could not be converted
 % to a LaTeX equivalent.
@@ -1950,6 +2987,1582 @@
 }
 
 
+@ARTICLE{bandage,
+  title    = "Bandage: interactive visualization of de novo genome assemblies",
+  author   = "Wick, Ryan R and Schultz, Mark B and Zobel, Justin and Holt,
+              Kathryn E",
+  abstract = "UNLABELLED: Although de novo assembly graphs contain assembled
+              contigs (nodes), the connections between those contigs (edges)
+              are difficult for users to access. Bandage (a Bioinformatics
+              Application for Navigating De novo Assembly Graphs Easily) is a
+              tool for visualizing assembly graphs with connections. Users can
+              zoom in to specific areas of the graph and interact with it by
+              moving nodes, adding labels, changing colors and extracting
+              sequences. BLAST searches can be performed within the Bandage
+              graphical user interface and the hits are displayed as highlights
+              in the graph. By displaying connections between contigs, Bandage
+              presents new possibilities for analyzing de novo assemblies that
+              are not possible through investigation of contigs alone.
+              AVAILABILITY AND IMPLEMENTATION: Source code and binaries are
+              freely available at https://github.com/rrwick/Bandage. Bandage is
+              implemented in C++ and supported on Linux, OS X and Windows. A
+              full feature list and screenshots are available at
+              http://rrwick.github.io/Bandage. CONTACT: rrwick@gmail.com
+              SUPPLEMENTARY INFORMATION: Supplementary data are available at
+              Bioinformatics online.",
+  journal  = "Bioinformatics",
+  volume   =  31,
+  number   =  20,
+  pages    = "3350--3352",
+  month    =  oct,
+  year     =  2015,
+  language = "en"
+}
+
+
+@ARTICLE{ukbiobank,
+  title    = "The {UK} Biobank resource with deep phenotyping and genomic data",
+  author   = "Bycroft, Clare and Freeman, Colin and Petkova, Desislava and
+              Band, Gavin and Elliott, Lloyd T and Sharp, Kevin and Motyer,
+              Allan and Vukcevic, Damjan and Delaneau, Olivier and O'Connell,
+              Jared and Cortes, Adrian and Welsh, Samantha and Young, Alan and
+              Effingham, Mark and McVean, Gil and Leslie, Stephen and Allen,
+              Naomi and Donnelly, Peter and Marchini, Jonathan",
+  abstract = "The UK Biobank project is a prospective cohort study with deep
+              genetic and phenotypic data collected on approximately 500,000
+              individuals from across the United Kingdom, aged between 40 and
+              69 at recruitment. The open resource is unique in its size and
+              scope. A rich variety of phenotypic and health-related
+              information is available on each participant, including
+              biological measurements, lifestyle indicators, biomarkers in
+              blood and urine, and imaging of the body and brain. Follow-up
+              information is provided by linking health and medical records.
+              Genome-wide genotype data have been collected on all
+              participants, providing many opportunities for the discovery of
+              new genetic associations and the genetic bases of complex traits.
+              Here we describe the centralized analysis of the genetic data,
+              including genotype quality, properties of population structure
+              and relatedness of the genetic data, and efficient phasing and
+              genotype imputation that increases the number of testable
+              variants to around 96 million. Classical allelic variation at 11
+              human leukocyte antigen genes was imputed, resulting in the
+              recovery of signals with known associations between human
+              leukocyte antigen alleles and many diseases.",
+  journal  = "Nature",
+  volume   =  562,
+  number   =  7726,
+  pages    = "203--209",
+  month    =  oct,
+  year     =  2018,
+  language = "en"
+}
+
+
+@ARTICLE{NGSadmix,
+  title    = "{fastNGSadmix}: admixture proportions and principal component
+              analysis of a single {NGS} sample",
+  author   = "J{\o}rsboe, Emil and Hangh{\o}j, Kristian and Albrechtsen, Anders",
+  abstract = "Motivation: Estimation of admixture proportions and principal
+              component analysis (PCA) are fundamental tools in populations
+              genetics. However, applying these methods to low- or mid-depth
+              sequencing data without taking genotype uncertainty into account
+              can introduce biases. Results: Here we present fastNGSadmix, a
+              tool to fast and reliably estimate admixture proportions and
+              perform PCA from next generation sequencing data of a single
+              individual. The analyses are based on genotype likelihoods of the
+              input sample and a set of predefined reference populations. The
+              method has high accuracy, even at low sequencing depth and
+              corrects for the biases introduced by small reference
+              populations. Availability and implementation: The admixture
+              estimation method is implemented in C ++ and the PCA method is
+              implemented in R. The code is freely available at
+              http://www.popgen.dk/software/index.php/FastNGSadmix. Contact:
+              emil.jorsboe@bio.ku.dk. Supplementary information: Supplementary
+              data are available at Bioinformatics online.",
+  journal  = "Bioinformatics",
+  volume   =  33,
+  number   =  19,
+  pages    = "3148--3150",
+  month    =  oct,
+  year     =  2017,
+  language = "en"
+}
+
+
+@ARTICLE{estimateadmixture,
+  title    = "Estimating individual admixture proportions from next generation
+              sequencing data",
+  author   = "Skotte, Line and Korneliussen, Thorfinn Sand and Albrechtsen,
+              Anders",
+  abstract = "Inference of population structure and individual ancestry is
+              important both for population genetics and for association
+              studies. With next generation sequencing technologies it is
+              possible to obtain genetic data for all accessible genetic
+              variations in the genome. Existing methods for admixture analysis
+              rely on known genotypes. However, individual genotypes cannot be
+              inferred from low-depth sequencing data without introducing
+              errors. This article presents a new method for inferring an
+              individual's ancestry that takes the uncertainty introduced in
+              next generation sequencing data into account. This is achieved by
+              working directly with genotype likelihoods that contain all
+              relevant information of the unobserved genotypes. Using
+              simulations as well as publicly available sequencing data, we
+              demonstrate that the presented method has great accuracy even for
+              very low-depth data. At the same time, we demonstrate that
+              applying existing methods to genotypes called from the same data
+              can introduce severe biases. The presented method is implemented
+              in the NGSadmix software available at
+              http://www.popgen.dk/software.",
+  journal  = "Genetics",
+  volume   =  195,
+  number   =  3,
+  pages    = "693--702",
+  month    =  nov,
+  year     =  2013,
+  keywords = "NGS; admixture; association studies; population structure;
+              resequencing",
+  language = "en"
+}
+
+
+@ARTICLE{beagle,
+  title    = "Rapid and accurate haplotype phasing and missing-data inference
+              for whole-genome association studies by use of localized
+              haplotype clustering",
+  author   = "Browning, Sharon R and Browning, Brian L",
+  abstract = "Whole-genome association studies present many new statistical and
+              computational challenges due to the large quantity of data
+              obtained. One of these challenges is haplotype inference; methods
+              for haplotype inference designed for small data sets from
+              candidate-gene studies do not scale well to the large number of
+              individuals genotyped in whole-genome association studies. We
+              present a new method and software for inference of haplotype
+              phase and missing data that can accurately phase data from
+              whole-genome association studies, and we present the first
+              comparison of haplotype-inference methods for real and simulated
+              data sets with thousands of genotyped individuals. We find that
+              our method outperforms existing methods in terms of both speed
+              and accuracy for large data sets with thousands of individuals
+              and densely spaced genetic markers, and we use our method to
+              phase a real data set of 3,002 individuals genotyped for 490,032
+              markers in 3.1 days of computing time, with 99\% of masked
+              alleles imputed correctly. Our method is implemented in the
+              Beagle software package, which is freely available.",
+  journal  = "Am. J. Hum. Genet.",
+  volume   =  81,
+  number   =  5,
+  pages    = "1084--1097",
+  month    =  nov,
+  year     =  2007,
+  language = "en"
+}
+
+@ARTICLE{abbababa,
+  title    = "Recalibrating Equus evolution using the genome sequence of an
+              early Middle Pleistocene horse",
+  author   = "Orlando, Ludovic and Ginolhac, Aur{\'e}lien and Zhang, Guojie and
+              Froese, Duane and Albrechtsen, Anders and Stiller, Mathias and
+              Schubert, Mikkel and Cappellini, Enrico and Petersen, Bent and
+              Moltke, Ida and Johnson, Philip L F and Fumagalli, Matteo and
+              Vilstrup, Julia T and Raghavan, Maanasa and Korneliussen,
+              Thorfinn and Malaspinas, Anna-Sapfo and Vogt, Josef and
+              Szklarczyk, Damian and Kelstrup, Christian D and Vinther, Jakob
+              and Dolocan, Andrei and Stenderup, Jesper and Velazquez, Amhed M
+              V and Cahill, James and Rasmussen, Morten and Wang, Xiaoli and
+              Min, Jiumeng and Zazula, Grant D and Seguin-Orlando, Andaine and
+              Mortensen, Cecilie and Magnussen, Kim and Thompson, John F and
+              Weinstock, Jacobo and Gregersen, Kristian and R{\o}ed, Knut H and
+              Eisenmann, V{\'e}ra and Rubin, Carl J and Miller, Donald C and
+              Antczak, Douglas F and Bertelsen, Mads F and Brunak, S{\o}ren and
+              Al-Rasheid, Khaled A S and Ryder, Oliver and Andersson, Leif and
+              Mundy, John and Krogh, Anders and Gilbert, M Thomas P and
+              Kj{\ae}r, Kurt and Sicheritz-Ponten, Thomas and Jensen, Lars Juhl
+              and Olsen, Jesper V and Hofreiter, Michael and Nielsen, Rasmus
+              and Shapiro, Beth and Wang, Jun and Willerslev, Eske",
+  abstract = "The rich fossil record of equids has made them a model for
+              evolutionary processes. Here we present a 1.12-times coverage
+              draft genome from a horse bone recovered from permafrost dated to
+              approximately 560-780 thousand years before present (kyr BP). Our
+              data represent the oldest full genome sequence determined so far
+              by almost an order of magnitude. For comparison, we sequenced the
+              genome of a Late Pleistocene horse (43 kyr BP), and modern
+              genomes of five domestic horse breeds (Equus ferus caballus), a
+              Przewalski's horse (E. f. przewalskii) and a donkey (E. asinus).
+              Our analyses suggest that the Equus lineage giving rise to all
+              contemporary horses, zebras and donkeys originated 4.0-4.5
+              million years before present (Myr BP), twice the conventionally
+              accepted time to the most recent common ancestor of the genus
+              Equus. We also find that horse population size fluctuated
+              multiple times over the past 2 Myr, particularly during periods
+              of severe climatic changes. We estimate that the Przewalski's and
+              domestic horse populations diverged 38-72 kyr BP, and find no
+              evidence of recent admixture between the domestic horse breeds
+              and the Przewalski's horse investigated. This supports the
+              contention that Przewalski's horses represent the last surviving
+              wild horse population. We find similar levels of genetic
+              variation among Przewalski's and domestic populations, indicating
+              that the former are genetically viable and worthy of conservation
+              efforts. We also find evidence for continuous selection on the
+              immune system and olfaction throughout horse evolution. Finally,
+              we identify 29 genomic regions among horse breeds that deviate
+              from neutrality and show low levels of genetic variation compared
+              to the Przewalski's horse. Such regions could correspond to loci
+              selected early during domestication.",
+  journal  = "Nature",
+  volume   =  499,
+  number   =  7456,
+  pages    = "74--78",
+  month    =  jul,
+  year     =  2013,
+  language = "en"
+}
+
+
+
+@ARTICLE{angsd,
+  title    = "{ANGSD}: Analysis of Next Generation Sequencing Data",
+  author   = "Korneliussen, Thorfinn Sand and Albrechtsen, Anders and Nielsen,
+              Rasmus",
+  abstract = "BACKGROUND: High-throughput DNA sequencing technologies are
+              generating vast amounts of data. Fast, flexible and memory
+              efficient implementations are needed in order to facilitate
+              analyses of thousands of samples simultaneously. RESULTS: We
+              present a multithreaded program suite called ANGSD. This program
+              can calculate various summary statistics, and perform association
+              mapping and population genetic analyses utilizing the full
+              information in next generation sequencing data by working
+              directly on the raw sequencing data or by using genotype
+              likelihoods. CONCLUSIONS: The open source c/c++ program ANGSD is
+              available at http://www.popgen.dk/angsd . The program is tested
+              and validated on GNU/Linux systems. The program facilitates
+              multiple input formats including BAM and imputed beagle genotype
+              probability files. The program allow the user to choose between
+              combinations of existing methods and can perform analysis that is
+              not implemented elsewhere.",
+  journal  = "BMC Bioinformatics",
+  volume   =  15,
+  pages    = "356",
+  month    =  nov,
+  year     =  2014,
+  language = "en"
+}
+
+
+
+@ARTICLE{shapeit4,
+  title    = "Accurate, scalable and integrative haplotype estimation",
+  author   = "Delaneau, Olivier and Zagury, Jean-Fran{\c c}ois and Robinson,
+              Matthew R and Marchini, Jonathan L and Dermitzakis, Emmanouil T",
+  abstract = "The number of human genomes being genotyped or sequenced
+              increases exponentially and efficient haplotype estimation
+              methods able to handle this amount of data are now required. Here
+              we present a method, SHAPEIT4, which substantially improves upon
+              other methods to process large genotype and high coverage
+              sequencing datasets. It notably exhibits sub-linear running times
+              with sample size, provides highly accurate haplotypes and allows
+              integrating external phasing information such as large reference
+              panels of haplotypes, collections of pre-phased variants and long
+              sequencing reads. We provide SHAPEIT4 in an open source format
+              and demonstrate its performance in terms of accuracy and running
+              times on two gold standard datasets: the UK Biobank data and the
+              Genome In A Bottle.",
+  journal  = "Nat. Commun.",
+  volume   =  10,
+  number   =  1,
+  pages    = "5436",
+  month    =  nov,
+  year     =  2019,
+  language = "en"
+}
+
+
+@ARTICLE{haplotypepanel,
+  title    = "A reference panel of 64,976 haplotypes for genotype imputation",
+  author   = "McCarthy, Shane and Das, Sayantan and Kretzschmar, Warren and
+              Delaneau, Olivier and Wood, Andrew R and Teumer, Alexander and
+              Kang, Hyun Min and Fuchsberger, Christian and Danecek, Petr and
+              Sharp, Kevin and Luo, Yang and Sidore, Carlo and Kwong, Alan and
+              Timpson, Nicholas and Koskinen, Seppo and Vrieze, Scott and
+              Scott, Laura J and Zhang, He and Mahajan, Anubha and Veldink, Jan
+              and Peters, Ulrike and Pato, Carlos and van Duijn, Cornelia M and
+              Gillies, Christopher E and Gandin, Ilaria and Mezzavilla, Massimo
+              and Gilly, Arthur and Cocca, Massimiliano and Traglia, Michela
+              and Angius, Andrea and Barrett, Jeffrey C and Boomsma, Dorrett
+              and Branham, Kari and Breen, Gerome and Brummett, Chad M and
+              Busonero, Fabio and Campbell, Harry and Chan, Andrew and Chen,
+              Sai and Chew, Emily and Collins, Francis S and Corbin, Laura J
+              and Smith, George Davey and Dedoussis, George and Dorr, Marcus
+              and Farmaki, Aliki-Eleni and Ferrucci, Luigi and Forer, Lukas and
+              Fraser, Ross M and Gabriel, Stacey and Levy, Shawn and Groop,
+              Leif and Harrison, Tabitha and Hattersley, Andrew and Holmen,
+              Oddgeir L and Hveem, Kristian and Kretzler, Matthias and Lee,
+              James C and McGue, Matt and Meitinger, Thomas and Melzer, David
+              and Min, Josine L and Mohlke, Karen L and Vincent, John B and
+              Nauck, Matthias and Nickerson, Deborah and Palotie, Aarno and
+              Pato, Michele and Pirastu, Nicola and McInnis, Melvin and
+              Richards, J Brent and Sala, Cinzia and Salomaa, Veikko and
+              Schlessinger, David and Schoenherr, Sebastian and Slagboom, P
+              Eline and Small, Kerrin and Spector, Timothy and Stambolian,
+              Dwight and Tuke, Marcus and Tuomilehto, Jaakko and Van den Berg,
+              Leonard H and Van Rheenen, Wouter and Volker, Uwe and Wijmenga,
+              Cisca and Toniolo, Daniela and Zeggini, Eleftheria and Gasparini,
+              Paolo and Sampson, Matthew G and Wilson, James F and Frayling,
+              Timothy and de Bakker, Paul I W and Swertz, Morris A and
+              McCarroll, Steven and Kooperberg, Charles and Dekker, Annelot and
+              Altshuler, David and Willer, Cristen and Iacono, William and
+              Ripatti, Samuli and Soranzo, Nicole and Walter, Klaudia and
+              Swaroop, Anand and Cucca, Francesco and Anderson, Carl A and
+              Myers, Richard M and Boehnke, Michael and McCarthy, Mark I and
+              Durbin, Richard and {Haplotype Reference Consortium}",
+  abstract = "We describe a reference panel of 64,976 human haplotypes at
+              39,235,157 SNPs constructed using whole-genome sequence data from
+              20 studies of predominantly European ancestry. Using this
+              resource leads to accurate genotype imputation at minor allele
+              frequencies as low as 0.1\% and a large increase in the number of
+              SNPs tested in association studies, and it can help to discover
+              and refine causal loci. We describe remote server resources that
+              allow researchers to carry out imputation and phasing
+              consistently and efficiently.",
+  journal  = "Nat. Genet.",
+  volume   =  48,
+  number   =  10,
+  pages    = "1279--1283",
+  month    =  oct,
+  year     =  2016,
+  language = "en"
+}
+
+
+
+@ARTICLE{1kgenomes,
+  title    = "An integrated map of genetic variation from 1,092 human genomes",
+  author   = "{1000 Genomes Project Consortium} and Abecasis, Goncalo R and
+              Auton, Adam and Brooks, Lisa D and DePristo, Mark A and Durbin,
+              Richard M and Handsaker, Robert E and Kang, Hyun Min and Marth,
+              Gabor T and McVean, Gil A",
+  abstract = "By characterizing the geographic and functional spectrum of human
+              genetic variation, the 1000 Genomes Project aims to build a
+              resource to help to understand the genetic contribution to
+              disease. Here we describe the genomes of 1,092 individuals from
+              14 populations, constructed using a combination of low-coverage
+              whole-genome and exome sequencing. By developing methods to
+              integrate information across several algorithms and diverse data
+              sources, we provide a validated haplotype map of 38 million
+              single nucleotide polymorphisms, 1.4 million short insertions and
+              deletions, and more than 14,000 larger deletions. We show that
+              individuals from different populations carry different profiles
+              of rare and common variants, and that low-frequency variants show
+              substantial geographic differentiation, which is further
+              increased by the action of purifying selection. We show that
+              evolutionary conservation and coding consequence are key
+              determinants of the strength of purifying selection, that
+              rare-variant load varies substantially across biological
+              pathways, and that each individual contains hundreds of rare
+              non-coding variants at conserved sites, such as motif-disrupting
+              changes in transcription-factor-binding sites. This resource,
+              which captures up to 98\% of accessible single nucleotide
+              polymorphisms at a frequency of 1\% in related populations,
+              enables analysis of common and low-frequency variants in
+              individuals from diverse, including admixed, populations.",
+  journal  = "Nature",
+  volume   =  491,
+  number   =  7422,
+  pages    = "56--65",
+  month    =  nov,
+  year     =  2012,
+  language = "en"
+}
+
+
+@article{1kgenomes2,
+	Abstract = {The 1000 Genomes Project set out to provide a comprehensive description of common human genetic variation by applying whole-genome sequencing to a diverse set of individuals from multiple populations. Here we report completion of the project, having reconstructed the genomes of 2,504 individuals from 26 populations using a combination of low-coverage whole-genome sequencing, deep exome sequencing, and dense microarray genotyping. We characterized a broad spectrum of genetic variation, in total over 88 million variants (84.7 million single nucleotide polymorphisms (SNPs), 3.6 million short insertions/deletions (indels), and 60,000 structural variants), all phased onto high-quality haplotypes. This resource includes >99{\%} of SNP variants with a frequency of >1{\%} for a variety of ancestries. We describe the distribution of genetic variation across the global sample, and discuss the implications for common disease studies.},
+	Author = {Auton, Adam and Abecasis, Gon{\c c}alo R. and Altshuler, David M. and Durbin, Richard M. and Abecasis, Gon{\c c}alo R. and Bentley, David R. and Chakravarti, Aravinda and Clark, Andrew G. and Donnelly, Peter and Eichler, Evan E. and Flicek, Paul and Gabriel, Stacey B. and Gibbs, Richard A. and Green, Eric D. and Hurles, Matthew E. and Knoppers, Bartha M. and Korbel, Jan O. and Lander, Eric S. and Lee, Charles and Lehrach, Hans and Mardis, Elaine R. and Marth, Gabor T. and McVean, Gil A. and Nickerson, Deborah A. and Schmidt, Jeanette P. and Sherry, Stephen T. and Wang, Jun and Wilson, Richard K. and Gibbs, Richard A. and Boerwinkle, Eric and Doddapaneni, Harsha and Han, Yi and Korchina, Viktoriya and Kovar, Christie and Lee, Sandra and Muzny, Donna and Reid, Jeffrey G. and Zhu, Yiming and Chang, Yuqi and Feng, Qiang and Fang, Xiaodong and Guo, Xiaosen and Jian, Min and Jiang, Hui and Jin, Xin and Lan, Tianming and Li, Guoqing and Li, Jingxiang and Li, Yingrui and Liu, Shengmao and Liu, Xiao and Lu, Yao and Ma, Xuedi and Tang, Meifang and Wang, Bo and Wang, Guangbiao and Wu, Honglong and Wu, Renhua and Xu, Xun and Yin, Ye and Zhang, Dandan and Zhang, Wenwei and Zhao, Jiao and Zhao, Meiru and Zheng, Xiaole and Lander, Eric S. and Altshuler, David M. and Gabriel, Stacey B. and Gupta, Namrata and Gharani, Neda and Toji, Lorraine H. and Gerry, Norman P. and Resch, Alissa M. and Barker, Jonathan and Clarke, Laura and Gil, Laurent and Hunt, Sarah E. and Kelman, Gavin and Kulesha, Eugene and Leinonen, Rasko and McLaren, William M. and Radhakrishnan, Rajesh and Roa, Asier and Smirnov, Dmitriy and Smith, Richard E. and Streeter, Ian and Thormann, Anja and Toneva, Iliana and Vaughan, Brendan and Zheng-Bradley, Xiangqun and Bentley, David R. and Grocock, Russell and Humphray, Sean and James, Terena and Kingsbury, Zoya and Sudbrak, Ralf and Albrecht, Marcus W. and Amstislavskiy, Vyacheslav S. and Borodina, Tatiana A. and Lienhard, Matthias and Mertes, Florian and Sultan, Marc and Timmermann, Bernd and Yaspo, Marie-Laure and Mardis, Elaine R. and Wilson, Richard K. and Fulton, Lucinda and Fulton, Robert and Sherry, Stephen T. and Ananiev, Victor and Belaia, Zinaida and Beloslyudtsev, Dimitriy and Bouk, Nathan and Chen, Chao and Church, Deanna and Cohen, Robert and Cook, Charles and Garner, John and Hefferon, Timothy and Kimelman, Mikhail and Liu, Chunlei and Lopez, John and Meric, Peter and O'Sullivan, Chris and Ostapchuk, Yuri and Phan, Lon and Ponomarov, Sergiy and Schneider, Valerie and Shekhtman, Eugene and Sirotkin, Karl and Slotta, Douglas and Zhang, Hua and McVean, Gil A. and Durbin, Richard M. and Balasubramaniam, Senduran and Burton, John and Danecek, Petr and Keane, Thomas M. and Kolb-Kokocinski, Anja and McCarthy, Shane and Stalker, James and Quail, Michael and Schmidt, Jeanette P. and Davies, Christopher J. and Gollub, Jeremy and Webster, Teresa and Wong, Brant and Zhan, Yiping and Campbell, Christopher L. and Kong, Yu and Marcketta, Anthony and Gibbs, Richard A. and Yu, Fuli and Antunes, Lilian and Bainbridge, Matthew and Sabo, Aniko and Huang, Zhuoyi and Coin, Lachlan J. M. and Fang, Lin and Li, Qibin and Li, Zhenyu and Lin, Haoxiang and Liu, Binghang and Luo, Ruibang and Shao, Haojing and Xie, Yinlong and Ye, Chen and Yu, Chang and Zhang, Fan and Zheng, Hancheng and Zhu, Hongmei and Alkan, Can and Dal, Elif and Kahveci, Fatma and Marth, Gabor T. and Garrison, Erik P. and Kural, Deniz and Lee, Wan-Ping and Fung Leong, Wen and Stromberg, Michael and Ward, Alistair N. and Wu, Jiantao and Zhang, Mengyao and Daly, Mark J. and DePristo, Mark A. and Handsaker, Robert E. and Altshuler, David M. and Banks, Eric and Bhatia, Gaurav and del Angel, Guillermo and Gabriel, Stacey B. and Genovese, Giulio and Li, Heng and Kashin, Seva and Lander, Eric S. and McCarroll, Steven A. and Nemesh, James C. and Poplin, Ryan E. and Yoon, Seungtai C. and Lihm, Jayon and Makarov, Vladimir and Clark, Andrew G. and Gottipati, Srikanth and Keinan, Alon and Rodriguez-Flores, Juan L. and Korbel, Jan O. and Rausch, Tobias and Fritz, Markus H. and St{\"u}tz, Adrian M. and Beal, Kathryn and Datta, Avik and Herrero, Javier and McLaren, William M. and Ritchie, Graham R. S. and Smith, Richard E. and Zerbino, Daniel and Sabeti, Pardis C. and Shlyakhter, Ilya and Schaffner, Stephen F. and Vitti, Joseph and Cooper, David N. and Ball, Edward V. and Stenson, Peter D. and Bentley, David R. and Barnes, Bret and Bauer, Markus and Keira Cheetham, R. and Cox, Anthony and Eberle, Michael and Kahn, Scott and Murray, Lisa and Peden, John and Shaw, Richard and Kenny, Eimear E. and Batzer, Mark A. and Konkel, Miriam K. and Walker, Jerilyn A. and MacArthur, Daniel G. and Lek, Monkol and Amstislavskiy, Vyacheslav S. and Herwig, Ralf and Mardis, Elaine R. and Ding, Li and Koboldt, Daniel C. and Larson, David and Ye, Kai and Gravel, Simon and The 1000 Genomes Project Consortium and Corresponding authors and Steering committee and Production group and Baylor College of Medicine and BGI-Shenzhen and Broad Institute of MIT and Harvard and Coriell Institute for Medical Research and European Molecular Biology Laboratory, European Bioinformatics Institute and Illumina and Max Planck Institute for Molecular Genetics and McDonnell Genome Institute at Washington University and US National Institutes of Health and University of Oxford and Wellcome Trust Sanger Institute and Analysis group and Affymetrix and Albert Einstein College of Medicine and Bilkent University and Boston College and Cold Spring Harbor Laboratory and Cornell University and European Molecular Biology Laboratory and Harvard University and Human Gene Mutation Database and Icahn School of Medicine at Mount Sinai and Louisiana State University and Massachusetts General Hospital and McGill University and National Eye Institute, NIH},
+	Da = {2015/10/01},
+	Date-Added = {2021-08-22 18:03:59 +0000},
+	Date-Modified = {2021-08-22 18:03:59 +0000},
+	Doi = {10.1038/nature15393},
+	Id = {Auton2015},
+	Isbn = {1476-4687},
+	Journal = {Nature},
+	Number = {7571},
+	Pages = {68--74},
+	Title = {A global reference for human genetic variation},
+	Ty = {JOUR},
+	Url = {https://doi.org/10.1038/nature15393},
+	Volume = {526},
+	Year = {2015},
+	Bdsk-Url-1 = {https://doi.org/10.1038/nature15393}}
+
+
+
+@ARTICLE{somaticrna,
+  title    = "{RNA} sequence analysis reveals macroscopic somatic clonal
+              expansion across normal tissues",
+  author   = "Yizhak, Keren and Aguet, Fran{\c c}ois and Kim, Jaegil and Hess,
+              Julian M and K{\"u}bler, Kirsten and Grimsby, Jonna and Frazer,
+              Ruslana and Zhang, Hailei and Haradhvala, Nicholas J and
+              Rosebrock, Daniel and Livitz, Dimitri and Li, Xiao and
+              Arich-Landkof, Eila and Shoresh, Noam and Stewart, Chip and
+              Segr{\`e}, Ayellet V and Branton, Philip A and Polak, Paz and
+              Ardlie, Kristin G and Getz, Gad",
+  abstract = "How somatic mutations accumulate in normal cells is poorly
+              understood. A comprehensive analysis of RNA sequencing data from
+              ~6700 samples across 29 normal tissues revealed multiple somatic
+              variants, demonstrating that macroscopic clones can be found in
+              many normal tissues. We found that sun-exposed skin, esophagus,
+              and lung have a higher mutation burden than other tested tissues,
+              which suggests that environmental factors can promote somatic
+              mosaicism. Mutation burden was associated with both age and
+              tissue-specific cell proliferation rate, highlighting that
+              mutations accumulate over both time and number of cell divisions.
+              Finally, normal tissues were found to harbor mutations in known
+              cancer genes and hotspots. This study provides a broad view of
+              macroscopic clonal expansion in human tissues, thus serving as a
+              foundation for associating clonal expansion with environmental
+              factors, aging, and risk of disease.",
+  journal  = "Science",
+  volume   =  364,
+  number   =  6444,
+  month    =  jun,
+  year     =  2019,
+  language = "en"
+}
+
+
+@ARTICLE{T7amp,
+  title    = "Amplified {RNA} synthesized from limited quantities of
+              heterogeneous {cDNA}",
+  author   = "Van Gelder, R N and von Zastrow, M E and Yool, A and Dement, W C
+              and Barchas, J D and Eberwine, J H",
+  abstract = "The heterogeneity of neural gene expression and the spatially
+              limited expression of many low-abundance messenger RNAs in the
+              brain has made cloning and analysis of such messages difficult.
+              To generate amounts of nucleic acids sufficient for use in
+              standard cloning strategies, we have devised a method for
+              producing amplified heterogeneous populations of RNA from limited
+              quantities of cDNA. Whole cerebellar RNA was primed with a
+              synthetic oligonucleotide containing the T7 RNA polymerase
+              promoter sequence 5' to a polythymidylate region. After
+              second-strand cDNA synthesis, T7 RNA polymerase was used to
+              generate amplified antisense RNA (aRNA). Up to 80-fold molar
+              amplification has been achieved from nanogram quantities of cDNA.
+              The amplified material is similar in size distribution to the
+              parent cDNA and shows sequence heterogeneity as assessed by
+              Southern and Northern blot analysis. Specific messages for
+              moderate-abundance mRNAs for actin and guanine nucleotide-binding
+              protein (G-protein) alpha subunits have been detected in the
+              amplified material. By using in situ transcription to generate
+              cDNA, sequences for cyclophilin have been detected in aRNA
+              derived from single cerebellar tissue sections. cDNA derived from
+              a single cerebellar Purkinje cell also has been amplified and
+              yields material that hybridizes to cognate whole RNA and mRNA but
+              not to Escherichia coli RNA.",
+  journal  = "Proc. Natl. Acad. Sci. U. S. A.",
+  volume   =  87,
+  number   =  5,
+  pages    = "1663--1667",
+  month    =  mar,
+  year     =  1990,
+  language = "en"
+}
+
+
+
+@ARTICLE{snpchip,
+  title    = "High density synthetic oligonucleotide arrays",
+  author   = "Lipshutz, R J and Fodor, S P and Gingeras, T R and Lockhart, D J",
+  abstract = "Experimental genomics involves taking advantage of sequence
+              information to investigate and understand the workings of genes,
+              cells and organisms. We have developed an approach in which
+              sequence information is used directly to design high-density,
+              two-dimensional rays of synthetic oligonucleotides. The GeneChipe
+              probe arrays are made using spatially patterned, light-directed
+              combinatorial chemical synthesis and contain up to hundreds of
+              thousands of different oligonucleotides on a small glass surface.
+              The arrays have been designed and used for quantitative and
+              highly parallel measurements of gene expression, to discover
+              polymorphic loci and to detect the presence of thousands of
+              alternative alleles. Here, we describe the fabrication of the
+              arrays, their design and some specific applications to
+              high-throughput genetic and cellular analysis.",
+  journal  = "Nat. Genet.",
+  volume   =  21,
+  number   = "1 Suppl",
+  pages    = "20--24",
+  month    =  jan,
+  year     =  1999,
+  language = "en"
+}
+
+
+@ARTICLE{illuminareview,
+  title    = "Coming of age: ten years of next-generation sequencing
+              technologies",
+  author   = "Goodwin, Sara and McPherson, John D and McCombie, W Richard",
+  abstract = "Since the completion of the human genome project in 2003,
+              extraordinary progress has been made in genome sequencing
+              technologies, which has led to a decreased cost per megabase and
+              an increase in the number and diversity of sequenced genomes. An
+              astonishing complexity of genome architecture has been revealed,
+              bringing these sequencing technologies to even greater
+              advancements. Some approaches maximize the number of bases
+              sequenced in the least amount of time, generating a wealth of
+              data that can be used to understand increasingly complex
+              phenotypes. Alternatively, other approaches now aim to sequence
+              longer contiguous pieces of DNA, which are essential for
+              resolving structurally complex regions. These and other
+              strategies are providing researchers and clinicians a variety of
+              tools to probe genomes in greater depth, leading to an enhanced
+              understanding of how genome sequence variants underlie phenotype
+              and disease.",
+  journal  = "Nat. Rev. Genet.",
+  volume   =  17,
+  number   =  6,
+  pages    = "333--351",
+  month    =  may,
+  year     =  2016,
+  language = "en"
+}
+
+
+
+@ARTICLE{isoformseq,
+  title    = "Single-cell {mRNA} isoform diversity in the mouse brain",
+  author   = "Karlsson, Kasper and Linnarsson, Sten",
+  abstract = "BACKGROUND: Alternative mRNA isoform usage is an important source
+              of protein diversity in mammalian cells. This phenomenon has been
+              extensively studied in bulk tissues, however, it remains unclear
+              how this diversity is reflected in single cells. RESULTS: Here we
+              use long-read sequencing technology combined with unique
+              molecular identifiers (UMIs) to reveal patterns of alternative
+              full-length isoform expression in single cells from the mouse
+              brain. We found a surprising amount of isoform diversity, even
+              after applying a conservative definition of what constitutes an
+              isoform. Genes tend to have one or a few isoforms highly
+              expressed and a larger number of isoforms expressed at a low
+              level. However, for many genes, nearly every sequenced mRNA
+              molecule was unique, and many events affected coding regions
+              suggesting previously unknown protein diversity in single cells.
+              Exon junctions in coding regions were less prone to splicing
+              errors than those in non-coding regions, indicating purifying
+              selection on splice donor and acceptor efficiency. CONCLUSIONS:
+              Our findings indicate that mRNA isoform diversity is an important
+              source of biological variability also in single cells.",
+  journal  = "BMC Genomics",
+  volume   =  18,
+  number   =  1,
+  pages    = "126",
+  month    =  feb,
+  year     =  2017,
+  keywords = "Alternative isoform usage; Long read sequencing;
+              Oligodendrocytes; PacBio; STRT; Single-cell RNA sequencing; UMI",
+  language = "en"
+}
+
+
+@ARTICLE{longreadsinglecell,
+  title    = "High-throughput targeted long-read single cell sequencing reveals
+              the clonal and transcriptional landscape of lymphocytes",
+  author   = "Singh, Mandeep and Al-Eryani, Ghamdan and Carswell, Shaun and
+              Ferguson, James M and Blackburn, James and Barton, Kirston and
+              Roden, Daniel and Luciani, Fabio and Giang Phan, Tri and
+              Junankar, Simon and Jackson, Katherine and Goodnow, Christopher C
+              and Smith, Martin A and Swarbrick, Alexander",
+  abstract = "High-throughput single-cell RNA sequencing is a powerful
+              technique but only generates short reads from one end of a cDNA
+              template, limiting the reconstruction of highly diverse sequences
+              such as antigen receptors. To overcome this limitation, we
+              combined targeted capture and long-read sequencing of
+              T-cell-receptor (TCR) and B-cell-receptor (BCR) mRNA transcripts
+              with short-read transcriptome profiling of barcoded single-cell
+              libraries generated by droplet-based partitioning. We show that
+              Repertoire and Gene Expression by Sequencing (RAGE-Seq) can
+              generate accurate full-length antigen receptor sequences at
+              nucleotide resolution, infer B-cell clonal evolution and identify
+              alternatively spliced BCR transcripts. We apply RAGE-Seq to 7138
+              cells sampled from the primary tumor and draining lymph node of a
+              breast cancer patient to track transcriptome profiles of expanded
+              lymphocyte clones across tissues. Our results demonstrate that
+              RAGE-Seq is a powerful method for tracking the clonal evolution
+              from large numbers of lymphocytes applicable to the study of
+              immunity, autoimmunity and cancer.",
+  journal  = "Nat. Commun.",
+  volume   =  10,
+  number   =  1,
+  pages    = "3120",
+  month    =  jul,
+  year     =  2019,
+  language = "en"
+}
+
+
+@ARTICLE{tilgner,
+  title    = "Single-cell isoform {RNA} sequencing characterizes isoforms in
+              thousands of cerebellar cells",
+  author   = "Gupta, Ishaan and Collier, Paul G and Haase, Bettina and Mahfouz,
+              Ahmed and Joglekar, Anoushka and Floyd, Taylor and Koopmans,
+              Frank and Barres, Ben and Smit, August B and Sloan, Steven A and
+              Luo, Wenjie and Fedrigo, Olivier and Ross, M Elizabeth and
+              Tilgner, Hagen U",
+  abstract = "Full-length RNA sequencing (RNA-Seq) has been applied to bulk
+              tissue, cell lines and sorted cells to characterize
+              transcriptomes, but applying this technology to single cells has
+              proven to be difficult, with less than ten single-cell
+              transcriptomes having been analyzed thus far. Although single
+              splicing events have been described for $\leq$200 single cells
+              with statistical confidence, full-length mRNA analyses for
+              hundreds of cells have not been reported. Single-cell short-read
+              3' sequencing enables the identification of cellular subtypes,
+              but full-length mRNA isoforms for these cell types cannot be
+              profiled. We developed a method that starts with bulk tissue and
+              identifies single-cell types and their full-length RNA isoforms
+              without fluorescence-activated cell sorting. Using single-cell
+              isoform RNA-Seq (ScISOr-Seq), we identified RNA isoforms in
+              neurons, astrocytes, microglia, and cell subtypes such as
+              Purkinje and Granule cells, and cell-type-specific combination
+              patterns of distant splice sites. We used ScISOr-Seq to improve
+              genome annotation in mouse Gencode version 10 by determining the
+              cell-type-specific expression of 18,173 known and 16,872 novel
+              isoforms.",
+  journal  = "Nat. Biotechnol.",
+  month    =  oct,
+  year     =  2018,
+  language = "en"
+}
+
+
+
+
+@ARTICLE{bridgeamp,
+  title    = "Accurate whole human genome sequencing using reversible
+              terminator chemistry",
+  author   = "Bentley, David R and Balasubramanian, Shankar and Swerdlow,
+              Harold P and Smith, Geoffrey P and Milton, John and Brown, Clive
+              G and Hall, Kevin P and Evers, Dirk J and Barnes, Colin L and
+              Bignell, Helen R and Boutell, Jonathan M and Bryant, Jason and
+              Carter, Richard J and Keira Cheetham, R and Cox, Anthony J and
+              Ellis, Darren J and Flatbush, Michael R and Gormley, Niall A and
+              Humphray, Sean J and Irving, Leslie J and Karbelashvili, Mirian S
+              and Kirk, Scott M and Li, Heng and Liu, Xiaohai and Maisinger,
+              Klaus S and Murray, Lisa J and Obradovic, Bojan and Ost, Tobias
+              and Parkinson, Michael L and Pratt, Mark R and Rasolonjatovo,
+              Isabelle M J and Reed, Mark T and Rigatti, Roberto and
+              Rodighiero, Chiara and Ross, Mark T and Sabot, Andrea and Sankar,
+              Subramanian V and Scally, Aylwyn and Schroth, Gary P and Smith,
+              Mark E and Smith, Vincent P and Spiridou, Anastassia and
+              Torrance, Peta E and Tzonev, Svilen S and Vermaas, Eric H and
+              Walter, Klaudia and Wu, Xiaolin and Zhang, Lu and Alam, Mohammed
+              D and Anastasi, Carole and Aniebo, Ify C and Bailey, David M D
+              and Bancarz, Iain R and Banerjee, Saibal and Barbour, Selena G
+              and Baybayan, Primo A and Benoit, Vincent A and Benson, Kevin F
+              and Bevis, Claire and Black, Phillip J and Boodhun, Asha and
+              Brennan, Joe S and Bridgham, John A and Brown, Rob C and Brown,
+              Andrew A and Buermann, Dale H and Bundu, Abass A and Burrows,
+              James C and Carter, Nigel P and Castillo, Nestor and Chiara E
+              Catenazzi, Maria and Chang, Simon and Neil Cooley, R and Crake,
+              Natasha R and Dada, Olubunmi O and Diakoumakos, Konstantinos D
+              and Dominguez-Fernandez, Belen and Earnshaw, David J and Egbujor,
+              Ugonna C and Elmore, David W and Etchin, Sergey S and Ewan, Mark
+              R and Fedurco, Milan and Fraser, Louise J and Fuentes Fajardo,
+              Karin V and Scott Furey, W and George, David and Gietzen,
+              Kimberley J and Goddard, Colin P and Golda, George S and
+              Granieri, Philip A and Green, David E and Gustafson, David L and
+              Hansen, Nancy F and Harnish, Kevin and Haudenschild, Christian D
+              and Heyer, Narinder I and Hims, Matthew M and Ho, Johnny T and
+              Horgan, Adrian M and Hoschler, Katya and Hurwitz, Steve and
+              Ivanov, Denis V and Johnson, Maria Q and James, Terena and Huw
+              Jones, T A and Kang, Gyoung-Dong and Kerelska, Tzvetana H and
+              Kersey, Alan D and Khrebtukova, Irina and Kindwall, Alex P and
+              Kingsbury, Zoya and Kokko-Gonzales, Paula I and Kumar, Anil and
+              Laurent, Marc A and Lawley, Cynthia T and Lee, Sarah E and Lee,
+              Xavier and Liao, Arnold K and Loch, Jennifer A and Lok, Mitch and
+              Luo, Shujun and Mammen, Radhika M and Martin, John W and
+              McCauley, Patrick G and McNitt, Paul and Mehta, Parul and Moon,
+              Keith W and Mullens, Joe W and Newington, Taksina and Ning, Zemin
+              and Ling Ng, Bee and Novo, Sonia M and O'Neill, Michael J and
+              Osborne, Mark A and Osnowski, Andrew and Ostadan, Omead and
+              Paraschos, Lambros L and Pickering, Lea and Pike, Andrew C and
+              Pike, Alger C and Chris Pinkard, D and Pliskin, Daniel P and
+              Podhasky, Joe and Quijano, Victor J and Raczy, Come and Rae,
+              Vicki H and Rawlings, Stephen R and Chiva Rodriguez, Ana and Roe,
+              Phyllida M and Rogers, John and Rogert Bacigalupo, Maria C and
+              Romanov, Nikolai and Romieu, Anthony and Roth, Rithy K and
+              Rourke, Natalie J and Ruediger, Silke T and Rusman, Eli and
+              Sanches-Kuiper, Raquel M and Schenker, Martin R and Seoane,
+              Josefina M and Shaw, Richard J and Shiver, Mitch K and Short,
+              Steven W and Sizto, Ning L and Sluis, Johannes P and Smith,
+              Melanie A and Ernest Sohna Sohna, Jean and Spence, Eric J and
+              Stevens, Kim and Sutton, Neil and Szajkowski, Lukasz and
+              Tregidgo, Carolyn L and Turcatti, Gerardo and Vandevondele,
+              Stephanie and Verhovsky, Yuli and Virk, Selene M and Wakelin,
+              Suzanne and Walcott, Gregory C and Wang, Jingwen and Worsley,
+              Graham J and Yan, Juying and Yau, Ling and Zuerlein, Mike and
+              Rogers, Jane and Mullikin, James C and Hurles, Matthew E and
+              McCooke, Nick J and West, John S and Oaks, Frank L and Lundberg,
+              Peter L and Klenerman, David and Durbin, Richard and Smith,
+              Anthony J",
+  abstract = "DNA sequence information underpins genetic research, enabling
+              discoveries of important biological or medical benefit.
+              Sequencing projects have traditionally used long (400-800 base
+              pair) reads, but the existence of reference sequences for the
+              human and many other genomes makes it possible to develop new,
+              fast approaches to re-sequencing, whereby shorter reads are
+              compared to a reference to identify intraspecies genetic
+              variation. Here we report an approach that generates several
+              billion bases of accurate nucleotide sequence per experiment at
+              low cost. Single molecules of DNA are attached to a flat surface,
+              amplified in situ and used as templates for synthetic sequencing
+              with fluorescent reversible terminator deoxyribonucleotides.
+              Images of the surface are analysed to generate high-quality
+              sequence. We demonstrate application of this approach to human
+              genome sequencing on flow-sorted X chromosomes and then scale the
+              approach to determine the genome sequence of a male Yoruba from
+              Ibadan, Nigeria. We build an accurate consensus sequence from
+              >30x average depth of paired 35-base reads. We characterize four
+              million single-nucleotide polymorphisms and four hundred thousand
+              structural variants, many of which were previously unknown. Our
+              approach is effective for accurate, rapid and economical
+              whole-genome re-sequencing and many other biomedical
+              applications.",
+  journal  = "Nature",
+  volume   =  456,
+  number   =  7218,
+  pages    = "53--59",
+  month    =  nov,
+  year     =  2008,
+  language = "en"
+}
+
+
+
+@BOOK{Hooke,
+  title     = "Micrographia: Or Some Physiological Descriptions of Minute
+               Bodies Made by Magnifying Glasses, with Observations and
+               Inquiries Thereupon",
+  author    = "Hooke, Robert",
+  abstract  = "One of the most creative minds in the history of science, Robert
+               Hooke (1635-1703) made the observations and lectures appearing
+               in Micrographia under the auspices of England's Royal Society.
+               The prime... sense of immediacy and excitement. Based upon
+               Hooke's oral presentations, 'Micrographia' requires no
+               scientific background for enjoyable and edifying.",
+  publisher = "Courier Corporation",
+  month     =  jan,
+  year      =  2003,
+  language  = "en"
+}
+
+
+
+@ARTICLE{solexa1,
+  title     = "Optically Biased Diffusion of Single Molecules Studied by
+               Confocal Fluorescence Microscopy",
+  author    = "Osborne, M A and Balasubramanian, S and Furey, W S and
+               Klenerman, D",
+  abstract  = "We have used confocal fluorescence microscopy to study the
+               diffusion of single molecules in solution, over a wide dynamic
+               mass range. The results have been analyzed using both Poisson
+               and autocorrelation methods and have been shown to be consistent
+               with diffusion theory over extended time scales. We observe
+               deviations from statistical behavior on short time scales due to
+               a weak optically induced trapping effect. The power dependency
+               of this effect has been measured and shown to be in good
+               agreement with optical trapping theory. We find that for small
+               molecules the optical biasing effect is only significant for
+               molecules excitated at resonance.",
+  journal   = "J. Phys. Chem. B",
+  publisher = "American Chemical Society",
+  volume    =  102,
+  number    =  17,
+  pages     = "3160--3167",
+  month     =  apr,
+  year      =  1998
+}
+
+
+
+@ARTICLE{hapmap,
+  title    = "A second generation human haplotype map of over 3.1 million
+              {SNPs}",
+  author   = "{International HapMap Consortium} and Frazer, Kelly A and
+              Ballinger, Dennis G and Cox, David R and Hinds, David A and
+              Stuve, Laura L and Gibbs, Richard A and Belmont, John W and
+              Boudreau, Andrew and Hardenbol, Paul and Leal, Suzanne M and
+              Pasternak, Shiran and Wheeler, David A and Willis, Thomas D and
+              Yu, Fuli and Yang, Huanming and Zeng, Changqing and Gao, Yang and
+              Hu, Haoran and Hu, Weitao and Li, Chaohua and Lin, Wei and Liu,
+              Siqi and Pan, Hao and Tang, Xiaoli and Wang, Jian and Wang, Wei
+              and Yu, Jun and Zhang, Bo and Zhang, Qingrun and Zhao, Hongbin
+              and Zhao, Hui and Zhou, Jun and Gabriel, Stacey B and Barry,
+              Rachel and Blumenstiel, Brendan and Camargo, Amy and Defelice,
+              Matthew and Faggart, Maura and Goyette, Mary and Gupta, Supriya
+              and Moore, Jamie and Nguyen, Huy and Onofrio, Robert C and
+              Parkin, Melissa and Roy, Jessica and Stahl, Erich and Winchester,
+              Ellen and Ziaugra, Liuda and Altshuler, David and Shen, Yan and
+              Yao, Zhijian and Huang, Wei and Chu, Xun and He, Yungang and Jin,
+              Li and Liu, Yangfan and Shen, Yayun and Sun, Weiwei and Wang,
+              Haifeng and Wang, Yi and Wang, Ying and Xiong, Xiaoyan and Xu,
+              Liang and Waye, Mary M Y and Tsui, Stephen K W and Xue, Hong and
+              Wong, J Tze-Fei and Galver, Luana M and Fan, Jian-Bing and
+              Gunderson, Kevin and Murray, Sarah S and Oliphant, Arnold R and
+              Chee, Mark S and Montpetit, Alexandre and Chagnon, Fanny and
+              Ferretti, Vincent and Leboeuf, Martin and Olivier, Jean-Fran{\c
+              c}ois and Phillips, Michael S and Roumy, St{\'e}phanie and
+              Sall{\'e}e, Cl{\'e}mentine and Verner, Andrei and Hudson, Thomas
+              J and Kwok, Pui-Yan and Cai, Dongmei and Koboldt, Daniel C and
+              Miller, Raymond D and Pawlikowska, Ludmila and Taillon-Miller,
+              Patricia and Xiao, Ming and Tsui, Lap-Chee and Mak, William and
+              Song, You Qiang and Tam, Paul K H and Nakamura, Yusuke and
+              Kawaguchi, Takahisa and Kitamoto, Takuya and Morizono, Takashi
+              and Nagashima, Atsushi and Ohnishi, Yozo and Sekine, Akihiro and
+              Tanaka, Toshihiro and Tsunoda, Tatsuhiko and Deloukas, Panos and
+              Bird, Christine P and Delgado, Marcos and Dermitzakis, Emmanouil
+              T and Gwilliam, Rhian and Hunt, Sarah and Morrison, Jonathan and
+              Powell, Don and Stranger, Barbara E and Whittaker, Pamela and
+              Bentley, David R and Daly, Mark J and de Bakker, Paul I W and
+              Barrett, Jeff and Chretien, Yves R and Maller, Julian and
+              McCarroll, Steve and Patterson, Nick and Pe'er, Itsik and Price,
+              Alkes and Purcell, Shaun and Richter, Daniel J and Sabeti, Pardis
+              and Saxena, Richa and Schaffner, Stephen F and Sham, Pak C and
+              Varilly, Patrick and Altshuler, David and Stein, Lincoln D and
+              Krishnan, Lalitha and Smith, Albert Vernon and Tello-Ruiz,
+              Marcela K and Thorisson, Gudmundur A and Chakravarti, Aravinda
+              and Chen, Peter E and Cutler, David J and Kashuk, Carl S and Lin,
+              Shin and Abecasis, Gon{\c c}alo R and Guan, Weihua and Li, Yun
+              and Munro, Heather M and Qin, Zhaohui Steve and Thomas, Daryl J
+              and McVean, Gilean and Auton, Adam and Bottolo, Leonardo and
+              Cardin, Niall and Eyheramendy, Susana and Freeman, Colin and
+              Marchini, Jonathan and Myers, Simon and Spencer, Chris and
+              Stephens, Matthew and Donnelly, Peter and Cardon, Lon R and
+              Clarke, Geraldine and Evans, David M and Morris, Andrew P and
+              Weir, Bruce S and Tsunoda, Tatsuhiko and Mullikin, James C and
+              Sherry, Stephen T and Feolo, Michael and Skol, Andrew and Zhang,
+              Houcan and Zeng, Changqing and Zhao, Hui and Matsuda, Ichiro and
+              Fukushima, Yoshimitsu and Macer, Darryl R and Suda, Eiko and
+              Rotimi, Charles N and Adebamowo, Clement A and Ajayi, Ike and
+              Aniagwu, Toyin and Marshall, Patricia A and Nkwodimmah, Chibuzor
+              and Royal, Charmaine D M and Leppert, Mark F and Dixon, Missy and
+              Peiffer, Andy and Qiu, Renzong and Kent, Alastair and Kato,
+              Kazuto and Niikawa, Norio and Adewole, Isaac F and Knoppers,
+              Bartha M and Foster, Morris W and Clayton, Ellen Wright and
+              Watkin, Jessica and Gibbs, Richard A and Belmont, John W and
+              Muzny, Donna and Nazareth, Lynne and Sodergren, Erica and
+              Weinstock, George M and Wheeler, David A and Yakub, Imtaz and
+              Gabriel, Stacey B and Onofrio, Robert C and Richter, Daniel J and
+              Ziaugra, Liuda and Birren, Bruce W and Daly, Mark J and
+              Altshuler, David and Wilson, Richard K and Fulton, Lucinda L and
+              Rogers, Jane and Burton, John and Carter, Nigel P and Clee,
+              Christopher M and Griffiths, Mark and Jones, Matthew C and McLay,
+              Kirsten and Plumb, Robert W and Ross, Mark T and Sims, Sarah K
+              and Willey, David L and Chen, Zhu and Han, Hua and Kang, Le and
+              Godbout, Martin and Wallenburg, John C and L'Archev{\^e}que, Paul
+              and Bellemare, Guy and Saeki, Koji and Wang, Hongguang and An,
+              Daochang and Fu, Hongbo and Li, Qing and Wang, Zhen and Wang,
+              Renwu and Holden, Arthur L and Brooks, Lisa D and McEwen, Jean E
+              and Guyer, Mark S and Wang, Vivian Ota and Peterson, Jane L and
+              Shi, Michael and Spiegel, Jack and Sung, Lawrence M and Zacharia,
+              Lynn F and Collins, Francis S and Kennedy, Karen and Jamieson,
+              Ruth and Stewart, John",
+  abstract = "We describe the Phase II HapMap, which characterizes over 3.1
+              million human single nucleotide polymorphisms (SNPs) genotyped in
+              270 individuals from four geographically diverse populations and
+              includes 25-35\% of common SNP variation in the populations
+              surveyed. The map is estimated to capture untyped common
+              variation with an average maximum r2 of between 0.9 and 0.96
+              depending on population. We demonstrate that the current
+              generation of commercial genome-wide genotyping products captures
+              common Phase II SNPs with an average maximum r2 of up to 0.8 in
+              African and up to 0.95 in non-African populations, and that
+              potential gains in power in association studies can be obtained
+              through imputation. These data also reveal novel aspects of the
+              structure of linkage disequilibrium. We show that 10-30\% of
+              pairs of individuals within a population share at least one
+              region of extended genetic identity arising from recent ancestry
+              and that up to 1\% of all common variants are untaggable,
+              primarily because they lie within recombination hotspots. We show
+              that recombination rates vary systematically around genes and
+              between genes of different function. Finally, we demonstrate
+              increased differentiation at non-synonymous, compared to
+              synonymous, SNPs, resulting from systematic differences in the
+              strength or efficacy of natural selection between populations.",
+  journal  = "Nature",
+  volume   =  449,
+  number   =  7164,
+  pages    = "851--861",
+  month    =  oct,
+  year     =  2007,
+  language = "en"
+}
+
+
+@ARTICLE{western2,
+  title    = "``Western blotting'': electrophoretic transfer of proteins from
+              sodium dodecyl sulfate--polyacrylamide gels to unmodified
+              nitrocellulose and radiographic detection with antibody and
+              radioiodinated protein A",
+  author   = "Burnette, W N",
+  journal  = "Anal. Biochem.",
+  volume   =  112,
+  number   =  2,
+  pages    = "195--203",
+  month    =  apr,
+  year     =  1981,
+  language = "en"
+}
+
+
+@ARTICLE{multiIHC,
+  title    = "Multiplexed immunohistochemistry, imaging, and quantitation: a
+              review, with an assessment of Tyramide signal amplification,
+              multispectral imaging and multiplex analysis",
+  author   = "Stack, Edward C and Wang, Chichung and Roman, Kristin A and Hoyt,
+              Clifford C",
+  abstract = "Tissue sections offer the opportunity to understand a patient's
+              condition, to make better prognostic evaluations and to select
+              optimum treatments, as evidenced by the place pathology holds
+              today in clinical practice. Yet, there is a wealth of information
+              locked up in a tissue section that is only partially accessed,
+              due mainly to the limitations of tools and methods. Often tissues
+              are assessed primarily based on visual analysis of one or two
+              proteins, or 2-3 DNA or RNA molecules. Even while analysis is
+              still based on visual perception, image analysis is starting to
+              address the variability of human perception. This is in contrast
+              to measuring characteristics that are substantially out of reach
+              of human perception, such as parameters revealed through
+              co-expression, spatial relationships, heterogeneity, and low
+              abundance molecules. What is not routinely accessed is the
+              information revealed through simultaneous detection of multiple
+              markers, the spatial relationships among cells and tissue in
+              disease, and the heterogeneity now understood to be critical to
+              developing effective therapeutic strategies. Our purpose here is
+              to review and assess methods for multiplexed, quantitative, image
+              analysis based approaches, using new multicolor
+              immunohistochemistry methods, automated multispectral slide
+              imaging, and advanced trainable pattern recognition software. A
+              key aspect of our approach is presenting imagery in a workflow
+              that engages the pathologist to utilize the strengths of human
+              perception and judgment, while significantly expanding the range
+              of metrics collectable from tissue sections and also provide a
+              level of consistency and precision needed to support the
+              complexities of personalized medicine.",
+  journal  = "Methods",
+  volume   =  70,
+  number   =  1,
+  pages    = "46--58",
+  month    =  nov,
+  year     =  2014,
+  keywords = "Biomarkers; Cancer; Multiplexed; Multispectral; Pathology;
+              Quantitative; TSA",
+  language = "en"
+}
+
+
+@ARTICLE{cellIHC,
+  title    = "Immunohistochemistry and mass spectrometry for highly multiplexed
+              cellular molecular imaging",
+  author   = "Levenson, Richard M and Borowsky, Alexander D and Angelo, Michael",
+  abstract = "The role of immunohistochemistry (IHC) in the management of
+              cancer has expanded to provide improved diagnostic
+              classification, as well as guidance on disease prognosis,
+              therapy, and relapse. These new tasks require evaluation of an
+              increasing number of protein targets; however, conventional
+              multiplexing, usually achieved using serial tissue sections
+              stained for a single analyte per slide, can exhaust small biopsy
+              specimens, complicate slide-to-slide protein expression
+              correlation, and leave insufficient material for additional
+              molecular assays. A new approach, mass spectrometry
+              immunohistochemistry (MSIHC), compatible with high levels of
+              target multiplexing and suitable for use on formalin-fixed,
+              paraffin-embedded samples can circumvent many of these issues.
+              The strategy employs antibodies that are labeled with elemental
+              mass tags, such as isotopically pure lanthanides not typically
+              found in biological specimens, rather than with typical
+              fluorophores or chromogens. The metal-labeled antibodies are then
+              detected in tissue using lasers or ion beams to liberate the tags
+              for subsequent mass spectrometry detection. Within a given
+              multiplexed IHC panel, the metal labels are selected so that
+              their respective masses do not overlap. More than 30 antibodies
+              have been imaged simultaneously, and up to 100 antibodies could
+              potentially be detected at once if the full available mass
+              spectrum is deployed. MSIHC has a number of advantages over
+              conventional IHC techniques. Background due to autofluorescence
+              is absent and the dynamic range is 10(5), exceeding
+              immunofluorescence and chromogenic IHC by 100-fold and 1000-fold,
+              respectively. Detection of labeled primary antibodies improves
+              assay linearity over both chromogenic and fluorescent IHC.
+              Multiplexed mass-tagged antibodies incubated simultaneously with
+              tissue do not appear to cross-interfere, and because the mass
+              tags do not degrade, samples are stable indefinitely. The imaging
+              resolution of multiplexed ion-beam imaging can be better than
+              light microscopy. With appropriate instrumentation, MSIHC has the
+              potential to transform research and clinical pathology practice.",
+  journal  = "Lab. Invest.",
+  volume   =  95,
+  number   =  4,
+  pages    = "397--405",
+  month    =  apr,
+  year     =  2015,
+  language = "en"
+}
+
+@ARTICLE{ionbeam,
+  title    = "Multiplexed ion beam imaging of human breast tumors",
+  author   = "Angelo, Michael and Bendall, Sean C and Finck, Rachel and Hale,
+              Matthew B and Hitzman, Chuck and Borowsky, Alexander D and
+              Levenson, Richard M and Lowe, John B and Liu, Scot D and Zhao,
+              Shuchun and Natkunam, Yasodha and Nolan, Garry P",
+  abstract = "Immunohistochemistry (IHC) is a tool for visualizing protein
+              expression that is employed as part of the diagnostic workup for
+              the majority of solid tissue malignancies. Existing IHC methods
+              use antibodies tagged with fluorophores or enzyme reporters that
+              generate colored pigments. Because these reporters exhibit
+              spectral and spatial overlap when used simultaneously,
+              multiplexed IHC is not routinely used in clinical settings. We
+              have developed a method that uses secondary ion mass spectrometry
+              to image antibodies tagged with isotopically pure elemental metal
+              reporters. Multiplexed ion beam imaging (MIBI) is capable of
+              analyzing up to 100 targets simultaneously over a five-log
+              dynamic range. Here, we used MIBI to analyze formalin-fixed,
+              paraffin-embedded human breast tumor tissue sections stained with
+              ten labels simultaneously. The resulting data suggest that MIBI
+              can provide new insights into disease pathogenesis that will be
+              valuable for basic research, drug discovery and clinical
+              diagnostics.",
+  journal  = "Nat. Med.",
+  volume   =  20,
+  number   =  4,
+  pages    = "436--442",
+  month    =  apr,
+  year     =  2014,
+  language = "en"
+}
+
+
+@ARTICLE{multimassspec,
+  title    = "Highly multiplexed imaging of tumor tissues with subcellular
+              resolution by mass cytometry",
+  author   = "Giesen, Charlotte and Wang, Hao A O and Schapiro, Denis and
+              Zivanovic, Nevena and Jacobs, Andrea and Hattendorf, Bodo and
+              Sch{\"u}ffler, Peter J and Grolimund, Daniel and Buhmann, Joachim
+              M and Brandt, Simone and Varga, Zsuzsanna and Wild, Peter J and
+              G{\"u}nther, Detlef and Bodenmiller, Bernd",
+  abstract = "Mass cytometry enables high-dimensional, single-cell analysis of
+              cell type and state. In mass cytometry, rare earth metals are
+              used as reporters on antibodies. Analysis of metal abundances
+              using the mass cytometer allows determination of marker
+              expression in individual cells. Mass cytometry has previously
+              been applied only to cell suspensions. To gain spatial
+              information, we have coupled immunohistochemical and
+              immunocytochemical methods with high-resolution laser ablation to
+              CyTOF mass cytometry. This approach enables the simultaneous
+              imaging of 32 proteins and protein modifications at subcellular
+              resolution; with the availability of additional isotopes,
+              measurement of over 100 markers will be possible. We applied
+              imaging mass cytometry to human breast cancer samples, allowing
+              delineation of cell subpopulations and cell-cell interactions and
+              highlighting tumor heterogeneity. Imaging mass cytometry
+              complements existing imaging approaches. It will enable basic
+              studies of tissue heterogeneity and function and support the
+              transition of medicine toward individualized molecularly targeted
+              diagnosis and therapies.",
+  journal  = "Nat. Methods",
+  volume   =  11,
+  number   =  4,
+  pages    = "417--422",
+  month    =  apr,
+  year     =  2014,
+  language = "en"
+}
+
+
+
+@ARTICLE{westernblot,
+  title    = "Electrophoretic transfer of proteins from polyacrylamide gels to
+              nitrocellulose sheets: procedure and some applications",
+  author   = "Towbin, H and Staehelin, T and Gordon, J",
+  abstract = "A method has been devised for the electrophoretic transfer of
+              proteins from polyacrylamide gels to nitrocellulose sheets. The
+              method results in quantitative transfer of ribosomal proteins
+              from gels containing urea. For sodium dodecyl sulfate gels, the
+              original band pattern was obtained with no loss of resolution,
+              but the transfer was not quantitative. The method allows
+              detection of proteins by autoradiography and is simpler than
+              conventional procedures. The immobilized proteins were detectable
+              by immunological procedures. All additional binding capacity on
+              the nitrocellulose was blocked with excess protein; then a
+              specific antibody was bound and, finally, a second antibody
+              directed against the first antibody. The second antibody was
+              either radioactively labeled or conjugated to fluorescein or to
+              peroxidase. The specific protein was then detected by either
+              autoradiography, under UV light, or by the peroxidase reaction
+              product, respectively. In the latter case, as little as 100 pg of
+              protein was clearly detectable. It is anticipated that the
+              procedure will be applicable to analysis of a wide variety of
+              proteins with specific reactions or ligands.",
+  journal  = "Proc. Natl. Acad. Sci. U. S. A.",
+  volume   =  76,
+  number   =  9,
+  pages    = "4350--4354",
+  month    =  sep,
+  year     =  1979,
+  language = "en"
+}
+
+
+@ARTICLE{immunohistochemistry,
+  title     = "Immunological Properties of an Antibody Containing a Fluorescent
+               Group",
+  author    = "Coons, Albert H and Creech, Hugh J and Jones, R Norman",
+  abstract  = "SummaryA ?-anthryl-carbamido derivative of antipneumococcus III
+               rabbit antibody retains the original immunological properties
+               while rendering Type III pneumococci specifically fluorescent in
+               ultraviolet light.It is a pleasure to acknowledge the constant
+               advice and help so generously given by Dr. John F. Enders and
+               Dr. Allan L. Grafflin, and the kind interest shown by Dr. Louis
+               F. Fieser.",
+  journal   = "Proc. Soc. Exp. Biol. Med.",
+  publisher = "SAGE Publications",
+  volume    =  47,
+  number    =  2,
+  pages     = "200--202",
+  month     =  jun,
+  year      =  1941
+}
+
+
+@ARTICLE{howmuchrna,
+  title     = "From Tissues to Cell Types and Back: {Single-Cell} Gene
+               Expression Analysis of Tissue Architecture",
+  author    = "Chen, Xi and Teichmann, Sarah A and Meyer, Kerstin B",
+  abstract  = "With the recent transformative developments in single-cell
+               genomics and, in particular, single-cell gene expression
+               analysis, it is now possible to study tissues at the single-cell
+               level, rather than having to rely on data from bulk
+               measurements. Here we review the rapid developments in
+               single-cell RNA sequencing (scRNA-seq) protocols that have the
+               potential for unbiased identification and profiling of all cell
+               types within a tissue or organism. In addition, novel approaches
+               for spatial profiling of gene expression allow us to map
+               individual cells and cell types back into the three-dimensional
+               context of organs. The combination of in-depth single-cell and
+               spatial gene expression data will reveal tissue architecture in
+               unprecedented detail, generating a wealth of biological
+               knowledge and a better understanding of many diseases.",
+  journal   = "Annual Review of Biomedical Data Science",
+  publisher = "Annual Reviews",
+  month     =  jul,
+  year      =  2018,
+  language  = "en"
+}
+
+
+@ARTICLE{FACszebra,
+  title    = "{RNA} sequencing of {FACS-sorted} immune cell populations from
+              zebrafish infection models to identify cell specific responses to
+              intracellular pathogens",
+  author   = "Rougeot, Julien and Zakrzewska, Ania and Kanwal, Zakia and
+              Jansen, Hans J and Spaink, Herman P and Meijer, Annemarie H",
+  abstract = "The zebrafish (Danio rerio) is increasingly used as a model for
+              studying infectious diseases. This nonmammalian vertebrate host,
+              which is transparent at the early life stages, is especially
+              attractive for live imaging of interactions between pathogens and
+              host cells. A number of useful fluorescent reporter lines have
+              recently been developed and significant advances in RNA
+              sequencing technology have been made, which now make it possible
+              to apply the zebrafish model for investigating changes in
+              transcriptional activity of specific immune cell types during the
+              course of an infection process.Here we describe how to sequence
+              RNA extracted from fluorescently labeled macrophages obtained by
+              cell-sorting of 5-day-old zebrafish larvae of the transgenic
+              Tg(mpeg1:Gal4-VP16);Tg(UAS-E1b:Kaede) line. This technique showed
+              reproducible results and allowed to detect specific expression of
+              macrophage markers in the mpeg1 positive cell population, whereas
+              no markers specific for neutrophils or lymphoid cells were
+              detected. This protocol has been also successfully extended to
+              other immune cell types as well as cells infected by
+              Mycobacterium marinum.",
+  journal  = "Methods Mol. Biol.",
+  volume   =  1197,
+  pages    = "261--274",
+  year     =  2014,
+  language = "en"
+}
+
+
+@ARTICLE{FACs,
+  title    = "Electronic separation of biological cells by volume",
+  author   = "Fulwyler, M J",
+  abstract = "A device capable of separating biological cells (suspended in a
+              conducting medium) according to volume has been developed. Cell
+              volume is measured in a Coulter aperture, and the cells are
+              subsequently isolated in droplets of the medium which are charged
+              according to the sensed volume. The charged droplets then enter
+              an electrostatic field and are deflected into a collection
+              vessel. Mixtures of mouse and human erythrocytes and a large
+              volume component of mouse lymphoma cells were separated
+              successfully. In tests with Chinese hamster ovary cells
+              essentially all cells survived separation and grew at their
+              normal rate.",
+  journal  = "Science",
+  volume   =  150,
+  number   =  3698,
+  pages    = "910--911",
+  month    =  nov,
+  year     =  1965,
+  language = "en"
+}
+
+
+
+@ARTICLE{FACspatent,
+  title  = "{US} Patent 2656508",
+  author = "Coulter, W H",
+  year   =  1953
+}
+
+
+
+@ARTICLE{RNAseq2,
+  title    = "Mapping and quantifying mammalian transcriptomes by {RNA-Seq}",
+  author   = "Mortazavi, Ali and Williams, Brian A and McCue, Kenneth and
+              Schaeffer, Lorian and Wold, Barbara",
+  abstract = "We have mapped and quantified mouse transcriptomes by deeply
+              sequencing them and recording how frequently each gene is
+              represented in the sequence sample (RNA-Seq). This provides a
+              digital measure of the presence and prevalence of transcripts
+              from known and previously unknown genes. We report reference
+              measurements composed of 41-52 million mapped 25-base-pair reads
+              for poly(A)-selected RNA from adult mouse brain, liver and
+              skeletal muscle tissues. We used RNA standards to quantify
+              transcript prevalence and to test the linear range of transcript
+              detection, which spanned five orders of magnitude. Although >90\%
+              of uniquely mapped reads fell within known exons, the remaining
+              data suggest new and revised gene models, including changed or
+              additional promoters, exons and 3' untranscribed regions, as well
+              as new candidate microRNA precursors. RNA splice events, which
+              are not readily measured by standard gene expression microarray
+              or serial analysis of gene expression methods, were detected
+              directly by mapping splice-crossing sequence reads. We observed
+              1.45 x 10(5) distinct splices, and alternative splices were
+              prominent, with 3,500 different genes expressing one or more
+              alternate internal splices.",
+  journal  = "Nat. Methods",
+  volume   =  5,
+  number   =  7,
+  pages    = "621--628",
+  month    =  jul,
+  year     =  2008,
+  language = "en"
+}
+
+
+@ARTICLE{RNAseq1,
+  title    = "Analysis of the prostate cancer cell line {LNCaP} transcriptome
+              using a sequencing-by-synthesis approach",
+  author   = "Bainbridge, Matthew N and Warren, Ren{\'e} L and Hirst, Martin
+              and Romanuik, Tammy and Zeng, Thomas and Go, Anne and Delaney,
+              Allen and Griffith, Malachi and Hickenbotham, Matthew and
+              Magrini, Vincent and Mardis, Elaine R and Sadar, Marianne D and
+              Siddiqui, Asim S and Marra, Marco A and Jones, Steven J M",
+  abstract = "BACKGROUND: High throughput sequencing-by-synthesis is an
+              emerging technology that allows the rapid production of millions
+              of bases of data. Although the sequence reads are short, they can
+              readily be used for re-sequencing. By re-sequencing the mRNA
+              products of a cell, one may rapidly discover polymorphisms and
+              splice variants particular to that cell. RESULTS: We present the
+              utility of massively parallel sequencing by synthesis for
+              profiling the transcriptome of a human prostate cancer cell-line,
+              LNCaP, that has been treated with the synthetic androgen, R1881.
+              Through the generation of approximately 20 megabases (MB) of EST
+              data, we detect transcription from over 10,000 gene loci, 25
+              previously undescribed alternative splicing events involving
+              known exons, and over 1,500 high quality single nucleotide
+              discrepancies with the reference human sequence. Further, we map
+              nearly 10,000 ESTs to positions on the genome where no
+              transcription is currently predicted to occur. We also
+              characterize various obstacles with using sequencing by synthesis
+              for transcriptome analysis and propose solutions to these
+              problems. CONCLUSION: The use of high-throughput
+              sequencing-by-synthesis methods for transcript profiling allows
+              the specific and sensitive detection of many of a cell's
+              transcripts, and also allows the discovery of high quality base
+              discrepancies, and alternative splice variants. Thus, this
+              technology may provide an effective means of understanding
+              various disease states, discovering novel targets for disease
+              treatment, and discovery of novel transcripts.",
+  journal  = "BMC Genomics",
+  volume   =  7,
+  pages    = "246",
+  month    =  sep,
+  year     =  2006,
+  language = "en"
+}
+
+
+
+
+@ARTICLE{proteinsequencing,
+  title    = "The emerging landscape of single-molecule protein sequencing
+              technologies",
+  author   = "Alfaro, Javier Antonio and Bohl{\"a}nder, Peggy and Dai, Mingjie
+              and Filius, Mike and Howard, Cecil J and van Kooten, Xander F and
+              Ohayon, Shilo and Pomorski, Adam and Schmid, Sonja and
+              Aksimentiev, Aleksei and Anslyn, Eric V and Bedran, Georges and
+              Cao, Chan and Chinappi, Mauro and Coyaud, Etienne and Dekker,
+              Cees and Dittmar, Gunnar and Drachman, Nicholas and Eelkema,
+              Rienk and Goodlett, David and Hentz, S{\'e}bastien and Kalathiya,
+              Umesh and Kelleher, Neil L and Kelly, Ryan T and Kelman, Zvi and
+              Kim, Sung Hyun and Kuster, Bernhard and Rodriguez-Larrea, David
+              and Lindsay, Stuart and Maglia, Giovanni and Marcotte, Edward M
+              and Marino, John P and Masselon, Christophe and Mayer, Michael
+              and Samaras, Patroklos and Sarthak, Kumar and Sepiashvili, Lusia
+              and Stein, Derek and Wanunu, Meni and Wilhelm, Mathias and Yin,
+              Peng and Meller, Amit and Joo, Chirlmin",
+  abstract = "Single-cell profiling methods have had a profound impact on the
+              understanding of cellular heterogeneity. While genomes and
+              transcriptomes can be explored at the single-cell level,
+              single-cell profiling of proteomes is not yet established. Here
+              we describe new single-molecule protein sequencing and
+              identification technologies alongside innovations in mass
+              spectrometry that will eventually enable broad sequence coverage
+              in single-cell profiling. These technologies will in turn
+              facilitate biological discovery and open new avenues for
+              ultrasensitive disease diagnostics.",
+  journal  = "Nat. Methods",
+  volume   =  18,
+  number   =  6,
+  pages    = "604--617",
+  month    =  jun,
+  year     =  2021,
+  language = "en"
+}
+
+
+
+@ARTICLE{centraldogma,
+  title    = "On protein synthesis",
+  author   = "Crick, F H",
+  journal  = "Symp. Soc. Exp. Biol.",
+  volume   =  12,
+  pages    = "138--163",
+  year     =  1958,
+  keywords = "PROTEINS/metabolism",
+  language = "en"
+}
+
+
+@ARTICLE{astrobiology,
+  title    = "A thermodynamic basis for prebiotic amino acid synthesis and the
+              nature of the first genetic code",
+  author   = "Higgs, Paul G and Pudritz, Ralph E",
+  abstract = "Of the 20 amino acids used in proteins, 10 were formed in
+              Miller's atmospheric discharge experiments. The two other major
+              proposed sources of prebiotic amino acid synthesis include
+              formation in hydrothermal vents and delivery to Earth via
+              meteorites. We combine observational and experimental data of
+              amino acid frequencies formed by these diverse mechanisms and
+              show that, regardless of the source, these 10 early amino acids
+              can be ranked in order of decreasing abundance in prebiotic
+              contexts. This order can be predicted by thermodynamics. The
+              relative abundances of the early amino acids were most likely
+              reflected in the composition of the first proteins at the time
+              the genetic code originated. The remaining amino acids were
+              incorporated into proteins after pathways for their biochemical
+              synthesis evolved. This is consistent with theories of the
+              evolution of the genetic code by stepwise addition of new amino
+              acids. These are hints that key aspects of early biochemistry may
+              be universal.",
+  journal  = "Astrobiology",
+  volume   =  9,
+  number   =  5,
+  pages    = "483--490",
+  month    =  jun,
+  year     =  2009,
+  language = "en"
+}
+
+
+
+@BOOK{extremalities,
+  title     = "The common extremalities in biology and physics: Maximum energy
+               dissipation principle in chemistry, biology, physics and
+               evolution",
+  author    = "Moroz, Adam",
+  publisher = "Elsevier Science Publishing",
+  edition   =  2,
+  month     =  nov,
+  year      =  2011,
+  address   = "Philadelphia, PA"
+}
+
+
+
+@BOOK{informationtheorylife,
+  title     = "Information Theory, Evolution, and the Origin of Life",
+  author    = "Yockey, Hubert P",
+  abstract  = "Information Theory, Evolution and the Origin of Life presents a
+               timely introduction to the use of information theory and coding
+               theory in molecular biology. The genetical information system,
+               because it is linear and digital, resembles the algorithmic
+               language of computers. George Gamow pointed out that the
+               application of Shannon's information theory breaks genetics and
+               molecular biology out of the descriptive mode into the
+               quantitative mode and Dr Yockey develops this theme, discussing
+               how information theory and coding theory can be applied to
+               molecular biology. He discusses how these tools for measuring
+               the information in the sequences of the genome and the proteome
+               are essential for our complete understanding of the nature and
+               origin of life. The author writes for the computer competent
+               reader who is interested in evolution and the origins of life.",
+  publisher = "Cambridge University Press",
+  month     =  apr,
+  year      =  2005,
+  language  = "en"
+}
+
+
+@book{maxwell,
+  title={Theory of heat},
+  author={Maxwell, James Clerk and Pesic, Peter},
+  year={2001},
+  publisher={Courier Corporation}
+}
+
+@article{thermodynamics2,
+  title={I. On the {\oe}conomical production of mechanical effect from chemical forces},
+  author={Joule, JP},
+  journal={The London, Edinburgh, and Dublin Philosophical Magazine and Journal of Science},
+  volume={5},
+  number={29},
+  pages={1--5},
+  year={1853},
+  publisher={Taylor \& Francis}
+}
+
+@ARTICLE{thermodynamics1,
+  title   = "Reflections on the motive power of fire, and on machines fitted to
+             develop that power",
+  author  = "Carnot, Sadi",
+  journal = "Paris: Bachelier",
+  volume  =  108,
+  year    =  1824
+}
+
+
+@ARTICLE{whatislife,
+  title     = "What is life?",
+  author    = "Schrodinger, Erwin",
+  journal   = "J. Philos.",
+  publisher = "Philosophy Documentation Center",
+  volume    =  43,
+  number    =  7,
+  pages     = "194",
+  month     =  mar,
+  year      =  1946
+}
+
+
+
+@ARTICLE{capillary,
+  title    = "High speed {DNA} sequencing by capillary electrophoresis",
+  author   = "Luckey, J A and Drossman, H and Kostichka, A J and Mead, D A and
+              D'Cunha, J and Norris, T B and Smith, L M",
+  abstract = "A major challenge of the Human Genome Initiative is the
+              development of a rapid, accurate, and efficient DNA sequencing
+              technology. A major limitation of current technology is the
+              relatively long time required to perform the gel electrophoretic
+              separations of DNA fragments produced in the sequencing
+              reactions. We demonstrate here that it is possible to increase
+              the speed of sequence analysis by over an order of magnitude by
+              performing the electrophoresis and detection in ultra thin
+              capillary gels. An instrument which utilizes these high speed
+              separations to simultaneously analyze many samples will
+              constitute a second generation automated DNA sequencer suitable
+              for large-scale sequence analysis.",
+  journal  = "Nucleic Acids Res.",
+  volume   =  18,
+  number   =  15,
+  pages    = "4417--4421",
+  month    =  aug,
+  year     =  1990,
+  language = "en"
+}
+
+
+@ARTICLE{watsoncrick,
+  title    = "Molecular structure of nucleic acids; a structure for deoxyribose
+              nucleic acid",
+  author   = "Watson, J D and Crick, F H",
+  journal  = "Nature",
+  volume   =  171,
+  number   =  4356,
+  pages    = "737--738",
+  month    =  apr,
+  year     =  1953,
+  keywords = "NUCLEIC ACIDS",
+  language = "en"
+}
+
+
+@ARTICLE{Avery,
+  title     = "Studies on the chemical nature of the substance inducing
+               transformation of pneumococcal types induction of transformation
+               by a desoxyribonucleic acid fraction isolated from pneumococcus
+               type {III}",
+  author    = "Avery, Oswald T and MacLeod, Colin M and McCarty, Maclyn",
+  journal   = "J. Exp. Med.",
+  publisher = "The Rockefeller University Press",
+  volume    =  79,
+  number    =  2,
+  pages     = "137--158",
+  year      =  1944
+}
+
+
+
+@MISC{mendel,
+  title        = "Experiments in {Plant-Hybridization}",
+  author       = "Mendel, Gregor",
+  howpublished = "\url{https://essayzilla.org/wp-content/uploads/2020/12/20190405221854mendel_1866__1_.pdf}",
+  note         = "Accessed: 2021-8-20"
+}
+
+
+@ARTICLE{miniasm,
+  title    = "Minimap and miniasm: fast mapping and de novo assembly for noisy
+              long sequences",
+  author   = "Li, Heng",
+  abstract = "MOTIVATION: Single Molecule Real-Time (SMRT) sequencing
+              technology and Oxford Nanopore technologies (ONT) produce reads
+              over 10 kb in length, which have enabled high-quality genome
+              assembly at an affordable cost. However, at present, long reads
+              have an error rate as high as 10-15\%. Complex and
+              computationally intensive pipelines are required to assemble such
+              reads. RESULTS: We present a new mapper, minimap and a de novo
+              assembler, miniasm, for efficiently mapping and assembling SMRT
+              and ONT reads without an error correction stage. They can often
+              assemble a sequencing run of bacterial data into a single contig
+              in a few minutes, and assemble 45-fold Caenorhabditis elegans
+              data in 9 min, orders of magnitude faster than the existing
+              pipelines, though the consensus sequence error rate is as high as
+              raw reads. We also introduce a pairwise read mapping format and a
+              graphical fragment assembly format, and demonstrate the
+              interoperability between ours and current tools. AVAILABILITY AND
+              IMPLEMENTATION: https://github.com/lh3/minimap and
+              https://github.com/lh3/miniasm CONTACT: hengli@broadinstitute.org
+              SUPPLEMENTARY INFORMATION: Supplementary data are available at
+              Bioinformatics online.",
+  journal  = "Bioinformatics",
+  volume   =  32,
+  number   =  14,
+  pages    = "2103--2110",
+  month    =  jul,
+  year     =  2016,
+  language = "en"
+}
+
+
+
 @ARTICLE{forceatlas2,
   title    = "{ForceAtlas2}, a continuous graph layout algorithm for handy
               network visualization designed for the Gephi software",
@@ -2188,6 +4801,46 @@ url = {http://www.aaai.org/ocs/index.php/ICWSM/09/paper/view/154}
   language = "en"
 }
 
+ @misc{singlecelloverview, url={https://kb.10xgenomics.com/hc/en-us/articles/115003822406-How-does-Cell-Ranger-correct-barcode-sequencing-errors-}, journal={How does Cell Ranger correct barcode sequencing errors?}, publisher={10x Genomics}, author={Marks, Patrick}} 
+ 
+ 
+@ARTICLE{alignfree,
+  title    = "Limitations of alignment-free tools in total {RNA-seq}
+              quantification",
+  author   = "Wu, Douglas C and Yao, Jun and Ho, Kevin S and Lambowitz, Alan M
+              and Wilke, Claus O",
+  abstract = "BACKGROUND: Alignment-free RNA quantification tools have
+              significantly increased the speed of RNA-seq analysis. However,
+              it is unclear whether these state-of-the-art RNA-seq analysis
+              pipelines can quantify small RNAs as accurately as they do with
+              long RNAs in the context of total RNA quantification. RESULT: We
+              comprehensively tested and compared four RNA-seq pipelines for
+              accuracy of gene quantification and fold-change estimation. We
+              used a novel total RNA benchmarking dataset in which small
+              non-coding RNAs are highly represented along with other long
+              RNAs. The four RNA-seq pipelines consisted of two commonly-used
+              alignment-free pipelines and two variants of alignment-based
+              pipelines. We found that all pipelines showed high accuracy for
+              quantifying the expression of long and highly-abundant genes.
+              However, alignment-free pipelines showed systematically poorer
+              performance in quantifying lowly-abundant and small RNAs.
+              CONCLUSION: We have shown that alignment-free and traditional
+              alignment-based quantification methods perform similarly for
+              common gene targets, such as protein-coding genes. However, we
+              have identified a potential pitfall in analyzing and quantifying
+              lowly-expressed genes and small RNAs with alignment-free
+              pipelines, especially when these small RNAs contain biological
+              variations.",
+  journal  = "BMC Genomics",
+  volume   =  19,
+  number   =  1,
+  pages    = "510",
+  month    =  jul,
+  year     =  2018,
+  keywords = "RNA-seq; TGIRT-seq; k-mer",
+  language = "en"
+}
+
 
 @ARTICLE{STAR,
   title    = "{STAR}: ultrafast universal {RNA-seq} aligner",
@@ -2229,6 +4882,65 @@ url = {http://www.aaai.org/ocs/index.php/ICWSM/09/paper/view/154}
   year     =  2013,
   language = "en"
 }
+
+
+@ARTICLE{tophat2,
+  title    = "{TopHat2}: accurate alignment of transcriptomes in the presence
+              of insertions, deletions and gene fusions",
+  author   = "Kim, Daehwan and Pertea, Geo and Trapnell, Cole and Pimentel,
+              Harold and Kelley, Ryan and Salzberg, Steven L",
+  abstract = "TopHat is a popular spliced aligner for RNA-sequence (RNA-seq)
+              experiments. In this paper, we describe TopHat2, which
+              incorporates many significant enhancements to TopHat. TopHat2 can
+              align reads of various lengths produced by the latest sequencing
+              technologies, while allowing for variable-length indels with
+              respect to the reference genome. In addition to de novo spliced
+              alignment, TopHat2 can align reads across fusion breaks, which
+              can occur after genomic translocations. TopHat2 combines the
+              ability to identify novel splice sites with direct mapping to
+              known transcripts, producing sensitive and accurate alignments,
+              even for highly repetitive genomes or in the presence of
+              pseudogenes. TopHat2 is available at
+              http://ccb.jhu.edu/software/tophat.",
+  journal  = "Genome Biol.",
+  volume   =  14,
+  number   =  4,
+  pages    = "R36",
+  month    =  apr,
+  year     =  2013,
+  language = "en"
+}
+
+
+@ARTICLE{emptydrops,
+  title    = "{EmptyDrops}: distinguishing cells from empty droplets in
+              droplet-based single-cell {RNA} sequencing data",
+  author   = "Lun, Aaron T L and Riesenfeld, Samantha and Andrews, Tallulah and
+              Dao, The Phuong and Gomes, Tomas and {participants in the 1st
+              Human Cell Atlas Jamboree} and Marioni, John C",
+  abstract = "Droplet-based single-cell RNA sequencing protocols have
+              dramatically increased the throughput of single-cell
+              transcriptomics studies. A key computational challenge when
+              processing these data is to distinguish libraries for real cells
+              from empty droplets. Here, we describe a new statistical method
+              for calling cells from droplet-based data, based on detecting
+              significant deviations from the expression profile of the ambient
+              solution. Using simulations, we demonstrate that EmptyDrops has
+              greater power than existing approaches while controlling the
+              false discovery rate among detected cells. Our method also
+              retains distinct cell types that would have been discarded by
+              existing methods in several real data sets.",
+  journal  = "Genome Biol.",
+  volume   =  20,
+  number   =  1,
+  pages    = "63",
+  month    =  mar,
+  year     =  2019,
+  keywords = "Cell detection; Droplet-based protocols; Empty droplets;
+              Single-cell transcriptomics",
+  language = "en"
+}
+
 
 
 
@@ -3175,7 +5887,7 @@ url = {http://www.aaai.org/ocs/index.php/ICWSM/09/paper/view/154}
               directly from sequencing reads, suffers from the fact that
               sequencing reads of the current generation are too short to serve
               the purposes of genome-wide phasing. While future-technology
-              sequencing reads will contain sufficient amounts of SNPs per read
+              sequencing reads will contain sufficient s of SNPs per read
               for phasing, they are also likely to suffer from higher
               sequencing error rates. Currently, no haplotype assembly
               approaches exist that allow for taking both increasing read
@@ -3715,6 +6427,464 @@ url = {http://www.aaai.org/ocs/index.php/ICWSM/09/paper/view/154}
 }
 
 
+@ARTICLE{singlecompare2,
+  title    = "Comparative Analysis of {Single-Cell} {RNA} Sequencing Methods",
+  author   = "Ziegenhain, Christoph and Vieth, Beate and Parekh, Swati and
+              Reinius, Bj{\"o}rn and Guillaumet-Adkins, Amy and Smets, Martha
+              and Leonhardt, Heinrich and Heyn, Holger and Hellmann, Ines and
+              Enard, Wolfgang",
+  abstract = "Single-cell RNA sequencing (scRNA-seq) offers new possibilities
+              to address biological and medical questions. However, systematic
+              comparisons of the performance of diverse scRNA-seq protocols are
+              lacking. We generated data from 583 mouse embryonic stem cells to
+              evaluate six prominent scRNA-seq methods: CEL-seq2, Drop-seq,
+              MARS-seq, SCRB-seq, Smart-seq, and Smart-seq2. While Smart-seq2
+              detected the most genes per cell and across cells, CEL-seq2,
+              Drop-seq, MARS-seq, and SCRB-seq quantified mRNA levels with less
+              amplification noise due to the use of unique molecular
+              identifiers (UMIs). Power simulations at different sequencing
+              depths showed that Drop-seq is more cost-efficient for
+              transcriptome quantification of large numbers of cells, while
+              MARS-seq, SCRB-seq, and Smart-seq2 are more efficient when
+              analyzing fewer cells. Our quantitative comparison offers the
+              basis for an informed choice among six prominent scRNA-seq
+              methods, and it provides a framework for benchmarking further
+              improvements of scRNA-seq protocols.",
+  journal  = "Mol. Cell",
+  volume   =  65,
+  number   =  4,
+  pages    = "631--643.e4",
+  month    =  feb,
+  year     =  2017,
+  keywords = "cost-effectiveness; method comparison; power analysis;
+              simulation; single-cell RNA-seq; transcriptomics",
+  language = "en"
+}
+
+
+@ARTICLE{singlecompare,
+  title    = "Single-cell {RNA} sequencing technologies and bioinformatics
+              pipelines",
+  author   = "Hwang, Byungjin and Lee, Ji Hyun and Bang, Duhee",
+  abstract = "Rapid progress in the development of next-generation sequencing
+              (NGS) technologies in recent years has provided many valuable
+              insights into complex biological systems, ranging from cancer
+              genomics to diverse microbial communities. NGS-based technologies
+              for genomics, transcriptomics, and epigenomics are now
+              increasingly focused on the characterization of individual cells.
+              These single-cell analyses will allow researchers to uncover new
+              and potentially unexpected biological discoveries relative to
+              traditional profiling methods that assess bulk populations.
+              Single-cell RNA sequencing (scRNA-seq), for example, can reveal
+              complex and rare cell populations, uncover regulatory
+              relationships between genes, and track the trajectories of
+              distinct cell lineages in development. In this review, we will
+              focus on technical challenges in single-cell isolation and
+              library preparation and on computational analysis pipelines
+              available for analyzing scRNA-seq data. Further technical
+              improvements at the level of molecular and cell biology and in
+              available bioinformatics tools will greatly facilitate both the
+              basic science and medical applications of these sequencing
+              technologies.",
+  journal  = "Exp. Mol. Med.",
+  volume   =  50,
+  number   =  8,
+  pages    = "1--14",
+  month    =  aug,
+  year     =  2018,
+  language = "en"
+}
+
+
+@ARTICLE{powersingle,
+  title    = "Power analysis of single-cell {RNA-sequencing} experiments",
+  author   = "Svensson, Valentine and Natarajan, Kedar Nath and Ly, Lam-Ha and
+              Miragaia, Ricardo J and Labalette, Charlotte and Macaulay, Iain C
+              and Cvejic, Ana and Teichmann, Sarah A",
+  abstract = "Single-cell RNA sequencing (scRNA-seq) has become an established
+              and powerful method to investigate transcriptomic cell-to-cell
+              variation, thereby revealing new cell types and providing
+              insights into developmental processes and transcriptional
+              stochasticity. A key question is how the variety of available
+              protocols compare in terms of their ability to detect and
+              accurately quantify gene expression. Here, we assessed the
+              protocol sensitivity and accuracy of many published data sets, on
+              the basis of spike-in standards and uniform data processing. For
+              our workflow, we developed a flexible tool for counting the
+              number of unique molecular identifiers
+              (https://github.com/vals/umis/). We compared 15 protocols
+              computationally and 4 protocols experimentally for batch-matched
+              cell populations, in addition to investigating the effects of
+              spike-in molecular degradation. Our analysis provides an
+              integrated framework for comparing scRNA-seq protocols.",
+  journal  = "Nat. Methods",
+  volume   =  14,
+  number   =  4,
+  pages    = "381--387",
+  month    =  apr,
+  year     =  2017,
+  language = "en"
+}
+
+
+@ARTICLE{nonmRNASC,
+  title    = "Single-cell sequencing of the {small-RNA} transcriptome",
+  author   = "Faridani, Omid R and Abdullayev, Ilgar and Hagemann-Jensen,
+              Michael and Schell, John P and Lanner, Fredrik and Sandberg,
+              Rickard",
+  abstract = "Little is known about the heterogeneity of small-RNA expression
+              as small-RNA profiling has so far required large numbers of
+              cells. Here we present a single-cell method for small-RNA
+              sequencing and apply it to naive and primed human embryonic stem
+              cells and cancer cells. Analysis of microRNAs and fragments of
+              tRNAs and small nucleolar RNAs (snoRNAs) reveals the potential of
+              microRNAs as markers for different cell types and states.",
+  journal  = "Nat. Biotechnol.",
+  volume   =  34,
+  number   =  12,
+  pages    = "1264--1266",
+  month    =  dec,
+  year     =  2016,
+  language = "en"
+}
+
+
+@ARTICLE{nonpoly,
+  title    = "Genomewide characterization of non-polyadenylated {RNAs}",
+  author   = "Yang, Li and Duff, Michael O and Graveley, Brenton R and
+              Carmichael, Gordon G and Chen, Ling-Ling",
+  abstract = "BACKGROUND: RNAs can be physically classified into poly(A)+ or
+              poly(A)- transcripts according to the presence or absence of a
+              poly(A) tail at their 3' ends. Current deep sequencing approaches
+              largely depend on the enrichment of transcripts with a poly(A)
+              tail, and therefore offer little insight into the nature and
+              expression of transcripts that lack poly(A) tails. RESULTS: We
+              have used deep sequencing to explore the repertoire of both
+              poly(A)+ and poly(A)- RNAs from HeLa cells and H9 human embryonic
+              stem cells (hESCs). Using stringent criteria, we found that while
+              the majority of transcripts are poly(A)+, a significant portion
+              of transcripts are either poly(A)- or bimorphic, being found in
+              both the poly(A)+ and poly(A)- populations. Further analyses
+              revealed that many mRNAs may not contain classical long poly(A)
+              tails and such messages are overrepresented in specific
+              functional categories. In addition, we surprisingly found that a
+              few excised introns accumulate in cells and thus constitute a new
+              class of non-polyadenylated long non-coding RNAs. Finally, we
+              have identified a specific subset of poly(A)- histone mRNAs,
+              including two histone H1 variants, that are expressed in
+              undifferentiated hESCs and are rapidly diminished upon
+              differentiation; further, these same histone genes are induced
+              upon reprogramming of fibroblasts to induced pluripotent stem
+              cells. CONCLUSIONS: We offer a rich source of data that allows a
+              deeper exploration of the poly(A)- landscape of the eukaryotic
+              transcriptome. The approach we present here also applies to the
+              analysis of the poly(A)- transcriptomes of other organisms.",
+  journal  = "Genome Biol.",
+  volume   =  12,
+  number   =  2,
+  pages    = "R16",
+  month    =  feb,
+  year     =  2011,
+  language = "en"
+}
+
+
+@ARTICLE{rnacontent,
+  title     = "Non-coding {RNA}: what is functional and what is junk?",
+  author    = "Palazzo, Alexander F and Lee, Eliza S",
+  abstract  = "The genomes of large multicellular eukaryotes are mostly
+               comprised of non-protein coding DNA. Although there has been
+               much agreement that a small fraction of these genomes has
+               important biological functions, there has been much debate as to
+               whether the rest contributes to development and/or homeostasis.
+               Much of the speculation has centered on the genomic regions that
+               are transcribed into RNA at some low level. Unfortunately these
+               RNAs have been arbitrarily assigned various names, such as
+               ``intergenic RNA,'' ``long non-coding RNAs'' etc., which have
+               led to some confusion in the field. Many researchers believe
+               that these transcripts represent a vast, unchartered world of
+               functional non-coding RNAs (ncRNAs), simply because they exist.
+               However, there are reasons to question this Panglossian view
+               because it ignores our current understanding of how evolution
+               shapes eukaryotic genomes and how the gene expression machinery
+               works in eukaryotic cells. Although there are undoubtedly many
+               more functional ncRNAs yet to be discovered and characterized,
+               it is also likely that many of these transcripts are simply
+               junk. Here, we discuss how to determine whether any given ncRNA
+               has a function. Importantly, we advocate that in the absence of
+               any such data, the appropriate null hypothesis is that the RNA
+               in question is junk.",
+  journal   = "Front. Genet.",
+  publisher = "Frontiers Media SA",
+  volume    =  6,
+  pages     = "2",
+  month     =  jan,
+  year      =  2015,
+  keywords  = "Junk DNA; Junk RNA; evolution; genome biology; non-coding RNA",
+  language  = "en"
+}
+
+
+@ARTICLE{microarrayRNA,
+  title    = "An improved single-cell {cDNA} amplification method for efficient
+              high-density oligonucleotide microarray analysis",
+  author   = "Kurimoto, Kazuki and Yabuta, Yukihiro and Ohinata, Yasuhide and
+              Ono, Yukiko and Uno, Kenichiro D and Yamada, Rikuhiro G and Ueda,
+              Hiroki R and Saitou, Mitinori",
+  abstract = "A systems-level understanding of a small but essential population
+              of cells in development or adulthood (e.g. somatic stem cells)
+              requires accurate quantitative monitoring of genome-wide gene
+              expression, ideally from single cells. We report here a strategy
+              to globally amplify mRNAs from single cells for highly
+              quantitative high-density oligonucleotide microarray analysis
+              that combines a small number of directional PCR cycles with
+              subsequent linear amplification. Using this strategy, both the
+              representation of gene expression profiles and reproducibility
+              between individual experiments are unambiguously improved from
+              the original method, along with high coverage and accuracy. The
+              immediate application of this method to single cells in the
+              undifferentiated inner cell masses of mouse blastocysts at
+              embryonic day (E) 3.5 revealed the presence of two populations of
+              cells, one with primitive endoderm (PE) expression and the other
+              with pluripotent epiblast-like gene expression. The genes
+              expressed differentially between these two populations were well
+              preserved in morphologically differentiated PE and epiblast in
+              the embryos one day later (E4.5), demonstrating that the method
+              successfully detects subtle but essential differences in gene
+              expression at the single-cell level among seemingly homogeneous
+              cell populations. This study provides a strategy to analyze
+              biophysical events in medicine as well as in neural, stem cell
+              and developmental biology, where small numbers of distinctive or
+              diseased cells play critical roles.",
+  journal  = "Nucleic Acids Res.",
+  volume   =  34,
+  number   =  5,
+  pages    = "e42",
+  month    =  mar,
+  year     =  2006,
+  language = "en"
+}
+
+
+
+@ARTICLE{microarraySC2,
+  title    = "Method for single-cell microarray analysis and application to
+              gene-expression profiling of {GABAergic} neuron progenitors",
+  author   = "Esumi, Shigeyuki and Wu, Sheng-Xi and Yanagawa, Yuchio and Obata,
+              Kunihiko and Sugimoto, Yukihiko and Tamamaki, Nobuaki",
+  abstract = "The mammalian central nervous system is populated with various
+              types of neurons and glia. To investigate the functions and
+              development of individual cells requires gene-expression analysis
+              at the single-cell level. Here, we developed a microarray-based
+              method for the gene-expression profiling of single cells and
+              tested it for GABAergic neuron progenitors. Single GABAergic
+              neuron progenitors were collected from the neocortex of GAD67-GFP
+              knock-in mice by dissociation followed by the aspiration of
+              GFP-positive cells. Complementary DNA from the single cells was
+              amplified by a method in which Super SMART PCR and T7 RNA
+              polymerase amplification were combined at a optimized condition.
+              The cRNA was subjected to microarray hybridization and analysis,
+              which yielded reliable and reproducible results.",
+  journal  = "Neurosci. Res.",
+  volume   =  60,
+  number   =  4,
+  pages    = "439--451",
+  month    =  apr,
+  year     =  2008,
+  language = "en"
+}
+
+
+
+@MISC{PCR,
+  title   = "Specific Synthesis of {DNA} in Vitro via a {Polymerase-Catalyzed}
+             Chain Reaction",
+  author  = "Mullis, Kary B and Faloona, Fred A",
+  journal = "Recombinant DNA Methodology",
+  pages   = "189--204",
+  year    =  1989
+}
+
+
+@PATENT{PCRPatent,
+  title    = "Process for amplifying nucleic acid sequences",
+  author   = "Mullis, Kary B",
+  abstract = "The present invention is directed to a process for amplifying any
+              desired specific nucleic acid sequence contained in a nucleic
+              acid or mixture thereof. The process comprises treating separate
+              complementary strands of the nucleic acid with a molar excess of
+              two oligonucleotide primers, and extending the primers to form
+              complementary primer extension products which act as templates
+              for synthesizing the desired nucleic acid sequence. The steps of
+              the reaction may be carried out stepwise or simultaneously and
+              can be repeated as often as desired.",
+  number   =  4683202,
+  month    =  jul,
+  year     =  1987
+}
+
+
+@ARTICLE{singcellgrowth,
+  title    = "Exponential scaling of single-cell {RNA-seq} in the past decade",
+  author   = "Svensson, Valentine and Vento-Tormo, Roser and Teichmann, Sarah A",
+  abstract = "Measurement of the transcriptomes of single cells has been
+              feasible for only a few years, but it has become an extremely
+              popular assay. While many types of analysis can be carried out
+              and various questions can be answered by single-cell RNA-seq, a
+              central focus is the ability to survey the diversity of cell
+              types in a sample. Unbiased and reproducible cataloging of gene
+              expression patterns in distinct cell types requires large numbers
+              of cells. Technological developments and protocol improvements
+              have fueled consistent and exponential increases in the number of
+              cells that can be studied in single-cell RNA-seq analyses. In
+              this Perspective, we highlight the key technological developments
+              that have enabled this growth in the data obtained from
+              single-cell RNA-seq experiments.",
+  journal  = "Nat. Protoc.",
+  volume   =  13,
+  number   =  4,
+  pages    = "599--604",
+  month    =  apr,
+  year     =  2018,
+  language = "en"
+}
+
+
+@ARTICLE{UMI1,
+  title    = "Counting absolute numbers of molecules using unique molecular
+              identifiers",
+  author   = "Kivioja, Teemu and V{\"a}h{\"a}rautio, Anna and Karlsson, Kasper
+              and Bonke, Martin and Enge, Martin and Linnarsson, Sten and
+              Taipale, Jussi",
+  abstract = "Counting individual RNA or DNA molecules is difficult because
+              they are hard to copy quantitatively for detection. To overcome
+              this limitation, we applied unique molecular identifiers (UMIs),
+              which make each molecule in a population distinct, to
+              genome-scale human karyotyping and mRNA sequencing in Drosophila
+              melanogaster. Use of this method can improve accuracy of almost
+              any next-generation sequencing method, including chromatin
+              immunoprecipitation-sequencing, genome assembly, diagnostics and
+              manufacturing-process control and monitoring.",
+  journal  = "Nat. Methods",
+  volume   =  9,
+  number   =  1,
+  pages    = "72--74",
+  month    =  nov,
+  year     =  2011,
+  language = "en"
+}
+
+
+% The entry below contains non-ASCII chars that could not be converted
+% to a LaTeX equivalent.
+@ARTICLE{combilabel,
+  title     = "Combinatorial labeling of single cells for gene expression
+               cytometry",
+  author    = "Fan, H C and Fu, G K and Fodor, S P A",
+  abstract  = "INTRODUCTION The measurement of specific proteins and
+               transcripts in individual cells is critical for understanding
+               the role of cellular diversity in development, health, and
+               disease. Flow cytometry has become a standard technology for
+               high-throughput detection of protein markers on single cells and
+               has been widely adopted in basic research and clinical
+               diagnostics. In contrast, nucleic acid measurements such as mRNA
+               expression are typically conducted on bulk samples, obscuring
+               the contributions from individual cells. Ideally, in ?",
+  journal   = "Science",
+  publisher = "science.sciencemag.org",
+  year      =  2015
+}
+
+
+
+@ARTICLE{scalablemicro,
+  title    = "Scalable microfluidics for single-cell {RNA} printing and
+              sequencing",
+  author   = "Bose, Sayantan and Wan, Zhenmao and Carr, Ambrose and Rizvi,
+              Abbas H and Vieira, Gregory and Pe'er, Dana and Sims, Peter A",
+  abstract = "Many important biological questions demand single-cell
+              transcriptomics on a large scale. Hence, new tools are urgently
+              needed for efficient, inexpensive manipulation of RNA from
+              individual cells. We report a simple platform for trapping
+              single-cell lysates in sealed, picoliter microwells capable of
+              printing RNA on glass or capturing RNA on beads. We then develop
+              a scalable technology for genome-wide, single-cell RNA-Seq. Our
+              device generates pooled libraries from hundreds of individual
+              cells with consumable costs of $0.10-$0.20 per cell and includes
+              five lanes for simultaneous experiments. We anticipate that this
+              system will serve as a general platform for single-cell imaging
+              and sequencing.",
+  journal  = "Genome Biol.",
+  volume   =  16,
+  pages    = "120",
+  month    =  jun,
+  year     =  2015,
+  language = "en"
+}
+
+
+
+@ARTICLE{seqwell,
+  title    = "{Seq-Well}: portable, low-cost {RNA} sequencing of single cells
+              at high throughput",
+  author   = "Gierahn, Todd M and Wadsworth, 2nd, Marc H and Hughes, Travis K
+              and Bryson, Bryan D and Butler, Andrew and Satija, Rahul and
+              Fortune, Sarah and Love, J Christopher and Shalek, Alex K",
+  abstract = "Single-cell RNA-seq can precisely resolve cellular states, but
+              applying this method to low-input samples is challenging. Here,
+              we present Seq-Well, a portable, low-cost platform for massively
+              parallel single-cell RNA-seq. Barcoded mRNA capture beads and
+              single cells are sealed in an array of subnanoliter wells using a
+              semipermeable membrane, enabling efficient cell lysis and
+              transcript capture. We use Seq-Well to profile thousands of
+              primary human macrophages exposed to Mycobacterium tuberculosis.",
+  journal  = "Nat. Methods",
+  volume   =  14,
+  number   =  4,
+  pages    = "395--398",
+  month    =  apr,
+  year     =  2017,
+  language = "en"
+}
+
+
+@ARTICLE{UMI2,
+  title    = "Quantitative single-cell {RNA-seq} with unique molecular
+              identifiers",
+  author   = "Islam, Saiful and Zeisel, Amit and Joost, Simon and La Manno,
+              Gioele and Zajac, Pawel and Kasper, Maria and L{\"o}nnerberg,
+              Peter and Linnarsson, Sten",
+  abstract = "Single-cell RNA sequencing (RNA-seq) is a powerful tool to reveal
+              cellular heterogeneity, discover new cell types and characterize
+              tumor microevolution. However, losses in cDNA synthesis and bias
+              in cDNA amplification lead to severe quantitative errors. We show
+              that molecular labels--random sequences that label individual
+              molecules--can nearly eliminate amplification noise, and that
+              microfluidic sample preparation and optimized reagents produce a
+              fivefold improvement in mRNA capture efficiency.",
+  journal  = "Nat. Methods",
+  volume   =  11,
+  number   =  2,
+  pages    = "163--166",
+  month    =  feb,
+  year     =  2014,
+  language = "en"
+}
+
+
+@ARTICLE{earliersinglecell,
+  title   = "Representative in vitro {cDNA} amplification from individual
+             hemopoietic cells and colonies",
+  author  = "Brady, Gerard and Barbara, Mary and Iscove, Norman N",
+  journal = "Methods Mol. Cell. Biol.",
+  volume  =  2,
+  number  =  1,
+  pages   = "17--25",
+  year    =  1990
+}
+
+
+
 @ARTICLE{first_singlecell,
   title    = "{mRNA-Seq} whole-transcriptome analysis of a single cell",
   author   = "Tang, Fuchou and Barbacioru, Catalin and Wang, Yangzhou and
@@ -3882,6 +7052,39 @@ url = {http://www.aaai.org/ocs/index.php/ICWSM/09/paper/view/154}
 }
 
 
+
+@ARTICLE{Klein2015,
+  title    = "Droplet barcoding for single-cell transcriptomics applied to
+              embryonic stem cells",
+  author   = "Klein, Allon M and Mazutis, Linas and Akartuna, Ilke and
+              Tallapragada, Naren and Veres, Adrian and Li, Victor and Peshkin,
+              Leonid and Weitz, David A and Kirschner, Marc W",
+  abstract = "It has long been the dream of biologists to map gene expression
+              at the single-cell level. With such data one might track
+              heterogeneous cell sub-populations, and infer regulatory
+              relationships between genes and pathways. Recently, RNA
+              sequencing has achieved single-cell resolution. What is limiting
+              is an effective way to routinely isolate and process large
+              numbers of individual cells for quantitative in-depth sequencing.
+              We have developed a high-throughput droplet-microfluidic approach
+              for barcoding the RNA from thousands of individual cells for
+              subsequent analysis by next-generation sequencing. The method
+              shows a surprisingly low noise profile and is readily adaptable
+              to other sequencing-based assays. We analyzed mouse embryonic
+              stem cells, revealing in detail the population structure and the
+              heterogeneous onset of differentiation after leukemia inhibitory
+              factor (LIF) withdrawal. The reproducibility of these
+              high-throughput single-cell data allowed us to deconstruct cell
+              populations and infer gene expression relationships. VIDEO
+              ABSTRACT.",
+  journal  = "Cell",
+  volume   =  161,
+  number   =  5,
+  pages    = "1187--1201",
+  month    =  may,
+  year     =  2015,
+  language = "en"
+}
 
 
 
