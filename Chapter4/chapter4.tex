@@ -19,15 +19,15 @@
 Reference genomes have enabled a range of genomic analysis by providing prior knowledge of the sequence 
 and giving genomic context as well as a common coordinate system by which to compare multiple genomes \cite{1000genomes} \cite{GRCh38}. Assembling reference genomes is complicated by repetitive sequences, heterozygosity, and sequencing errors. As discussed in Chapter 3, when an assembly encounters inexact homologous sequences, it must determine which of these cases the sequence differences are due to. 
 If the assembler cannot distinguish between heterozygosity and repeats, and if no reads span the homologous sequence into more unique regions, the contig must end
-to avoid assembly distant regions or sequence from different chromosomes together. Historically reference genomes were created by large haploid bacterial artificial chromosomes (BACs) clone libraries \cite{human}. 
-These methods overcame much of the problem of resolving repeats and heterozygosity because of their length allowing them to read through all but the longest segmental duplications and the fact that they are inherently haploid. However, because each of these BACs were sequenced with Sanger sequencing and assembled, they were still subject to problems in repeats longer than the Sanger reads that were close enough to one another to occur in the same BAC clone. But most importantly, these methods are far too costly to apply to many genomes. 
+to avoid assembling distant regions or sequence from different chromosomes together. Historically reference genomes were created by large haploid bacterial artificial chromosomes (BACs), yeast artificial chromosomes (YACs), and fosmid clone libraries \cite{human} (100-200kb, 100-1000kb, and 30-50kb respectively). 
+These methods overcame much of the problem of resolving repeats and heterozygosity because of their length allowing them to read through all but the longest segmental duplications and the fact that they are inherently haploid. However, because each of these BACs were sequenced with Sanger sequencing and assembled, they were still subject to problems in repeats longer than the Sanger reads (500bp-1kb) that were close enough to one another to occur in the same BAC clone. But most importantly, these methods are far too costly to apply to many genomes. The human genome project took 13 years to complete and cost nearly 3 billion dollars\cite{genomeproject}. Despite the labor intensive and costly process, the resulting reference genome still had errors and was not complete\cite{grch38}.
 } \\
 
 \par{
-More recently the cost reductions of long read technologies \cite{pacbio} \cite{oxford}, and reduced error profiles through optimization of the circular consensus method \cite{ccs}\cite{HIFI}
+More recently the cost reductions of long read PacBio and Oxford Nanopore (ONT) technologies \cite{pacbio} \cite{oxford}, and improved accuracy profiles through optimization of the circular consensus method \cite{ccs}\cite{HIFI}
 as well as the emergence of other long range genetic information technologies \cite{10xlinked} \cite{HiC} \cite{bionano} 
 have converged to make high quality, cost effective reference genomes. This has then resparked interest in assembly 
-as well as large reference generation projects. Efforts have begun on the Earth Biogenome Project (EBP)\cite{EBGP}, a global project to sequence the entire diversity of multicellular eukaryotic life. In the UK, the Sanger Institute and partners have started to sequence 60,000 species from the British Isles in the Darwin Tree of Life (DToL) project. These projects aim to provide a scientific resource for the next generation of biological science, for environmental conservation, and to study evolution at a much broader and deeper scale than ever before. 
+as well as large reference generation projects. Efforts have begun on the Earth Biogenome Project (EBP)\cite{EBGP}, a global project to sequence the entire diversity of multicellular eukaryotic life. In the UK, the Sanger Institute and partners have started to sequence 60,000 species from the British Isles in the Darwin Tree of Life (DToL) project. These projects aim to provide a scientific resource for the next generation of biological science, for environmental conservation, and to study evolution at a much broader and deeper scale than ever before. And for the human genome, we continue to make progress through new technologies and computational methods\cite{Wenger2019}\cite{tobias1}\cite{eichler1}. The telomere to telomere project uses multiple technologies on a cell line derived from a haploid genome from the CHM13 hytadidiform mole to create arguably the most complete human genome to date\cite{T2T2}\cite{T2T1}.
 } \\
 
 \par{
@@ -40,26 +40,26 @@ as well as combinations of multiple technologies \cite{genemyers} \cite{hybrid10
 
 \par{
 As mentioned in Chapter 3, one method for dealing with the problem of heterozygosity is inbreeding organisms to a point of low heterozygosity \cite{drosophila}, 
-but this is not possible for all organisms. Trio-sga used pedigree sequencing information in the assembly algorithm \cite{trio-sga} 
-but was built for short reads and does not work on long read data. Recently Koren et al. described trio binning which uses a mother-father-child trio to 
+but this is not possible for all organisms. Trio-sga used pedigree information in the assembly algorithm \cite{trio-sga} 
+but was built exclusively for short reads. Recently Koren et al. described trio binning which uses a mother-father-child trio to 
 separate long reads into their haplotype of origin prior to haploid assembly \cite{triobinning}. 
 While this method is very effective, creating such a cross would be infeasible for many species and costly for the vast number of reference genomes these projects intend to sequence. 
-Another recent approach using the new highly accurate HIgh FIdelity (HIFI) ccs reads from PacBio along with homopolymer compression and other methods to reduce errors dramatically is to 
-require nearly identical sequence similarity to extend the assembly graph \cite{HICANU}. This results in the haplotypes being b v separately in all but the few long stretches of homozygosity in 
+Another recent approach using the new highly accurate High Fidelity (HiFIi) CCS reads from PacBio along with homopolymer compression and other methods to reduce errors dramatically is to 
+require nearly identical sequence similarity to extend the assembly graph \cite{HICANU}. This results in the haplotypes being assembled separately in all but the few long stretches of homozygosity in 
 a genome. They then run a haplotic purging software PurgeDups \cite{purgedups} to remove one of the haplotype assemblies. This has the downside of not matching the haplotypes to make comparisons, but that could be done 
-fairly well as an additional analysis step. This method does not explicitly phase the haplotypes and may have long phase switches especially across long regions of homozygosity.
+fairly well as an additional analysis step. This method does not explicitly phase the haplotypes and may have long phase switch errors especially across long regions of homozygosity. DipAsm does a first pass assembly followed by haplotype phasing and separation of the reads by haplotype prior to haploid assembly\cite{Garg2021}.
 } \\
 
 \par{
 Despite the incredible advances made over the past several years in both sequencing technologies and assembly methods, we still cannot assemble whole chromosomes or chromosome arms with a 
 single technology for most organisms. After assembly we are left with some level of fragmentation of chromosomes into contiguous sequences (contigs) which we wish to scaffold together. While the 
-PacBio HIFI technology has many wonderful properties including continuous, highly accurate reads, it does not produce long enough reads to span many repeat or low sequence complexity regions in most genomes.
+PacBio HiFi technology has many beneficial properties including continuous, highly accurate reads, it does not produce long enough reads to span many repeat or low sequence complexity regions in most genomes.
  10x Genomics linked read technology, however, will create barcode linked short reads across much longer molecules (50kb+) with some molecules reaching well over 250kb \cite{10xlinked}. Optical map technology in which the DNA is linearized and flourescent markers are attached to sequence specific loci via restriction digestion and optically inspected can give sparse data for pieces of DNA about as long as can be isolated with modern high molecular weight extraction methods\cite{opticalmaps1}. And high-throughput chromatin conformation capture sequencing (Hi-C) data creates links between sequences physically located close to one another. And while there will be cross-chromosomal links, the large majority of links are intra-chromosomal but can create links of almost any length \cite{3CHIC} \cite{HIC}. Each of these technologies have been used to break misassemblies in contigs and scaffold contigs\cite{scaff10x}\cite{opticalhuman}\cite{hicscafffirst}\cite{SALSA}\cite{GRAAL}\cite{instaGRAAL}. But some of these scaffolders have been known to introduce misassemblies \cite{hicscafffirst}. 
 } \\
 
 
 \par{
-While high levels of heterozygosity make the assembly problem harder for traditional methods, haplotype phasing consistency (reads containing multiple heterozygous alleles segregate into two---if diploid---groups according to which alleles they have) can be used as a signal of physical linkage in both assembly and scaffolding and as a method to differentiate inexact repeats from haplotype differences. While the conventional thinking is that heterozygosity makes these problems more difficult, we turn this around and use the phasing consistent property of heterozygous sites as a powerful way to simplify and add statistical power to them. In this chapter we present a toolkit for phasing, phasing aware assembly, and phasing aware scaffolding called phasstools (PHasing and ASSembly tools). It is made up of a number of github repositories with a master repository to give a unified command line interface. The code is open source and available at https://github.com/wheaton5/phasstools and the submodule repositories which are linked from the main repository. The use cases are reference based and fully de novo haplotype phasing, assembly based phasing aware scaffolding, and phasing aware assembly. While I will show results from the phasing aware assembly, these are preliminary and not without problems, which I will discuss. For that reason, I will first address the steps required to use phasing consistency for highly accurate assembly scaffolding. First I will outline phasing consistency, then introduce heterozygous single nucleotide polymorphism (SNP) kmer pairs as a mechanism for \textit{de novo} haplotype phasing. Next I introduce an algorithm for \textit{de novo} haplotype phasing using sparse \textit{Bernoulli} mixture model clustering---an algorithm very similar to the clustering algorithm used in Chapter 2. I discuss some several benefits and limitations of this algorithm for our purposes. I then move on to another phasing algorithm based on a given assembly to that can be used for phasing aware scaffolding. We show results for both phasing algorithms on a dataset from the Darwin Tree of Life program from the butterfly \textit{Vanessa atalanta}. Next we consider haploid sex contig detection, because these contigs will need to be treated differently in the steps going forward. Before scaffolding, we discuss breaking contigs that are incorrectly joined in a chimeric misassembly using Hi-C linkage information and the phasing consistency of those links across the midpoint of a moving window. Finally, we discuss phasing aware scaffolding and the results on \textit{Vanessa atalanta} HiCanu assembly. We then continue by discussing the incomplete phased assembly process. We first display a process of using the pairwise phasing consistencies to create a phased assembly graph, but then show several error modes that this process can encounter. This lead us to need to use more than pairwise phasing consistency. We show how we recruit each subsequent kmer pair and decide whether to add it to the graph or not and how we update future potential kmer pair's phasing consistency counts. After this process, we have assembly phase blocks which we use to separate HiFi reads into phase block and haplotype bins and do haploid assemblies of each of those read bins. We show this process on the same butterfly dataset of \textit{Vanessa atalanta} and compare our assemblies to the HiCanu assembly of the same data. We show high concordance with the HiCanu assembly, but with lower contiguity as well as not assembling the haploid sex chromosomes. This work shows the power of using phasing consistency as a strong signal for physical linkage in diploid chromosomes.
+While high levels of heterozygosity make the assembly problem harder for traditional methods, haplotype phasing consistency (reads containing multiple heterozygous alleles segregate into two---if diploid---groups according to which alleles they have) can be used as a signal of physical linkage in both assembly and scaffolding and as a method to differentiate inexact repeats from haplotype differences. While the conventional thinking is that heterozygosity makes these problems more difficult, we turn this around and use the phasing consistent property of heterozygous sites as a powerful way to simplify and add statistical power to them. This is made possible by the advent of long read and other long genetic range information technologies as short reads would not span enough distance to consistently link heterozygous sites. In this chapter we present a toolkit for phasing, phasing aware assembly, and phasing aware scaffolding called phasstools (Phasing and Assembly tools). The code is open source and available at https://github.com/wheaton5/phasstools. The use cases are reference based and fully de novo haplotype phasing, assembly based phasing aware scaffolding, and phasing aware assembly. While I will show results from the phasing aware assembly, these are preliminary and not without problems, which I will discuss. For that reason, I will first address the steps required to use phasing consistency for highly accurate assembly scaffolding. First I will outline phasing consistency, then introduce heterozygous single nucleotide polymorphism (SNP) kmer pairs as a mechanism for \textit{de novo} haplotype phasing. Next I introduce an algorithm for \textit{de novo} haplotype phasing using sparse \textit{Bernoulli} mixture model clustering---an algorithm very similar to the clustering algorithm used in Chapter 2. I discuss some several benefits and limitations of this algorithm for our purposes. I then move on to another phasing algorithm based on a given assembly to that can be used for phasing aware scaffolding. We show results for both phasing algorithms on a dataset from the Darwin Tree of Life program from the butterfly \textit{Vanessa atalanta}. Next we consider haploid sex contig detection, because these contigs will need to be treated differently in the steps going forward. Before scaffolding, we discuss breaking contigs that are incorrectly joined in a chimeric misassembly using Hi-C linkage information and the phasing consistency of those links across the midpoint of a moving window. Finally, we discuss phasing aware scaffolding and the results on \textit{Vanessa atalanta} HiCanu assembly. We then continue by discussing the incomplete phased assembly process. We first display a process of using the pairwise phasing consistencies to create a phased assembly graph, but then show several error modes that this process can encounter. This lead us to need to use more than pairwise phasing consistency. We show how we recruit each subsequent kmer pair and decide whether to add it to the graph or not and how we update future potential kmer pair's phasing consistency counts. After this process, we have assembly phase blocks which we use to separate HiFi reads into haplotype bins and do haploid assemblies of each of those read bins. We show this process on the same butterfly dataset of \textit{Vanessa atalanta} and compare our assemblies to the HiCanu assembly of the same data. We show high concordance with the HiCanu assembly, but with lower contiguity as well as not assembling the haploid sex chromosomes. This work shows the power of using phasing consistency as a strong signal for physical linkage in diploid chromosomes.
 }
 
 
@@ -69,12 +69,17 @@ While high levels of heterozygosity make the assembly problem harder for traditi
 Our goal is to use the phasing consistency of Hi-C reads and optionally linked reads that cover heterozygous sequence on two contigs. First we must find those heterozygous sites. Then we can define phasing consistency of those sites.
 }
 
-
-\subsection{Paired heterozygous SNP kmers}
+\subsection{Heterozygous kmer pairs and detection}
 \par{
 In the case of scaffolding an existing assembly, we could map the reads to the assembly and call variants to find heterozygous sites as is the common workflow for resequencing efforts. In an effort to be unbiased by the 
-assembly, and to be general to a de novo assembly process, we will use paired SNP kmers---kmers that vary only in the middle base and that have counts that are roughly half of the homozygous kmer counts. We generate the 
-kmer count spectra with a fast disk backed kmer counter KMC \cite{kmc}\cite{kmc2}\cite{kmc3}. Figure \ref{figure:kmc} shows an example kmer count histogram. 
+assembly, and to be general to a \textit{de novo} assembly process, we tackle the subject of identifying heterozygous variants in a reference-free manner. We will do this using a kmer approach, as many reference-free methods do. 
+Many people have focused on identifying kmers which occur at roughly half counts in short read data \cite{KAT} and various software exists to count kmers \cite{jellyfish} 
+and to model the mixture of expected distributions (errors, haploid, diploid, duplication kmers) \cite{genomescope}. Identifying heterozygous kmers in this way 
+suffers from multiple problems. 1. Many of these identified as half counts will be either randomly high count error kmers or randomly low count 
+homozygous kmers due to the fact that the count distributions are generally not fully separated. 2. You end up with $K-1$ overlapping kmers for a given variant which is needlessly redundant information that will both slow down any phasing algorithm and 
+likely break key independence assumptions. And 3. while you have heterozygous kmers, you don't know which kmers are alternative alleles of each other. 
+We instead identify pairs of kmers which vary only in the center position which are also both roughly at half counts. These heterozgyous SNP kmers 
+will be much more robust and have the benefit of knowing that one is the alternative allele of the other. We generate the kmer count spectra with a fast disk backed kmer counter KMC \cite{kmc}\cite{kmc2}\cite{kmc3}. Figure \ref{figure:kmc} shows an example kmer count histogram. 
 }
 
 \begin{figure}[htbp!]
@@ -88,29 +93,21 @@ kmer count spectra with a fast disk backed kmer counter KMC \cite{kmc}\cite{kmc2
 \end{figure}
 
 \par{
-We then use the heterozygous range of the kmer spectra with code from purge dups, a tool for removing sequences from assemblies when multiple haplotypes were assembled separately\cite{purgedups}. The kmers are then dumped in alphabetical order and we search for pairs of kmers which vary in only the middle base and fall into the heterozygous counts range. We give a further restriction that the sum of the counts of the kmers with the other two possible bases in the middle are not high as sequences with very high repeat count can produce, through sequencing error or mutations, two kmers in these counts range with the middle base altered. It should also be noted, that while I generally refer to these kmer pairs as heterozygous kmer pairs, they may also represent paralogous kmer pairs. We will use the phasing consistency of these kmer pairs with each other to determine if they are more likely to be from heterozygosity or paralogous sequences. Each produces a characteristic pattern in the kmer consistency counts.
+We then calculate the heterozygous range of the kmer spectra with code from purge dups\cite{purgedups}. The kmers are then dumped in alphabetical order and we search for pairs of kmers which vary in only the middle base and fall into the heterozygous counts range. We give a further restriction that the sum of the counts of the kmers with the other two possible bases in the middle are not high as sequences with very high repeat count can produce, through sequencing error or mutations, two kmers in these counts range with the middle base altered. It should also be noted, that while I generally refer to these kmer pairs as heterozygous kmer pairs, they may also represent paralogous kmer pairs. We will use the phasing consistency of these kmer pairs with each other to determine if they are more likely to be from heterozygosity or paralogous sequences. Each produces a characteristic pattern in the kmer consistency counts.
 }
 
 \subsection{Read data kmer information}
 \par{
-We will use the kmers in the reads to determine if heterozygous paired kmers are phasing consistent with other paired kmers. So we go through the reads of each long range genetic information including HiC, PacBio, linked reads, and nanopore and store the position and ID of each paired kmer on the reads. We then store this on disk in a custom binary format for later use. Of note here is that the linked read technology may have multiple molecules per barcode whereas in other technologies, reads represent single physically linked molecules. Richard Durbin has developed a method to \textit{de novo} assign reads from barcodes to molecule groups using shared kmers across barcode sets to cluster reads into their molecules of origin. In this work, we choose not to use this as it is unpublished and not extensively tested. Instead, we use the distance on the assembly contigs to determine which reads came from which barcode. With the recommended DNA input, high molecular weight (HMW) extraction sizes, and number of partitions, we expect the poisson loading to result in a mean of roughly ten molecules per barcode. Because the total amount of DNA per partition is a small percentage of the total genome sizes we work with, the chances of a partition having molecules which arose from nearby or overlapping locations is rare. Thus we can deduce that reads from a barcode which map close to one another on a reference or assembly arose from the same HMW molecule. While this is not fully \textit{de novo}, it is highly unlikely to cause a false inference because a chimeric misassembly causing incorrect linked read molecule inference would not result in a phasing consistent signal.
+We will use the kmers in the reads to determine if heterozygous paired kmers are phasing consistent with other paired kmers. So we go through the reads of each long range genetic information including HiC, PacBio, linked reads, and nanopore and store the position and ID of each paired kmer on the reads. We then store this on disk in a custom binary format for later use. Of note here is that the linked read technology may have multiple molecules per barcode whereas in other technologies, reads represent single physically linked molecules. Richard Durbin has developed a method to \textit{de novo} assign reads from barcodes to molecule groups using shared kmers across barcode sets to cluster reads into their molecules of origin\cite{hash10x}. In this work, we choose not to use this as it is unpublished and not extensively tested. Instead, we use the distance on the assembly contigs to determine which reads came from which barcode. With the recommended DNA input, high molecular weight (HMW) extraction sizes, and number of partitions, we expect the poisson loading to result in a mean of roughly ten molecules per barcode. Because the total amount of DNA per partition is a small percentage of the total genome sizes we work with, the chances of a partition having molecules which arose from nearby or overlapping locations is rare. Thus we can deduce that reads from a barcode which map close to one another on a reference or assembly arose from the same HMW molecule. While this is not fully \textit{de novo}, it is highly unlikely to cause a false inference because a chimeric misassembly causing incorrect linked read molecule inference would not result in a phasing consistent signal.
 }
 
-\begin{figure}[htbp!]
-\caption{Identify paired kmer location in long range genetic data}
-\label{figure:techs}
-\begin{centering}
-\includegraphics[width=0.65\textwidth]{techs.png}
-\par{Different data types used. Top left: PacBio, Top right: Hi-C, Bottom left: nanopore, Bottom right: Linked reads}
-\end{centering}
-\end{figure}
 \subsection{Phasing consistency}
 \par{
 For each kmer pair, we refer to one as the reference allele and one as the alternate allele arbitrarily without loss of generality. We go through the read kmer data and for every pairwise kmer on the molecule, we update counts for their associated heterozygous paired kmers. If the read contains the reference version of paired kmer k1 and reference version of paired kmer k2, the cis1 count gets incremented. We may do this with any of the data types for different purposes, but we do not combine counts across data types as the error modes may be different. For example, the Hi-C data will have some spurious connections across chromosomes due to the 3D conformation of the chromosomes in a particular nucleus. For the linked reads, we may also stipulate that a version of paired kmer k1 and paired kmer k2 be within some distance of each other on the assembly.
 }
 \subsubsection{Pairwise haplotype phasing consistency}
 \par{
-First we consider phasing consistency between pairs of kmer pairs before moving on to higher order phasing consistency. This is because of the exponentially growing permutations of which kmer of each kmer pair a given molecule can have. In order to deal with that, we will want to phase multiple kmer pairs with respect to one another before considering their consistency with other kmer pairs or groups of phased kmer pairs.
+First we consider phasing consistency between pairs of kmer pairs before moving on to higher order phasing consistency. With pairwise phasing consistency, there are only four potential combinations that a read can have of the two pairs (see figure \ref{figure:consistency}). With more than two kmer pairs, the potential combinations increases exponentially. In order to deal with that, we will phase multiple kmer pairs with respect to one another before considering their consistency with other kmer pairs or groups of phased kmer pairs always reducing the problem to four possibilities.
 }
 
 
@@ -145,7 +142,7 @@ We denote one of each kmer pair as the reference or alternative arbitrarily. Mol
 \subsubsection{Phasing consistency and error modes}
 
 \par{
-There are several distinctive signals we can see from pairwise phasing consistency counts and further insight can be gained when looking at those phenotypes across the multiple paired kmers for which a given paired kmer will have data.
+There are several distinctive signals we can see from pairwise phasing consistency counts and further insight can be gained when looking at those manifestations across the multiple paired kmers for which a given paired kmer will have data.
 } \\
 
 \begin{figure}[htbp!]
@@ -261,7 +258,7 @@ Example of a phasing consistent pair of heterozygous paired kmers \textbf{a)} in
 \end{figure}
 
 \par{
-Figure \ref{figure:consistency2} show the main phasing consistent and inconsistent phenotypes for pairs of paired kmers. It is uncommon to get very mixed signals especially when working with HIFI data. When working with Hi-C data, pairwise counts are not of much use as it is rare for many Hi-C read pairs to link the same two heterozygous kmer pairs. Due to ambiguous cases that should be expected from data outlined in figure \ref{figure:consistency2}d, it is not always possible to categorize kmer pairs as heterozygous or paralogous from phasing consistency counts with one other kmer pair. We can then look across phasing consistency counts that a single kmer pair has with all of the kmer pairs with which it shares enough counts. In doing so we find some kmer pairs that are phasing consistent with some others and inconsistent with another set due to those other kmer pairs arising from paralogous sequence. And we also find kmer pairs which are inconsistent with all other kmer pairs because they were not truly heterozygous.
+Figure \ref{figure:consistency2} show the main phasing consistent and inconsistent phenotypes for pairs of paired kmers. It is uncommon to get very mixed signals especially when working with HiFi data. When working with Hi-C data, pairwise counts are not of much use as it is rare for many Hi-C read pairs to link the same two heterozygous kmer pairs. Due to ambiguous cases that should be expected from data outlined in figure \ref{figure:consistency2}d), it is not always possible to categorize kmer pairs as heterozygous or paralogous from phasing consistency counts with one other kmer pair. We can then look across phasing consistency counts that a single kmer pair has with all of the kmer pairs with which it shares enough counts. In doing so we find some kmer pairs that are phasing consistent with some others and inconsistent with another set due to those other kmer pairs arising from paralogous sequence. And we also find kmer pairs which are inconsistent with all other kmer pairs because they were not truly heterozygous.
 }
 
 
@@ -286,13 +283,13 @@ When using phasing consistency as a signal for assembly scaffolding, we want to 
 \subsection{\textit{de novo} haplotype phasing}
 
 \par{
-We use one or a combination of data types to do \textit{de novo} haplotype phase. The data type that is required is Hi-C, but long reads or linked reads can be used in addition to them. The reason Hi-C data is required is due to the very long range genetic information it gives us. With Hi-C, we are able to phase whole chromosomes instead of potentially having to break our phasing into phase blocks that are smaller than the chromosome. While there are existing phasing algorithms that can take multiple data types including Hi-C\cite{hapcut2}\cite{HICphasing}, we have developed our own phasing algorithm that has several benefits in general and to our specific purposes.
+We use one or a combination of data types to \textit{de novo} haplotype phase. The data type that is required is Hi-C, but long reads or linked reads can be used in addition to them. The reason Hi-C data is required is due to the very long range genetic information it gives us. With Hi-C, we are able to phase whole chromosomes instead of potentially having to break our phasing into phase blocks that are smaller than the chromosome. While there are existing phasing algorithms that can take multiple data types including Hi-C\cite{hapcut2}\cite{HICphasing}, we have developed our own phasing algorithm that has several benefits in general and meets our specific purposes. In addition to phasing in a \textit{de novo} fashion, this algorithm is robust to non heterozygous sequence inputs (which our kmer pairs will have) and can correct these genotypes. It also has the added benefit of being trivially extendable to polyploid genomes.
 }
 
 \subsubsection{Sparse \textit{Bernoulli} mixture model clustering}
 
 \par{
-We treat the haplotype phasing problem as a clustering problem. If we can cluster reads according to heterozygous kmer pair alleles they contain, this gives an implicit phasing of each kmer pair. Similar to the clustering algorithm in Chapter 2, we treat the haplotype clusters as vectors of allele fractions. Where in Chapter 2 this represented the probability parameter of a \textit{Binomial} because we were dealing with allele count data, here it will represent a \textit{Bernoulli} as we assume that a single read can only have one or the other of two alternate alleles. Of course each haplotype will only have one allele, but by treating it as a continuous number instead of a discrete number, we open the door to continuous numerical optimization methods which are often faster than discrete combinatorial optimization techniques. We let the optimization process allow the data to drive the allele fraction numbers to 0 or 1. 
+We treat the haplotype phasing problem as a clustering problem. If we can cluster reads according to heterozygous kmer pair alleles they contain, this gives an implicit phasing of each kmer pair. Similar to the clustering algorithm in Chapter 2, we treat the haplotype clusters as vectors of allele fractions. Where in Chapter 2 this represented the probability parameter of a binomial because we were dealing with allele count data, here it will represent a \textit{Bernoulli} as we assume that a single read can only have one or the other of two alternate alleles. Of course each haplotype will only have one allele, but by treating it as a continuous number instead of a discrete number, we open the door to continuous numerical optimization methods which are often faster than discrete combinatorial optimization techniques. We let the optimization process allow the data to drive the allele fraction numbers to 0 or 1. 
 }
 
 \begin{figure}[htbp!]
@@ -336,13 +333,13 @@ We then maximize this likelihood with random initialization of haplotype cluster
 }
 \subsubsection{Polyploid phasing}
 \par{
-This algorithm has several advantages to other haplotype phasing methods. While most methods scale super linearly, oftentimes exponentially, with ploidy if in fact they are able to solve polyploid phasing problems at all. In this method, since haplotypes are just cluster centers, we just add more cluster centers to match the ploidy. It would be untrue to say that this does not scale super linearly for an optimal solve. This algorithm does not guarantee optimality but neither do most of the modern phasing algorithms. The only modern phasing algorithm I know of which guarantees optimality is WhatsHap, a method which uses dynamic programming to preserve optimality but does not handle gapped data such as linked reads and Hi-C well\cite{whatshap}. So while our algorithm is not optimal, and its iterations to convergence may change with ploidy, the computation per expectation maximization step scales linearly with ploidy.
+This algorithm has several advantages compared to other haplotype phasing methods. While most methods' time complexity scale super linearly, oftentimes exponentially, with ploidy---if they are able to solve polyploid phasing problems at all---in this method, since haplotypes are just cluster centers, we just add more cluster centers to match the ploidy. It would be untrue to say that this does not scale super linearly for an optimal solution. This algorithm does not guarantee optimality but neither do most of the modern phasing algorithms. The only modern phasing algorithm I know of which guarantees optimality is WhatsHap, a method which uses dynamic programming to preserve optimality but does not handle gapped data such as linked reads and Hi-C well\cite{whatshap}. So while our algorithm is not optimal, and its iterations to convergence may change with ploidy, the computation per expectation maximization step scales linearly with ploidy.
 }
 \subsubsection{Genotype correction via phasing}
 
 \par{
 Additionally our algorithm is highly robust to being given non heterozygous sites. Most phasing algorithms assume as input a set of heterozygous variants. However, even with standard resequencing, read mapping, and variant calling, some called variants will be false positives (also known as homozygous reference) or falsely called heterozygous when they are actually homozygous for the alternative allele. They could also be heterozygous or homozygous, but not with the stated alleles. This algorithm has the valuable property that we do not stipulate that every kmer pair is heterozygous. If they are not, the haplotype centers should be driven to the correct genotype by the data. If the reads support that this kmer pair is a false variant, the values will be driven to 0 for both haplotypes, and if the reads support the alternative on both haplotypes, the values will be both driven to 1. This type of genotype correction via phasing has been done before, but with a 3rd discrete categorical state on top of the two normal states representing a 0|1 vs 1|0 phasing\cite{mypatent}. In that method, the 3rd state represented either 0|0 or 1|1 by marginalizing across both. If that state was chosen, the posterior for each case was calculated and genotype reassigned accordingly. This does work, but has the dramatic downside of increasing the total solution space from $2^n$ to $3^n$.
-}
+} \\
 
 
 \begin{figure}[htbp!]
@@ -356,17 +353,16 @@ Additionally our algorithm is highly robust to being given non heterozygous site
 
 
 \par{
-We ran this algorithm on Hi-C, linked read, and HIFI data from a butterfly \textit{Vanessa atalanta} from the Darwin Tree of Live (DToL) project. We then compare this phasing to which allele the HiCanu assembly 
-contained. Initially we show the phasing cluster center values on a single contig to compare phasing with Hi-C alone vs with linked reads and/or long reads (see figure \ref{figure:hicphasing1}.
+We ran this algorithm on Hi-C, linked read, and HIFI data from a \textit{lepidoptera} \textit{Vanessa atalanta} from the Darwin Tree of Live project. We then compare this phasing to which allele the HiCanu assembly 
+contained. Initially we show the phasing cluster center values on a single contig to compare phasing with Hi-C alone vs with linked reads and/or long reads (see figure \ref{figure:hicphasing1}).
 }
 
 \begin{figure}[htbp!]
 
-\caption{Phasing with Hi-C alone vs combined data}
-\label{figure:hicphasing1}
+\caption{Phasing with Hi-C alone vs combined data}\label{figure:hicphasing1}
 \begin{centering}
 \includegraphics[width=\textwidth]{hicphasing1.png}
-\par{Here we show the haplotype cluster center values for sparse \textit{Bernoulli} mixture model haplotype clustering with the values for the haplotype 2 cluster offset by -0.2 such that any phase switches would be visible and not overwritten by other data points. We see that Hi-C alone produces fairly noisy phasing probably because the chances that a HI-C read hits two heterozygous loci it fairly low reducing the total amount of useful data. When linked reads and/or HiFi reads are added, the phasing becomes much cleaner.}
+\par{Here we show the haplotype cluster center values for sparse \textit{Bernoulli} mixture model haplotype clustering with the values for the haplotype 2 cluster offset by -0.2 such that any phase switches would be visible and not overwritten by other data points. We see that Hi-C alone produces fairly noisy phasing probably because the chances that a HI-C read hits two heterozygous loci it fairly low reducing the total amount of useful data. When linked reads and/or HiFi reads are added, the phasing becomes much robust. *txg = 10x genomics linked reads}
 \end{centering}
 \end{figure}
 
@@ -375,18 +371,18 @@ contained. Initially we show the phasing cluster center values on a single conti
 
 \begin{figure}[htbp!]
 
-\caption{Phasing whole \textit{Vanessa atalanta} genome}
+\caption{Phasing \textit{Vanessa atalanta} genome}
 \label{figure:hicphasing2}
 \begin{centering}
 \includegraphics[width=\textwidth]{hicphasing2.png}
-\par{Phasing for whole \textit{Vanessa atalanta} genome. Here you can see that contig 1 as well as the first and last large contigs on the last row are sex chromosomes and thus haploid. Again, the cluster center values for haplotype cluster 2 were offset down by 0.2 for visibility. And contigs are split across multiple rows for better visibility. We can see here rare, but notable long switch errors vs the HiCanu assembly. Because we are using Hi-C data with chromosome length scale information, it is highly likely that these phase switch errors are errors in the assembly and not our phasing algorithm. }
+\par{Phasing for \textit{Vanessa atalanta} genome. Here you can see that contig 1 as well as the first and last large contigs on the last row are sex chromosomes and thus haploid. Again, the cluster center values for haplotype cluster 2 were offset down by 0.2 for visibility. And contigs are split across multiple rows for visibility. We can see here rare, but notable long switch errors vs the HiCanu assembly. Because we are using Hi-C data with chromosome length scale information, it is highly likely that these phase switch errors are errors in the assembly and not our phasing algorithm. }
 \end{centering}
 \end{figure}
 
 \subsection{Phasst phase: Reference or assembly based phasing}
 
 \par{
-Because the sparse \textit{Bernoulli} mixture model haplotype phasing can run into local optima because of the local nature of most read types, it currently requires plentiful and high quality Hi-C data. Also, for some organisms, such as diptera, chromosome pairs colocate within the nucleus\cite{somaticpairing}, greatly increasing the number of cross haplotype Hi-C links. This makes it not always sufficient to have an initial solve with just the long range Hi-C. We still believe that that algorithm can be made to work either with a moving or expanding window or through deterministic annealing, but we decided to take another direction for the time being. So we developed a reference/assembly based phasing consistency rules based phasing algorithm. We first find a good seed kmer pair by looking at all pairwise phasing consistencies. The kmer must have sufficient other kmers that it is phasing consistent with. Then we add phasing consistency counts for all molecules that contain this seed kmer pair to a growing data structure and mark those molecules as used. We then proceed according to the order kmers from the paired kmer pair set occur on the assembly. If the kmer pair's phasing consistency counts are sufficient (>90\% consistent---mostly cis or mostly trans, the minor edge of the major phase---cis or trans---makes up >15\% of the counts, and the total phasing counts is at least 10), it is added to the growing phase block in the appropriate phase. Then for all molecules that contain that kmer and is not already marked used, we update the potential new kmer counts and mark that molecule as used. We do this until we reach the end of the contig or have a string of 10 kmer pairs with zero phasing consistency counts. We then go back to the seed kmer and proceed in the same way in the other direction.
+Because the sparse \textit{Bernoulli} mixture model haplotype phasing can run into local optima because of the local nature of most read types, it currently requires plentiful and high quality Hi-C data. Also, for some organisms, such as diptera, chromosome pairs colocate within the nucleus\cite{somaticpairing}, greatly increasing the number of cross haplotype Hi-C links. This makes it not always sufficient to have an initial solve with just the long range Hi-C. We still believe that that algorithm can be made to work either with a moving or expanding window or through deterministic annealing, but we decided to take another direction for the time being. So we developed a reference/assembly based phasing consistency rules based phasing algorithm. We first find a good seed kmer pair by looking at all pairwise phasing consistencies. The kmer must have sufficient other kmers that it is phasing consistent with. Then we add phasing consistency counts for all molecules that contain this seed kmer pair to a growing data structure and mark those molecules as used. We then proceed according to the order that kmers from the paired kmer pair set occur on the assembly. If the kmer pair's phasing consistency counts are sufficient (>90\% consistent---mostly cis or mostly trans, the minor edge of the major phase---cis or trans---makes up >15\% of the counts, and the total phasing counts is at least 10), it is added to the growing phase block in the appropriate phase. Then for all molecules that contain that kmer and is not already marked used, we update the potential new kmer counts and mark that molecule as used. We do this until we reach the end of the contig or have a string of 10 kmer pairs with zero phasing consistency counts. We then go back to the seed kmer and proceed in the same way in the other direction.
 }
 
 \begin{figure}[htbp!]
@@ -432,7 +428,7 @@ We want to only use phasing consistency when it should be expected to work---whe
 \end{figure}
 
 \par{
-While haploid sex contig detection works well for this dataset and assembly, it is quite different for different species. This could be due to pseudo autosomal regions, repeat structure, or several other factors. In general it is best to use orthologous genes known to be on sex chromosomes in related species for sex contig detection.
+While haploid sex contig detection works well for this dataset and assembly, it is quite different for different species. This could be due to pseudoautosomal regions, repeat structure, or several other factors. In general it is best to use orthologous genes known to be on sex chromosomes in related species for sex contig detection.
 }
 
 \subsection{Contig breaking}
@@ -456,50 +452,8 @@ Before scaffolding, we want to break any contigs which are likely chimeric misas
 \end{figure}
 
 
-\section{Pedigree sample strategies}
-\par{
-As discussed already there are simple strategies for splitting long reads by haplotypes using short accurate reads from both parents. 
-But for many species such as wild caught samples it may be difficult to obtain the paternal sample whereas it is possible to capture a 
-fertilized female and grow her brood in isolation. For this case we propose to use three short read samples: one maternal sample, one sample 
-from a single F1, and another sample from a pool of multiple F1 offspring. From these samples we can obtain distinguishing kmers or probabilistic 
-distinguishing kmers for each haplotype of both the mother and father.
-}
-
-\begin{figure}[h!]
-\caption{Pseudotrio}
-\label{figure:pseudotrio}
-\begin{centering}
-\includegraphics[width=\textwidth]{pseudotrio.png}
-\end{centering}
-\end{figure}
-
-\par{
-As shown in \ref{figure:pseudotrio} we can obtain distinguishing kmers for the P1 haplotype by set subtraction of kmers in the maternal and single F1 sample 
-from the those in the pooled samples. In a similar way we can subtract kmers in the maternal sample from the single F1 sample to get probabilistic distinguishing 
-kmers from the P2 haplotype. We say probabilistic distinguishing kmers because these kmers could also occur on the P1 haplotype as well. And in the same way 
-we can get probabilistic distinguishing kmers for the M1 haplotype by subtracting kmers in the single F1 sample from those in the maternal sample. And finally we can obtain 
-probabilistic distinguishing kmers for the M2 haplotype will be obtained by selecting kmers which are shared between the maternal and single F1 sample and occur at 
-haploid counts in both samples. Once we have these distinguishing kmers we can use them to separate long reads by haplotype for libraries created from any of these samples. 
-We have created software for collecting these distinguishing kmers \cite{distinguishing_kmers} which uses counting bloom filters to minimize memory usage 
-and a mod based system allowing distribution of jobs to many worker nodes. And we also have software for binning long reads based on those 
-distinguishing kmers \cite{long_read_binner}.
-}
-
 
 \section{Phasstools: phasing and assembly tools}
-\subsection{Heterozygous kmer pairs and detection}
-\par{
-First we tackle the subject of identifying heterozygous variants in a reference-free manner. We will do this using a kmer approach, as many reference-free methods do. 
-Many people have focused on identifying kmers which occur at roughly half counts in short read data \cite{KAT} and various software exists to count kmers \cite{jellyfish} 
-and to model the mixture of expected distributions (errors, haploid, diploid, duplication kmers) \cite{genomescope}. Identifying heterozygous kmers in this way 
-suffers from multiple problems from the perspective of de novo phasing. 1. Many of these identified as half counts will be either randomly high count error kmers or randomly low count 
-homozygous kmers. 2. You end up with $K-1$ overlapping kmers for a given variant which is needlessly redundant information which will both slow down any phasing algorithm and 
-likely break key independence assumptions. And 3. while you have heterozygous kmers, you don't know which kmers are alternative alleles of each other. 
-We propose finding pairs of kmers which vary only in the center position which are also both roughly at half counts. These heterozgyous SNP kmers 
-will be much more robust and have the benefit of knowing that one is the alternative allele of the other.
-We have software for this purpose \cite{het_kmers} which uses counting bloom filters to minimize memory usage and a mod based method to 
-distribute the work to many worker nodes.
-}
 
 \subsection{Phasst scaff: phasing aware assembly scaffolding}
 
@@ -612,7 +566,7 @@ We took one of the haplotype assemblies from each assembly phase block and align
 \section{Discussion}
 
 \par{
-Due to recent advances in long read and long range genetic information technologies, our ability to assemble high quality genomes has increased greatly. But some issues still exist around high heterozygosity and small organisms. With the advent of the Earth Biogenome project and the Darwin tree of life project, there is a need for new methods for assembly and scaffolding that are robust to these issues and work on a wide range of organisms. While there are a number of phased assembly methods currently available, we take the approach of treating phasing consistency as a first class object and make it just as important as sequence similarity in the assembly and scaffolding processes.
+Due to recent advances in long read and long range genetic information technologies, our ability to assemble high quality genomes has increased greatly. But some issues still exist around high heterozygosity and small organisms. With the advent of the Earth Biogenome project and the Darwin tree of life project, there is a need for new assembly and scaffolding methods that are robust to these issues and work on a wide range of organisms. While there are a number of phased assembly methods currently available, we take the approach of treating phasing consistency as a first class signal for physical linkage and make it just as important as sequence similarity in the assembly and scaffolding processes.
 } \\
 
 \par{
@@ -625,7 +579,10 @@ We also described a novel algorithm for \textit{de novo} haplotype phasing even 
 
 \par{
 Finally, we presented a method for phased assembly by using heterozygous kmer pairs and their phasing consistency as a signal of physical linkage. We then use this to bin HiFi reads into haploid bins which can be assembled separately. By phasing prior to assembly we remove both errors and bias caused by the ambiguity between heterozygosity and paralogous sequences. Furthermore we generate a complete set of paired haplotype sequences, linked by confirmed single-copy kmer-pairs, in the process identifying large scale structural variation.  Although N50 numbers are shorter than from some modern assemblers, we believe the linked haplotype output of our method is the correct goal for diploid assembly. The same approach could in principle be applied to higher ploidy genomes.
-
+}
+\section{Future work}
+\par{
+something here
 }
 
 

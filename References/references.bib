@@ -478,6 +478,8 @@
 }
 
 
+
+
 @ARTICLE{hamming,
   title    = "Error detecting and error correcting codes",
   author   = "Hamming, R W",
@@ -1988,6 +1990,555 @@
   month    =  feb,
   year     =  2015,
   language = "en"
+}
+
+
+@ARTICLE{batch1,
+  title    = "Batch effects in single-cell {RNA-sequencing} data are corrected
+              by matching mutual nearest neighbors",
+  author   = "Haghverdi, Laleh and Lun, Aaron T L and Morgan, Michael D and
+              Marioni, John C",
+  abstract = "Large-scale single-cell RNA sequencing (scRNA-seq) data sets that
+              are produced in different laboratories and at different times
+              contain batch effects that may compromise the integration and
+              interpretation of the data. Existing scRNA-seq analysis methods
+              incorrectly assume that the composition of cell populations is
+              either known or identical across batches. We present a strategy
+              for batch correction based on the detection of mutual nearest
+              neighbors (MNNs) in the high-dimensional expression space. Our
+              approach does not rely on predefined or equal population
+              compositions across batches; instead, it requires only that a
+              subset of the population be shared between batches. We
+              demonstrate the superiority of our approach compared with
+              existing methods by using both simulated and real scRNA-seq data
+              sets. Using multiple droplet-based scRNA-seq data sets, we
+              demonstrate that our MNN batch-effect-correction method can be
+              scaled to large numbers of cells.",
+  journal  = "Nat. Biotechnol.",
+  volume   =  36,
+  number   =  5,
+  pages    = "421--427",
+  month    =  jun,
+  year     =  2018,
+  language = "en"
+}
+
+
+@ARTICLE{scanorama,
+  title    = "Efficient integration of heterogeneous single-cell transcriptomes
+              using Scanorama",
+  author   = "Hie, Brian and Bryson, Bryan and Berger, Bonnie",
+  abstract = "Integration of single-cell RNA sequencing (scRNA-seq) data from
+              multiple experiments, laboratories and technologies can uncover
+              biological insights, but current methods for scRNA-seq data
+              integration are limited by a requirement for datasets to derive
+              from functionally similar cells. We present Scanorama, an
+              algorithm that identifies and merges the shared cell types among
+              all pairs of datasets and accurately integrates heterogeneous
+              collections of scRNA-seq data. We applied Scanorama to integrate
+              and remove batch effects across 105,476 cells from 26 diverse
+              scRNA-seq experiments representing 9 different technologies.
+              Scanorama is sensitive to subtle temporal changes within the same
+              cell lineage, successfully integrating functionally similar cells
+              across time series data of CD14+ monocytes at different stages of
+              differentiation into macrophages. Finally, we show that Scanorama
+              is orders of magnitude faster than existing techniques and can
+              integrate a collection of 1,095,538 cells in just ~9 h.",
+  journal  = "Nat. Biotechnol.",
+  volume   =  37,
+  number   =  6,
+  pages    = "685--691",
+  month    =  jun,
+  year     =  2019,
+  language = "en"
+}
+
+@ARTICLE{BBKNN,
+  title    = "{BBKNN}: fast batch alignment of single cell transcriptomes",
+  author   = "Pola{\'n}ski, Krzysztof and Young, Matthew D and Miao, Zhichao
+              and Meyer, Kerstin B and Teichmann, Sarah A and Park, Jong-Eun",
+  abstract = "MOTIVATION: Increasing numbers of large scale single cell RNA-Seq
+              projects are leading to a data explosion, which can only be fully
+              exploited through data integration. A number of methods have been
+              developed to combine diverse datasets by removing technical batch
+              effects, but most are computationally intensive. To overcome the
+              challenge of enormous datasets, we have developed BBKNN, an
+              extremely fast graph-based data integration algorithm. We
+              illustrate the power of BBKNN on large scale mouse atlasing data,
+              and favourably benchmark its run time against a number of
+              competing methods. AVAILABILITY AND IMPLEMENTATION: BBKNN is
+              available at https://github.com/Teichlab/bbknn, along with
+              documentation and multiple example notebooks, and can be
+              installed from pip. SUPPLEMENTARY INFORMATION: Supplementary data
+              are available at Bioinformatics online.",
+  journal  = "Bioinformatics",
+  volume   =  36,
+  number   =  3,
+  pages    = "964--965",
+  month    =  feb,
+  year     =  2020,
+  language = "en"
+}
+
+
+@ARTICLE{harmony,
+  title    = "Fast, sensitive and accurate integration of single-cell data with
+              Harmony",
+  author   = "Korsunsky, Ilya and Millard, Nghia and Fan, Jean and Slowikowski,
+              Kamil and Zhang, Fan and Wei, Kevin and Baglaenko, Yuriy and
+              Brenner, Michael and Loh, Po-Ru and Raychaudhuri, Soumya",
+  abstract = "The emerging diversity of single-cell RNA-seq datasets allows for
+              the full transcriptional characterization of cell types across a
+              wide variety of biological and clinical conditions. However, it
+              is challenging to analyze them together, particularly when
+              datasets are assayed with different technologies, because
+              biological and technical differences are interspersed. We present
+              Harmony (https://github.com/immunogenomics/harmony), an algorithm
+              that projects cells into a shared embedding in which cells group
+              by cell type rather than dataset-specific conditions. Harmony
+              simultaneously accounts for multiple experimental and biological
+              factors. In six analyses, we demonstrate the superior performance
+              of Harmony to previously published algorithms while requiring
+              fewer computational resources. Harmony enables the integration of
+              ~106 cells on a personal computer. We apply Harmony to peripheral
+              blood mononuclear cells from datasets with large experimental
+              differences, five studies of pancreatic islet cells, mouse
+              embryogenesis datasets and the integration of scRNA-seq with
+              spatial transcriptomics data.",
+  journal  = "Nat. Methods",
+  volume   =  16,
+  number   =  12,
+  pages    = "1289--1296",
+  month    =  dec,
+  year     =  2019,
+  language = "en"
+}
+
+
+@ARTICLE{LIGER,
+  title    = "{Single-Cell} Multi-omic Integration Compares and Contrasts
+              Features of Brain Cell Identity",
+  author   = "Welch, Joshua D and Kozareva, Velina and Ferreira, Ashley and
+              Vanderburg, Charles and Martin, Carly and Macosko, Evan Z",
+  abstract = "Defining cell types requires integrating diverse single-cell
+              measurements from multiple experiments and biological contexts.
+              To flexibly model single-cell datasets, we developed LIGER, an
+              algorithm that delineates shared and dataset-specific features of
+              cell identity. We applied it to four diverse and challenging
+              analyses of human and mouse brain cells. First, we defined
+              region-specific and sexually dimorphic gene expression in the
+              mouse bed nucleus of the stria terminalis. Second, we analyzed
+              expression in the human substantia nigra, comparing cell states
+              in specific donors and relating cell types to those in the mouse.
+              Third, we integrated in situ and single-cell expression data to
+              spatially locate fine subtypes of cells present in the mouse
+              frontal cortex. Finally, we jointly defined mouse cortical cell
+              types using single-cell RNA-seq and DNA methylation profiles,
+              revealing putative mechanisms of cell-type-specific epigenomic
+              regulation. Integrative analyses using LIGER promise to
+              accelerate investigations of cell-type definition, gene
+              regulation, and disease states.",
+  journal  = "Cell",
+  volume   =  177,
+  number   =  7,
+  pages    = "1873--1887.e17",
+  month    =  jun,
+  year     =  2019,
+  keywords = "bed nucleus of the stria terminalis; data integration;
+              single-cell genomics; substantia nigra",
+  language = "en"
+}
+
+
+@ARTICLE{batch14,
+  title    = "A benchmark of batch-effect correction methods for single-cell
+              {RNA} sequencing data",
+  author   = "Tran, Hoa Thi Nhu and Ang, Kok Siong and Chevrier, Marion and
+              Zhang, Xiaomeng and Lee, Nicole Yee Shin and Goh, Michelle and
+              Chen, Jinmiao",
+  abstract = "BACKGROUND: Large-scale single-cell transcriptomic datasets
+              generated using different technologies contain batch-specific
+              systematic variations that present a challenge to batch-effect
+              removal and data integration. With continued growth expected in
+              scRNA-seq data, achieving effective batch integration with
+              available computational resources is crucial. Here, we perform an
+              in-depth benchmark study on available batch correction methods to
+              determine the most suitable method for batch-effect removal.
+              RESULTS: We compare 14 methods in terms of computational runtime,
+              the ability to handle large datasets, and batch-effect correction
+              efficacy while preserving cell type purity. Five scenarios are
+              designed for the study: identical cell types with different
+              technologies, non-identical cell types, multiple batches, big
+              data, and simulated data. Performance is evaluated using four
+              benchmarking metrics including kBET, LISI, ASW, and ARI. We also
+              investigate the use of batch-corrected data to study differential
+              gene expression. CONCLUSION: Based on our results, Harmony,
+              LIGER, and Seurat 3 are the recommended methods for batch
+              integration. Due to its significantly shorter runtime, Harmony is
+              recommended as the first method to try, with the other methods as
+              viable alternatives.",
+  journal  = "Genome Biol.",
+  volume   =  21,
+  number   =  1,
+  pages    = "12",
+  month    =  jan,
+  year     =  2020,
+  keywords = "Batch correction; Batch effect; Differential gene expression;
+              Integration; Single-cell RNA-seq",
+  language = "en"
+}
+
+
+@ARTICLE{seurat3,
+  title    = "Comprehensive Integration of {Single-Cell} Data",
+  author   = "Stuart, Tim and Butler, Andrew and Hoffman, Paul and Hafemeister,
+              Christoph and Papalexi, Efthymia and Mauck, 3rd, William M and
+              Hao, Yuhan and Stoeckius, Marlon and Smibert, Peter and Satija,
+              Rahul",
+  abstract = "Single-cell transcriptomics has transformed our ability to
+              characterize cell states, but deep biological understanding
+              requires more than a taxonomic listing of clusters. As new
+              methods arise to measure distinct cellular modalities, a key
+              analytical challenge is to integrate these datasets to better
+              understand cellular identity and function. Here, we develop a
+              strategy to ``anchor'' diverse datasets together, enabling us to
+              integrate single-cell measurements not only across scRNA-seq
+              technologies, but also across different modalities. After
+              demonstrating improvement over existing methods for integrating
+              scRNA-seq data, we anchor scRNA-seq experiments with scATAC-seq
+              to explore chromatin differences in closely related interneuron
+              subsets and project protein expression measurements onto a bone
+              marrow atlas to characterize lymphocyte populations. Lastly, we
+              harmonize in situ gene expression and scRNA-seq datasets,
+              allowing transcriptome-wide imputation of spatial gene expression
+              patterns. Our work presents a strategy for the assembly of
+              harmonized references and transfer of information across
+              datasets.",
+  journal  = "Cell",
+  volume   =  177,
+  number   =  7,
+  pages    = "1888--1902.e21",
+  month    =  jun,
+  year     =  2019,
+  keywords = "integration; multi-modal; scATAC-seq; scRNA-seq; single cell;
+              single-cell ATAC sequencing; single-cell RNA sequencing",
+  language = "en"
+}
+
+
+% The entry below contains non-ASCII chars that could not be converted
+% to a LaTeX equivalent.
+@ARTICLE{doubletfinder,
+  title     = "{DoubletFinder}: Doublet detection in single-cell {RNA}
+               sequencing data using artificial nearest neighbors",
+  author    = "McGinnis, C S and Murrow, L M and Gartner, Z J",
+  abstract  = "Single-cell RNA sequencing (scRNA-seq) using droplet
+               microfluidics occasionally produces transcriptome data
+               representing more than one cell. These technical artifacts are
+               caused by cell doublets formed during cell capture and occur at
+               a frequency proportional to the total ?",
+  journal   = "bioRxiv",
+  publisher = "biorxiv.org",
+  year      =  2018
+}
+
+@article{doubletcells,
+  title={A step-by-step workflow for low-level analysis of single-cell RNA-seq data with Bioconductor},
+  author={Lun, Aaron TL and McCarthy, Davis J and Marioni, John C},
+  journal={F1000Research},
+  volume={5},
+  year={2016},
+  publisher={Faculty of 1000 Ltd}
+}
+
+
+@ARTICLE{doubletdecon,
+  title    = "{DoubletDecon}: Deconvoluting Doublets from {Single-Cell}
+              {RNA-Sequencing} Data",
+  author   = "DePasquale, Erica A K and Schnell, Daniel J and Van Camp,
+              Pieter-Jan and Valiente-Aland{\'\i}, {\'I}{\~n}igo and Blaxall,
+              Burns C and Grimes, H Leighton and Singh, Harinder and Salomonis,
+              Nathan",
+  abstract = "Methods for single-cell RNA sequencing (scRNA-seq) have greatly
+              advanced in recent years. While droplet- and well-based methods
+              have increased the capture frequency of cells for scRNA-seq,
+              these technologies readily produce technical artifacts, such as
+              doublet cell captures. Doublets occurring between distinct cell
+              types can appear as hybrid scRNA-seq profiles, but do not have
+              distinct transcriptomes from individual cell states. We introduce
+              DoubletDecon, an approach that detects doublets with a
+              combination of deconvolution analyses and the identification of
+              unique cell-state gene expression. We demonstrate the ability of
+              DoubletDecon to identify synthetic, mixed-species, genetic, and
+              cell-hashing cell doublets from scRNA-seq datasets of varying
+              cellular complexity with a high sensitivity relative to
+              alternative approaches. Importantly, this algorithm prevents the
+              prediction of valid mixed-lineage and transitional cell states as
+              doublets by considering their unique gene expression.
+              DoubletDecon has an easy-to-use graphical user interface and is
+              compatible with diverse species and unsupervised population
+              detection algorithms.",
+  journal  = "Cell Rep.",
+  volume   =  29,
+  number   =  6,
+  pages    = "1718--1727.e8",
+  month    =  nov,
+  year     =  2019,
+  keywords = "RNA-seq; artifact detection; bioinformatics; deconvolution;
+              doublet; multiplet; single-cell RNA-seq",
+  language = "en"
+}
+
+
+% The entry below contains non-ASCII chars that could not be converted
+% to a LaTeX equivalent.
+@ARTICLE{scrublet,
+  title     = "Scrublet: computational identification of cell doublets in
+               single-cell transcriptomic data",
+  author    = "Wolock, S L and Lopez, R and Klein, A M",
+  abstract  = "Single-cell RNA-sequencing has become a widely used, powerful
+               approach for studying cell populations. However, these methods
+               often generate multiplet artifacts, where two or more cells
+               receive the same barcode, resulting in a hybrid transcriptome.
+               In most experiments ?",
+  journal   = "bioRxiv",
+  publisher = "biorxiv.org",
+  year      =  2018
+}
+
+
+@ARTICLE{solo,
+  title    = "Solo: Doublet Identification in {Single-Cell} {RNA-Seq} via
+              {Semi-Supervised} Deep Learning",
+  author   = "Bernstein, Nicholas J and Fong, Nicole L and Lam, Irene and Roy,
+              Margaret A and Hendrickson, David G and Kelley, David R",
+  abstract = "Single-cell RNA sequencing (scRNA-seq) measurements of gene
+              expression enable an unprecedented high-resolution view into
+              cellular state. However, current methods often result in two or
+              more cells that share the same cell-identifying barcode; these
+              ``doublets'' violate the fundamental premise of single-cell
+              technology and can lead to incorrect inferences. Here, we
+              describe Solo, a semi-supervised deep learning approach that
+              identifies doublets with greater accuracy than existing methods.
+              Solo embeds cells unsupervised using a variational autoencoder
+              and then appends a feed-forward neural network layer to the
+              encoder to form a supervised classifier. We train this classifier
+              to distinguish simulated doublets from the observed data. Solo
+              can be applied in combination with experimental doublet detection
+              methods to further purify scRNA-seq data to true single cells. It
+              is freely available from https://github.com/calico/solo. A record
+              of this paper's transparent peer review process is included in
+              the Supplemental Information.",
+  journal  = "Cell Syst",
+  volume   =  11,
+  number   =  1,
+  pages    = "95--101.e5",
+  month    =  jul,
+  year     =  2020,
+  keywords = "deep learning; doublet; semi-supervised learning; single-cell
+              RNA-seq",
+  language = "en"
+}
+
+
+@ARTICLE{doubletdecon,
+  title    = "{DoubletDecon}: Deconvoluting Doublets from {Single-Cell}
+              {RNA-Sequencing} Data",
+  author   = "DePasquale, Erica A K and Schnell, Daniel J and Van Camp,
+              Pieter-Jan and Valiente-Aland{\'\i}, {\'I}{\~n}igo and Blaxall,
+              Burns C and Grimes, H Leighton and Singh, Harinder and Salomonis,
+              Nathan",
+  abstract = "Methods for single-cell RNA sequencing (scRNA-seq) have greatly
+              advanced in recent years. While droplet- and well-based methods
+              have increased the capture frequency of cells for scRNA-seq,
+              these technologies readily produce technical artifacts, such as
+              doublet cell captures. Doublets occurring between distinct cell
+              types can appear as hybrid scRNA-seq profiles, but do not have
+              distinct transcriptomes from individual cell states. We introduce
+              DoubletDecon, an approach that detects doublets with a
+              combination of deconvolution analyses and the identification of
+              unique cell-state gene expression. We demonstrate the ability of
+              DoubletDecon to identify synthetic, mixed-species, genetic, and
+              cell-hashing cell doublets from scRNA-seq datasets of varying
+              cellular complexity with a high sensitivity relative to
+              alternative approaches. Importantly, this algorithm prevents the
+              prediction of valid mixed-lineage and transitional cell states as
+              doublets by considering their unique gene expression.
+              DoubletDecon has an easy-to-use graphical user interface and is
+              compatible with diverse species and unsupervised population
+              detection algorithms.",
+  journal  = "Cell Rep.",
+  volume   =  29,
+  number   =  6,
+  pages    = "1718--1727.e8",
+  month    =  nov,
+  year     =  2019,
+  keywords = "RNA-seq; artifact detection; bioinformatics; deconvolution;
+              doublet; multiplet; single-cell RNA-seq",
+  language = "en"
+}
+
+
+@ARTICLE{doubletbench,
+  title    = "Benchmarking Computational {Doublet-Detection} Methods for
+              {Single-Cell} {RNA} Sequencing Data",
+  author   = "Xi, Nan Miles and Li, Jingyi Jessica",
+  abstract = "In single-cell RNA sequencing (scRNA-seq), doublets form when two
+              cells are encapsulated into one reaction volume. The existence of
+              doublets, which appear to be-but are not-real cells, is a key
+              confounder in scRNA-seq data analysis. Computational methods have
+              been developed to detect doublets in scRNA-seq data; however, the
+              scRNA-seq field lacks a comprehensive benchmarking of these
+              methods, making it difficult for researchers to choose an
+              appropriate method for specific analyses. We conducted a
+              systematic benchmark study of nine cutting-edge computational
+              doublet-detection methods. Our study included 16 real datasets,
+              which contained experimentally annotated doublets, and 112
+              realistic synthetic datasets. We compared doublet-detection
+              methods regarding detection accuracy under various experimental
+              settings, impacts on downstream analyses, and computational
+              efficiencies. Our results show that existing methods exhibited
+              diverse performance and distinct advantages in different aspects.
+              Overall, the DoubletFinder method has the best detection
+              accuracy, and the cxds method has the highest computational
+              efficiency. A record of this paper's transparent peer review
+              process is included in the Supplemental Information.",
+  journal  = "Cell Syst",
+  volume   =  12,
+  number   =  2,
+  pages    = "176--194.e6",
+  month    =  feb,
+  year     =  2021,
+  keywords = "cell clustering; differential gene expression; doublet detection;
+              parallel computing; reproducibility; scRNA-seq; software
+              implementation; trajectory inference",
+  language = "en"
+}
+
+
+@MISC{soupx,
+  title   = "{SoupX} removes ambient {RNA} contamination from droplet-based
+             single-cell {RNA} sequencing data",
+  author  = "Young, Matthew D and Behjati, Sam",
+  journal = "GigaScience",
+  volume  =  9,
+  number  =  12,
+  year    =  2020
+}
+
+
+@ARTICLE{cellhashing,
+  title    = "Cell Hashing with barcoded antibodies enables multiplexing and
+              doublet detection for single cell genomics",
+  author   = "Stoeckius, Marlon and Zheng, Shiwei and Houck-Loomis, Brian and
+              Hao, Stephanie and Yeung, Bertrand Z and Mauck, 3rd, William M
+              and Smibert, Peter and Satija, Rahul",
+  abstract = "Despite rapid developments in single cell sequencing,
+              sample-specific batch effects, detection of cell multiplets, and
+              experimental costs remain outstanding challenges. Here, we
+              introduce Cell Hashing, where oligo-tagged antibodies against
+              ubiquitously expressed surface proteins uniquely label cells from
+              distinct samples, which can be subsequently pooled. By sequencing
+              these tags alongside the cellular transcriptome, we can assign
+              each cell to its original sample, robustly identify cross-sample
+              multiplets, and ``super-load'' commercial droplet-based systems
+              for significant cost reduction. We validate our approach using a
+              complementary genetic approach and demonstrate how hashing can
+              generalize the benefits of single cell multiplexing to diverse
+              samples and experimental designs.",
+  journal  = "Genome Biol.",
+  volume   =  19,
+  number   =  1,
+  pages    = "224",
+  month    =  dec,
+  year     =  2018,
+  language = "en"
+}
+
+
+
+
+@ARTICLE{multiseq,
+  title    = "{MULTI-seq}: sample multiplexing for single-cell {RNA} sequencing
+              using lipid-tagged indices",
+  author   = "McGinnis, Christopher S and Patterson, David M and Winkler,
+              Juliane and Conrad, Daniel N and Hein, Marco Y and Srivastava,
+              Vasudha and Hu, Jennifer L and Murrow, Lyndsay M and Weissman,
+              Jonathan S and Werb, Zena and Chow, Eric D and Gartner, Zev J",
+  abstract = "Sample multiplexing facilitates scRNA-seq by reducing costs and
+              identifying artifacts such as cell doublets. However, universal
+              and scalable sample barcoding strategies have not been described.
+              We therefore developed MULTI-seq: multiplexing using lipid-tagged
+              indices for single-cell and single-nucleus RNA sequencing.
+              MULTI-seq reagents can barcode any cell type or nucleus from any
+              species with an accessible plasma membrane. The method involves
+              minimal sample processing, thereby preserving cell viability and
+              endogenous gene expression patterns. When cells are classified
+              into sample groups using MULTI-seq barcode abundances, data
+              quality is improved through doublet identification and recovery
+              of cells with low RNA content that would otherwise be discarded
+              by standard quality-control workflows. We use MULTI-seq to track
+              the dynamics of T-cell activation, perform a 96-plex perturbation
+              experiment with primary human mammary epithelial cells and
+              multiplex cryopreserved tumors and metastatic sites isolated from
+              a patient-derived xenograft mouse model of triple-negative breast
+              cancer.",
+  journal  = "Nat. Methods",
+  volume   =  16,
+  number   =  7,
+  pages    = "619--626",
+  month    =  jul,
+  year     =  2019,
+  language = "en"
+}
+
+@article{nucleimulti,
+  title={Nuclei multiplexing with barcoded antibodies for single-nucleus genomics},
+  author={Gaublomme, Jellert T and Li, Bo and McCabe, Cristin and Knecht, Abigail and Yang, Yiming and Drokhlyansky, Eugene and Van Wittenberghe, Nicholas and Waldman, Julia and Dionne, Danielle and Nguyen, Lan and others},
+  journal={Nature communications},
+  volume={10},
+  number={1},
+  pages={1--8},
+  year={2019},
+  publisher={Nature Publishing Group}
+}
+
+
+@ARTICLE{celltag,
+  title    = "{CellTag} Indexing: genetic barcode-based sample multiplexing for
+              single-cell genomics",
+  author   = "Guo, Chuner and Kong, Wenjun and Kamimoto, Kenji and
+              Rivera-Gonzalez, Guillermo C and Yang, Xue and Kirita, Yuhei and
+              Morris, Samantha A",
+  abstract = "High-throughput single-cell assays increasingly require special
+              consideration in experimental design, sample multiplexing, batch
+              effect removal, and data interpretation. Here, we describe a
+              lentiviral barcode-based multiplexing approach, CellTag Indexing,
+              which uses predefined genetic barcodes that are heritable,
+              enabling cell populations to be tagged, pooled, and tracked over
+              time in the same experimental replicate. We demonstrate the
+              utility of CellTag Indexing by sequencing transcriptomes using a
+              variety of cell types, including long-term tracking of cell
+              engraftment and differentiation in vivo. Together, this presents
+              CellTag Indexing as a broadly applicable genetic multiplexing
+              tool that is complementary with existing single-cell
+              technologies.",
+  journal  = "Genome Biol.",
+  volume   =  20,
+  number   =  1,
+  pages    = "90",
+  month    =  may,
+  year     =  2019,
+  language = "en"
+}
+
+
+@article{scDblFinder,
+  title={Protocol for Benchmarking Computational Doublet-Detection Methods in Single-Cell RNA Sequencing Data Analysis},
+  author={Miles Xi, Nan and Li, Jingyi Jessica},
+  journal={arXiv e-prints},
+  pages={arXiv--2101},
+  year={2021}
 }
 
 
@@ -3631,6 +4182,54 @@
 }
 
 
+@article{flowcell,
+  title={Optical and electrochemical dual-image CMOS sensor for on-chip biomolecular sensing applications},
+  author={Tokuda, Takashi and Tanaka, Kunihiro and Matsuo, Masamichi and Kagawa, Keiichiro and Nunoshita, Masahiro and Ohta, Jun},
+  journal={Sensors and Actuators A: Physical},
+  volume={135},
+  number={2},
+  pages={315--322},
+  year={2007},
+  publisher={Elsevier}
+}
+
+@ARTICLE{reversibleterminator,
+  title    = "{DNA} polymerase fluorescent substrates with reversible 3'-tags",
+  author   = "Canard, B and Sarfati, R S",
+  abstract = "We have synthesized
+              3'-substituted-2'-deoxyribonucleotide-5'-triphosphates
+              corresponding to A, T, G and C. The 3' position was esterified by
+              a separate anthranylic derivative (3'-tag) giving specific
+              fluorescent properties to each nucleotide (nt). These nt acted as
+              substrates with several DNA polymerases leading to chain
+              termination. Upon alkali or enzymatic treatment of the terminated
+              DNA chain, free 3'-hydroxyl groups were recovered and found able
+              to undergo chain extension when incubated with a mixture of dNTPs
+              and a DNA polymerase. Because each tag has different fluorescent
+              properties in itself, i.e., as a free acid, it theoretically is
+              possible, after removal and characterization of the tag, to infer
+              which nt has been inserted. Reiteration of the process can then
+              be used to determine a nt sequence with a non-gel-based method
+              amenable to automation.",
+  journal  = "Gene",
+  volume   =  148,
+  number   =  1,
+  pages    = "1--6",
+  month    =  oct,
+  year     =  1994,
+  language = "en"
+}
+
+
+@MISC{errormotifs,
+  title   = "Discovering motifs that induce sequencing errors",
+  author  = "Allhoff, Manuel and Sch{\"o}nhuth, Alexander and Martin, Marcel
+             and Costa, Ivan G and Rahmann, Sven and Marschall, Tobias",
+  journal = "BMC Bioinformatics",
+  volume  =  14,
+  number  = "S5",
+  year    =  2013
+}
 
 
 @ARTICLE{bridgeamp,
@@ -4519,6 +5118,598 @@
 }
 
 
+@ARTICLE{mRNA2,
+  title    = "Unstable ribonucleic acid revealed by pulse labelling of
+              Escherichia coli",
+  author   = "Gros, F and Hiatt, H and Gilbert, W and Kurland, C G and
+              Risebrough, R W and Watson, J D",
+  journal  = "Nature",
+  volume   =  190,
+  pages    = "581--585",
+  month    =  may,
+  year     =  1961,
+  keywords = "ESCHERICHIA COLI/metabolism; PROTEINS/metabolism; RIBONUCLEIC
+              ACID",
+  language = "en"
+}
+
+
+@ARTICLE{aminoacidsequence,
+  title     = "The amino-acid sequence in the phenylalanyl chain of insulin. 1.
+               The identification of lower peptides from partial hydrolysates",
+  author    = "Sanger, F and Tuppy, H",
+  journal   = "Biochem. J",
+  publisher = "Portland Press",
+  volume    =  49,
+  number    =  4,
+  pages     = "463--481",
+  month     =  sep,
+  year      =  1951
+}
+
+
+@ARTICLE{Holly1,
+  title    = "{STRUCTURE} {OF} A {RIBONUCLEIC} {ACID}",
+  author   = "Holley, R W and Apgar, J and Everett, G A and Madison, J T and
+              Marquisee, M and Merrill, S H and Penswick, J R and Zamir, A",
+  abstract = "The complete nucleotide sequence of an alanine transfer RNA,
+              isolated from yeast, has been determined. This is the first
+              nucleic acid for which the structure is known.",
+  journal  = "Science",
+  volume   =  147,
+  number   =  3664,
+  pages    = "1462--1465",
+  month    =  mar,
+  year     =  1965,
+  keywords = "ALANINE; CHROMATOGRAPHY; EXPERIMENTAL LAB STUDY; NUCLEOTIDES;
+              RIBONUCLEASE; RNA, BACTERIAL; RNA, SOLUBLE; SACCHAROMYCES",
+  language = "en"
+}
+
+
+@ARTICLE{Sanger2,
+  title     = "Use of {DNA} Polymerase {I} Primed by a Synthetic
+               Oligonucleotide to Determine a Nucleotide Sequence in Phage f1
+               {DNA}",
+  author    = "Sanger, F and Donelson, J E and Coulson, A R and K{\"o}ssel, H
+               and Fischer, D",
+  abstract  = "A sequence of 50 residues in f1 DNA has been determined by the
+               extension of a chemically synthesized octadeoxyribonucleotide by
+               Escherichia coli DNA polymerase I, with radioactive nucleoside
+               triphosphates and f1 DNA template. The polymerized product was
+               synthesized either in the presence of manganese and a mixture of
+               ribo- and deoxyribotriphosphates or in a magnesium-containing
+               reaction with one or more of the four triphosphates absent. The
+               sequence determination depended largely on fractionation of the
+               polymerized products by two-dimensional ``homochromatography.''
+               This approach and the techniques for the subsequent sequence
+               analysis should be of general use for determining other
+               sequences of DNA. Several features of this sequence suggest that
+               it is located in an intercistronic region of f1 DNA.",
+  journal   = "Proc. Natl. Acad. Sci. U. S. A.",
+  publisher = "National Academy of Sciences",
+  volume    =  70,
+  number    =  4,
+  pages     = "1209--1213",
+  month     =  apr,
+  year      =  1973,
+  language  = "en"
+}
+
+
+@ARTICLE{Sanger3,
+  title    = "{DNA} sequencing with chain-terminating inhibitors",
+  author   = "Sanger, F and Nicklen, S and Coulson, A R",
+  abstract = "A new method for determining nucleotide sequences in DNA is
+              described. It is similar to the ``plus and minus'' method
+              [Sanger, F. \& Coulson, A. R. (1975) J. Mol. Biol. 94, 441-448]
+              but makes use of the 2',3'-dideoxy and arabinonucleoside
+              analogues of the normal deoxynucleoside triphosphates, which act
+              as specific chain-terminating inhibitors of DNA polymerase. The
+              technique has been applied to the DNA of bacteriophage varphiX174
+              and is more rapid and more accurate than either the plus or the
+              minus method.",
+  journal  = "Proc. Natl. Acad. Sci. U. S. A.",
+  volume   =  74,
+  number   =  12,
+  pages    = "5463--5467",
+  month    =  dec,
+  year     =  1977,
+  language = "en"
+}
+
+
+@ARTICLE{BACsYACs,
+  title    = "{YACs}, {BACs}, {PACs} and {MACs}: artificial chromosomes as
+              research tools",
+  author   = "Monaco, A P and Larin, Z",
+  abstract = "Yeast artificial chromosomes (YACs) have become essential
+              research tools as they enable large fragments of DNA to be
+              cloned. In order to overcome several disadvantages of YACs,
+              including chimaerism and instability, several complementary
+              bacterial artificial chromosome (BAC) vectors have been
+              developed. More recently, attempts are being made to construct
+              artificial chromosomes in mammalian cells (MACs).",
+  journal  = "Trends Biotechnol.",
+  volume   =  12,
+  number   =  7,
+  pages    = "280--286",
+  month    =  jul,
+  year     =  1994,
+  language = "en"
+}
+
+
+
+@ARTICLE{Hunkapiller1991,
+  title    = "Large-scale and automated {DNA} sequence determination",
+  author   = "Hunkapiller, T and Kaiser, R J and Koop, B F and Hood, L",
+  abstract = "DNA sequence analysis is a multistage process that includes the
+              preparation of DNA, its fragmentation and base analysis, and the
+              interpretation of the resulting sequence information. New
+              technological advances have led to the automation of certain
+              steps in this process and have raised the possibility of
+              large-scale DNA sequencing efforts in the near future [for
+              example, 1 million base pairs (Mb) per year]. New sequencing
+              methodologies, fully automated instrumentation, and improvements
+              in sequencing-related computational resources may render
+              genome-size sequencing projects (100 Mb or larger) feasible
+              during the next 5 to 10 years.",
+  journal  = "Science",
+  volume   =  254,
+  number   =  5028,
+  pages    = "59--67",
+  month    =  oct,
+  year     =  1991,
+  language = "en"
+}
+
+
+@ARTICLE{Sanger1,
+  title    = "A two-dimensional fractionation procedure for radioactive
+              nucleotides",
+  author   = "Sanger, F and Brownlee, G G and Barrell, B G",
+  journal  = "J. Mol. Biol.",
+  volume   =  13,
+  number   =  2,
+  pages    = "373--398",
+  month    =  sep,
+  year     =  1965,
+  language = "en"
+}
+
+
+
+@ARTICLE{eichler1,
+  title    = "Accurate circular consensus long-read sequencing improves variant
+              detection and assembly of a human genome",
+  author   = "Wenger, Aaron M and Peluso, Paul and Rowell, William J and Chang,
+              Pi-Chuan and Hall, Richard J and Concepcion, Gregory T and Ebler,
+              Jana and Fungtammasan, Arkarachai and Kolesnikov, Alexey and
+              Olson, Nathan D and T{\"o}pfer, Armin and Alonge, Michael and
+              Mahmoud, Medhat and Qian, Yufeng and Chin, Chen-Shan and
+              Phillippy, Adam M and Schatz, Michael C and Myers, Gene and
+              DePristo, Mark A and Ruan, Jue and Marschall, Tobias and
+              Sedlazeck, Fritz J and Zook, Justin M and Li, Heng and Koren,
+              Sergey and Carroll, Andrew and Rank, David R and Hunkapiller,
+              Michael W",
+  abstract = "The DNA sequencing technologies in use today produce either
+              highly accurate short reads or less-accurate long reads. We
+              report the optimization of circular consensus sequencing (CCS) to
+              improve the accuracy of single-molecule real-time (SMRT)
+              sequencing (PacBio) and generate highly accurate (99.8\%) long
+              high-fidelity (HiFi) reads with an average length of 13.5
+              kilobases (kb). We applied our approach to sequence the
+              well-characterized human HG002/NA24385 genome and obtained
+              precision and recall rates of at least 99.91\% for
+              single-nucleotide variants (SNVs), 95.98\% for insertions and
+              deletions 15 megabases (Mb) and concordance of 99.997\%,
+              substantially outperforming assembly with less-accurate long
+              reads.",
+  journal  = "Nat. Biotechnol.",
+  volume   =  37,
+  number   =  10,
+  pages    = "1155--1162",
+  month    =  oct,
+  year     =  2019,
+  language = "en"
+}
+
+
+@UNPUBLISHED{T2T2,
+  title    = "The complete sequence of a human genome",
+  author   = "Nurk, Sergey and Koren, Sergey and Rhie, Arang and Rautiainen,
+              Mikko and Bzikadze, Andrey V and Mikheenko, Alla and Vollger,
+              Mitchell R and Altemose, Nicolas and Uralsky, Lev and Gershman,
+              Ariel and Aganezov, Sergey and Hoyt, Savannah J and Diekhans,
+              Mark and Logsdon, Glennis A and Alonge, Michael and Antonarakis,
+              Stylianos E and Borchers, Matthew and Bouffard, Gerard G and
+              Brooks, Shelise Y and Caldas, Gina V and Cheng, Haoyu and Chin,
+              Chen-Shan and Chow, William and de Lima, Leonardo G and Dishuck,
+              Philip C and Durbin, Richard and Dvorkina, Tatiana and Fiddes,
+              Ian T and Formenti, Giulio and Fulton, Robert S and Fungtammasan,
+              Arkarachai and Garrison, Erik and Grady, Patrick G S and
+              Graves-Lindsay, Tina A and Hall, Ira M and Hansen, Nancy F and
+              Hartley, Gabrielle A and Haukness, Marina and Howe, Kerstin and
+              Hunkapiller, Michael W and Jain, Chirag and Jain, Miten and
+              Jarvis, Erich D and Kerpedjiev, Peter and Kirsche, Melanie and
+              Kolmogorov, Mikhail and Korlach, Jonas and Kremitzki, Milinn and
+              Li, Heng and Maduro, Valerie V and Marschall, Tobias and
+              McCartney, Ann M and McDaniel, Jennifer and Miller, Danny E and
+              Mullikin, James C and Myers, Eugene W and Olson, Nathan D and
+              Paten, Benedict and Peluso, Paul and Pevzner, Pavel A and
+              Porubsky, David and Potapova, Tamara and Rogaev, Evgeny I and
+              Rosenfeld, Jeffrey A and Salzberg, Steven L and Schneider,
+              Valerie A and Sedlazeck, Fritz J and Shafin, Kishwar and Shew,
+              Colin J and Shumate, Alaina and Sims, Yumi and Smit, Arian F A
+              and Soto, Daniela C and Sovi{\'c}, Ivan and Storer, Jessica M and
+              Streets, Aaron and Sullivan, Beth A and Thibaud-Nissen, Fran{\c
+              c}oise and Torrance, James and Wagner, Justin and Walenz, Brian P
+              and Wenger, Aaron and Wood, Jonathan M D and Xiao, Chunlin and
+              Yan, Stephanie M and Young, Alice C and Zarate, Samantha and
+              Surti, Urvashi and McCoy, Rajiv C and Dennis, Megan Y and
+              Alexandrov, Ivan A and Gerton, Jennifer L and O'Neill, Rachel J
+              and Timp, Winston and Zook, Justin M and Schatz, Michael C and
+              Eichler, Evan E and Miga, Karen H and Phillippy, Adam M",
+  abstract = "In 2001, Celera Genomics and the International Human Genome
+              Sequencing Consortium published their initial drafts of the human
+              genome, which revolutionized the field of genomics. While these
+              drafts and the updates that followed effectively covered the
+              euchromatic fraction of the genome, the heterochromatin and many
+              other complex regions were left unfinished or erroneous.
+              Addressing this remaining 8\% of the genome, the
+              Telomere-to-Telomere (T2T) Consortium has finished the first
+              truly complete 3.055 billion base pair (bp) sequence of a human
+              genome, representing the largest improvement to the human
+              reference genome since its initial release. The new T2T-CHM13
+              reference includes gapless assemblies for all 22 autosomes plus
+              Chromosome X, corrects numerous errors, and introduces nearly 200
+              million bp of novel sequence containing 2,226 paralogous gene
+              copies, 115 of which are predicted to be protein coding. The
+              newly completed regions include all centromeric satellite arrays
+              and the short arms of all five acrocentric chromosomes, unlocking
+              these complex regions of the genome to variational and functional
+              studies for the first time. \#\#\# Competing Interest Statement
+              AF and CSC are employees of DNAnexus; IS, JK, MWH, PP, and AW are
+              employees of Pacific Biosciences; FJS has received travel funds
+              to speak at events hosted by Pacific Biosciences; SK and FJS have
+              received travel funds to speak at events hosted by Oxford
+              Nanopore Technologies. WT has licensed two patents to Oxford
+              Nanopore Technologies (US 8748091 and 8394584).",
+  journal  = "bioRxiv",
+  pages    = "2021.05.26.445798",
+  month    =  may,
+  year     =  2021,
+  language = "en"
+}
+
+@ARTICLE{T2T1,
+  title    = "Telomere-to-telomere assembly of a complete human {X} chromosome",
+  author   = "Miga, Karen H and Koren, Sergey and Rhie, Arang and Vollger,
+              Mitchell R and Gershman, Ariel and Bzikadze, Andrey and Brooks,
+              Shelise and Howe, Edmund and Porubsky, David and Logsdon, Glennis
+              A and Schneider, Valerie A and Potapova, Tamara and Wood,
+              Jonathan and Chow, William and Armstrong, Joel and Fredrickson,
+              Jeanne and Pak, Evgenia and Tigyi, Kristof and Kremitzki, Milinn
+              and Markovic, Christopher and Maduro, Valerie and Dutra, Amalia
+              and Bouffard, Gerard G and Chang, Alexander M and Hansen, Nancy F
+              and Wilfert, Amy B and Thibaud-Nissen, Fran{\c c}oise and
+              Schmitt, Anthony D and Belton, Jon-Matthew and Selvaraj, Siddarth
+              and Dennis, Megan Y and Soto, Daniela C and Sahasrabudhe, Ruta
+              and Kaya, Gulhan and Quick, Josh and Loman, Nicholas J and
+              Holmes, Nadine and Loose, Matthew and Surti, Urvashi and Risques,
+              Rosa Ana and Graves Lindsay, Tina A and Fulton, Robert and Hall,
+              Ira and Paten, Benedict and Howe, Kerstin and Timp, Winston and
+              Young, Alice and Mullikin, James C and Pevzner, Pavel A and
+              Gerton, Jennifer L and Sullivan, Beth A and Eichler, Evan E and
+              Phillippy, Adam M",
+  abstract = "After two decades of improvements, the current human reference
+              genome (GRCh38) is the most accurate and complete vertebrate
+              genome ever produced. However, no single chromosome has been
+              finished end to end, and hundreds of unresolved gaps persist1,2.
+              Here we present a human genome assembly that surpasses the
+              continuity of GRCh382, along with a gapless, telomere-to-telomere
+              assembly of a human chromosome. This was enabled by
+              high-coverage, ultra-long-read nanopore sequencing of the
+              complete hydatidiform mole CHM13 genome, combined with
+              complementary technologies for quality improvement and
+              validation. Focusing our efforts on the human X chromosome3, we
+              reconstructed the centromeric satellite DNA array (approximately
+              3.1 Mb) and closed the 29 remaining gaps in the current
+              reference, including new sequences from the human pseudoautosomal
+              regions and from cancer-testis ampliconic gene families (CT-X and
+              GAGE). These sequences will be integrated into future human
+              reference genome releases. In addition, the complete chromosome
+              X, combined with the ultra-long nanopore data, allowed us to map
+              methylation patterns across complex tandem repeats and satellite
+              arrays. Our results demonstrate that finishing the entire human
+              genome is now within reach, and the data presented here will
+              facilitate ongoing efforts to complete the other human
+              chromosomes.",
+  journal  = "Nature",
+  volume   =  585,
+  number   =  7823,
+  pages    = "79--84",
+  month    =  sep,
+  year     =  2020,
+  language = "en"
+}
+
+
+@ARTICLE{Garg2021,
+  title    = "Chromosome-scale, haplotype-resolved assembly of human genomes",
+  author   = "Garg, Shilpa and Fungtammasan, Arkarachai and Carroll, Andrew and
+              Chou, Mike and Schmitt, Anthony and Zhou, Xiang and Mac, Stephen
+              and Peluso, Paul and Hatas, Emily and Ghurye, Jay and Maguire,
+              Jared and Mahmoud, Medhat and Cheng, Haoyu and Heller, David and
+              Zook, Justin M and Moemke, Tobias and Marschall, Tobias and
+              Sedlazeck, Fritz J and Aach, John and Chin, Chen-Shan and Church,
+              George M and Li, Heng",
+  abstract = "Haplotype-resolved or phased genome assembly provides a complete
+              picture of genomes and their complex genetic variations. However,
+              current algorithms for phased assembly either do not generate
+              chromosome-scale phasing or require pedigree information, which
+              limits their application. We present a method named diploid
+              assembly (DipAsm) that uses long, accurate reads and long-range
+              conformation data for single individuals to generate a
+              chromosome-scale phased assembly within 1 day. Applied to four
+              public human genomes, PGP1, HG002, NA12878 and HG00733, DipAsm
+              produced haplotype-resolved assemblies with minimum contig length
+              needed to cover 50\% of the known genome (NG50) up to 25 Mb and
+              phased ~99.5\% of heterozygous sites at 98-99\% accuracy,
+              outperforming other approaches in terms of both contiguity and
+              phasing completeness. We demonstrate the importance of
+              chromosome-scale phased assemblies for the discovery of
+              structural variants (SVs), including thousands of new transposon
+              insertions, and of highly polymorphic and medically important
+              regions such as the human leukocyte antigen (HLA) and killer cell
+              immunoglobulin-like receptor (KIR) regions. DipAsm will
+              facilitate high-quality precision medicine and studies of
+              individual haplotype variation and population diversity.",
+  journal  = "Nat. Biotechnol.",
+  volume   =  39,
+  number   =  3,
+  pages    = "309--312",
+  month    =  mar,
+  year     =  2021,
+  language = "en"
+}
+
+@ARTICLE{Wenger2019,
+  title    = "Accurate circular consensus long-read sequencing improves variant
+              detection and assembly of a human genome",
+  author   = "Wenger, Aaron M and Peluso, Paul and Rowell, William J and Chang,
+              Pi-Chuan and Hall, Richard J and Concepcion, Gregory T and Ebler,
+              Jana and Fungtammasan, Arkarachai and Kolesnikov, Alexey and
+              Olson, Nathan D and T{\"o}pfer, Armin and Alonge, Michael and
+              Mahmoud, Medhat and Qian, Yufeng and Chin, Chen-Shan and
+              Phillippy, Adam M and Schatz, Michael C and Myers, Gene and
+              DePristo, Mark A and Ruan, Jue and Marschall, Tobias and
+              Sedlazeck, Fritz J and Zook, Justin M and Li, Heng and Koren,
+              Sergey and Carroll, Andrew and Rank, David R and Hunkapiller,
+              Michael W",
+  abstract = "The DNA sequencing technologies in use today produce either
+              highly accurate short reads or less-accurate long reads. We
+              report the optimization of circular consensus sequencing (CCS) to
+              improve the accuracy of single-molecule real-time (SMRT)
+              sequencing (PacBio) and generate highly accurate (99.8\%) long
+              high-fidelity (HiFi) reads with an average length of 13.5
+              kilobases (kb). We applied our approach to sequence the
+              well-characterized human HG002/NA24385 genome and obtained
+              precision and recall rates of at least 99.91\% for
+              single-nucleotide variants (SNVs), 95.98\% for insertions and
+              deletions 15 megabases (Mb) and concordance of 99.997\%,
+              substantially outperforming assembly with less-accurate long
+              reads.",
+  journal  = "Nat. Biotechnol.",
+  volume   =  37,
+  number   =  10,
+  pages    = "1155--1162",
+  month    =  oct,
+  year     =  2019,
+  language = "en"
+}
+
+
+@ARTICLE{grch38,
+  title    = "Improvements and impacts of {GRCh38} human reference on high
+              throughput sequencing data analysis",
+  author   = "Guo, Yan and Dai, Yulin and Yu, Hui and Zhao, Shilin and Samuels,
+              David C and Shyr, Yu",
+  abstract = "Analyses of high throughput sequencing data starts with alignment
+              against a reference genome, which is the foundation for all
+              re-sequencing data analyses. Each new release of the human
+              reference genome has been augmented with improved accuracy and
+              completeness. It is presumed that the latest release of human
+              reference genome, GRCh38 will contribute more to high throughput
+              sequencing data analysis by providing more accuracy. But the
+              amount of improvement has not yet been quantified. We conducted a
+              study to compare the genomic analysis results between the GRCh38
+              reference and its predecessor GRCh37. Through analyses of
+              alignment, single nucleotide polymorphisms, small
+              insertion/deletions, copy number and structural variants, we show
+              that GRCh38 offers overall more accurate analysis of human
+              sequencing data. More importantly, GRCh38 produced fewer false
+              positive structural variants. In conclusion, GRCh38 is an
+              improvement over GRCh37 not only from the genome assembly aspect,
+              but also yields more reliable genomic analysis results.",
+  journal  = "Genomics",
+  volume   =  109,
+  number   =  2,
+  pages    = "83--90",
+  month    =  mar,
+  year     =  2017,
+  keywords = "Copy number variation; GRCh37; GRCh38; High throughput
+              sequencing; Human reference genome; SNP; Structural variant",
+  language = "en"
+}
+
+@article{tobias1,
+  title={A fully phased accurate assembly of an individual human genome},
+  author={Porubsky, David and Ebert, Peter and Audano, Peter A and Vollger, Mitchell R and Harvey, William T and Munson, Katherine M and Sorensen, Melanie and Sulovari, Arvis and Haukness, Marina and Ghareghani, Maryam and others},
+  journal={bioRxiv},
+  year={2019},
+  publisher={Cold Spring Harbor Laboratory Press}
+}
+
+
+@ARTICLE{genomeproject,
+  title    = "Initial sequencing and analysis of the human genome",
+  author   = "Lander, E S and Linton, L M and Birren, B and Nusbaum, C and
+              Zody, M C and Baldwin, J and Devon, K and Dewar, K and Doyle, M
+              and FitzHugh, W and Funke, R and Gage, D and Harris, K and
+              Heaford, A and Howland, J and Kann, L and Lehoczky, J and LeVine,
+              R and McEwan, P and McKernan, K and Meldrim, J and Mesirov, J P
+              and Miranda, C and Morris, W and Naylor, J and Raymond, C and
+              Rosetti, M and Santos, R and Sheridan, A and Sougnez, C and
+              Stange-Thomann, Y and Stojanovic, N and Subramanian, A and Wyman,
+              D and Rogers, J and Sulston, J and Ainscough, R and Beck, S and
+              Bentley, D and Burton, J and Clee, C and Carter, N and Coulson, A
+              and Deadman, R and Deloukas, P and Dunham, A and Dunham, I and
+              Durbin, R and French, L and Grafham, D and Gregory, S and
+              Hubbard, T and Humphray, S and Hunt, A and Jones, M and Lloyd, C
+              and McMurray, A and Matthews, L and Mercer, S and Milne, S and
+              Mullikin, J C and Mungall, A and Plumb, R and Ross, M and
+              Shownkeen, R and Sims, S and Waterston, R H and Wilson, R K and
+              Hillier, L W and McPherson, J D and Marra, M A and Mardis, E R
+              and Fulton, L A and Chinwalla, A T and Pepin, K H and Gish, W R
+              and Chissoe, S L and Wendl, M C and Delehaunty, K D and Miner, T
+              L and Delehaunty, A and Kramer, J B and Cook, L L and Fulton, R S
+              and Johnson, D L and Minx, P J and Clifton, S W and Hawkins, T
+              and Branscomb, E and Predki, P and Richardson, P and Wenning, S
+              and Slezak, T and Doggett, N and Cheng, J F and Olsen, A and
+              Lucas, S and Elkin, C and Uberbacher, E and Frazier, M and Gibbs,
+              R A and Muzny, D M and Scherer, S E and Bouck, J B and Sodergren,
+              E J and Worley, K C and Rives, C M and Gorrell, J H and Metzker,
+              M L and Naylor, S L and Kucherlapati, R S and Nelson, D L and
+              Weinstock, G M and Sakaki, Y and Fujiyama, A and Hattori, M and
+              Yada, T and Toyoda, A and Itoh, T and Kawagoe, C and Watanabe, H
+              and Totoki, Y and Taylor, T and Weissenbach, J and Heilig, R and
+              Saurin, W and Artiguenave, F and Brottier, P and Bruls, T and
+              Pelletier, E and Robert, C and Wincker, P and Smith, D R and
+              Doucette-Stamm, L and Rubenfield, M and Weinstock, K and Lee, H M
+              and Dubois, J and Rosenthal, A and Platzer, M and Nyakatura, G
+              and Taudien, S and Rump, A and Yang, H and Yu, J and Wang, J and
+              Huang, G and Gu, J and Hood, L and Rowen, L and Madan, A and Qin,
+              S and Davis, R W and Federspiel, N A and Abola, A P and Proctor,
+              M J and Myers, R M and Schmutz, J and Dickson, M and Grimwood, J
+              and Cox, D R and Olson, M V and Kaul, R and Raymond, C and
+              Shimizu, N and Kawasaki, K and Minoshima, S and Evans, G A and
+              Athanasiou, M and Schultz, R and Roe, B A and Chen, F and Pan, H
+              and Ramser, J and Lehrach, H and Reinhardt, R and McCombie, W R
+              and de la Bastide, M and Dedhia, N and Bl{\"o}cker, H and
+              Hornischer, K and Nordsiek, G and Agarwala, R and Aravind, L and
+              Bailey, J A and Bateman, A and Batzoglou, S and Birney, E and
+              Bork, P and Brown, D G and Burge, C B and Cerutti, L and Chen, H
+              C and Church, D and Clamp, M and Copley, R R and Doerks, T and
+              Eddy, S R and Eichler, E E and Furey, T S and Galagan, J and
+              Gilbert, J G and Harmon, C and Hayashizaki, Y and Haussler, D and
+              Hermjakob, H and Hokamp, K and Jang, W and Johnson, L S and
+              Jones, T A and Kasif, S and Kaspryzk, A and Kennedy, S and Kent,
+              W J and Kitts, P and Koonin, E V and Korf, I and Kulp, D and
+              Lancet, D and Lowe, T M and McLysaght, A and Mikkelsen, T and
+              Moran, J V and Mulder, N and Pollara, V J and Ponting, C P and
+              Schuler, G and Schultz, J and Slater, G and Smit, A F and Stupka,
+              E and Szustakowki, J and Thierry-Mieg, D and Thierry-Mieg, J and
+              Wagner, L and Wallis, J and Wheeler, R and Williams, A and Wolf,
+              Y I and Wolfe, K H and Yang, S P and Yeh, R F and Collins, F and
+              Guyer, M S and Peterson, J and Felsenfeld, A and Wetterstrand, K
+              A and Patrinos, A and Morgan, M J and de Jong, P and Catanese, J
+              J and Osoegawa, K and Shizuya, H and Choi, S and Chen, Y J and
+              Szustakowki, J and {International Human Genome Sequencing
+              Consortium}",
+  abstract = "The human genome holds an extraordinary trove of information
+              about human development, physiology, medicine and evolution. Here
+              we report the results of an international collaboration to
+              produce and make freely available a draft sequence of the human
+              genome. We also present an initial analysis of the data,
+              describing some of the insights that can be gleaned from the
+              sequence.",
+  journal  = "Nature",
+  volume   =  409,
+  number   =  6822,
+  pages    = "860--921",
+  month    =  feb,
+  year     =  2001,
+  language = "en"
+}
+
+
+@ARTICLE{centraldogma1,
+  title    = "Central dogma of molecular biology",
+  author   = "Crick, F",
+  journal  = "Nature",
+  volume   =  227,
+  number   =  5258,
+  pages    = "561--563",
+  month    =  aug,
+  year     =  1970,
+  language = "en"
+}
+
+
+@ARTICLE{sequenceofsequencers,
+  title    = "The sequence of sequencers: The history of sequencing {DNA}",
+  author   = "Heather, James M and Chain, Benjamin",
+  abstract = "Determining the order of nucleic acid residues in biological
+              samples is an integral component of a wide variety of research
+              applications. Over the last fifty years large numbers of
+              researchers have applied themselves to the production of
+              techniques and technologies to facilitate this feat, sequencing
+              DNA and RNA molecules. This time-scale has witnessed tremendous
+              changes, moving from sequencing short oligonucleotides to
+              millions of bases, from struggling towards the deduction of the
+              coding sequence of a single gene to rapid and widely available
+              whole genome sequencing. This article traverses those years,
+              iterating through the different generations of sequencing
+              technology, highlighting some of the key discoveries,
+              researchers, and sequences along the way.",
+  journal  = "Genomics",
+  volume   =  107,
+  number   =  1,
+  pages    = "1--8",
+  month    =  jan,
+  year     =  2016,
+  keywords = "DNA; History; RNA; Sequencer; Sequencing",
+  language = "en"
+}
+
+
+@ARTICLE{mRNA1,
+  title    = "An unstable intermediate carrying information from genes to
+              ribosomes for protein synthesis",
+  author   = "Brenner, S and Jacob, F and Meselson, M",
+  journal  = "Nature",
+  volume   =  190,
+  pages    = "576--581",
+  month    =  may,
+  year     =  1961,
+  language = "en"
+}
+
+
+@ARTICLE{proteinsynthesis,
+  title    = "On protein synthesis",
+  author   = "Crick, F H",
+  journal  = "Symp. Soc. Exp. Biol.",
+  volume   =  12,
+  pages    = "138--163",
+  year     =  1958,
+  keywords = "PROTEINS/metabolism",
+  language = "en"
+}
+
+
+
+@ARTICLE{evolutionmicro,
+  title     = "Evolution. The modern synthesis",
+  author    = "Huxley, Julian and {Others}",
+  journal   = "Evolution. The Modern Synthesis.",
+  publisher = "London: George Alien \& Unwin Ltd.",
+  year      =  1942
+}
+
+
 
 @MISC{mendel,
   title        = "Experiments in {Plant-Hybridization}",
@@ -5066,6 +6257,20 @@ url = {http://www.aaai.org/ocs/index.php/ICWSM/09/paper/view/154}
   month    =  dec,
   year     =  2018,
   language = "en"
+}
+
+@article{muxseq,
+  title={Novel human kidney cell subsets identified by Mux-Seq},
+  author={Schroeder, Andrew W and Sur, Swastika and Rashmi, Priyanka and Damm, Izabella and Zarinsefat, Arya and Kretzler, Matthias and Hodgin, Jeff and Hartoularos, George and Sigdel, Tara and Ye, Jimmie Chun and others},
+  journal={bioRxiv},
+  year={2020},
+  publisher={Cold Spring Harbor Laboratory}
+}
+
+@phdthesis{freemuxlet,
+  title={Leveraging Genetic Variants for Rapid and Robust Upstream Analysis of Massive Sequence Data},
+  author={Zhang, Fan},
+  year={2019}
 }
 
 @ARTICLE{demuxlet,
