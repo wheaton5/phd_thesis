@@ -261,30 +261,25 @@ The ability to sequence proteins and certain RNA molecules came before the abili
 \subsubsection{Short reads}\label{section:nextgen}
 
 \par{
-In this poorly named ``next-gen" phase of DNA sequencing, there were many technologies created, but ultimately one became the dominant one and discussing each in detail is out of the scope of this thesis. In the late 90s, Solexa (later acquired by Illumina) created the Genome Analyzer in which DNA attaches to a primer on a flow cell surface and is amplified into clonal arrays of single stranded DNA\cite{flowcell}. This is achieved by what is known as bridge amplification. The DNA has two different primers attached during library preparation that correspond to two oligos on the flow cell. Initially, a polymerase creates the reverse strand and the double stranded DNA is denatured and the forward strand is washed way. The reverse strand then bends over (aka bridges) to attach to both oligos and the forward strand is synthesized. This bridge is then denatured resulting in forward and reverse single strands attached to the flow cell. This is then repeated multiple times and in the end one of the oligos on the flow cell is cleaved and those strands are washed away leaving many copies of only one strand of the DNA\cite{bridgeamp}. Fluorescently labeled dNTP are added and each DNA colony is then imaged. The terminator group is then removed\cite{reversibleterminator} and the process is repeated for each base. Because this method uses the synthesis of the 2nd strand as the mechanism for sequencing, it is often referred to as `sequencing by synthesis'. 
+In the poorly named ``next-gen" phase of DNA sequencing, there were many technologies created, but ultimately one became the dominant one and discussing each in detail is out of the scope of this thesis. In the late 90s, Solexa (later acquired by Illumina) created the Genome Analyzer in which DNA attaches to a primer on a flow cell surface and is amplified into clonal arrays of single stranded DNA\cite{flowcell}. This is achieved by what is known as bridge amplification. The DNA has two different primers attached during library preparation that correspond to two oligos on the flow cell. Initially, a polymerase creates the reverse strand and the double stranded DNA is denatured and the forward strand is washed way. The reverse strand then bends over (aka bridges) to attach to both oligos and the forward strand is synthesized. This bridge is then denatured resulting in forward and reverse single strands attached to the flow cell. This is then repeated multiple times and in the end one of the oligos on the flow cell is cleaved and those strands are washed away leaving many copies of only one strand of the DNA\cite{bridgeamp}. Fluorescently labeled dNTP are added and each DNA colony is then imaged. The terminator group is then removed\cite{reversibleterminator} and the process is repeated for each base. Because this method uses the synthesis of the 2nd strand as the mechanism for sequencing, it is often referred to as `sequencing by synthesis'. 
 } \\
 
 \par{
 Initially the read length was limited to 35bp but over the years this has increased to 150bp on the high throughput sequencers and 250bp on the lower throughput MiSeq. The read length is limited by reagent stability as well as phase problems. If not every molecule gets extended at every step, eventually the signal will degrade until eventually it is impossible to tell which base is the correct one. Despite the short read length, paired-end reads are made possible by having a longer DNA insert than the read length and after reading one end, bridging the DNA on the flowcell and sequencing the other end. This technology produces highly accurate reads at roughly 0.1\% error rate. While many other sequencing technologies emerged in the same time frame, Illumina's was much higher throughput and was highly accurate and has few context specific errors when compared with the others\cite{errormotifs}. Illumina sequencing has made up the vast majority of DNA sequencing to this day, but other 3rd generation technologies are increasing in utilization.
-}
-
-
-\subsubsection{PacBio}
+} \\
 
 \par{
-Pacific Biosciences (PacBio) uses microscopic wells known as zero-mode waveguides (ZMWs) along with single molecules of DNA and DNA polymerase to optically measure fluorescent nucleotides as they are incorporated by the polymerase. This is known as single molecule real-time sequencing (SMRT sequencing). The DNA template is prepared with hairpin adapter sequences known as the SMRTbell adapters. This allows for multiple passes of the same DNA molecule. Initially, polymerase nucleotide incorporation and optical measurement speed were limited. That combined with the rate at which molecules dissociate from the ZMW limited the number of times long molecules could be sequenced to once or just a few times. This results in long, but noisy reads with roughly 15\% error rate\cite{pacbio}\cite{blasr}\cite{clrerror} known as continuous long reads (CLR). The PacBio data used in Chapter 3 is CLR data. More recently, advances in the speed of polymerase nucleotide incorporation and optical measurements have allowed for many passes of the same long molecules. This allows for circular consensus sequencing (CCS aka HIgh FIdelity sequencing or HIFI) across these multiple passes and much higher accuracy (<1\% error rate on average) while maintaining true single molecule sequencing\cite{HIFI}. The PacBio data used in Chapter 4 is CCS data.
+Several methods build on next-gen sequencing to add further information. Moleculo\cite{moleculo}, contiguity preserving sequencing (cpt-seq)\cite{cptseq}, long fragment read (LFR)\cite{LFR}, 10x genomics linked reads\cite{10xlinked}, and more recently haplotagging\cite{haplotagging} use various methods for making short reads from long molecules and tagging each short read with a barcode specific to the HMW DNA molecule of origin. In chapter 4 I utilize 10x genomics linked reads which I outline in detail in section \ref{section:linkedreads}. Strand-seq uses bromodeoxyuridine labeled DNA to degrade one strand of DNA which can be useful for haplotype phasing\cite{strandseq}\cite{strandseq2}\cite{strandseq3}. 
 }
 
-\begin{figure}[htbp!]
-\caption{Circular consensus sequencing}
-\label{figure:ccs}
-\begin{centering}
-\includegraphics[width=0.65\textwidth]{CCS.png}
-\par{Diagram outlining circular consensus sequencing (credit: PacBio website).}
-\end{centering}
-\end{figure}
+\subsubsection{High throughput chromatin conformation capture (Hi-C)}
 
-\subsubsection{Linked reads}
+\par{
+Hi-C crosslinks cells' DNA with formaldehyde, breaks the DNA with a restriction enzyme, and blunt end ligation is used in conditions which prefer joining cross-linked DNA\cite{hic1}\cite{hic2}\cite{hic3}\cite{hic4}. This produces read pairs which were spatially close in the nucleus but may be far apart in the genome. Because of the 3D structure of the tightly wrapped genome in the nucleus, this means most links are intra-chromosomal and thus is useful in assembly scaffolding\cite{SALSA}. Hi-C data is used extensively in chapter 4 for haplotype phasing and phasing aware scaffolding.
+}
+
+
+\subsubsection{Linked reads}\label{section:linkedreads}
 
 \par{
 The 10X platform starts with high molecular weight DNA input into a microfluidic system that partitions those long DNA molecules into GEMs (Gel bead in EMulsion) with oil surrounding an aqueous solution containing the DNA and reagents with a gel bead housing millions of copies of an oligo containing random primers, Illumina adapters, and the same barcode DNA sequence. Each different gel bead has a different barcode DNA sequence with high probability. Each GEM is poisson loaded with HMW DNA and on average gets roughly ten long molecules in the standard workflow. Short sequences are then amplified from these long molecules with random priming which creates a construct with the Illumina P5 and P7 adapters, the barcode oligo, and the DNA insert. This is then sequenced using standard short read Illumina sequencing. All of the reads with the same barcode sequence come from the same GEM and thus from a handful of long molecules. When the reads are mapped to a reference genome, the reads from each barcode cluster into a few small regions of the genome associated with their molecule of origin. This long range information can then be used to map into repeat regions of the genome, phase haplotypes, and call structural variation \cite{10xlinked}.
@@ -309,28 +304,95 @@ The 10X platform starts with high molecular weight DNA input into a microfluidic
 \end{figure}
 
 \par{
-While 10x Genomics Linked reads are used in Chapter 4, the technology is no longer offered by that company. More recently, bead based systems have been developed that do not require a microfluidic system. In solution with microbeads, long DNA molecules tend to wrap around a single bead\cite{beadphasing}\cite{LFR}. Separately, Tn5 transposase has been used to insert adapter and barcode sequences at high frequency into genomic DNA\cite{cptseq}. With these ideas combined, Frank Chan's group has developed a technique called Haplotagging which uses microbeads bound to Tn5 transposase with one of 85 million molecular barcodes and Illumina sequencing adapters creating linked read libraries for a fraction of the price in a single tube\cite{haplotagging}.
+While 10x Genomics Linked reads are used in Chapter 4 for phasing and phased assembly, the technology is no longer offered by that company. More recently, bead based systems have been developed that do not require a microfluidic system. In solution with microbeads, long DNA molecules tend to wrap around a single bead\cite{beadphasing}\cite{LFR}. Separately, Tn5 transposase has been used to insert adapter and barcode sequences at high frequency into genomic DNA\cite{cptseq}. With these ideas combined, Frank Chan's group has developed a technique called Haplotagging which uses microbeads bound to Tn5 transposase with one of 85 million molecular barcodes and Illumina sequencing adapters creating linked read libraries for a fraction of the price in a single tube\cite{haplotagging}.
 }
 
-\subsubsection{High throughput chromatin conformation capture (Hi-C)}
 
+\subsubsection{PacBio}
 
+\par{
+Pacific Biosciences (PacBio) uses microscopic wells known as zero-mode waveguides (ZMWs) along with single molecules of DNA and DNA polymerase to optically measure fluorescent nucleotides as they are incorporated by the polymerase. This is known as single molecule real-time sequencing (SMRT sequencing). The DNA template is prepared with hairpin adapter sequences known as the SMRTbell adapters. This allows for multiple passes of the same DNA molecule. Initially, polymerase nucleotide incorporation and optical measurement speed were limited. That combined with the rate at which molecules dissociate from the ZMW limited the number of times long molecules could be sequenced to once or just a few times. This results in long, but noisy reads with roughly 15\% error rate\cite{pacbio}\cite{blasr}\cite{clrerror} known as continuous long reads (CLR). The PacBio data used in Chapter 3 is CLR data. More recently, advances in the speed of polymerase nucleotide incorporation and optical measurements have allowed for many passes of the same long molecules. This allows for circular consensus sequencing (CCS aka HIgh FIdelity sequencing or HIFI) across these multiple passes and much higher accuracy (<<1\% error rate on average) while maintaining true single molecule sequencing\cite{HIFI}. Over the past few years, PacBio data---both CLR and CCS---has revolutionized genome assembly and is now used routinely for generating high quality reference genome assemblies. In chapter 4, I use PacBio HiFi data for phased assembly.
+}
+
+\begin{figure}[htbp!]
+\caption{Circular consensus sequencing}
+\label{figure:ccs}
+\begin{centering}
+\includegraphics[width=0.65\textwidth]{CCS.png}
+\par{Diagram outlining circular consensus sequencing (credit: PacBio website).}
+\end{centering}
+\end{figure}
+
+\subsubsection{Nanopore sequencing}
+
+\par{
+The idea of reading single molecules of DNA by the current changes as a molecule translocations through a protein nanopore in a bilipid membrane by electrophoresis goes back to the 1980s\cite{nanopore1} but took twenty-five years of work before Oxford Nanopore brought the technology to market\cite{nanopore2}\cite{nanopore3}. Because more than one base is inside the nanopore at each timepoint and the past current fluctuations affect the current signal, complex models must be used to interpret this data\cite{nanocall}\cite{deepnano}. With these models and improvements in the protein nanopore, sequence accuracy has been reported as high as 92\%, but is sequence context dependent. Read lengths for this technology are limited to the input DNA size and reads have been reported as long as 2.3Mb\cite{longlong}\cite{ultralong2}. This data is not used in this thesis, but is an important aspect of the third generation of DNA sequencing and has been used successfully in the telomere to telomere project\cite{T2T2}.
+}
 
 \subsection{Reference Genomes}
-\subsubsection{Resequencing}
-\subsubsection{Read Mapping}
-\subsubsection{Variant Calling}
-\subsubsection{Population Genomics}
 
-\subsubsection{The old way}
-\subsubsection{The new way and Darwin Tree of Life and Earth Biogenome Project}
+\par{
+Despite their limitations, reference genomes enable a host of downstream analyses. They provide a common coordinate system by which to say certain genetic variants in one genome are the ``same" or different from one another. This allows one to compare multiple genomes and associate certain genetic variants with phenotypes.
+}
+
+\subsubsection{Resequencing}
+
+\par{
+Reference genomes also allow much more inference to be made from the cheap and high throughput next-gen sequencing technology. Instead of generating the entire sequence of each new individual \textit{de novo}, one can create short or long reads and map them onto a reference genome with the assumption that the reference is similar enough to the genome of interest that the mapping is globally correct. One can then inspect the differences between the genome of interest and the reference genome to call genetic variants. When one parental chromosome contains one allele and the other parental chromosome contains a different allele, this site is said to be heterozygous.
+}
 
 \subsection{Haplotype phasing}
+
+\par{
+The genetic variants for these individual(s) are generally called in a localized fashion. Some haplotype information may be used, but due to the read lengths of next-gen sequencing, they usually are fairly isolated from one another. Determining which alleles occur on the same chromosome and which occur on the alternate parental chromosome was historically termed haplotype assembly but today is called haplotype phasing. Methods for haplotype phasing generally fall into two categories---population level haplotype estimation and individual genome haplotype phasing. 
+}
+
 \subsubsection{Statistical}
+
+\par{
+Because chromosomal recombination is relatively rare, alleles close to one another in the genome will generally cooccur across individuals in the population. Given the genotypes of many individuals, it is possible to statistically determine the most likely set of haplotypes in the population\cite{shapeit4} and use this for genotype inference of other variants not sampled in a sparsely sequenced dataset.
+}
+
 \subsubsection{Direct / Read based}
 
-\subsection{Assembly}
+\par{
+Haplotype phasing across large regions of the genome requires long range genetic information not present in next-gen sequencing. If one considers the graph where heterozygous variants are nodes and reads containing two heterozygous variants create an edge between those nodes, it is only possible to phase variants with respect to one another in connected components in that graph. With contiguous reads such as those generated by PacBio or ONT, the potential sizes of regions that can be phased are limited by the length of homozygous regions. Evolution can naturally create large regions of homozygosity through harsh selective pressures sweeping the haplotype landscape in particular regions\cite{homozygosity}. This limits the ability of contiguous or localized technologies to generate chromosome scale haplotype phasing. By this reasoning, longer reads generate longer phase-blocks, linked reads generate longer phase blocks due to their longer molecule length, and chromosome scale data such as Hi-C has the ability to infer chromosome scale haplotypes\cite{falconphase}. Many algorithms have been developed for haplotype phasing for different data types or combinations of data types and employ search methods, dynamic programming optimization, graph theoretical approaches, and more. These include HapCut2\cite{hapcut2}, Whatshap\cite{whatshap}, Longranger\cite{10xlinked}, and many more. In chapter 4 I use haplotype phasing and the phasing consistency of molecules across multiple heterozygous variants as evidence that those variant loci are physically linked in both haplotypes in the genome.
+}
+
+\subsection{Creating reference genomes}
+
+\par{
+Physical and technical limitations make reading whole chromosomes a practical impossibility. Therefore, to recover the sequence of the genome often requires sampling reads from the genome randomly until one has with high probability covered the genome more than once in almost all regions\cite{LanderWaterman} in a method known as `shotgun' sequencing. Using the sequence similarity of multiple reads, one can build a consensus sequence of the underlying genome. This process is known as `assembly'.
+} 
+
+\subsubsection{The old way}
+
+\par{
+Before next-gen or third generation sequencing was available, there were several massive efforts to sequence genomes, but they were limited to human, important crops, and model organisms due to their cost and time\cite{genomeproject}\cite{mousegenome}\cite{maizegenome}. In these projects, BACs and other vectors were used to clonally amplify large sections of the genome. Shorter sequences from these would then be subcloned and Sanger sequencing was used to produce reads from each end of these, and each BAC would be assembled separately. At the end, all BAC sequences would be assembled together, often with the aid of a physical map. While costly, this method had several benefits over the whole genome shotgun method used in the privately funded human genome effort and over the later next-gen shotgun assemblies. The ability to deal with 150-200kb at a time means that many repeats that would make the assembly process difficult are absent as they may occur in a separate BAC clone. The clonal nature of this strategy also means that only one haplotype is being sampled in a given BAC and the heterozygosity that may make assembly difficult is also not present. And the Sanger sequencing read lengths also spanned small repeat structures that the later next-gen sequencing did not. These projects, while costly, produced high quality reference genomes for the most important organisms to the human species and are still being used today.
+}
+
+\subsubsection{The dark times}
+
+\par{
+In the age of next-gen sequencing, genome assembly was initially still popular. The low cost of sequencing promised personal genomes and the ability for every lab to sequence and assemble their organism of interest. Despite a massive amount of research going into assembly algorithms, \textit{de novo} genomes produced with this technology were never even close to as high quality as the ones produced by the BAC+Sanger sequencing methods of the previous generation\cite{illuminashit}\cite{gage}. Over time, interest in genome assembly waned both from the perspective of assembly algorithm development as well from people wanting to assemble new genomes as the results were so fragmented and error prone as to be of little downstream use.
+}
+
+\subsubsection{A new hope}
+
+\par{
+Long single molecule read technologies have been around and commercialized since the 2010, but due to cost, scaling, and the computational difficulties of dealing with high error reads took some time for widespread adoption for genome assembly\cite{HGAP}. But as cost came down, throughput scaled up, and tools for assembling this data improved\cite{falcon}\cite{redbean}\cite{canu}, this technology rapidly became the goto for \textit{de novo} genome assembly. Initially this was usually paired with a next-gen short read dataset used to polish the assembly and/or reads prior to assembly, but eventually partial order alignment multiple sequence alignment\cite{partialorder} was used for polishing by the noisy long reads themselves\cite{quiver}. More recently, PacBio's improvements to the nucleotide incorporation speed of the polymerase along with their circular consensus technology has allowed for many passes of a long single molecule which can then self polish with these same algorithms. This produces high accuracy long reads which have even further revolutionized genome assembly\cite{hifi}. This, combined with Hi-C scaffolding now routinely produces reference quality genomes in full chromosome scaffolds. However, some problems still exist for certain genomes. Until recently, long read technologies required more DNA input than could be extracted from single small organisms. But due to recent advances in library preparation, DNA requirements have come down substantially and in Chapter 3 I describe the first high quality assembly of a single mosquito. Also, many organisms are highly heterozygous and this creates difficulties in the assembly process. In Chapter 4, I describe methods for turning the problem of heterozygosity into an advantage by using phasing consistency between multiple heterozygous sites as a signal for physical linkage in phased assembly and phased scaffolding.
+}
+
+\subsection{Assembly algorithms}
+\par{
+Outside of some enzymatic reaction modeling I did in high school, the problem of genome assembly was the first problem in computational biology that I was introduced to and arguably one of the most important problems to the field. While the problem naturally lends itself to the pure computer scientists and mathematicians, the peculiarities of how genomes evolve tend to defy most basic assumptions. Not only is genomic sequence not random, but many structures seem designed to make the problem harder. Transposable elements and large segmental duplications, viral insertions and trinucleotide expansions, low GC content and homopolymers, centromeric repeats and telomeric repeats are just a few of the challenges the genome poses to the problem of assembly. At its most basic, the problem is simple. Find similar overlapping sequences. Infer that those sequences most likely originated from the same locus in the genome. Create a larger contiguous sequence representing the underlying genome and repeat. The problems arise when this inference is false. These algorithms have evolved over time and with the data types available, cheapest, or most promising at the time.
+}
 \subsubsection{Overlap, Layout, Consensus}
+
+\par{
+
+}
+
 \subsubsection{De brujin graphs}
 \subsubsection{String graphs}
 \subsubsection{Repeats, Heterozygosity, and Errors}
@@ -343,6 +405,11 @@ While 10x Genomics Linked reads are used in Chapter 4, the technology is no long
 \subsubsection{Polishing}
 \subsubsection{Haplotig purging}
 \subsubsection{Scaffolding}
+\subsubsection{Gap filling}
+
+\par{
+\cite{pbjelly}\cite{ultralong1}\cite{ultralong2}
+}
 
 \subsection{Assembly validation}
 \subsubsection{Kmer based methods}
