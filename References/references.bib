@@ -35,6 +35,47 @@
 }
 
 
+@ARTICLE{OLC,
+  title    = "A contig assembly program based on sensitive detection of
+              fragment overlaps",
+  author   = "Huang, X",
+  abstract = "An effective computer program for assembling DNA fragments, the
+              contig assembly program (CAP), has been developed. In the CAP
+              program, a filter is used to eliminate quickly fragment pairs
+              that could not possibly overlap, a dynamic programming algorithm
+              is applied to compute the maximal-scoring overlapping alignment
+              between each remaining pair of fragments, and a simple greedy
+              approach is employed to assemble fragments in order of alignment
+              scores. To identify the true fragment overlaps, the dynamic
+              programming algorithm uses specially chosen sets of alignment
+              parameters to tolerate sequencing errors and to penalize
+              ``mutational'' changes between different copies of a repetitive
+              sequence. The performance tests of the program on fragment data
+              from genomic sequencing projects produced satisfactory results.
+              The CAP program is efficient in computer time and memory; it took
+              about 4 h to assemble a set of 1015 fragments into long contigs
+              on a Sun workstation.",
+  journal  = "Genomics",
+  volume   =  14,
+  number   =  1,
+  pages    = "18--25",
+  month    =  sep,
+  year     =  1992,
+  language = "en"
+}
+
+@article{gene1,
+  title={Combinatorial algorithms for DNA sequence assembly},
+  author={Kececioglu, John D and Myers, Eugene W},
+  journal={Algorithmica},
+  volume={13},
+  number={1},
+  pages={7--51},
+  year={1995},
+  publisher={Springer}
+}
+
+
 @ARTICLE{HIFI,
   title    = "Accurate circular consensus long-read sequencing improves variant
               detection and assembly of a human genome",
@@ -950,6 +991,15 @@
   publisher = {GitHub},
   journal = {GitHub repository},
   howpublished = {\url{https://github.com/richarddurbin/hash10x}}
+}
+
+@misc{modimizer,
+  author = {Richard Durbin},
+  title = {A toolset for fast and space efficient DNA read set matching and assembly using a simple kmer sampling approach.},
+  year = {2018},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  howpublished = {\url{https://github.com/richarddurbin/modimizer}}
 }
 
 
@@ -3059,6 +3109,71 @@
 }
 
 
+@ARTICLE{blat,
+  title    = "{BLAT---The} {BLAST-Like} Alignment Tool",
+  author   = "Kent, W James",
+  abstract = "Analyzing vertebrate genomes requires rapid mRNA/DNA and
+              cross-species protein alignments. A new tool, BLAT, is more
+              accurate and 500 times faster than popular existing tools for
+              mRNA/DNA alignments and 50 times faster for protein alignments at
+              sensitivity settings typically used when comparing vertebrate
+              sequences. BLAT's speed stems from an index of all nonoverlapping
+              K-mers in the genome. This index fits inside the RAM of
+              inexpensive computers, and need only be computed once for each
+              genome assembly. BLAT has several major stages. It uses the index
+              to find regions in the genome likely to be homologous to the
+              query sequence. It performs an alignment between homologous
+              regions. It stitches together these aligned regions (often exons)
+              into larger alignments (typically genes). Finally, BLAT revisits
+              small internal exons possibly missed at the first stage and
+              adjusts large gap boundaries that have canonical splice sites
+              where feasible. This paper describes how BLAT was optimized.
+              Effects on speed and sensitivity are explored for various K-mer
+              sizes, mismatch schemes, and number of required index matches.
+              BLAT is compared with other alignment programs on various test
+              sets and then used in several genome-wide applications.
+              http://genome.ucsc.edu hosts a web-basedBLAT server for the human
+              genome.",
+  journal  = "Genome Res.",
+  volume   =  12,
+  number   =  4,
+  pages    = "656--664",
+  month    =  apr,
+  year     =  2002
+}
+
+
+@ARTICLE{suffixtree,
+  title     = "Suffix Arrays: A New Method for {On-Line} String Searches",
+  author    = "Manber, Udi and Myers, Gene",
+  abstract  = "A new and conceptually simple data structure, called a suffix
+               array, for on-line string searches is introduced in this paper.
+               Constructing and querying suffix arrays is reduced to a sort and
+               search paradigm that employs novel algorithms. The main
+               advantage of suffix arrays over suffix trees is that, in
+               practice, they use three to five times less space. From a
+               complexity standpoint, suffix arrays permit on-line string
+               searches of the type, ?Is W a substring of A?? to be answered in
+               time $O(P + \log N)$, where P is the length of W and N is the
+               length of A, which is competitive with (and in some cases
+               slightly better than) suffix trees. The only drawback is that in
+               those instances where the underlying alphabet is finite and
+               small, suffix trees can be constructed in $O(N)$ time in the
+               worst case, versus $O(N\log N)$ time for suffix arrays. However,
+               an augmented algorithm is given that, regardless of the alphabet
+               size, constructs suffix arrays in $O(N)$expected time, albeit
+               with lesser space efficiency. It is believed that suffix arrays
+               will prove to be better in practice than suffix trees for many
+               applications.",
+  journal   = "SIAM J. Comput.",
+  publisher = "Society for Industrial and Applied Mathematics",
+  volume    =  22,
+  number    =  5,
+  pages     = "935--948",
+  month     =  oct,
+  year      =  1993
+}
+
 
 
 % The entry below contains non-ASCII chars that could not be converted
@@ -3232,6 +3347,85 @@
   year     =  2010,
   language = "en"
 }
+
+
+@ARTICLE{minimizers,
+  title    = "Reducing storage requirements for biological sequence comparison",
+  author   = "Roberts, Michael and Hayes, Wayne and Hunt, Brian R and Mount,
+              Stephen M and Yorke, James A",
+  abstract = "MOTIVATION: Comparison of nucleic acid and protein sequences is a
+              fundamental tool of modern bioinformatics. A dominant method of
+              such string matching is the 'seed-and-extend' approach, in which
+              occurrences of short subsequences called 'seeds' are used to
+              search for potentially longer matches in a large database of
+              sequences. Each such potential match is then checked to see if it
+              extends beyond the seed. To be effective, the seed-and-extend
+              approach needs to catalogue seeds from virtually every substring
+              in the database of search strings. Projects such as mammalian
+              genome assemblies and large-scale protein matching, however, have
+              such large sequence databases that the resulting list of seeds
+              cannot be stored in RAM on a single computer. This significantly
+              slows the matching process. RESULTS: We present a simple and
+              elegant method in which only a small fraction of seeds, called
+              'minimizers', needs to be stored. Using minimizers can speed up
+              string-matching computations by a large factor while missing only
+              a small fraction of the matches found using all seeds.",
+  journal  = "Bioinformatics",
+  volume   =  20,
+  number   =  18,
+  pages    = "3363--3369",
+  month    =  dec,
+  year     =  2004,
+  language = "en"
+}
+
+
+@ARTICLE{LSH,
+  title    = "Assembling large genomes with single-molecule sequencing and
+              locality-sensitive hashing",
+  author   = "Berlin, Konstantin and Koren, Sergey and Chin, Chen-Shan and
+              Drake, James P and Landolin, Jane M and Phillippy, Adam M",
+  abstract = "Long-read, single-molecule real-time (SMRT) sequencing is
+              routinely used to finish microbial genomes, but available
+              assembly methods have not scaled well to larger genomes. We
+              introduce the MinHash Alignment Process (MHAP) for overlapping
+              noisy, long reads using probabilistic, locality-sensitive
+              hashing. Integrating MHAP with the Celera Assembler enabled
+              reference-grade de novo assemblies of Saccharomyces cerevisiae,
+              Arabidopsis thaliana, Drosophila melanogaster and a human
+              hydatidiform mole cell line (CHM1) from SMRT sequencing. The
+              resulting assemblies are highly continuous, include fully
+              resolved chromosome arms and close persistent gaps in these
+              reference genomes. Our assembly of D. melanogaster revealed
+              previously unknown heterochromatic and telomeric transition
+              sequences, and we assembled low-complexity sequences from CHM1
+              that fill gaps in the human GRCh38 reference. Using MHAP and the
+              Celera Assembler, single-molecule sequencing can produce de novo
+              near-complete eukaryotic assemblies that are 99.99\% accurate
+              when compared with available reference genomes.",
+  journal  = "Nat. Biotechnol.",
+  volume   =  33,
+  number   =  6,
+  pages    = "623--630",
+  month    =  jun,
+  year     =  2015,
+  language = "en"
+}
+
+
+@MISC{mashmap,
+  title   = "A Fast Approximate Algorithm for Mapping Long Reads to Large
+             Reference Databases",
+  author  = "Jain, Chirag and Dilthey, Alexander and Koren, Sergey and Aluru,
+             Srinivas and Phillippy, Adam M",
+  journal = "Journal of Computational Biology",
+  volume  =  25,
+  number  =  7,
+  pages   = "766--779",
+  year    =  2018
+}
+
+
 
 
 % The entry below contains non-ASCII chars that could not be converted
@@ -3798,6 +3992,112 @@
   language = "en"
 }
 
+
+@INPROCEEDINGS{fmindex,
+  title     = "Opportunistic data structures with applications",
+  booktitle = "Proceedings 41st Annual Symposium on Foundations of Computer
+               Science",
+  author    = "Ferragina, P and Manzini, G",
+  abstract  = "We address the issue of compressing and indexing data. We devise
+               a data structure whose space occupancy is a function of the
+               entropy of the underlying data set. We call the data structure
+               opportunistic since its space occupancy is decreased when the
+               input is compressible and this space reduction is achieved at no
+               significant slowdown in the query performance. More precisely,
+               its space occupancy is optimal in an information-content sense
+               because text T[1,u] is stored using O(H/sub k/(T))+o(1) bits per
+               input symbol in the worst case, where H/sub k/(T) is the kth
+               order empirical entropy of T (the bound holds for any fixed k).
+               Given an arbitrary string P[1,p], the opportunistic data
+               structure allows to search for the occurrences of P in T in
+               O(p+occlog/sup /spl epsiv//u) time (for any fixed /spl
+               epsiv/>0). If data are uncompressible we achieve the best space
+               bound currently known (Grossi and Vitter, 2000); on compressible
+               data our solution improves the succinct suffix array of (Grossi
+               and Vitter, 2000) and the classical suffix tree and suffix array
+               data structures either in space or in query time or both. We
+               also study our opportunistic data structure in a dynamic setting
+               and devise a variant achieving effective search and update time
+               bounds. Finally, we show how to plug our opportunistic data
+               structure into the Glimpse tool (Manber and Wu, 1994). The
+               result is an indexing tool which achieves sublinear space and
+               sublinear query time complexity.",
+  pages     = "390--398",
+  month     =  nov,
+  year      =  2000,
+  keywords  = "Data structures;Indexing;Entropy;Costs;Tree data
+               structures;Plugs;Computer science;Fault tolerance;Postal
+               services;Data engineering"
+}
+
+
+@INPROCEEDINGS{fmindex2,
+  title     = "An {Alphabet-Friendly} {FM-Index}",
+  booktitle = "String Processing and Information Retrieval",
+  author    = "Ferragina, Paolo and Manzini, Giovanni and M{\"a}kinen, Veli and
+               Navarro, Gonzalo",
+  abstract  = "We show that, by combining an existing compression boosting
+               technique with the wavelet tree data structure, we are able to
+               design a variant of the FM-index which scales well with the size
+               of the input alphabet $\Sigma$. The size of the new index built
+               on a string T[1,n] is bounded by $n H_\{k\}(T) + O\bigl((n
+               \log\log n)/\log_\{\vert \{\Sigma\}\vert \} n\bigr)$bits, where
+               Hk(T) is the k-th order empirical entropy of T.",
+  publisher = "Springer Berlin Heidelberg",
+  pages     = "150--160",
+  year      =  2004
+}
+
+
+
+@INPROCEEDINGS{suffixarray,
+  title     = "Linear pattern matching algorithms",
+  booktitle = "14th Annual Symposium on Switching and Automata Theory (swat
+               1973)",
+  author    = "Weiner, Peter",
+  abstract  = "In 1970, Knuth, Pratt, and Morris [1] showed how to do basic
+               pattern matching in linear time. Related problems, such as those
+               discussed in [4], have previously been solved by efficient but
+               sub-optimal algorithms. In this paper, we introduce an
+               interesting data structure called a bi-tree. A linear time
+               algorithm for obtaining a compacted version of a bi-tree
+               associated with a given string is presented. With this
+               construction as the basic tool, we indicate how to solve several
+               pattern matching problems, including some from [4] in linear
+               time.",
+  pages     = "1--11",
+  month     =  oct,
+  year      =  1973,
+  keywords  = "Pattern matching;Data structures;Terminology"
+}
+
+
+
+@ARTICLE{needlemanwunsch,
+  title    = "A general method applicable to the search for similarities in the
+              amino acid sequence of two proteins",
+  author   = "Needleman, S B and Wunsch, C D",
+  journal  = "J. Mol. Biol.",
+  volume   =  48,
+  number   =  3,
+  pages    = "443--453",
+  month    =  mar,
+  year     =  1970,
+  language = "en"
+}
+
+
+@ARTICLE{smithwaterman,
+  title    = "Identification of common molecular subsequences",
+  author   = "Smith, T F and Waterman, M S",
+  journal  = "J. Mol. Biol.",
+  volume   =  147,
+  number   =  1,
+  pages    = "195--197",
+  month    =  mar,
+  year     =  1981,
+  language = "en"
+}
 
 @ARTICLE{LanderWaterman,
   title    = "Genomic mapping by fingerprinting random clones: a mathematical
@@ -6069,6 +6369,381 @@
   year     =  2009,
   language = "en"
 }
+
+@misc{phrap,
+  title = {PHRAP},
+  howpublished = {\url{http://www.phrap.org/phredphrapconsed.html#block_phrap}},
+  note = {Accessed: 2021-09-8}
+}
+
+
+@ARTICLE{tigr,
+  title     = "{TIGR} Assembler: A New Tool for Assembling Large Shotgun
+               Sequencing Projects",
+  author    = "Sutton, Granger G and White, Owen and Adams, Mark D and
+               Kerlavage, Anthony R",
+  abstract  = "ABSTRACT A new approach to assembling large, random shotgun
+               sequencing projects has been developed. The TIGR Assembler
+               overcomes several major obstacles to assembling such projects:
+               the large number of pairwise comparisons required, the presence
+               of repeat regions, chimeras introduced in the cloning process,
+               and sequencing errors. A fast initial comparison of fragments
+               based on oligonucleotide content is used to eliminate the need
+               for a more sensitive comparison between most fragment pairs,
+               thus greatly reducing computer search time. Potential repeat
+               regions are recognized by determining which fragments have more
+               potential overlaps than expected given a random distribution of
+               fragments. Repeat regions are dealt with by increasing the match
+               criteria stringency and by assembling these regions last so that
+               maximum information from nonrepeat regions can be used. The
+               algorithm also incorporates a number of constraints, such as
+               clone length and the placement of sequences from the opposite
+               ends of a clone. TIGR Assembler has been used to assemble the
+               complete 1.8 Mbp Haemophilus influenzae (Fleischmann et al.,
+               1995) and 0.58 Mbp Mycoplasma genitalium (Fraser et al., 1995)
+               genomes.",
+  journal   = "Genome Science and Technology",
+  publisher = "Mary Ann Liebert, Inc., publishers",
+  volume    =  1,
+  number    =  1,
+  pages     = "9--19",
+  month     =  jan,
+  year      =  1995
+}
+
+
+@ARTICLE{gigassembler,
+  title    = "Assembly of the working draft of the human genome with
+              {GigAssembler}",
+  author   = "Kent, W J and Haussler, D",
+  abstract = "The data for the public working draft of the human genome
+              contains roughly 400,000 initial sequence contigs in
+              approximately 30,000 large insert clones. Many of these initial
+              sequence contigs overlap. A program, GigAssembler, was built to
+              merge them and to order and orient the resulting larger sequence
+              contigs based on mRNA, paired plasmid ends, EST, BAC end pairs,
+              and other information. This program produced the first publicly
+              available assembly of the human genome, a working draft
+              containing roughly 2.7 billion base pairs and covering an
+              estimated 88\% of the genome that has been used for several
+              recent studies of the genome. Here we describe the algorithm used
+              by GigAssembler.",
+  journal  = "Genome Res.",
+  volume   =  11,
+  number   =  9,
+  pages    = "1541--1548",
+  month    =  sep,
+  year     =  2001,
+  language = "en"
+}
+
+
+@ARTICLE{Myers2000,
+  title    = "A whole-genome assembly of Drosophila",
+  author   = "Myers, E W and Sutton, G G and Delcher, A L and Dew, I M and
+              Fasulo, D P and Flanigan, M J and Kravitz, S A and Mobarry, C M
+              and Reinert, K H and Remington, K A and Anson, E L and Bolanos, R
+              A and Chou, H H and Jordan, C M and Halpern, A L and Lonardi, S
+              and Beasley, E M and Brandon, R C and Chen, L and Dunn, P J and
+              Lai, Z and Liang, Y and Nusskern, D R and Zhan, M and Zhang, Q
+              and Zheng, X and Rubin, G M and Adams, M D and Venter, J C",
+  abstract = "We report on the quality of a whole-genome assembly of Drosophila
+              melanogaster and the nature of the computer algorithms that
+              accomplished it. Three independent external data sources
+              essentially agree with and support the assembly's sequence and
+              ordering of contigs across the euchromatic portion of the genome.
+              In addition, there are isolated contigs that we believe represent
+              nonrepetitive pockets within the heterochromatin of the
+              centromeres. Comparison with a previously sequenced 2.9- megabase
+              region indicates that sequencing accuracy within nonrepetitive
+              segments is greater than 99. 99\% without manual curation. As
+              such, this initial reconstruction of the Drosophila sequence
+              should be of substantial value to the scientific community.",
+  journal  = "Science",
+  volume   =  287,
+  number   =  5461,
+  pages    = "2196--2204",
+  month    =  mar,
+  year     =  2000,
+  language = "en"
+}
+
+@ARTICLE{Pevzner2001,
+  title    = "An Eulerian path approach to {DNA} fragment assembly",
+  author   = "Pevzner, P A and Tang, H and Waterman, M S",
+  abstract = "For the last 20 years, fragment assembly in DNA sequencing
+              followed the ``overlap-layout-consensus'' paradigm that is used
+              in all currently available assembly tools. Although this approach
+              proved useful in assembling clones, it faces difficulties in
+              genomic shotgun assembly. We abandon the classical
+              ``overlap-layout-consensus'' approach in favor of a new euler
+              algorithm that, for the first time, resolves the 20-year-old
+              ``repeat problem'' in fragment assembly. Our main result is the
+              reduction of the fragment assembly to a variation of the
+              classical Eulerian path problem that allows one to generate
+              accurate solutions of large-scale sequencing problems. euler, in
+              contrast to the celera assembler, does not mask such repeats but
+              uses them instead as a powerful fragment assembly tool.",
+  journal  = "Proc. Natl. Acad. Sci. U. S. A.",
+  volume   =  98,
+  number   =  17,
+  pages    = "9748--9753",
+  month    =  aug,
+  year     =  2001,
+  language = "en"
+}
+
+
+
+@ARTICLE{positionalSBH,
+  title    = "Positional sequencing by hybridization",
+  author   = "Hannenhalli, S and Feldman, W and Lewis, H F and Skiena, S S and
+              Pevzner, P A",
+  abstract = "Sequencing by hybridization (SBH) is a promising alternative to
+              the classical DNA sequencing approaches. However, the resolving
+              power of SBH is rather low: with 64kb sequencing chips, unknown
+              DNA fragments only as long as 200 bp can be reconstructed in a
+              single SBH experiment. To improve the resolving power of SBH,
+              positional SBH (PSBH) has recently been suggested; this allows
+              (with additional experimental work) approximate positions of
+              every l-tuple in a target DNA fragment to be measured. We study
+              the positional Eulerian path problem motivated by PSBH. The input
+              to the positional eulerian path problem is an Eulerian graph G(V,
+              E) in which every edge has an associated range of integers and
+              the problem is to find an Eulerian path e1,...,e/E/ in G such
+              that the range of ei contains i. We show that the positional
+              Eulerian path problem is NP-complete even when the maximum
+              out-degree (in-degree) of any vertex in the graph is 2. On a
+              positive note we present polynomial algorithms to solve a special
+              case of PSBH (bounded PSBH), where the range of the allowed
+              positions for any edge is bounded by a constant (it corresponds
+              to accurate experimental measurements of positions in PSBH).
+              Moreover, if the positions of every l-tuple in an unknown DNA
+              fragment of length n are measured with O(log n) error, then our
+              algorithm runs in polynomial time. We also present an estimate of
+              the resolving power of PSBH for a more realistic case when
+              positions are measured with theta (n) error.",
+  journal  = "Comput. Appl. Biosci.",
+  volume   =  12,
+  number   =  1,
+  pages    = "19--24",
+  month    =  feb,
+  year     =  1996,
+  language = "en"
+}
+
+@misc{nabsyspatent,
+  title={Distance maps using multiple alignment consensus construction},
+  author={Goldstein, Peter and Heaton, William and Preparata, Franco and Upfal, Eli},
+  year={2014},
+  month=sep # "~18",
+  publisher={Google Patents},
+  note={US Patent App. 14/212,458}
+}
+
+
+@MISC{ituple,
+  title   = "l-Tuple {DNA} Sequencing: Computer Analysis",
+  author  = "Pevzner, Pavel A",
+  journal = "Journal of Biomolecular Structure and Dynamics",
+  volume  =  7,
+  number  =  1,
+  pages   = "63--73",
+  year    =  1989
+}
+
+
+@ARTICLE{Preparata,
+  title    = "Sequencing-by-hybridization at the information-theory bound: an
+              optimal algorithm",
+  author   = "Preparata, F P and Upfal, E",
+  abstract = "In a recent paper (Preparata et aL, 1999) we introduced a novel
+              probing scheme for DNA sequencing by hybridization (SBH). The new
+              gapped-probe scheme combines natural and universal bases in a
+              well-defined periodic pattern. It has been shown (Preparata et
+              al, 1999) that the performance of the gapped-probe scheme (in
+              terms of the length of a sequence that can be uniquely
+              reconstructed using a given size library of probes) is
+              significantly better than the standard scheme based on oligomer
+              probes. In this paper we present and analyze a new, more
+              powerful, sequencing algorithm for the gapped-probe scheme. We
+              prove that the new algorithm exploits the full potential of the
+              SBH technology with high-confidence performance that comes within
+              a small constant factor (about 2) of the information-theory
+              bound. Moreover, this performance is achieved while maintaining
+              running time linear in the target sequence length.",
+  journal  = "J. Comput. Biol.",
+  volume   =  7,
+  number   = "3-4",
+  pages    = "621--630",
+  year     =  2000,
+  language = "en"
+}
+
+
+
+@ARTICLE{SBH,
+  title    = "Sequencing of megabase plus {DNA} by hybridization: theory of the
+              method",
+  author   = "Drmanac, R and Labat, I and Brukner, I and Crkvenjakov, R",
+  abstract = "A mismatch-free hybridization of oligonucleotides containing from
+              11 to 20 monomers to unknown DNA represents, in essence, a
+              sequencing of a complementary target. Realizing this, we have
+              used probability calculations and, in part, computer simulations
+              to estimate the types and numbers of oligonucleotides that would
+              have to be synthesized in order to sequence a megabase plus
+              segment of DNA. We estimate that 95,000 specific mixes of
+              11-mers, mainly of the 5'(A,T,C,G)(A,T,C,G)N8(A,T,C,G)3' type,
+              hybridized consecutively to dot blots of cloned genomic DNA
+              fragments would provide primary data for the sequence assembly.
+              An optimal mixture of representative libraries in M13 vector,
+              having inserts of (i) 7 kb, (ii) 0.5 kb genomic fragments
+              randomly ligated in up to 10-kb inserts, and (iii) tandem
+              ``jumping'' fragments 100 kb apart in the genome, will be needed.
+              To sequence each million base pairs of DNA, one would need
+              hybridization data from about 2100 separate hybridization sample
+              dots. Inevitable gaps and uncertainties in alignment of sequenced
+              fragments arising from nonrandom or repetitive sequence
+              organization of complex genomes and difficulties in cloning
+              ``poisonous'' sequences in Escherichia coli, inherent to large
+              sequencing by any method, have been considered and minimized by
+              choice of libraries and number of subclones used for
+              hybridization. Because it is based on simpler biochemical
+              procedures, our method is inherently easier to automate than
+              existing sequencing methods. The sequence can be derived from
+              simple primary data only by extensive computing. Phased
+              experimental tests and computer simulations increasing in
+              complexity are needed before accurate estimates can be made in
+              terms of cost and speed of sequencing by the new approach.
+              Nevertheless, sequencing by hybridization should show advantages
+              over existing methods because of the inherent redundancy and
+              parallelism in its data gathering.",
+  journal  = "Genomics",
+  volume   =  4,
+  number   =  2,
+  pages    = "114--128",
+  month    =  feb,
+  year     =  1989,
+  language = "en"
+}
+
+
+@ARTICLE{privategenome,
+  title    = "The sequence of the human genome",
+  author   = "Venter, J C and Adams, M D and Myers, E W and Li, P W and Mural,
+              R J and Sutton, G G and Smith, H O and Yandell, M and Evans, C A
+              and Holt, R A and Gocayne, J D and Amanatides, P and Ballew, R M
+              and Huson, D H and Wortman, J R and Zhang, Q and Kodira, C D and
+              Zheng, X H and Chen, L and Skupski, M and Subramanian, G and
+              Thomas, P D and Zhang, J and Gabor Miklos, G L and Nelson, C and
+              Broder, S and Clark, A G and Nadeau, J and McKusick, V A and
+              Zinder, N and Levine, A J and Roberts, R J and Simon, M and
+              Slayman, C and Hunkapiller, M and Bolanos, R and Delcher, A and
+              Dew, I and Fasulo, D and Flanigan, M and Florea, L and Halpern, A
+              and Hannenhalli, S and Kravitz, S and Levy, S and Mobarry, C and
+              Reinert, K and Remington, K and Abu-Threideh, J and Beasley, E
+              and Biddick, K and Bonazzi, V and Brandon, R and Cargill, M and
+              Chandramouliswaran, I and Charlab, R and Chaturvedi, K and Deng,
+              Z and Di Francesco, V and Dunn, P and Eilbeck, K and Evangelista,
+              C and Gabrielian, A E and Gan, W and Ge, W and Gong, F and Gu, Z
+              and Guan, P and Heiman, T J and Higgins, M E and Ji, R R and Ke,
+              Z and Ketchum, K A and Lai, Z and Lei, Y and Li, Z and Li, J and
+              Liang, Y and Lin, X and Lu, F and Merkulov, G V and Milshina, N
+              and Moore, H M and Naik, A K and Narayan, V A and Neelam, B and
+              Nusskern, D and Rusch, D B and Salzberg, S and Shao, W and Shue,
+              B and Sun, J and Wang, Z and Wang, A and Wang, X and Wang, J and
+              Wei, M and Wides, R and Xiao, C and Yan, C and Yao, A and Ye, J
+              and Zhan, M and Zhang, W and Zhang, H and Zhao, Q and Zheng, L
+              and Zhong, F and Zhong, W and Zhu, S and Zhao, S and Gilbert, D
+              and Baumhueter, S and Spier, G and Carter, C and Cravchik, A and
+              Woodage, T and Ali, F and An, H and Awe, A and Baldwin, D and
+              Baden, H and Barnstead, M and Barrow, I and Beeson, K and Busam,
+              D and Carver, A and Center, A and Cheng, M L and Curry, L and
+              Danaher, S and Davenport, L and Desilets, R and Dietz, S and
+              Dodson, K and Doup, L and Ferriera, S and Garg, N and
+              Gluecksmann, A and Hart, B and Haynes, J and Haynes, C and
+              Heiner, C and Hladun, S and Hostin, D and Houck, J and Howland, T
+              and Ibegwam, C and Johnson, J and Kalush, F and Kline, L and
+              Koduru, S and Love, A and Mann, F and May, D and McCawley, S and
+              McIntosh, T and McMullen, I and Moy, M and Moy, L and Murphy, B
+              and Nelson, K and Pfannkoch, C and Pratts, E and Puri, V and
+              Qureshi, H and Reardon, M and Rodriguez, R and Rogers, Y H and
+              Romblad, D and Ruhfel, B and Scott, R and Sitter, C and
+              Smallwood, M and Stewart, E and Strong, R and Suh, E and Thomas,
+              R and Tint, N N and Tse, S and Vech, C and Wang, G and Wetter, J
+              and Williams, S and Williams, M and Windsor, S and Winn-Deen, E
+              and Wolfe, K and Zaveri, J and Zaveri, K and Abril, J F and
+              Guig{\'o}, R and Campbell, M J and Sjolander, K V and Karlak, B
+              and Kejariwal, A and Mi, H and Lazareva, B and Hatton, T and
+              Narechania, A and Diemer, K and Muruganujan, A and Guo, N and
+              Sato, S and Bafna, V and Istrail, S and Lippert, R and Schwartz,
+              R and Walenz, B and Yooseph, S and Allen, D and Basu, A and
+              Baxendale, J and Blick, L and Caminha, M and Carnes-Stine, J and
+              Caulk, P and Chiang, Y H and Coyne, M and Dahlke, C and Mays, A
+              and Dombroski, M and Donnelly, M and Ely, D and Esparham, S and
+              Fosler, C and Gire, H and Glanowski, S and Glasser, K and Glodek,
+              A and Gorokhov, M and Graham, K and Gropman, B and Harris, M and
+              Heil, J and Henderson, S and Hoover, J and Jennings, D and
+              Jordan, C and Jordan, J and Kasha, J and Kagan, L and Kraft, C
+              and Levitsky, A and Lewis, M and Liu, X and Lopez, J and Ma, D
+              and Majoros, W and McDaniel, J and Murphy, S and Newman, M and
+              Nguyen, T and Nguyen, N and Nodell, M and Pan, S and Peck, J and
+              Peterson, M and Rowe, W and Sanders, R and Scott, J and Simpson,
+              M and Smith, T and Sprague, A and Stockwell, T and Turner, R and
+              Venter, E and Wang, M and Wen, M and Wu, D and Wu, M and Xia, A
+              and Zandieh, A and Zhu, X",
+  abstract = "A 2.91-billion base pair (bp) consensus sequence of the
+              euchromatic portion of the human genome was generated by the
+              whole-genome shotgun sequencing method. The 14.8-billion bp DNA
+              sequence was generated over 9 months from 27,271,853 high-quality
+              sequence reads (5.11-fold coverage of the genome) from both ends
+              of plasmid clones made from the DNA of five individuals. Two
+              assembly strategies-a whole-genome assembly and a regional
+              chromosome assembly-were used, each combining sequence data from
+              Celera and the publicly funded genome effort. The public data
+              were shredded into 550-bp segments to create a 2.9-fold coverage
+              of those genome regions that had been sequenced, without
+              including biases inherent in the cloning and assembly procedure
+              used by the publicly funded group. This brought the effective
+              coverage in the assemblies to eightfold, reducing the number and
+              size of gaps in the final assembly over what would be obtained
+              with 5.11-fold coverage. The two assembly strategies yielded very
+              similar results that largely agree with independent mapping data.
+              The assemblies effectively cover the euchromatic regions of the
+              human chromosomes. More than 90\% of the genome is in scaffold
+              assemblies of 100,000 bp or more, and 25\% of the genome is in
+              scaffolds of 10 million bp or larger. Analysis of the genome
+              sequence revealed 26,588 protein-encoding transcripts for which
+              there was strong corroborating evidence and an additional
+              approximately 12,000 computationally derived genes with mouse
+              matches or other weak supporting evidence. Although gene-dense
+              clusters are obvious, almost half the genes are dispersed in low
+              G+C sequence separated by large tracts of apparently noncoding
+              sequence. Only 1.1\% of the genome is spanned by exons, whereas
+              24\% is in introns, with 75\% of the genome being intergenic DNA.
+              Duplications of segmental blocks, ranging in size up to
+              chromosomal lengths, are abundant throughout the genome and
+              reveal a complex evolutionary history. Comparative genomic
+              analysis indicates vertebrate expansions of genes associated with
+              neuronal function, with tissue-specific developmental regulation,
+              and with the hemostasis and immune systems. DNA sequence
+              comparisons between the consensus sequence and publicly funded
+              genome data provided locations of 2.1 million single-nucleotide
+              polymorphisms (SNPs). A random pair of human haploid genomes
+              differed at a rate of 1 bp per 1250 on average, but there was
+              marked heterogeneity in the level of polymorphism across the
+              genome. Less than 1\% of all SNPs resulted in variation in
+              proteins, but the task of determining which SNPs have functional
+              consequences remains an open challenge.",
+  journal  = "Science",
+  volume   =  291,
+  number   =  5507,
+  pages    = "1304--1351",
+  month    =  feb,
+  year     =  2001,
+  language = "en"
+}
+
 
 
 
