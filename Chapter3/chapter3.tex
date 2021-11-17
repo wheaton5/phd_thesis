@@ -29,9 +29,9 @@ Exciting efforts to sequence the diversity of life are building momentum\cite{Le
 \sidesubfloat[]{
 \includegraphics[width=0.95\textwidth, valign=t]{heterozygous.png} \label{fig:b}
 }
-
-\floatfoot{\small{Inexact homologous sequences and how they would be assembled if the differences are due to \textbf{a)} paralogous sequences or \textbf{b)} heterozygous differences. }}
 \end{centering}
+\floatfoot{\small{Inexact homologous sequences and how they would be assembled if the differences are due to \textbf{a)} paralogous sequences or \textbf{b)} heterozygous differences. }}
+
 \end{figure}
 
 
@@ -59,7 +59,7 @@ This work was done over two years ago now, and the field is rapidly evolving. Ma
 }
 
 \par{
-The genome we use for comparison was built using bacterial artificial chromosomes (BACs) and Sanger sequencing, the same basic technology initially used to create the human reference genome, which is highly accurate but extremely labor intensive and expensive. Our assembly allows for the use of a single individual, is relatively cheap, and is more accurate and complete than the previous gold standard \textit{Anopheles} genome. With some addition data, or by scaffolding against the PEST reference as shown in this chapter, it would also be more contiguous with fewer gaps.
+The genome we use for comparison was built using bacterial artificial chromosomes (BACs) and Sanger sequencing, the same basic technology initially used to create the human reference genome, which is highly accurate but extremely labor intensive and expensive. Our assembly allows for the use of a single individual, is relatively cheap, and is more accurate and complete than the previous gold standard \textit{Anopheles} genome. With some additional data, or by scaffolding against the PEST reference as shown in this chapter, it would also be more contiguous with fewer gaps.
 }
 
 \section{DNA Isolation}
@@ -76,9 +76,10 @@ High molecular weight (HMW) DNA was isolated from a single \textit{Anopheles col
 \label{figure:fempto2}
 \begin{centering}
 \includegraphics[width=.85\textwidth]{fempto2.png}
+\end{centering}
 \floatfoot{\small{Femto Pulse evaluation of the Modified MagAttract DNA extraction prior to shipment to
 California. }}
-\end{centering}
+
 \end{figure}
 
 \section{Library prep and Sequencing}
@@ -95,12 +96,13 @@ A SMRTbell library was constructed using an early access version of SMRTbell Exp
 \label{figure:fempto}
 \begin{centering}
 \includegraphics[width=.85\textwidth]{fempto.png}
-\floatfoot{\small{FEMTO Pulse traces and gel images (inset) of the genomic DNA input (black) and the final library (blue) before sequencing. }}
 \end{centering}
+\floatfoot{\small{FEMTO Pulse traces and gel images (inset) of the genomic DNA input (black) and the final library (blue) before sequencing. }}
+
 \end{figure}
 
 \par{
-Sequencing primer v4 and Sequel DNA Polymerase 3.0 were annealed and bound, respectively, to the SMRTbell library. The library was then sequenced on the Sequel System with Sequel Sequencing Kit 3.0. 1200 minute movie with 120 minute pre-extension and Software v6.0. A total of three SMRT cells were run generating on average 24.2 Gb of data per SMRT Cell, with average insert lengths of 8.1 kb (insert length N50 \~13 kb, table \ref{table:dataamount}). This is double the standard exposure time allowing for more data out of the same sample. However, extending exposure times has diminishing returns. The overall library yield was 59\%, which would have allowed for the sequencing of at least 8 SMRT Cells, thereby potentially allowing for genome sizes 2-3 times larger or organisms that yield 2-3 times less DNA in extraction than studied here in conjunction with this protocol.
+Sequencing primer v4 and Sequel DNA Polymerase 3.0 were annealed and bound, respectively, to the SMRTbell library. The library was then sequenced on the Sequel System with Sequel Sequencing Kit 3.0. 1200 minute movie with 120 minute pre-extension and Software v6.0. A total of three SMRT cells were run generating on average 24.2 Gb of data per SMRT Cell, with average insert lengths of 8.1 kb (insert length N50 $\approx$13 kb, table \ref{table:dataamount}). This is double the standard exposure time allowing for more data out of the same sample. However, extending exposure times has diminishing returns. The overall library yield was 59\%, which would have allowed for the sequencing of at least 8 SMRT Cells, thereby potentially allowing for genome sizes 2-3 times larger or organisms that yield 2-3 times less DNA in extraction than studied here in conjunction with this protocol.
 }
 
 \begin{table}[htbp!]
@@ -255,11 +257,11 @@ GCA\_000150765.1.}}
 \subsection{Comparison to \textit{Anopheles gambiae} PEST reference}
 
 \par{
-The \textit{Anopheles gambiae} genome, published in 2002, was created using BACs and Sanger sequencing\cite{PEST}. Further work over the years to order and orient contigs improved this reference\cite{PEST2}\cite{heterochromatin} and to date, AgamP4 (https://vectorbase.org/organisms/anopheles-gambiae/pest/agamp4) remains the highest quality Anopheles genome among the 21 that have now been sequenced\cite{16anopheles}. However, there are many problems with this reference genome. AgamP4 PEST still has 6302 gaps of Ns in the primary chromosome scaffolds ranging from 20 bases to 36 kb, including 55 gaps of 10 kb that the AGP (A Golden Path) file on Vectorbase annotates as contig endings. The AgamP4 genome was generated from a lab strain known as PEST (Pink Eye STandard) that is long deceased and also was an accidental mixture of two incipient species, previously known as `M' and `S'. To address this, the genomes of pure `M' and `S' from new colonies established in Mali were sequenced using only Sanger sequencing\cite{anophdivergence}. Since then, the `S' form has retained the name \textit{Anopheles gambiae} sensu stricto, and the `M' form has acquired species status and a new name, \textit{Anopheles coluzzii}\cite{gambiaecomplex}. It is important to note that while these species show assortative mating, they can hybridize in nature and their hybrids are fully fertile and viable\cite{assortativemating}. Given this fact, and the fact that both pure species assemblies remain highly fragmented, I compared our assembly to the best available \textit{Anopheles gambiae} genome (i.e., AgamP4 PEST) to evaluate contiguity and to help order and orient the contigs.
+The \textit{Anopheles gambiae} genome, published in 2002, was created using BACs and Sanger sequencing\cite{PEST}. Further work over the years to order and orient contigs improved this reference\cite{PEST2}\cite{heterochromatin} and to date, AgamP4 (\url{https://vectorbase.org/organisms/anopheles-gambiae/pest/agamp4}) remains the highest quality Anopheles genome among the 21 that have now been sequenced\cite{16anopheles}. However, there are many problems with this reference genome. AgamP4 PEST still has 6302 gaps of Ns in the primary chromosome scaffolds ranging from 20 bases to 36 kb, including 55 gaps of 10 kb that the AGP (A Golden Path) file on Vectorbase annotates as contig endings. The AgamP4 genome was generated from a lab strain known as PEST (Pink Eye STandard) that is long deceased and also was an accidental mixture of two incipient species, previously known as `M' and `S'. To address this, the genomes of pure `M' and `S' from new colonies established in Mali were sequenced using only Sanger sequencing\cite{anophdivergence}. Since then, the `S' form has retained the name \textit{Anopheles gambiae} sensu stricto, and the `M' form has acquired species status and a new name, \textit{Anopheles coluzzii}\cite{gambiaecomplex}. It is important to note that while these species show assortative mating, they can hybridize in nature and their hybrids are fully fertile and viable\cite{assortativemating}. Given this fact, and the fact that both pure species assemblies remain highly fragmented, I compared our assembly to the best available \textit{Anopheles gambiae} genome (i.e., AgamP4 PEST) to evaluate contiguity and to help order and orient the contigs.
 } 
 
 \par{
-To assess the quality of contig assembly and concordance with existing assemblies, the curated primary contigs were aligned to the PEST \textit{Anopheles gambiae} reference genome \cite{PEST}\cite{PEST2} using minimap2 with the map-pb settings\cite{minimap2}. For the purpose of comparison, contigs were ordered and oriented according to their median alignment position and majority alignment orientation on the chromosome to which they had the most aligned bases. A python script was used in conjunction with ggplot using geom\_segments to generate alignment plots. This software is an alternative to the commonly used nucmer/mummer\cite{mummer} and is available at \href{https://github.com/wheaton5/assembly\_comparison\_scripts}. One important difference is that these only show the single best alignment for a given span of contig sequence and is not a dotplot which would show all similar sequences above some threshold.
+To assess the quality of contig assembly and concordance with existing assemblies, the curated primary contigs were aligned to the PEST \textit{Anopheles gambiae} reference genome \cite{PEST}\cite{PEST2} using minimap2 with the map-pb settings\cite{minimap2}. For the purpose of comparison, contigs were ordered and oriented according to their median alignment position and majority alignment orientation on the chromosome to which they had the most aligned bases. A python script was used in conjunction with ggplot using geom\_segments to generate alignment plots. This software is an alternative to the commonly used nucmer/mummer\cite{mummer} and is available at \url{https://github.com/wheaton5/assembly\_comparison\_scripts}. One important difference is that these only show the single best alignment for a given span of contig sequence and is not a dotplot which would show all similar sequences above some threshold.
 } 
 
 \par{
@@ -272,8 +274,9 @@ The new PacBio assembly is highly concordant with the AgamP4 PEST reference over
 \label{figure:dotplot}
 \begin{centering}
 \includegraphics[width=1.0\textwidth]{dotplot.png}
-\floatfoot{\small{Alignment of the curated PacBio contigs to the AgamP4 PEST reference. Alignments are colored by the primary PEST reference chromosome to which they align but are placed in the panel and Y offset to which the contig as a whole aligns best. Contig ends are denoted by horizontal lines in the assembly and vertical lines in PEST. However, there are many Ns in PEST not annotated as contig breaks so the percent Ns per megabase of PEST is overlaid (scale on the right Y axis). There are no Ns in the PacBio assembly, but there may be gaps between the PacBio assembly contigs.}}
 \end{centering}
+\floatfoot{\small{Alignment of the curated PacBio contigs to the AgamP4 PEST reference. Alignments are colored by the primary PEST reference chromosome to which they align but are placed in the panel and Y offset to which the contig as a whole aligns best. Contig ends are denoted by horizontal lines in the assembly and vertical lines in PEST. However, there are many Ns in PEST not annotated as contig breaks so the percent Ns per megabase of PEST is overlaid (scale on the right Y axis). There are no Ns in the PacBio assembly, but there may be gaps between the PacBio assembly contigs.}}
+
 \end{figure}
 
 
@@ -294,8 +297,9 @@ I also noted many smaller cross-chromosome alignments between contigs which prim
 \label{figure:misassembly}
 \begin{centering}
 \includegraphics[width=1.0\textwidth]{misassembly.png}
-\floatfoot{\small{A chimeric contig between 2L and 3R. A. Alignment of PacBio contigs to PEST identifies a candidate chromosomal rearrangement. B. IGV screenshot of breakpoint (orange arrow) localized by alignment of contig to PEST. Red: alignment to 2L, turquoise: alignments to 3R, navy blue: alignments to other chromosomes and unplaced contigs. C. IGV visualization of mapped unique subreads at breakpoint shows 0 subreads mapping across the central repetitive region into the unique flanking sequence on the left (2L) and right (3R) (stars). A count of spanning reads was also determined with bedtools bamtobed utility. The 6.5kb central region aligns to four loci in the PEST genome and has ~370 bp of sequence similarity to the Tc1-like transposase gene in \textit{Anopheles gambiae}.}}
 \end{centering}
+\floatfoot{\small{A chimeric contig between 2L and 3R. A. Alignment of PacBio contigs to PEST identifies a candidate chromosomal rearrangement. B. IGV screenshot of breakpoint (orange arrow) localized by alignment of contig to PEST. Red: alignment to 2L, turquoise: alignments to 3R, navy blue: alignments to other chromosomes and unplaced contigs. C. IGV visualization of mapped unique subreads at breakpoint shows 0 subreads mapping across the central repetitive region into the unique flanking sequence on the left (2L) and right (3R) (stars). A count of spanning reads was also determined with bedtools bamtobed utility. The 6.5kb central region aligns to four loci in the PEST genome and has ~370 bp of sequence similarity to the Tc1-like transposase gene in \textit{Anopheles gambiae}.}}
+
 \end{figure}
 
 \subsection{Remaining haplotig sequence on ends of contigs}
@@ -312,6 +316,7 @@ Next, large discordant regions where multiple contigs align to the same region i
 \label{figure:haplotig}
 \begin{centering}
 \includegraphics[width=\textwidth]{haplotigity.png}
+\end{centering}
 \floatfoot{\small{Alignment and coverage plot (top) of the PacBio assembly contigs relative to PEST,
 and magnification of one area of excess coverage (bottom). In the top panel, the number of
 alignments of PacBio contigs to PEST are represented by black bars, with most of the genome
@@ -323,7 +328,7 @@ reads for the central (blue) contig (57F) corroborate this interpretation, exhib
 expected coverage in the greyed regions of contig overlap, and with the corresponding ends of
 the red and green contigs complementing with the other half of coverage, respectively (not
 shown for clarity).}}
-\end{centering}
+
 \end{figure}
 
 \par{
@@ -336,8 +341,9 @@ And finally, I considered large discordant regions in which no assembly contigs 
 \label{figure:nocovplot}
 \begin{centering}
 \includegraphics[width=1.0\textwidth]{Nocovplot.jpeg}
-\floatfoot{\small{ Top: outlines large region with zero coverage in chromosomal scaffold 3R on PEST reference. Middle: Zoom in of alignment plot in that region with Ns track showing regions of Ns flanking this sequence with another section of Ns in the middle. Bottom: shows subread depth when aligned to the PEST reference showing decreased mapping in this region.}}
 \end{centering}
+\floatfoot{\small{Top: outlines large region with zero coverage in chromosomal scaffold 3R on PEST reference. Middle: Zoom in of alignment plot in that region with Ns track showing regions of Ns flanking this sequence with another section of Ns in the middle. Bottom: shows subread depth when aligned to the PEST reference showing decreased mapping in this region.}}
+
 \end{figure}
 
 
@@ -354,8 +360,9 @@ The new PacBio assembly makes many improvements when compared to the PEST assemb
 \label{figure:repeat}
 \begin{centering}
 \includegraphics[width=1.0\textwidth]{repeatexpansion.png}
-\floatfoot{\small{ Example of a compressed repeat in PEST that has been expanded by the PacBio assembly. Dotted vertical lines represent a gap in the PEST assembly (10,000 Ns) between scaffolds, which is now spanned by the single PacBio contig. Coverage plot of the PacBio subreads aligned to PEST (bottom) highlights the region where excess coverage indicates a collapsed repeat in PEST, in contrast the coverage of PacBio subreads aligned to the PacBio contig (left) is more uniform. }}
 \end{centering}
+\floatfoot{\small{Example of a compressed repeat in PEST that has been expanded by the PacBio assembly. Dotted vertical lines represent a gap in the PEST assembly (10,000 Ns) between scaffolds, which is now spanned by the single PacBio contig. Coverage plot of the PacBio subreads aligned to PEST (bottom) highlights the region where excess coverage indicates a collapsed repeat in PEST, in contrast the coverage of PacBio subreads aligned to the PacBio contig (left) is more uniform. }}
+
 \end{figure}
 
 \subsection{Corrected order and orientation vs PEST scaffolding}
@@ -370,8 +377,9 @@ I also identified several potential rearrangements in the 20-22 Mb region of the
 \label{figure:x_inversion}
 \begin{centering}
 \includegraphics[width=1.0\textwidth]{x_inversion.png}
-\floatfoot{\small{Alignment of X pericentromeric contigs to PEST, highlighting likely order and orientation issues in the PEST assembly that are resolved by a single PacBio contig.}}
 \end{centering}
+\floatfoot{\small{Alignment of X pericentromeric contigs to PEST, highlighting likely order and orientation issues in the PEST assembly that are resolved by a single PacBio contig.}}
+
 \end{figure}
 
 
@@ -387,13 +395,14 @@ The PEST annotation also retains a large bin of unplaced contigs (27.3 Mb exclud
 \label{figure:unknplace}
 \begin{centering}
 \includegraphics[width=1.0\textwidth]{Unkn_placement_haplotig.jpeg}
-\floatfoot2{\small{Contig coverages (ignoring multiple alignments for each chromosomal and UNKN sequence) of PEST aligned to the curated assembly showing placement of previously unplaced sequence (green on contigs that also have red (chromosomal) alignments). I also note the locations where both UNKN and chromosomal sequence align to the same location in the curated assembly which are likely haplotigs in the PEST UNKN scaffold.}}
 \end{centering}
+\floatfoot{\small{Contig coverages (ignoring multiple alignments for each chromosomal and UNKN sequence) of PEST aligned to the curated assembly showing placement of previously unplaced sequence (green on contigs that also have red (chromosomal) alignments). I also note the locations where both UNKN and chromosomal sequence align to the same location in the curated assembly which are likely haplotigs in the PEST UNKN scaffold.}}
+
 \end{figure}
 
 \subsection{Placement of previously unplaced genes}\label{section:unkn}
 \par{
-In addition to the UNKN haplotig sequences, I found another 10.9 Mb of the alignments are newly placed sequence that do not overlap with PEST chromosomal alignments but are in contigs that have a large amount (>100kb) of chromosomal alignments meaning these contigs are confidently ordered and oriented in their chromosomal contexts. The UNKN bin also contains 737 annotated genes. Remarkably, our single-insect assembly now places 667 (>90\%) of these formerly unplaced genes into their appropriate chromosomal contexts (2L:148 genes; 2R:162 genes; 3L: 126 genes; 3R:91 genes; X:140 genes; unplaced:70 genes; detail on placement of specific genes can be found in the supplement of our paper\cite{singlemosquito}), which together with their flanking sequence comprise 8.9 Mb of sequence. Altogether, this means that 32.6\% of the UNKN chromosome is now placed in the genome and 26.6\% is determined to be haplotigs, along with 90\% of the genes that were contained within it. Much of the remaining sequence do not have high mapping quality subreads when aligning subreads to the PEST reference meaning they are either repeats or junk sequence.
+In addition to the UNKN haplotig sequences, I found another 10.9 Mb of the alignments are newly placed sequence that do not overlap with PEST chromosomal alignments but are in contigs that have a large amount (>100kb) of chromosomal alignments meaning these contigs are confidently ordered and oriented in their chromosomal contexts. The UNKN bin also contains 737 annotated genes. Remarkably, our single-insect assembly now places 667 (>90\%) of these formerly unplaced genes into their appropriate chromosomal contexts (2L:148 genes; 2R:162 genes; 3L: 126 genes; 3R:91 genes; X:140 genes; unplaced:70 genes\cite{mosquito_assembly}), which together with their flanking sequence comprise 8.9 Mb of sequence. Altogether, this means that 32.6\% of the UNKN chromosome is now placed in the genome and 26.6\% is determined to be haplotigs, along with 90\% of the genes that were contained within it. Much of the remaining sequence do not have high mapping quality subreads when aligning subreads to the PEST reference meaning they are either repeats or junk sequence.
 }
 
 \subsection{PEST contig coverage on PacBio curated assembly}
@@ -408,8 +417,9 @@ In addition to looking for the two contig coverage areas and confirming that the
 \label{figure:reverse_coverage}
 \begin{centering}
 \includegraphics[width=1.0\textwidth]{Reverse_contig_coverage.jpeg}
-\floatfoot{\small{Contig coverages of PEST aligned to the curated assembly. When comparing to figure \ref{figure:unknplace}, most of the two-coverage areas likely come from haplotigs in the UNKN scaffold. But there is some significant zero coverage areas as well.}}
 \end{centering}
+\floatfoot{\small{Contig coverages of PEST aligned to the curated assembly. When comparing to figure \ref{figure:unknplace}, most of the two-coverage areas likely come from haplotigs in the UNKN scaffold. But there is some significant zero coverage areas as well.}}
+
 \end{figure}
 
 \section{Discussion}
