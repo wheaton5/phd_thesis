@@ -364,6 +364,10 @@ One of the haplotype assemblies from each assembly phase block was aligned to th
 \section{Phasing aware scaffolding: phasst scaff}
 
 \par{
+Because the process of assembly rarely creates chromosome length contigs, the order and orientation of these contigs in their chromosomal context is unknown. The process of finding this is called scaffolding. Generally long genetic information, such as Hi-C, linked reads, or optical maps are used for this purpose. The most popular scaffolding method currently is SALSA2, which uses Hi-C paired reads in which one maps to one contig and the other maps to another contig to scaffold. The density of these cross mappings to contig ends are normalized and a greedy approach is used to choose which connections are made\cite{SALSA}. Scaff10x uses the co-occurance of molecular barcodes from linked reads across contig pairs to scaffold in a similar fashion\cite{scaff10x}. And Bionano genomics uses optical maps which align to multiple chromosomes to provide order and orientation as well as estimated gap sizes between contigs\cite{bionano_assembly}.
+}
+
+\par{
 Here the goal is to use the phasing consistency of Hi-C reads (and optionally linked reads) that cover heterozygous sequence on two contigs from our phased assembly or an existing assembly to scaffold contigs. If using an existing assembly, the heterozygous sites must be identified first. Then phasing consistency of those sites can be defined.
 }
 
@@ -467,7 +471,7 @@ I ran this algorithm on Hi-C Arima, 10x Genomics linked read, and PacBio HiFi da
 \caption{Phasing with Hi-C alone vs combined data}\label{figure:hicphasing1}
 \begin{centering}
 \includegraphics[width=\textwidth]{hicphasing1.png}
-\floatfoot{\small{Here I show the haplotype cluster center values for sparse \textit{Bernoulli} mixture model haplotype clustering with the values for the haplotype 2 cluster offset by -0.2 such that any phase switches would be visible and not overwritten by other data points. Hi-C alone (upper left) produces fairly noisy phasing probably because the chances that a Hi-C read hits two heterozygous loci is fairly low reducing the total amount of useful data. When linked reads and/or HiFi reads are added, the phasing becomes much robust. *txg = 10x Genomics linked reads}}
+\floatfoot{\small{Here I show the haplotype cluster center values for sparse \textit{Bernoulli} mixture model haplotype clustering with the values for the haplotype 2 cluster offset by -0.2 such that any phase switches would be visible and not overwritten by other data points. Each point represents the haplotype cluster center value of a heterozygous kmer. The kmer observed on the HiCanu assembly is colored red while its paired kmer is colored blue. Hi-C alone (upper left) produces fairly noisy phasing probably because the chances that a Hi-C read hits two heterozygous loci is fairly low reducing the total amount of useful data. When linked reads and/or HiFi reads are added, the phasing becomes much robust. *txg = 10x Genomics linked reads}}
 \end{centering}
 \end{figure}
 
